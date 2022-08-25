@@ -4,11 +4,11 @@ const formEmpleado = document.getElementById("formEmpleado");
 const formCamion = document.getElementById("formTransporte");
 /**/
 import CardPackage from "./cards/CardPackage.js";
-import getPaquete from "./formsCalls/getPaquete.js";
-import getEmpleados from "./formsCalls/getEmpleados.js";
-import { postPaquete } from "./formsCalls/postPaquete.js";
-import { postEmpleado } from './formsCalls/postEmpleado.js';
-import { postCamion } from "./formsCalls/postCamion.js";
+import getEmpleados from "./formsCalls/get/getEmpleados.js";
+import getPaquete from "./formsCalls/get/getPaquete.js";
+import { postCamion } from "./formsCalls/post/postCamion.js";
+import { postEmpleado } from "./formsCalls/post/postEmpleado.js";
+import { postPaquete } from "./formsCalls/post/postPaquete.js";
 
 /*cards*/
 const contentPaquete = document.getElementById("contentPaquete");
@@ -43,7 +43,7 @@ const makeCall = async (indenfyNumber) => {
   const getEmployes = await getEmpleados();
   switch (indenfyNumber) {
     case 0:
-      contentPaquete.innerHTML="";
+      contentPaquete.innerHTML = "";
       CardPackage(getData, contentPaquete);
       break;
     case 3:
@@ -90,13 +90,13 @@ formEmpleado.addEventListener("submit", (e) => {
   e.preventDefault();
   let formData = new FormData(formEmpleado);
   postEmpleado({
-    dni_empleado : formData.get("dni_empleado"),
+    dni_empleado: formData.get("dni_empleado"),
     apellido_empleado: formData.get("apellido_empleado"),
     telefono_empleado: formData.get("telefono_empleado"),
-    direccion_empleado:formData.get("direccion_empleado"),
-    ciudad_empleado : formData.get("ciudad"),
-    fecha_ingreso_empleado : formData.get("fecha_ingreso_empleado"),
-    fecha_nacimiento_empleado : formData.get("fecha_nacimiento_empleado")
+    direccion_empleado: formData.get("direccion_empleado"),
+    ciudad_empleado: formData.get("ciudad"),
+    fecha_ingreso_empleado: formData.get("fecha_ingreso_empleado"),
+    fecha_nacimiento_empleado: formData.get("fecha_nacimiento_empleado"),
   });
   formEmpleado.reset();
 });
@@ -106,9 +106,9 @@ formCamion.addEventListener("submit", (e) => {
   e.preventDefault();
   let formData = new FormData(formCamion);
   postCamion({
-    capacidad_camion : formData.get("capacidad_camion"),
-    marca_camion : formData.get("marca_camion"),
-    disponibilidad_camion : formData.get("disponibilidad_camion")
+    capacidad_camion: formData.get("capacidad_camion"),
+    marca_camion: formData.get("marca_camion"),
+    disponibilidad_camion: formData.get("disponibilidad_camion"),
   });
   formCamion.reset();
 });

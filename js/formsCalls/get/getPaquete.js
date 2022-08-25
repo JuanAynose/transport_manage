@@ -5,8 +5,7 @@ const getPaquete = () => {
     .then((res) => {
       return res;
     })
-    .catch(console.log)
-    .finally(console.log("a call has been done with a anasheeei exit"));
+    .catch(console.log);
 };
 
 export default getPaquete;

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="./assets/icons/logo.png" itemprop="image">
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer type="module" src="./js/scripts.js"></script>
+    <title>Pacco Veloce</title>
+</head>
+<body>
+    <nav class="nav__bar">
+        <div class="logo">
+            <h1 class="company__name">Pacco veloce</h1>
+            <img src="./assets/icons/logo.png" alt="icon logo" class="logo__img">
+        </div>
+        <button id="modal__button" class="profile">
+            <img src="./assets/icons/icons8-guest-64.png" alt="img profile" class="profile__img">
+        </button>
+        <div id="modal__profile" class="modal__profile hidden">
+            <div class="modal__profile__content">
+                <p>juan</p>
+                <p>fink</p>
+                <p>admin</p>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="content__left menu__aside">
+            <ul id="menuList" class="menu__list">
+                <li class="item__menu"><a href="#" id="paqueButton" class="menu__button">Paqueteria</a></li>
+                <li class="item__menu"><a href="#" id="transButton" class="menu__button">Transporte</a></li>
+                <li class="item__menu"><a href="#" id="empleButton" class="menu__button">Empleados</a></li>
+                <li class="item__menu"><a href="#" id="salarioButton" class="menu__button">Salario</a></li>
+            </ul>
+        </div>
+        <div id="contentRight" class="content__right">
+            <div id="modalPaqueteria" class="bg__modal hidden">
+                <div class="content__paqueteria modal__content">
+                    <form id="formPaquete" class="formPaquete" method="post">
+                        <div>
+                            <label for="desc_paquete">Nombre paquete</label>
+                            <input type="text" id="desc_paquete "name="desc_paquete">
+                        </div>
+                        <div>
+                            <label for="tipo_paquete">Tipo de paquete</label>
+                            <select id="tipo_paquete "name="tipo_paquete">
+                                <option value="1">No Fragil</option>
+                                <option value="2">Fragil</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="peso_paquete">Peso del paquete</label>
+                            <input type="number" id="peso_paquete "name="peso_paquete">
+                        </div>
+                        <div>
+                            <label for="prioridad">Seleccion nivel de prioridad</label>
+                            <select id="prioridad "name="prioridad">
+                                <option value="1">Baja</option>
+                                <option value="2">Media</option>
+                                <option value="3">Alta</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p>Datos Destinatario uwu</p>
+                            <div>
+                                <label for="nombre_destinatario">Nombre del destinatario</label>
+                                <input type="text" name="nombre_destinatario" id="nombre_destinatario">
+                            </div>
+                            <div>
+                                <label for="apellido_destinatario">Apellido del destinatario</label>
+                                <input type="text" name="apellido_destinatario" id="apellido_destinatario">
+                            </div>
+                            <div>
+                                <label for="numero_destinatario">numero del destinatario</label>
+                                <input type="number" name="numero_destinatario" id="numero_destinatario">
+                            </div>
+                            <div>
+                                <label for="dni_destinatario">dni del destinatario</label>
+                                <input type="number" name="dni_destinatario" id="dni_destinatario">
+                            </div>
+                            <div>
+                                <label for="direccion_destinatario">Direccion del destinatario</label>
+                                <input type="text" placeholder="ej:Peron 325" id="direccion_destinatario" name="direccion_destinatario" > 
+                            </div>
+                            <div>
+                                <label for="ciudad">Seleccione la ciudad</label>
+                                <select id="ciudad "name="ciudad">
+                                    <option value="1">San Nicolas De los Arroyos</option>
+                                    <option value="2">Chilecito</option>
+                                    <option value="3">Neuquen</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="fecha_entrega">Fecha de entrega estimada</label>
+                                <input type="date" id="fecha_entrega "name="fecha_entrega" >
+                            </div>
+                        </div>
+                            <input type="submit" value="Cargar paquete">
+                    </form>
+                    <div id="contentPaquete" class="container__items--paquete">
+                    </div>         
+                </div>
+            </div>
+            <div id="modalTransporte" class="bg__modal hidden">
+                <div class="content__transporte modal__content">
+                    <form id="formTransporte" class="formTransporte" method="post">
+                        <div>
+                            <label for="capacidad_camion">Ingrese la capacidad del camion</label>
+                            <input type="number" name="capacidad_camion" id="capacidad_camion">
+                        </div>
+                        <div>
+                            <label for="marca_camion">Ingrese la marca del camion</label>
+                            <input type="text" id="marca_camion" name="marca_camion">
+                        </div>
+                        <div>
+                            <label for="disponibilidad_camion">Seleccione la disponibilidad</label>
+                            <select id="disponibilidad_camion"name="disponibilidad_camion">
+                                <option value="0">Ocupado</option>
+                                <option selected value="1">Disponible</option>
+                            </select>
+                        </div>                        
+                        <input type="submit" value="Cargar paquete">
+                    </form>
+                </div>
+            </div>
+            <div id="modalEmpleados" class="bg__modal hidden">
+                <div class="content__empleados modal__content">
+                    <p>paquete, gena el empleado</p>
+                    <form id="formEmpleado" class="formEmpleados" method="post">
+                        <div>
+                            <label for="dni_empleado">Ingrese el dni del empleado</label>
+                            <input type="number" name="dni_empleado" id="dni_empleado">
+                        </div>
+                        <div>
+                            <label for="apellido_empleado">Ingrese apellido del empleado</label>
+                            <input type="text" id="apellido_empleado" name="apellido_empleado">
+                        </div>
+                        <div>
+                            <label for="telefono_empleado">Ingrese telefono del empleado</label>
+                            <input type="number" id="telefono_empleado" name="telefono_empleado">
+                        </div>
+                        <div>
+                            <label for="direccion_empleado">Ingrese direccion del empleado</label>
+                            <input type="text" id="direccion_empleado" name="direccion_empleado">
+                        </div>
+                        <div>
+                            <label for="ciudad">Seleccione la ciudad</label>
+                            <select id="ciudad "name="ciudad">
+                                <option value="1">San Nicolas De los Arroyos</option>
+                                <option value="2">Chilecito</option>
+                                <option value="3">Neuquen</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="fecha_ingreso_empleado">Ingrese fecha de ingreso del empleado</label>
+                            <input type="date" id="fecha_ingreso_empleado" name="fecha_ingreso_empleado">
+                        </div>
+                        <div>
+                            <label for="fecha_nacimiento_empleado">Ingrese fecha de nacimiento del empleado</label>
+                            <input type="date" id="fecha_nacimiento_empleado" name="fecha_nacimiento_empleado">
+                        </div>
+                        <input type="submit" value="Cargar paquete">
+                    </form>
+                </div>
+            </div>
+            <div id="modalSalario" class="bg__modal hidden">
+                <div class="content__salario modal__content">
+                    <p>paquete, gena asalariado</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

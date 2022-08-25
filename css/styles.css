@@ -1,0 +1,165 @@
+@import url("reset.css");
+@import url("fonts.css");
+@import url("themes.css");
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+/*nav bar styles*/
+.nav__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2em;
+  background-color: var(--dark-fade);
+  color: var(--light-grey);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 5;
+}
+
+.profile {
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid violet;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  background-color: var(--light-grey);
+  transition: ease background-color 0.2s;
+  cursor: pointer;
+}
+
+/*nav bar text styles*/
+.company__name {
+  display: block;
+  text-transform: uppercase;
+  margin-right: 1em;
+}
+
+/*mod nav styles*/
+.modal__profile {
+  position: absolute;
+  right: 2.5rem;
+  bottom: -6.4rem;
+  transition: all ease-in 0.09s;
+}
+
+.modal__profile__content {
+  width: 100px;
+  background-color: #3339;
+}
+
+.modal__profile.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/*container styles*/
+.container {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/*menu aside styles*/
+.content__left {
+  background-color: rgb(187, 104, 104);
+}
+
+.menu__list {
+  list-style: none;
+  background-color: rgb(187, 104, 104);
+  padding-left: 0;
+  text-align: left;
+}
+
+.menu__button {
+  display: block;
+  text-decoration: none;
+  color: var(--light-grey);
+  padding: 0.5em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #333;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all ease-in 0.2s;
+}
+
+.menu__button.active {
+  background-color: blue;
+}
+
+/*content right styles*/
+.content__right {
+  width: 100%;
+  position: relative;
+}
+
+/*modal bg general*/
+.bg__modal {
+  width: 100%;
+  background-color: #3335;
+  height: 100%;
+}
+
+.bg__modal.hidden {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal__content {
+  position: relative;
+  display: flex;
+}
+
+/*all forms styles*/
+.formPaquete,
+.container__items--paquete {
+  flex: 1;
+}
+
+/*cards packages styles*/
+.container__items--paquete {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.package__item--container {
+  display: flex;
+  border: 1px solid #333;
+}
+
+/*all the hovers styles*/
+.profile:hover {
+  background-color: #d5dad4;
+  transition: ease background-color 0.4s;
+}
+
+.menu__button:hover {
+  background-color: var(--light-grey);
+  color: #333;
+}
+/*all the images styles*/
+.logo__img {
+  display: block;
+  height: 50px;
+  width: 50px;
+}
+
+.profile__img {
+  display: block;
+  margin-left: -0.7em;
+}

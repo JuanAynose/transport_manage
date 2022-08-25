@@ -12,7 +12,6 @@ export const postPaquete = (data) => {
     direccion_destinatario,
     fecha_entrega,
   } = data;
-  console.log(data);
   const sendShit = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");

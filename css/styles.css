@@ -8,6 +8,40 @@ body {
   margin: 0;
 }
 
+.input_radio {
+  display: block;
+  position: absolute;
+  top: 0;
+  border: 1px solid red;
+  background-color: red;
+  width: 500px;
+  height: 200px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.get {
+  border: 1px solid blue;
+  transform: scale(1);
+  transition: ease-in 0.2s all;
+  cursor: pointer;
+  overflow: hidden;
+  margin-bottom: 2em;
+}
+
+.shit {
+  position: relative;
+  width: 500px;
+  height: 200px;
+  background-color: red;
+  border: 1px solid red;
+  cursor: pointer;
+}
+.get:hover {
+  transition: ease-in 0.2s all;
+  transform: scale(1.01);
+}
+
 /*nav bar styles*/
 .nav__bar {
   position: relative;
@@ -103,6 +137,14 @@ body {
 .content__right {
   width: 100%;
   position: relative;
+}
+
+/*container salario styles*/
+.container__salario--options {
+  display: grid;
+  max-width: 1250px;
+  width: 100%;
+  border: 2px solid red;
 }
 
 /*modal bg general*/

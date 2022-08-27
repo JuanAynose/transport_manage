@@ -1,17 +1,20 @@
-/*form data*/
-const formPaquete = document.getElementById("formPaquete");
-const formEmpleado = document.getElementById("formEmpleado");
-const formCamion = document.getElementById("formTransporte");
-/**/
 import CardPackage from "./cards/CardPackage.js";
+import CardSalaryEmployes from "./cards/CardSalaryEmployes.js";
 import getEmpleados from "./formsCalls/get/getEmpleados.js";
 import getPaquete from "./formsCalls/get/getPaquete.js";
 import { postCamion } from "./formsCalls/post/postCamion.js";
 import { postEmpleado } from "./formsCalls/post/postEmpleado.js";
 import { postPaquete } from "./formsCalls/post/postPaquete.js";
 
+/*form data*/
+const formPaquete = document.getElementById("formPaquete");
+const formEmpleado = document.getElementById("formEmpleado");
+const formCamion = document.getElementById("formTransporte");
+const formSalario = document.getElementById("formSalario");
+/**/
 /*cards*/
 const contentPaquete = document.getElementById("contentPaquete");
+const contentSalario = document.getElementById("formSalaryContent");
 /**/
 const modalProfile = document.getElementById("modal__profile");
 const modalProfileButton = document.getElementById("modal__button");
@@ -40,14 +43,15 @@ const resetModals = () => {
 
 const makeCall = async (indenfyNumber) => {
   const getData = await getPaquete();
-  const getEmployes = await getEmpleados();
+  const getEmployesSalary = await getEmpleados();
   switch (indenfyNumber) {
     case 0:
       contentPaquete.innerHTML = "";
       CardPackage(getData, contentPaquete);
       break;
     case 3:
-      console.log(getEmployes);
+      contentSalario.innerHTML = "";
+      CardSalaryEmployes(getEmployesSalary, contentSalario);
       break;
   }
 };
@@ -62,6 +66,17 @@ menuList.addEventListener("click", (e) => {
       if (e.target.tagName === "A") e.target.classList.toggle("active");
     }
   }
+});
+
+formSalario.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let employeSelected;
+  let formData = new FormData(formSalario);
+  for (const employe of formData.entries()) {
+    console.log(employe);
+    //employeSelected = employe;
+  }
+  //console.log(employeSelected);
 });
 
 /*open the modal of "ingresar paquete" anashei*/
@@ -112,51 +127,3 @@ formCamion.addEventListener("submit", (e) => {
   });
   formCamion.reset();
 });
-/*dumb code below*/
-/*
-paqueteButton.addEventListener("click", () => {
-  resetModals();
-  modalPaqueteria.classList.remove("hidden");
-});
-
-transporteButton.addEventListener("click", () => {});
-
-empleadoButton.addEventListener("click", () => {});
-
-salarioButton.addEventListener("click", () => {});
-*/
-/*
-modalProfileButton.addEventListener("click", () =>
-  modalProfile.classList.toggle("hidden")
-);
-
-const resetModals = () => {
-  for (childrens of contentRight.children) {
-    childrens.classList.add("hidden");
-  }
-  for (childrens of menuList.children) {
-    childrens.children[0].classList.remove("active");
-  }
-};
-*/
-
-/*
-
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var requestOptions = {
-  method: "GET",
-  headers: myHeaders,
-  redirect: "follow",
-};
-
-fetch("../api/paquete/read.php", requestOptions)
-  .then((res) => res.json())
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((error) => console.log("error", error));
-
-
-*/

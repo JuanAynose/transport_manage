@@ -1,0 +1,48 @@
+<?php 
+  // Headers
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json');
+
+  include_once '../config/Database.php';
+  include_once '../models/paquete.php';
+
+  // Instantiate DB & connect
+  $database = new Database();
+  $db = $database->connect();
+
+  // Instantiate blog post object
+  $post = new Post($db);
+
+  // Blog post query
+  $result = $post->leerSalario();
+  // Get row count
+  $num = $result->rowCount();
+
+  // Check if any posts
+  if($num > 0) {
+    // Post array
+    $salary_ready = array();
+
+    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      extract($row);
+
+      $salary_item= array(
+          'mes_año'=> $mes_año,
+          'cantidad'=> $cantidad,
+          'conductor'=>$conductor,
+          'monto_hora' => $monto_hora  
+    );
+
+      // Push to "data"
+      array_push($salary_ready,$salary_item);
+    }
+
+    // Turn to JSON & output
+    echo json_encode($salary_ready);
+
+  } else {
+    // No Posts
+    echo json_encode(
+      array('message' => 'No Posts Found')
+    );
+  }

@@ -64,6 +64,16 @@ public $desti;
     return $stmt;
   }
 
+  public function leerSalario(){
+    $query = 'SELECT * FROM hs_trabajada';
+    
+    $stmt = $this->conn->prepare($query);
+
+    // Execute query
+    $stmt->execute();
+
+    return $stmt;
+  }
   
   public function leerEmpleados() {
     // Create query

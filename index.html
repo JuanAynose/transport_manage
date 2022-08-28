@@ -39,24 +39,24 @@
             <div id="modalPaqueteria" class="bg__modal hidden">
                 <div class="content__paqueteria modal__content">
                     <form id="formPaquete" class="formPaquete" method="post">
-                        <div>
+                        <div>                            
                             <label for="desc_paquete">Nombre paquete</label>
-                            <input type="text" id="desc_paquete "name="desc_paquete">
+                            <input type="text" id="desc_paquete "name="desc_paquete" required>
                         </div>
                         <div>
                             <label for="tipo_paquete">Tipo de paquete</label>
-                            <select id="tipo_paquete "name="tipo_paquete">
+                            <select id="tipo_paquete "name="tipo_paquete" required>
                                 <option value="1">No Fragil</option>
                                 <option value="2">Fragil</option>
                             </select>
                         </div>
                         <div>
                             <label for="peso_paquete">Peso del paquete</label>
-                            <input type="number" id="peso_paquete "name="peso_paquete">
+                            <input type="number" id="peso_paquete "name="peso_paquete" required>
                         </div>
                         <div>
                             <label for="prioridad">Seleccion nivel de prioridad</label>
-                            <select id="prioridad "name="prioridad">
+                            <select id="prioridad "name="prioridad" required>
                                 <option value="1">Baja</option>
                                 <option value="2">Media</option>
                                 <option value="3">Alta</option>
@@ -66,27 +66,27 @@
                             <p>Datos Destinatario uwu</p>
                             <div>
                                 <label for="nombre_destinatario">Nombre del destinatario</label>
-                                <input type="text" name="nombre_destinatario" id="nombre_destinatario">
+                                <input type="text" name="nombre_destinatario" id="nombre_destinatario" required>
                             </div>
                             <div>
                                 <label for="apellido_destinatario">Apellido del destinatario</label>
-                                <input type="text" name="apellido_destinatario" id="apellido_destinatario">
+                                <input type="text" name="apellido_destinatario" id="apellido_destinatario" required>
                             </div>
                             <div>
                                 <label for="numero_destinatario">numero del destinatario</label>
-                                <input type="number" name="numero_destinatario" id="numero_destinatario">
+                                <input type="number" name="numero_destinatario" id="numero_destinatario" required>
                             </div>
                             <div>
                                 <label for="dni_destinatario">dni del destinatario</label>
-                                <input type="number" name="dni_destinatario" id="dni_destinatario">
+                                <input type="number" name="dni_destinatario" id="dni_destinatario" required>
                             </div>
                             <div>
                                 <label for="direccion_destinatario">Direccion del destinatario</label>
-                                <input type="text" placeholder="ej:Peron 325" id="direccion_destinatario" name="direccion_destinatario" > 
+                                <input type="text" placeholder="ej:Peron 325" id="direccion_destinatario" name="direccion_destinatario" required> 
                             </div>
                             <div>
                                 <label for="ciudad">Seleccione la ciudad</label>
-                                <select id="ciudad "name="ciudad">
+                                <select id="ciudad "name="ciudad" required>
                                     <option value="1">San Nicolas De los Arroyos</option>
                                     <option value="2">Chilecito</option>
                                     <option value="3">Neuquen</option>
@@ -94,7 +94,7 @@
                             </div>
                             <div>
                                 <label for="fecha_entrega">Fecha de entrega estimada</label>
-                                <input type="date" id="fecha_entrega "name="fecha_entrega" >
+                                <input type="date" id="fecha_entrega "name="fecha_entrega" required >
                             </div>
                         </div>
                             <input type="submit" value="Cargar paquete">
@@ -108,15 +108,15 @@
                     <form id="formTransporte" class="formTransporte" method="post">
                         <div>
                             <label for="capacidad_camion">Ingrese la capacidad del camion</label>
-                            <input type="number" name="capacidad_camion" id="capacidad_camion">
+                            <input type="number" name="capacidad_camion" id="capacidad_camion" required>
                         </div>
                         <div>
                             <label for="marca_camion">Ingrese la marca del camion</label>
-                            <input type="text" id="marca_camion" name="marca_camion">
+                            <input type="text" id="marca_camion" name="marca_camion" required>
                         </div>
                         <div>
                             <label for="disponibilidad_camion">Seleccione la disponibilidad</label>
-                            <select id="disponibilidad_camion"name="disponibilidad_camion">
+                            <select id="disponibilidad_camion"name="disponibilidad_camion" required>
                                 <option value="0">Ocupado</option>
                                 <option selected value="1">Disponible</option>
                             </select>
@@ -131,23 +131,23 @@
                     <form id="formEmpleado" class="formEmpleados" method="post">
                         <div>
                             <label for="dni_empleado">Ingrese el dni del empleado</label>
-                            <input type="number" name="dni_empleado" id="dni_empleado">
+                            <input type="number" name="dni_empleado" id="dni_empleado" required>
                         </div>
                         <div>
                             <label for="apellido_empleado">Ingrese apellido del empleado</label>
-                            <input type="text" id="apellido_empleado" name="apellido_empleado">
+                            <input type="text" id="apellido_empleado" name="apellido_empleado" required>
                         </div>
                         <div>
                             <label for="telefono_empleado">Ingrese telefono del empleado</label>
-                            <input type="number" id="telefono_empleado" name="telefono_empleado">
+                            <input type="number" id="telefono_empleado" name="telefono_empleado" required>
                         </div>
                         <div>
                             <label for="direccion_empleado">Ingrese direccion del empleado</label>
-                            <input type="text" id="direccion_empleado" name="direccion_empleado">
+                            <input type="text" id="direccion_empleado" name="direccion_empleado" required>
                         </div>
                         <div>
                             <label for="ciudad">Seleccione la ciudad</label>
-                            <select id="ciudad "name="ciudad">
+                            <select id="ciudad "name="ciudad" required>
                                 <option value="1">San Nicolas De los Arroyos</option>
                                 <option value="2">Chilecito</option>
                                 <option value="3">Neuquen</option>
@@ -155,11 +155,11 @@
                         </div>
                         <div>
                             <label for="fecha_ingreso_empleado">Ingrese fecha de ingreso del empleado</label>
-                            <input type="date" id="fecha_ingreso_empleado" name="fecha_ingreso_empleado">
+                            <input type="date" id="fecha_ingreso_empleado" name="fecha_ingreso_empleado" required>
                         </div>
                         <div>
                             <label for="fecha_nacimiento_empleado">Ingrese fecha de nacimiento del empleado</label>
-                            <input type="date" id="fecha_nacimiento_empleado" name="fecha_nacimiento_empleado">
+                            <input type="date" id="fecha_nacimiento_empleado" name="fecha_nacimiento_empleado" required>
                         </div>
                         <input type="submit" value="Cargar paquete">
                     </form>
@@ -168,13 +168,32 @@
             <div id="modalSalario" class="bg__modal hidden">
                 <div class="content__salario modal__content">
                     <form id="formSalario" method="post">
+                        <div>
+                            <label for="fecha_pago_salario">Ingrese la fecha de pago</label>
+                            <input type="date" name="fecha_pago_salario" id="fecha_pago_salario" required>
+                        </div>
+                        <div>
+                            <label for="cantidad_horas_salario">Ingrese la cantidad de horas realizadas</label>
+                            <input type="number" name="cantidad_horas_salario" id="cantidad_horas_salario" required>
+                        </div>
+                        <div>
+                            <label for="precio_hora_salario">Ingrese el precio de cada hora</label>
+                            <input type="number" name="precio_hora_salario" id="precio_hora_salario" required>
+                        </div>
                         <fieldset>
+                            <p>Seleccione al empleado</p>
                             <article id="formSalaryContent" class="container__salario--options">
-                               
                             </article>
                         </fieldset>
                         <input type="submit" value="Realizar pago">
-                      </form>
+                      </form>                      
+                      <div>
+                        <p>Historial de pagos realizados</p>
+                        <div  class="container__pagos--salario" id="pagosRealizados">
+                        
+                    </div>                        
+
+                      </div>
                 </div>
             </div>
         </div>

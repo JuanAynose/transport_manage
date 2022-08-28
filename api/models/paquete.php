@@ -41,6 +41,11 @@ class Post {
   public $capacidad_camion;
   public $marca_camion;
   public $disponibilidad_camion;
+  /* vars salario */
+  public $fecha_pago_salario;
+  public $cantidad_horas_salario;
+  public $precio_hora_salario;
+  public $id_empleado;
   /* */
 public $detail;
 public $desti;
@@ -64,8 +69,19 @@ public $desti;
     return $stmt;
   }
 
+  public function leerCamiones(){
+    $query = 'SELECT * FROM camiones';
+
+    $stmt = $this->conn->prepare($query);
+
+    $stmt->execute();
+
+    return $stmt;
+
+    }
+
   public function leerSalario(){
-    $query = 'SELECT * FROM hs_trabajada';
+    $query = 'SELECT camioneros.apellido, camioneros.direc, hs_trabajada.mes_año, hs_trabajada.monto_hora FROM camioneros, hs_trabajada WHERE conductor = id_camionero';
     
     $stmt = $this->conn->prepare($query);
 
@@ -87,6 +103,22 @@ public $desti;
 
     return $stmt;
   }
+
+  public function ingresarSalario(){
+
+    $query='INSERT INTO hs_trabajada (`id`, `mes_año`, `cantidad`, `conductor`, `monto_hora`) VALUES (?,?,?,?,?)';
+    
+    $stmt = $this->conn->prepare($query);
+
+    if($stmt->execute([NULL,$this->fecha_pago_salario,$this->cantidad_horas_salario,$this->id_empleado,$this->precio_hora_salario])) {
+      return true;
+    }
+
+    printf("Error: %s.\n", $stmt->error);
+    return false;
+
+  }
+
 
   public function ingresarCamion(){
     $query = 'INSERT INTO `camiones` (`id_camion`, `capacidad`, `marca`, `disponibilidad`) VALUES (?,?,?,?)';

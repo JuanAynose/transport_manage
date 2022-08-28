@@ -1,4 +1,4 @@
-<?php 
+  <?php 
   // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
@@ -14,31 +14,31 @@
   $post = new Post($db);
 
   // Blog post query
-  $result = $post->leerSalario();
+  $result = $post->leerCamiones();
   // Get row count
   $num = $result->rowCount();
 
   // Check if any posts
   if($num > 0) {
     // Post array
-    $salary_ready = array();
+    $camiones_ready = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
       extract($row);
 
-      $salary_item= array(
-          'apellido'=> $apellido,
-          'direc'=> $direc,
-          'mes_año'=>$mes_año,
-          'monto_hora' => $monto_hora  
-    );
+      $camiones_item= array(
+        'id_camion' => $id_camion,
+        'capacidad' => $capacidad,
+        'marca' => $marca,
+        'disponibilidad'=> $disponibilidad,
+  );
 
       // Push to "data"
-      array_push($salary_ready,$salary_item);
+      array_push($camiones_ready,$camiones_item);
     }
 
     // Turn to JSON & output
-    echo json_encode($salary_ready);
+    echo json_encode($camiones_ready);
 
   } else {
     // No Posts

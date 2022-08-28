@@ -1,0 +1,1 @@
+/*checks if any modal is open*/

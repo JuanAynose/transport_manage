@@ -1,10 +1,14 @@
 import CardPackage from "./cards/CardPackage.js";
+import CardSalaryCheck from "./cards/CardSalaryCheck.js";
 import CardSalaryEmployes from "./cards/CardSalaryEmployes.js";
+import getCamiones from "./formsCalls/get/getCamiones.js";
 import getEmpleados from "./formsCalls/get/getEmpleados.js";
 import getPaquete from "./formsCalls/get/getPaquete.js";
+import getSalario from "./formsCalls/get/getSalario.js";
 import { postCamion } from "./formsCalls/post/postCamion.js";
 import { postEmpleado } from "./formsCalls/post/postEmpleado.js";
 import { postPaquete } from "./formsCalls/post/postPaquete.js";
+import { postSalario } from "./formsCalls/post/postSalario.js";
 
 /*form data*/
 const formPaquete = document.getElementById("formPaquete");
@@ -15,6 +19,7 @@ const formSalario = document.getElementById("formSalario");
 /*cards*/
 const contentPaquete = document.getElementById("contentPaquete");
 const contentSalario = document.getElementById("formSalaryContent");
+const contentPagosRealizar = document.getElementById("pagosRealizados");
 /**/
 const modalProfile = document.getElementById("modal__profile");
 const modalProfileButton = document.getElementById("modal__button");
@@ -43,15 +48,21 @@ const resetModals = () => {
 
 const makeCall = async (indenfyNumber) => {
   const getData = await getPaquete();
-  const getEmployesSalary = await getEmpleados();
+  const getEmployesSalaryTemplate = await getEmpleados();
+  const getEmployesSalary = await getSalario();
+  const getTrucks = await getCamiones();
   switch (indenfyNumber) {
     case 0:
       contentPaquete.innerHTML = "";
       CardPackage(getData, contentPaquete);
       break;
+    case 1:
+      console.log(getTrucks);
     case 3:
       contentSalario.innerHTML = "";
-      CardSalaryEmployes(getEmployesSalary, contentSalario);
+      contentPagosRealizar.innerHTML = "";
+      CardSalaryEmployes(getEmployesSalaryTemplate, contentSalario);
+      CardSalaryCheck(getEmployesSalary, contentPagosRealizar);
       break;
   }
 };
@@ -70,13 +81,18 @@ menuList.addEventListener("click", (e) => {
 
 formSalario.addEventListener("submit", (e) => {
   e.preventDefault();
-  let employeSelected;
+  let employeSelectedId;
   let formData = new FormData(formSalario);
   for (const employe of formData.entries()) {
-    console.log(employe);
-    //employeSelected = employe;
+    employeSelectedId = employe[1];
   }
-  //console.log(employeSelected);
+  postSalario({
+    fecha_pago_salario: formData.get("fecha_pago_salario"),
+    cantidad_horas_salario: Number(formData.get("cantidad_horas_salario")),
+    precio_hora_salario: Number(formData.get("precio_hora_salario")),
+    id_empleado: employeSelectedId,
+  });
+  formSalario.reset();
 });
 
 /*open the modal of "ingresar paquete" anashei*/

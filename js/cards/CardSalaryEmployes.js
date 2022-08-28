@@ -29,7 +29,7 @@ const CardSalaryTemplate = (data) => {
           </p>
       </footer>
       <div>
-          <input class="input_radio" type="radio" value="${id_empleado}" name="radio">
+          <input class="input_salary" type="radio" value="${id_empleado}" name="radio" required>
       </div>
   </label>
 </section> 
@@ -37,7 +37,6 @@ const CardSalaryTemplate = (data) => {
 };
 
 const CardSalaryEmployes = (data, containerSalario) => {
-  console.log(containerSalario);
   for (const employeData of data) {
     containerSalario.innerHTML += CardSalaryTemplate(employeData);
   }

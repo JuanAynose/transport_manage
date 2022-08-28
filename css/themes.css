@@ -1,6 +1,13 @@
 :root {
+  /*colors*/
   --dark-blue: #091540;
   --light-grey: #f8f7f9;
   --dark-blue-light: #082a3a;
   --dark-fade: #222;
+  --white: #fff;
+  --white-dirty: rgba(247, 246, 221, 0.5);
+  /*shadows*/
+  --shadow-sm: 0px 0px 8px rgba(51, 51, 51, 0.5);
+  /*borders radius*/
+  --radius-sm: 0.3em;
 }

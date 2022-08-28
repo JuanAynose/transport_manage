@@ -20,13 +20,16 @@ const normalizeDate = (str) => {
   if (yearRest > 0) dateRest.push(365 * yearRest);
   if (monthRest > 0) dateRest.push(31 * monthRest);
   if (dayRest > 0) dateRest.push(dayRest);
-
+  const initialValue = 0;
   let totalDays = dateRest.reduce(
-    (previousValue, currentValue) => previousValue + currentValue
+    (previousValue, currentValue) => previousValue + currentValue,
+    initialValue
   );
 
-  if (totalDays < 31 || totalDays == 0) return `${totalDays} días`;
-  else if (totalDays > 31 && totalDays < 365) {
+  if (totalDays < 31 || totalDays == 0) {
+    if (totalDays == 0 || totalDays == 1) return `${totalDays} día`;
+    return `${totalDays} días`;
+  } else if (totalDays > 31 && totalDays < 365) {
     nomalizedTotalDays = Math.round((totalDays /= 31));
     if (nomalizedTotalDays == 1) return `${nomalizedTotalDays} mese`;
     return `${nomalizedTotalDays} meses`;

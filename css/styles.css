@@ -8,40 +8,6 @@ body {
   margin: 0;
 }
 
-.input_radio {
-  display: block;
-  position: absolute;
-  top: 0;
-  border: 1px solid red;
-  background-color: red;
-  width: 500px;
-  height: 200px;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.get {
-  border: 1px solid blue;
-  transform: scale(1);
-  transition: ease-in 0.2s all;
-  cursor: pointer;
-  overflow: hidden;
-  margin-bottom: 2em;
-}
-
-.shit {
-  position: relative;
-  width: 500px;
-  height: 200px;
-  background-color: red;
-  border: 1px solid red;
-  cursor: pointer;
-}
-.get:hover {
-  transition: ease-in 0.2s all;
-  transform: scale(1.01);
-}
-
 /*nav bar styles*/
 .nav__bar {
   position: relative;
@@ -150,7 +116,7 @@ body {
 /*modal bg general*/
 .bg__modal {
   width: 100%;
-  background-color: #3335;
+  background-color: var(--white-dirty);
   height: 100%;
 }
 
@@ -184,6 +150,90 @@ body {
   border: 1px solid #333;
 }
 
+/*card salary styles*/
+.container__salario--options {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.content__salario {
+  display: flex;
+  flex-direction: column;
+}
+
+.item__salario {
+  position: relative;
+  text-align: center;
+  width: 150px;
+  height: 300px;
+  border: 1px solid violet;
+  transition: ease-in 0.1s all;
+}
+
+.input_salary {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 300px;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: ease-in 0.2s all;
+}
+
+.input_salary:checked {
+  filter: blur(5px);
+  transition: ease-in 0.2s all;
+  background-color: rgba(0, 0, 255, 0.3);
+}
+
+/*card check styles*/
+.container__pagos--salario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  padding: 0 2em;
+}
+
+.item__pagos--salario {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  height: 200px;
+  overflow: hidden;
+  padding: 0 1em;
+  margin-bottom: 2em;
+  border-radius: var(--radius-sm);
+  border: 3px solid var(--white);
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+  background-image: linear-gradient(cyan, white 30% 70%, cyan);
+}
+
+.icon {
+  position: absolute;
+  display: block;
+  top: 35%;
+  left: 45%;
+  opacity: 0.3;
+  max-width: 100%;
+  height: 60px;
+  width: 60px;
+}
+
+.item__pagos--info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /*all the hovers styles*/
 .profile:hover {
   background-color: #d5dad4;
@@ -194,6 +244,12 @@ body {
   background-color: var(--light-grey);
   color: #333;
 }
+
+.item__salario:hover {
+  transition: ease-in 0.2s all;
+  box-shadow: 0px 0px 8px #333;
+}
+
 /*all the images styles*/
 .logo__img {
   display: block;

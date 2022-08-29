@@ -19,7 +19,7 @@ export const postCamion = (data) => {
     };
 
     fetch(
-      "http://localhost/api_project/api/paquete/ingresar_camion.php",
+      "http://localhost/transport_manage/api/paquete/ingresar_camion.php",
       requestOptions
     )
       .then((response) => response.text())

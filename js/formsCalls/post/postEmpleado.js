@@ -31,7 +31,7 @@ export const postEmpleado = (data) => {
     };
 
     fetch(
-      "http://localhost/api_project/api/paquete/ingresar_empleado.php",
+      "http://localhost/transport_manage/api/paquete/ingresar_empleado.php",
       requestOptions
     )
       .then((response) => response.text())

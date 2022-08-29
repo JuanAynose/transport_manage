@@ -1,5 +1,5 @@
 const getCamiones = () => {
-  return fetch("http://localhost/api_project/api/paquete/leer_camiones.php")
+  return fetch("http://localhost/transport_manage/api/paquete/leer_camiones.php")
     .then((res) => (res.ok ? Promise.resolve(res) : Promise.reject(res)))
     .then((res) => res.json())
     .then((res) => {

@@ -25,7 +25,7 @@ export const postSalario = (data) => {
     };
 
     fetch(
-      "http://localhost/api_project/api/paquete/ingresar_salario.php",
+      "http://localhost/transport_manage/api/paquete/ingresar_salario.php",
       requestOptions
     )
       .then((response) => response.text())

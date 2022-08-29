@@ -2,16 +2,16 @@ export const postCamion = (data) => {
   const { capacidad_camion, marca_camion, disponibilidad_camion } = data;
 
   const sendShit = () => {
-    var myHeaders = new Headers();
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-      capacidad_camion: capacidad_camion,
-      marca_camion: marca_camion,
-      disponibilidad_camion: disponibilidad_camion,
+    const raw = JSON.stringify({
+      capacidad_camion,
+      marca_camion,
+      disponibilidad_camion,
     });
 
-    var requestOptions = {
+    const requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,

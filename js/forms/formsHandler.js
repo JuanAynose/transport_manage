@@ -1,10 +1,10 @@
-/*post data*/
+/* post data */
 import { postCamion } from "../formsCalls/post/postCamion.js";
 import { postEmpleado } from "../formsCalls/post/postEmpleado.js";
 import { postPaquete } from "../formsCalls/post/postPaquete.js";
 import { postSalario } from "../formsCalls/post/postSalario.js";
 /**/
-/*form data*/
+/* form data */
 const formPaquete = document.getElementById("formPaquete");
 const formEmpleado = document.getElementById("formEmpleado");
 const formCamion = document.getElementById("formTransporte");
@@ -14,7 +14,7 @@ const formSalario = document.getElementById("formSalario");
 formSalario.addEventListener("submit", (e) => {
   e.preventDefault();
   let employeSelectedId;
-  let formData = new FormData(formSalario);
+  const formData = new FormData(formSalario);
   for (const employe of formData.entries()) {
     employeSelectedId = employe[1];
   }
@@ -27,10 +27,10 @@ formSalario.addEventListener("submit", (e) => {
   formSalario.reset();
 });
 
-/*open the modal of "ingresar paquete" anashei*/
+/* open the modal of "ingresar paquete" anashei */
 formPaquete.addEventListener("submit", (e) => {
   e.preventDefault();
-  let formData = new FormData(formPaquete);
+  const formData = new FormData(formPaquete);
   postPaquete({
     peso_paquete: formData.get("peso_paquete"),
     tipo_paquete: formData.get("tipo_paquete"),
@@ -48,10 +48,10 @@ formPaquete.addEventListener("submit", (e) => {
   formPaquete.reset();
 });
 
-/*open the modal of "ingresar empleado" uwu*/
+/* open the modal of "ingresar empleado" uwu */
 formEmpleado.addEventListener("submit", (e) => {
   e.preventDefault();
-  let formData = new FormData(formEmpleado);
+  const formData = new FormData(formEmpleado);
   postEmpleado({
     dni_empleado: formData.get("dni_empleado"),
     apellido_empleado: formData.get("apellido_empleado"),
@@ -67,7 +67,7 @@ formEmpleado.addEventListener("submit", (e) => {
 /* open the modal "ingresar camion" */
 formCamion.addEventListener("submit", (e) => {
   e.preventDefault();
-  let formData = new FormData(formCamion);
+  const formData = new FormData(formCamion);
   postCamion({
     capacidad_camion: formData.get("capacidad_camion"),
     marca_camion: formData.get("marca_camion"),

@@ -35,7 +35,6 @@
       // Push to "data"
       array_push($package_ready,$package_item);
     }
-
     // Turn to JSON & output
     echo json_encode($package_ready);
 

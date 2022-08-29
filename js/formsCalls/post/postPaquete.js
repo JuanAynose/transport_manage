@@ -13,24 +13,24 @@ export const postPaquete = (data) => {
     fecha_entrega,
   } = data;
   const sendShit = () => {
-    var myHeaders = new Headers();
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-      nombre_paquete: nombre_paquete,
-      tipo_paquete: tipo_paquete,
-      peso_paquete: peso_paquete,
-      nivel_prioridad: nivel_prioridad,
-      direccion_destinatario: direccion_destinatario,
-      fecha_entrega: fecha_entrega,
-      nombre_destinatario: nombre_destinatario,
-      apellido_destinatario: apellido_destinatario,
-      numero_destinatario: numero_destinatario,
-      dni_destinatario: dni_destinatario,
-      ciudad_destinatario: ciudad_destinatario,
+    const raw = JSON.stringify({
+      nombre_paquete,
+      tipo_paquete,
+      peso_paquete,
+      nivel_prioridad,
+      direccion_destinatario,
+      fecha_entrega,
+      nombre_destinatario,
+      apellido_destinatario,
+      numero_destinatario,
+      dni_destinatario,
+      ciudad_destinatario,
     });
 
-    var requestOptions = {
+    const requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,

@@ -1,1 +1,1 @@
-/*checks if any modal is open*/
+/* checks if any modal is open */

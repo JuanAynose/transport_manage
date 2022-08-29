@@ -10,20 +10,20 @@ export const postEmpleado = (data) => {
   } = data;
 
   const sendShit = () => {
-    var myHeaders = new Headers();
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-      apellido_empleado: apellido_empleado,
-      ciudad_empleado: ciudad_empleado,
-      dni_empleado: dni_empleado,
-      fecha_ingreso_empleado: fecha_ingreso_empleado,
-      fecha_nacimiento_empleado: fecha_nacimiento_empleado,
-      direccion_empleado: direccion_empleado,
-      telefono_empleado: telefono_empleado,
+    const raw = JSON.stringify({
+      apellido_empleado,
+      ciudad_empleado,
+      dni_empleado,
+      fecha_ingreso_empleado,
+      fecha_nacimiento_empleado,
+      direccion_empleado,
+      telefono_empleado,
     });
 
-    var requestOptions = {
+    const requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,

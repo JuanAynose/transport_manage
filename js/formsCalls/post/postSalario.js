@@ -7,17 +7,17 @@ export const postSalario = (data) => {
   } = data;
   console.log(data);
   const sendShit = () => {
-    var myHeaders = new Headers();
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-      fecha_pago_salario: fecha_pago_salario,
-      cantidad_horas_salario: cantidad_horas_salario,
-      precio_hora_salario: precio_hora_salario,
-      id_empleado: id_empleado,
+    const raw = JSON.stringify({
+      fecha_pago_salario,
+      cantidad_horas_salario,
+      precio_hora_salario,
+      id_empleado,
     });
 
-    var requestOptions = {
+    const requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,

@@ -1,5 +1,5 @@
 const CardPackage = (data, contentPaquete) => {
-  //console.log(data);
+  // console.log(data);
   const fragment = new DocumentFragment();
 
   for (const packageItems of data) {

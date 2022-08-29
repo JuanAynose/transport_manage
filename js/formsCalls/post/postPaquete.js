@@ -38,7 +38,7 @@ export const postPaquete = (data) => {
     };
 
     fetch(
-      "http://localhost/api_project/api/paquete/ingresar_paquete.php",
+      "http://localhost/transport_manage/api/paquete/ingresar_paquete.php",
       requestOptions
     )
       .then((response) => response.text())

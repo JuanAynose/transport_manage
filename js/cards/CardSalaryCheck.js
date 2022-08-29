@@ -1,5 +1,10 @@
+const formatToCurrency = amount => {
+    return "$" + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+  };
 const CardCheckTemplate = (data) => {
-  const { apellido, direc, mes_año, monto_hora } = data;
+  const { apellido, direc, mes_año, monto_hora,cantidad } = data;
+  const giveFormat = formatToCurrency(monto_hora * cantidad);
+  
   return `
     <div class="item__pagos--salario">
                             <div class="item__pagos--header">
@@ -14,7 +19,7 @@ const CardCheckTemplate = (data) => {
                                     <p class="item__pagos--text-1">Banco : <span class="item__pagos--banco">UwU</span>
                                     </p>
                                     <p class="item__pagos--text-1">
-                                        Cantidad: <span class="item__pagos--banco">$${monto_hora}</span> Pesos
+                                        Cantidad: <span class="item__pagos--banco">${giveFormat}</span> Pesos
                                     </p>
                                     
                                     <img src="./assets/images/sol_argentina.png" class="icon" alt="">

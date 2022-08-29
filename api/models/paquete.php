@@ -27,7 +27,6 @@ class Post {
   /*vars paquete */
   public $cod_paquete;
   public $destinatario_id;
-  public $envio;
   public $situacion;
 /* vars empleados*/
   public $apellido_empleado;
@@ -69,6 +68,17 @@ public $desti;
     return $stmt;
   }
 
+  public function leerCamionesDisponibles(){
+    $query = 'SELECT * FROM camiones WHERE camiones.disponibilidad = 1';
+
+    $stmt = $this->conn->prepare($query);
+
+    $stmt->execute();
+
+    return $stmt;
+
+    }
+
   public function leerCamiones(){
     $query = 'SELECT * FROM camiones';
 
@@ -81,7 +91,7 @@ public $desti;
     }
 
   public function leerSalario(){
-    $query = 'SELECT camioneros.apellido, camioneros.direc, hs_trabajada.mes_año, hs_trabajada.monto_hora FROM camioneros, hs_trabajada WHERE conductor = id_camionero';
+    $query = 'SELECT camioneros.apellido, camioneros.direc, hs_trabajada.mes_año, hs_trabajada.monto_hora, hs_trabajada.cantidad FROM camioneros, hs_trabajada WHERE conductor = id_camionero';
     
     $stmt = $this->conn->prepare($query);
 
@@ -162,17 +172,13 @@ public $desti;
     $this->prioridad = $data->nivel_prioridad;
     $this->situacion = 1;
 
-    /*que hace envio en la base de datos? */
-    $this->envio =1;
-    /*
-"envio" ?, que hace esto, no tiene sentido o que xd
 */
 
-    $query  = 'INSERT INTO paquete (id_paquete, cod_paquete, dir_destino, destinatario, envio, prioridad,situacion) VALUES (?,?,?,?,?,?,?)';
+    $query  = 'INSERT INTO paquete (id_paquete, cod_paquete, dir_destino, destinatario, prioridad,situacion) VALUES (?,?,?,?,?,?)';
 
     $stmt = $this->conn->prepare($query);
 
-    if($stmt->execute([NULL,$this->cod_paquete, $this->direccion_destinatario,$this->destinatario_id,$this->envio,$this->prioridad,$this->situacion])) {
+    if($stmt->execute([NULL,$this->cod_paquete, $this->direccion_destinatario,$this->destinatario_id,$this->prioridad,$this->situacion])) {
       return true;
 }
 

@@ -42,8 +42,6 @@ formPaquete.addEventListener("submit", (e) => {
     dni_destinatario: formData.get("dni_destinatario"),
     ciudad_destinatario: formData.get("ciudad"),
     direccion_destinatario: formData.get("direccion_destinatario"),
-
-    fecha_entrega: formData.get("fecha_entrega"),
   });
   formPaquete.reset();
 });

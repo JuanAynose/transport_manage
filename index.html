@@ -93,15 +93,29 @@
                                     <option value="3">Neuquen</option>
                                 </select>
                             </div>
-                            <div>
-                                <label for="fecha_entrega">Fecha de entrega estimada</label>
-                                <input type="date" id="fecha_entrega "name="fecha_entrega" required >
-                            </div>
                         </div>
                             <input type="submit" value="Cargar paquete">
                     </form>
                     <div id="contentPaquete" class="container__items--paquete">
-                    </div>         
+                    </div>
+                    <form id="ingresarEnvio">
+                        <div id="enviosCardPackage">
+                            
+                        </div>
+                        <div id="enviosCardCamion">
+                            
+                        </div>
+                        <div id="enviosCardEmploye">
+                            
+                        </div>
+                        <div>
+                            <label for="envio_fecha_estimada">Ingrese fecha estimada</label>
+                            <input type="date" name="envio_fecha_estimada" id="envio_fecha_estimada">
+                        </div>
+
+                    </form>
+                    <div id="contentCamionesDisponibles" class="container__items--paquete">
+                    </div>                  
                 </div>
             </div>
             <div id="modalTransporte" class="bg__modal hidden">

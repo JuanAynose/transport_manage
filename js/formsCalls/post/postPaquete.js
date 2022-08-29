@@ -10,7 +10,6 @@ export const postPaquete = (data) => {
     dni_destinatario,
     ciudad_destinatario,
     direccion_destinatario,
-    fecha_entrega,
   } = data;
   const sendShit = () => {
     const myHeaders = new Headers();
@@ -22,7 +21,6 @@ export const postPaquete = (data) => {
       peso_paquete,
       nivel_prioridad,
       direccion_destinatario,
-      fecha_entrega,
       nombre_destinatario,
       apellido_destinatario,
       numero_destinatario,

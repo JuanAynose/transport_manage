@@ -1,7 +1,8 @@
 const CardPackage = (data, contentPaquete) => {
-  // console.log(data);
-  const fragment = new DocumentFragment();
-
+	// console.log(data);
+	const fragment = new DocumentFragment();
+	console.log(data);
+	/*
   for (const packageItems of data) {
     const { cod_paquete, descrip, dir_destino } = packageItems;
     const divPaquete = document.createElement("DIV");
@@ -28,6 +29,7 @@ const CardPackage = (data, contentPaquete) => {
     fragment.appendChild(divPaquete);
   }
   contentPaquete.append(fragment);
+  */
 };
 
 export default CardPackage;

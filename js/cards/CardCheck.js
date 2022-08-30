@@ -1,11 +1,11 @@
 const formatToCurrency = amount => {
-    return "$" + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
-  };
-const CardCheckTemplate = (data) => {
-  const { apellido, direc, mes_año, monto_hora,cantidad } = data;
-  const giveFormat = formatToCurrency(monto_hora * cantidad);
-  
-  return `
+	return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+};
+const CardCheck = data => {
+	const { apellido, direc, mes_año, monto_hora, cantidad } = data;
+	const giveFormat = formatToCurrency(monto_hora * cantidad);
+
+	return `
     <div class="item__pagos--salario">
                             <div class="item__pagos--header">
                                 <p class="item__pagos--text-1">Destinatario: ${apellido}</p>
@@ -33,11 +33,4 @@ const CardCheckTemplate = (data) => {
                         </div>
     `;
 };
-
-const CardSalaryCheck = (data, containerChecks) => {
-  for (const salaryData of data) {
-    containerChecks.innerHTML += CardCheckTemplate(salaryData);
-  }
-};
-
-export default CardSalaryCheck;
+export default CardCheck;

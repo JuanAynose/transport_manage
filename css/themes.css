@@ -9,6 +9,7 @@
 	--gray: rgb(163, 162, 162);
 	--blue: blue;
 	--violet-anashei: #7c2f8a;
+	--bg-color: rgba(249, 214, 255, 0.7);
 	/*shadows*/
 	--shadow-sm: 4px 4px 8px rgba(51, 51, 51, 0.5);
 	--shadow-solid: 2px 2px 0 rgba(255, 255, 255, 0.5);

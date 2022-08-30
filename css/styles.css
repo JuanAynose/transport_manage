@@ -9,7 +9,7 @@ body {
 	font-weight: 400;
 	margin: 0;
 	position: relative;
-	background-color: var(--white-dirty);
+	background-color: rgba(249, 214, 255);
 }
 
 /*nav bar styles*/
@@ -76,6 +76,7 @@ body {
 	overflow: hidden;
 	margin-left: 6.5rem;
 	padding: 1em;
+	background-color: var(--bg-color);
 }
 
 /*menu aside styles*/
@@ -128,7 +129,7 @@ body {
 /*modal bg general*/
 .bg__modal {
 	width: 100%;
-	background-color: var(--white-dirty);
+	background-color: var(--bg-color);
 	height: 100%;
 }
 

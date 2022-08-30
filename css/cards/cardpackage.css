@@ -1,0 +1,130 @@
+/***************************/
+.container__items--paquete {
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
+.content__paqueteria {
+	display: flex;
+	flex-direction: column;
+}
+
+.PackageContainer {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/*package container styles*/
+.container__items--paquete {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.package-container {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.package-container__item {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	border-radius: 0.8em;
+	overflow: hidden;
+	width: 330px;
+	height: 200px;
+	background-color: var(---white);
+	box-shadow: var(--shadow-solid), var(--shadow-sm);
+	transform: scale(1);
+	transition: ease-in 0.2s transform;
+}
+
+/*package container header*/
+.package-container__header__bg {
+	display: flex;
+	align-items: center;
+	padding-left: 1em;
+	background-color: var(--violet-anashei);
+	width: 100%;
+}
+
+/*package container main*/
+.package-container__main {
+	background-color: var(--white);
+}
+
+/*package container footer*/
+.package-container__footer {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: var(--white);
+	margin-top: 0;
+}
+
+.package-container__footer__item {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	height: 150px;
+}
+/*package text styles*/
+.package-container__title {
+	font-weight: 700;
+}
+
+.package-container__title_size-s {
+	line-height: 0.5;
+	margin-left: 2em;
+	color: var(--white);
+}
+
+.package-container__title__diplay--flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-item__text__spacing--low {
+	line-height: 0;
+	margin: 0.8em 0;
+}
+
+.footer-item__text__height--default {
+	line-height: 1;
+}
+
+.footer-item__text__color--var {
+	color: var(--violet-anashei);
+	font-weight: 700;
+}
+
+/*icons styles package*/
+.icon__package {
+	fill: var(--white);
+}
+
+.icon__package__color--blue {
+	fill: var(--dark-fade);
+}
+
+.package-container__item svg {
+	margin: 0 1em;
+}
+
+/*all input styles package*/
+.input_package {
+	width: 330px;
+	height: 200px;
+}
+
+.package-container__item:hover {
+	transform: scale(1.01);
+	transition: ease-in 0.2s transform;
+}
+
+/******************************/

@@ -26,8 +26,6 @@
                 <p>admin</p>
             </div>
         </div>
-    </nav>
-    <div class="container">
         <div class="content__left menu__aside">
             <ul id="menuList" class="menu__list">
                 <li class="item__menu"><a href="#" id="paqueButton" class="menu__button">Paqueteria</a></li>
@@ -36,6 +34,8 @@
                 <li class="item__menu"><a href="#" id="salarioButton" class="menu__button">Salario</a></li>
             </ul>
         </div>
+    </nav>
+    <div class="container">              
         <div id="contentRight" class="content__right">
             <div id="modalPaqueteria" class="bg__modal hidden">
                 <div class="content__paqueteria modal__content">
@@ -95,20 +95,25 @@
                             </div>
                         </div>
                             <input type="submit" value="Cargar paquete">
-                    </form>
-                    <div id="contentPaquete" class="container__items--paquete">
-                    </div>
+                    </form>                    
                     <div>
                         <form id="formEnvio">
-                            <fieldset>
-                                <div class="PackageContainer" id="enviosCardPackage">                                    
+                            <fieldset id="group1">
+                                <div id="enviosCardPackage" class="container__items--paquete">
+                                    <ul class="package-container">
+                                    </ul>   
                                 </div>
                             </fieldset>
-                            <div id="enviosCardCamion">                                
-                            </div>
-                            <article id="enviosCardEmploye">
-                                
-                            </article>
+                            <fieldset id="group2">
+                                <ul id="enviosCardCamion" class="camion-container">                                
+        
+                                </ul>
+                            </fieldset>
+                            <fieldset class="group3">
+                                <article id="enviosCardEmploye">
+                                    
+                                </article>
+                            </fieldset>
                             <div>
                                 <label for="envio_fecha_estimada">Ingrese fecha estimada</label>
                                 <input type="date" name="envio_fecha_estimada" id="envio_fecha_estimada">

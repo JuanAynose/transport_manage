@@ -1,4 +1,5 @@
 /* gets calls */
+import CardCamionManager from '../../cardsHandlers/CardCamionManager.js';
 import CardCheckManager from '../../cardsHandlers/CardCheckManager.js';
 import CardPackageManager from '../../cardsHandlers/CardPackageManager.js';
 import CardSalaryManager from '../../cardsHandlers/CardSalaryManager.js';
@@ -15,7 +16,8 @@ import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
 /* cards container */
 const contentSalario = document.getElementById('formSalaryContent');
 const contentPagosRealizar = document.getElementById('pagosRealizados');
-const contentPaquete = document.getElementById('contentPaquete');
+const containerPackage = document.getElementById('enviosCardPackage');
+const containerCamion = document.getElementById('enviosCardCamion');
 const contentCamionesDisponibles = document.getElementById(
 	'contentCamionesDisponibles'
 );
@@ -31,8 +33,10 @@ const makeCall = async indenfyNumber => {
 	//const envioCall = await ModalEnvioHandler();
 	switch (indenfyNumber) {
 		case MODAL_OPTIONS.PAQUETERIA:
-			contentPaquete.innerHTML = '';
-			CardPackageManager(getData, contentPaquete);
+			containerPackage.innerHTML = '';
+			containerCamion.innerHTML = '';
+			CardPackageManager(getData, containerPackage);
+			CardCamionManager(getCamionesDispo, containerCamion);
 			//envioCall;
 			/*
 			console.log(getCamionesDispo);
@@ -66,8 +70,8 @@ const makeCall = async indenfyNumber => {
 	switch (indenfyNumber) {
 		case MODAL_OPTIONS.PAQUETERIA:
 			console.log('q paso');
-			contentPaquete.innerHTML = '';
-			CardPackage(getData, contentPaquete);
+			enviosCardPackage.innerHTML = '';
+			CardPackage(getData, enviosCardPackage);
 			console.log(getCamionesDispo);
 			console.log(getData);
 			console.log(getEmployesSalaryTemplate);

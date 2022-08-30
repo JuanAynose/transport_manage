@@ -33,7 +33,7 @@ const CardCamion = (data)=>{
                                         </p>
                                     </footer>
                                     <div>
-                                        <input class="input_salary" type="radio" value="${id_camion}" name="radio" required>
+                                        <input class="input_salary input__radio" type="radio" value="${id_camion}" name="radio" required>
                                     </div>
                                 </label>
                               </section> 

@@ -348,3 +348,9 @@
     display: none;
   }
 
+
+  ul,li{
+    list-style-type: none;
+    list-style: none;
+    padding-left: 0;
+  }

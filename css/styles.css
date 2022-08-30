@@ -105,6 +105,129 @@ body {
   position: relative;
 }
 
+
+/***************************/
+.container__items--paquete {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.content__paqueteria {
+  display: flex;
+  flex-direction: column;
+}
+
+.PackageContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/*package container styles*/
+.container__items--paquete{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.package-container {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.package-container__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.8em;
+  overflow: hidden;
+  width: 300px;
+  height: 180px;
+  box-shadow: var(--shadow-solid), var(--shadow-sm);
+}
+
+/*package container header*/
+.package-container__header__bg{
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+  background-color: blue;
+  width: 100%;
+}
+
+/*package container main*/
+.package-container__main{
+  background-color: var(--white);
+}
+
+/*package container footer*/
+.package-container__footer{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.package-container__footer__item{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  max-height: 100px;
+}
+/*package text styles*/
+.package-container__title_size-s{
+  line-height: .5;
+  margin-left: 2em;
+  color: var(--white);
+}
+
+.package-container__title__diplay--flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.package-container__footer__item .package-container__text{
+  line-height: 0;
+  margin: .8em 0;
+}
+
+.package-container__footer__item  .package-container__text__height--auto{
+  line-height: 1;
+}
+
+.package-container__text__color--var{
+  color: var(--blue);
+}
+
+/*icons styles package*/
+.icon__package{
+  fill: var(--white);
+}
+
+.icon__package__color--blue{
+  fill: var(--dark-fade);
+}
+
+.package-container__item svg{
+  margin: 0 1em;
+}
+
+/*all input styles package*/
+.input_package{
+  width: 300px;
+  height: 180px;
+}
+
+.input__package:hover {
+  transition: ease-in 0.2s all;
+  box-shadow: 0px 0px 8px #333;
+}
+
+/******************************/
 /*container salario styles*/
 .container__salario--options {
   display: grid;
@@ -138,17 +261,6 @@ body {
 }
 
 /*cards packages styles*/
-.container__items--paquete {
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-  flex-wrap: wrap;
-}
-
-.package__item--container {
-  display: flex;
-  border: 1px solid #333;
-}
 
 /*card salary styles*/
 .container__salario--options {
@@ -174,22 +286,10 @@ body {
 }
 
 .input_salary {
-  cursor: pointer;
-  display: block;
-  position: absolute;
-  top: 0;
   width: 150px;
   height: 300px;
-  -webkit-appearance: none;
-  appearance: none;
-  transition: ease-in 0.2s all;
 }
 
-.input_salary:checked {
-  filter: blur(5px);
-  transition: ease-in 0.2s all;
-  background-color: rgba(0, 0, 255, 0.3);
-}
 
 /*card check styles*/
 .container__pagos--salario {
@@ -260,4 +360,21 @@ body {
 .profile__img {
   display: block;
   margin-left: -0.7em;
+}
+
+/*all inputs styles*/
+.input__radio{
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: ease-in 0.2s all;
+}
+
+.input__radio:checked{
+  filter: blur(5px);
+  transition: ease-in 0.2s all;
+  background-color: rgba(0, 0, 255, 0.3);
 }

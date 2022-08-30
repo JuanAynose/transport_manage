@@ -166,12 +166,6 @@ class Post
   //$query='INSERT INTO detalle_paquete (cod_paque, descrip, tipo_producto, peso) VALUES (NULL, '.$this->nombre_paquete.','.$this->tipo_paquete.' ,'.$this->peso_paquete.')';
   public function ingresarPaquete($id_destinatario, $cod_paquete, $data)
   {
-    echo $id_destinatario;
-    echo '</br>';
-    echo $cod_paquete;
-    echo '</br>';
-    print_r($data);
-
     $this->direccion_destinatario = $data->direccion_destinatario;
     $this->destinatario_id = $id_destinatario;
     $this->cod_paquete = $cod_paquete;

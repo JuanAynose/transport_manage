@@ -1,8 +1,7 @@
-const CardPackage = (data) => {
-	console.log(data);
-    const {cod_paquete,id_destinatario,dir_destino,descrip} = data;
-return `
-                        <ul class="package-container">
+const CardPackage = data => {
+	const { cod_paquete, id_destinatario, dir_destino, descrip } = data;
+	return `
+    <label>
                             <li class="package-container__item">
                                 <div class="package-container__header">
                                     <div class="package-container__header__bg">
@@ -19,27 +18,30 @@ return `
                                 </div>
                                 <ul class="package-container__footer">
                                     <li class="package-container__footer__item">
-                                        <p class="package-container__text  package-container__text__color--var">Descrip</p>
-                                        <p class="package-container__text package-container__text__height--auto">${descrip}</p>
+                                        <p class="package-container__text    footer-item__text__spacing--low footer-item__text__color--var">Descrip</p>
+                                        <p class="package-container__text footer-item__text__height--default">${descrip}</p>
                                     </li>
                                     <li class="package-container__footer__item">
-                                        <p class="package-container__text package-container__text__color--var">Paquete</p>
-                                        <p class="package-container__text">${cod_paquete}</p>
+                                        <p class="package-container__text
+                                        footer-item__text__spacing--low footer-item__text__color--var">Paquete</p>
+                                        <p class="package-container__text footer-item__text__height--default">${cod_paquete}</p>
                                     </li>
                                     <li class="package-container__footer__item">
-                                        <p class="package-container__text package-container__text__color--var">Destinario</p>
-                                        <p class="package-container__text">${id_destinatario}</p>
+                                        <p class="package-container__text
+                                        footer-item__text__spacing--low footer-item__text__color--var">Destinario</p>
+                                        <p class="package-container__text footer-item__text__height--default">${id_destinatario}</p>
                                     </li>
                                     <li class="package-container__footer__item">
-                                        <p class="package-container__text package-container__text__color--var">Direccion</p>
-                                        <p class="package-container__text package-container__text__height--auto">${dir_destino}</p>
+                                        <p class="package-container__text
+                                        footer-item__text__spacing--low footer-item__text__color--var">Direccion</p>
+                                        <p class="package-container__text footer-item__text__height--default">${dir_destino}</p>
                                     </li>                                    
                                 </ul>
                                 <div>
-                                    <input class="input_package input__radio" type="radio" value="id_anashe" name="radio" required>
+                                    <input class="input_package input__radio" type="radio" value="id_anashe" name="group1" required>
                                   </div>
                             </li>
-                        </ul>                        
+                            </label>                     
 `;
-}
+};
 export default CardPackage;

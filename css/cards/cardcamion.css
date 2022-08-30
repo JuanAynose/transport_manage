@@ -1,0 +1,77 @@
+.camion-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
+.camion-container__item {
+	position: relative;
+	width: 320px;
+	height: 200px;
+	padding: 0 1em;
+	border-top: 0.5em solid var(--violet-anashei);
+	border-bottom: 0.5em solid var(--violet-anashei);
+	background-color: var(--white);
+	box-shadow: var(--shadow-solid), var(--shadow-sm);
+	transform: scale(1);
+	transition: ease-in 0.2s transform;
+}
+
+.icon_truck {
+	fill: var(--violet-anashei);
+	box-shadow: 8px 8px 20px #fff;
+	filter: drop-shadow(1em 0 1rem #000);
+}
+
+.camion-container__content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.camion-container__information {
+	flex-basis: 70%;
+}
+
+.camion-container__logo {
+	flex-basis: 30%;
+}
+
+.information__item__text {
+	line-height: 1;
+	margin: 0;
+	font-size: 0.9rem;
+}
+
+.camion-container__header__title,
+.company__name {
+	text-transform: uppercase;
+	color: var(--violet-anashei);
+	font-weight: 700;
+}
+
+.company__name {
+	margin: 0;
+}
+
+.information__item__text {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.information__item__text {
+	color: var(--violet-anashei);
+}
+.information__item__text__color--black {
+	color: var(--dark-blue);
+}
+
+.input_camion {
+	width: 350px;
+	height: 200px;
+	left: 0;
+}
+
+.camion-container__item:hover {
+	transform: scale(1.01);
+	transition: ease-in 0.2s transform;
+}

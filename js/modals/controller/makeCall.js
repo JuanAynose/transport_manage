@@ -23,6 +23,8 @@ const containerEmpleado = document.getElementById('enviosCardEmploye');
 const contentCamionesDisponibles = document.getElementById(
 	'contentCamionesDisponibles'
 );
+const containerTranporte = document.getElementById('containerTranporte');
+const containerEmpleados = document.getElementById('containerEmpleados');
 /**/
 
 const makeCall = async indenfyNumber => {
@@ -50,9 +52,11 @@ const makeCall = async indenfyNumber => {
 			break;
 		case MODAL_OPTIONS.TRANSPORTE:
 			console.log(getTrucks);
+			CardCamionManager(getTrucks, containerTranporte);
 			break;
 		case MODAL_OPTIONS.EMPLEADOS:
 			console.log('soy 3');
+			CardEmpleadoManager(getEmployes, containerEmpleados);
 			break;
 		case MODAL_OPTIONS.SALARIO:
 			contentSalario.innerHTML = '';

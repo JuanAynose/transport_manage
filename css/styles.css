@@ -3,13 +3,14 @@
 @import url('themes.css');
 @import url('cards/cardpackage.css');
 @import url('cards/cardcamion.css');
+@import url('cards/cardempleado.css');
 
 body {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	margin: 0;
 	position: relative;
-	background-color: rgba(249, 214, 255);
+	background-color: var(--white);
 }
 
 /*nav bar styles*/
@@ -76,7 +77,7 @@ body {
 	overflow: hidden;
 	margin-left: 6.5rem;
 	padding: 1em;
-	background-color: var(--bg-color);
+	background-color: var(--white);
 }
 
 /*menu aside styles*/
@@ -129,7 +130,7 @@ body {
 /*modal bg general*/
 .bg__modal {
 	width: 100%;
-	background-color: var(--bg-color);
+	background-color: var(--white);
 	height: 100%;
 }
 
@@ -164,15 +165,6 @@ body {
 .content__salario {
 	display: flex;
 	flex-direction: column;
-}
-
-.item__salario {
-	position: relative;
-	text-align: center;
-	width: 150px;
-	height: 300px;
-	border: 1px solid violet;
-	transition: ease-in 0.1s all;
 }
 
 .input_salary {
@@ -232,11 +224,6 @@ body {
 .menu__button:hover {
 	background-color: var(--light-grey);
 	color: #333;
-}
-
-.item__salario:hover {
-	transition: ease-in 0.2s all;
-	box-shadow: 0px 0px 8px #333;
 }
 
 /*all the images styles*/

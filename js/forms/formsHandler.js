@@ -1,8 +1,10 @@
 /* post data */
 import { postCamion } from '../callbacks/post/postCamion.js';
 import { postEmpleado } from '../callbacks/post/postEmpleado.js';
+import { postEnvio } from '../callbacks/post/postEnvio.js';
 import { postPaquete } from '../callbacks/post/postPaquete.js';
 import { postSalario } from '../callbacks/post/postSalario.js';
+import { FORM_OPTIONS } from '../constants/formOptions.js';
 /**/
 /* form data */
 const formPaquete = document.getElementById('formPaquete');
@@ -51,7 +53,19 @@ formPaquete.addEventListener('submit', e => {
 formEnvio.addEventListener('submit', e => {
 	e.preventDefault();
 	const formData = new FormData(formEnvio);
+	const normalizeFormData = [];
+	normalizeFormData.push(
+		formData.getAll('id_destinatario')[FORM_OPTIONS.ID_DESTINATARIO],
+		formData.getAll('id_destinatario')[FORM_OPTIONS.ID_PAQUETE]
+	);
 
+	postEnvio({
+		id_destinatario: normalizeFormData[FORM_OPTIONS.ID_DESTINATARIO],
+		id_paquete: normalizeFormData[FORM_OPTIONS.ID_PAQUETE],
+		id_empleado: formData.get('containerEmploye'),
+		id_camion: formData.get('containerCamion'),
+		fecha_entrega: formData.get('envio_fecha_estimada')
+	});
 	formEnvio.reset();
 });
 

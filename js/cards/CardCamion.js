@@ -39,7 +39,7 @@ const CardCamion = data => {
         </div>
     </div>
     <div>
-        <input class="input_camion input__radio" type="radio" value="${id_camion}" name="group2"  required>
+        <input class="input_camion input__radio" type="radio" value="${id_camion}" name="containerCamion"  required>
     </div>
 </li>
 </label>

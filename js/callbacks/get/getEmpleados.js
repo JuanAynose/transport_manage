@@ -13,11 +13,10 @@ const normalizeDate = str => {
 
 	const yearEmploye = Number(str.slice(0, 4));
 	const monthEmploye = Number(str.slice(5, 7));
-	const dayEmploye = Number(str.slice(-2));
-
-	const yearRest = year - yearEmploye;
-	const monthRest = month - monthEmploye;
-	const dayRest = day - dayEmploye;
+	const dayEmploye = Number(str.slice(-3));
+	const yearRest = Number(year - yearEmploye);
+	const monthRest = Number(month - monthEmploye);
+	const dayRest = Number(day - dayEmploye);
 
 	if (yearRest > 0) dateRest.push(365 * yearRest);
 	if (monthRest > 0) dateRest.push(31 * monthRest);
@@ -28,21 +27,24 @@ const normalizeDate = str => {
 		initialValue
 	);
 
+	//console.log(totalDays);
 	if (totalDays < 31 || totalDays == 0) {
 		if (totalDays == 0 || totalDays == 1) return `${totalDays} día`;
 		return `${totalDays} días`;
 	} else if (totalDays > 31 && totalDays < 365) {
-		nomalizedTotalDays = Math.round((totalDays /= 31));
+		nomalizedTotalDays = Math.ceil((totalDays /= 31));
 		if (nomalizedTotalDays == 1) return `${nomalizedTotalDays} mese`;
 		return `${nomalizedTotalDays} meses`;
 	}
-	nomalizedTotalDays = Math.round((totalDays /= 365));
+	nomalizedTotalDays = Math.ceil((totalDays /= 365));
 	if (nomalizedTotalDays == 1) return `${nomalizedTotalDays} año`;
 	return `${nomalizedTotalDays} años`;
 };
 
 const getEmpleados = () => {
-	return fetch('http://localhost/transport_manage/api/paquete/leer_empleado.php')
+	return fetch(
+		'http://localhost/transport_manage/api/paquete/leer_empleado.php'
+	)
 		.then(res => (res.ok ? Promise.resolve(res) : Promise.reject(res)))
 		.then(res => res.json())
 		.then(res => {

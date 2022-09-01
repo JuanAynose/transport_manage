@@ -49,7 +49,11 @@ class Post
   /* */
   public $detail;
   public $desti;
-
+  /* vers envio */
+  public $id_destinatario;
+  public $id_camion;
+  public $id_paquete;
+  /* */
 
   // Constructor with DB
   public function __construct($db)
@@ -117,6 +121,20 @@ class Post
     $stmt->execute();
 
     return $stmt;
+  }
+
+  public function ingresarEnvio(){
+    $query = 'INSERT INTO envios (id_envio, id_paquete, id_camionero, id_camion, id_dest, fecha) VALUES (?,?,?,?,?,?)';
+
+    $stmt = $this->conn->prepare($query);
+
+
+    if ($stmt->execute([NULL,$this->id_paquete,$this->id_empleado,$this->id_camion,$this->id_destinatario,$this->fecha_entrega])) {
+      return true;
+    }
+
+    printf("Error: %s.\n", $stmt->error);
+    return false;
   }
 
   public function ingresarSalario()

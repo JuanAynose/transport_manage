@@ -10,6 +10,7 @@ import getCamionesDisponibles from '../../callbacks/get/getCamionesDisponibles.j
 import getEmpleados from '../../callbacks/get/getEmpleados.js';
 import getPaquete from '../../callbacks/get/getPaquete.js';
 import getSalario from '../../callbacks/get/getSalario.js';
+import CardEmpleadoManager from '../../cardsHandlers/CardEmpleadoManager.js';
 import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
 /* cards */
 // import getEmployesSalaryTemplate from "../../cards/CardSalaryEmployes.js";
@@ -18,6 +19,7 @@ const contentSalario = document.getElementById('formSalaryContent');
 const contentPagosRealizar = document.getElementById('pagosRealizados');
 const containerPackage = document.getElementById('enviosCardPackage');
 const containerCamion = document.getElementById('enviosCardCamion');
+const containerEmpleado = document.getElementById('enviosCardEmploye');
 const contentCamionesDisponibles = document.getElementById(
 	'contentCamionesDisponibles'
 );
@@ -25,7 +27,7 @@ const contentCamionesDisponibles = document.getElementById(
 
 const makeCall = async indenfyNumber => {
 	const getData = await getPaquete();
-	const getEmployesSalaryTemplate = await getEmpleados();
+	const getEmployes = await getEmpleados();
 	const getEmployesSalary = await getSalario();
 	const getTrucks = await getCamiones();
 	const getCamionesDispo = await getCamionesDisponibles();
@@ -35,8 +37,10 @@ const makeCall = async indenfyNumber => {
 		case MODAL_OPTIONS.PAQUETERIA:
 			containerPackage.innerHTML = '';
 			containerCamion.innerHTML = '';
+			enviosCardEmploye.innerHTML = '';
 			CardPackageManager(getData, containerPackage);
 			CardCamionManager(getCamionesDispo, containerCamion);
+			CardEmpleadoManager(getEmployes, containerEmpleado);
 			//envioCall;
 			/*
 			console.log(getCamionesDispo);
@@ -53,7 +57,7 @@ const makeCall = async indenfyNumber => {
 		case MODAL_OPTIONS.SALARIO:
 			contentSalario.innerHTML = '';
 			contentPagosRealizar.innerHTML = '';
-			CardSalaryManager(getEmployesSalaryTemplate, contentSalario);
+			CardSalaryManager(getEmployes, contentSalario);
 			CardCheckManager(getEmployesSalary, contentPagosRealizar);
 			break;
 	}

@@ -1,0 +1,4 @@
+export const FORM_OPTIONS = {
+	ID_DESTINATARIO: 0,
+	ID_PAQUETE: 1
+};

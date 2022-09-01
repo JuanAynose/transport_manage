@@ -1,0 +1,47 @@
+/**************************/
+.empleado-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
+/*item empleado styles*/
+.empleado-container__item {
+	position: relative;
+	text-align: center;
+	width: 160px;
+	height: 220px;
+	padding: 0.2em 0;
+	transition: ease-in 0.1s all;
+	border-top: 5px solid var(--violet-anashei);
+	background-color: var(---white);
+	box-shadow: var(--shadow-solid), var(--shadow-sm);
+	transform: scale(1);
+	transition: ease-in 0.2s transform;
+}
+
+/*icon styles*/
+.icon__profile {
+	fill: var(--violet-anashei);
+}
+
+.input_empleado {
+	width: 160px;
+	height: 230px;
+}
+
+/*text styles*/
+.empleado-container__item__text {
+	font-weight: 700;
+}
+
+.empleado-container__item__text__color--violet {
+	color: var(--violet-anashei);
+}
+/*all the hover styles*/
+
+.empleado-container__item:hover {
+	transform: scale(1.01);
+	transition: ease-in 0.2s transform;
+	box-shadow: 0px 0px 8px #333;
+}

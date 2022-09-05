@@ -12,8 +12,6 @@ import getPaquete from '../../callbacks/get/getPaquete.js';
 import getSalario from '../../callbacks/get/getSalario.js';
 import CardEmpleadoManager from '../../cardsHandlers/CardEmpleadoManager.js';
 import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
-/* cards */
-// import getEmployesSalaryTemplate from "../../cards/CardSalaryEmployes.js";
 /* cards container */
 const contentSalario = document.getElementById('formSalaryContent');
 const contentPagosRealizar = document.getElementById('pagosRealizados');
@@ -33,22 +31,11 @@ const makeCall = async indenfyNumber => {
 	const getEmployesSalary = await getSalario();
 	const getTrucks = await getCamiones();
 	const getCamionesDispo = await getCamionesDisponibles();
-
-	//const envioCall = await ModalEnvioHandler();
 	switch (indenfyNumber) {
 		case MODAL_OPTIONS.PAQUETERIA:
-			containerPackage.innerHTML = '';
-			containerCamion.innerHTML = '';
-			enviosCardEmploye.innerHTML = '';
 			CardPackageManager(getData, containerPackage);
 			CardCamionManager(getCamionesDispo, containerCamion);
 			CardEmpleadoManager(getEmployes, containerEmpleado);
-			//envioCall;
-			/*
-			console.log(getCamionesDispo);
-			console.log(getData);
-			console.log(getEmployesSalaryTemplate);
-			*/
 			break;
 		case MODAL_OPTIONS.TRANSPORTE:
 			console.log(getTrucks);

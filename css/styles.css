@@ -145,6 +145,34 @@ body {
 	display: flex;
 }
 
+.bg__modal__delete{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left:0;
+	width: 100%;
+	height: 100vh;
+	z-index: 50;
+	background-color: var(--dark-gray);
+	visibility: visible;
+}
+
+.bg__modal__delete.hidden{
+	visibility: hidden;
+	display: none;
+}
+
+.content__edit{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1em;
+	border-radius: var(--radius-sm);
+	background-color: var(--white);
+}
+
 /*all forms styles*/
 .formPaquete,
 .container__items--paquete {

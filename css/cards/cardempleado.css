@@ -20,6 +20,10 @@
 	transition: ease-in 0.2s transform;
 }
 
+.editar__empleado .empleado-container__item{
+	height: 250px;
+}
+
 /*icon styles*/
 .icon__profile {
 	fill: var(--violet-anashei);
@@ -44,4 +48,8 @@
 	transform: scale(1.01);
 	transition: ease-in 0.2s transform;
 	box-shadow: 0px 0px 8px #333;
+}
+
+.editar__empleado .empleado-container__item:hover{
+	transform: none;
 }

@@ -12,6 +12,7 @@ import getPaquete from '../../callbacks/get/getPaquete.js';
 import getSalario from '../../callbacks/get/getSalario.js';
 import CardEmpleadoManager from '../../cardsHandlers/CardEmpleadoManager.js';
 import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
+import CardEmpleadoEdit from '../../cardsHandlers/edit/CardEmpleadoEdit.js';
 /* cards container */
 const contentSalario = document.getElementById('formSalaryContent');
 const contentPagosRealizar = document.getElementById('pagosRealizados');
@@ -22,7 +23,7 @@ const contentCamionesDisponibles = document.getElementById(
 	'contentCamionesDisponibles'
 );
 const containerTranporte = document.getElementById('containerTranporte');
-const containerEmpleados = document.getElementById('containerEmpleados');
+const editarEmpleado = document.getElementById('editarEmpleado');
 /**/
 
 const makeCall = async indenfyNumber => {
@@ -43,7 +44,7 @@ const makeCall = async indenfyNumber => {
 			break;
 		case MODAL_OPTIONS.EMPLEADOS:
 			console.log('soy 3');
-			CardEmpleadoManager(getEmployes, containerEmpleados);
+			CardEmpleadoEdit(getEmployes, editarEmpleado);
 			break;
 		case MODAL_OPTIONS.SALARIO:
 			contentSalario.innerHTML = '';

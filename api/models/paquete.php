@@ -55,6 +55,7 @@ class Post
   public $id_paquete;
   /* */
 
+  /*vard delete empleado*/
   // Constructor with DB
   public function __construct($db)
   {
@@ -123,13 +124,14 @@ class Post
     return $stmt;
   }
 
-  public function ingresarEnvio(){
+  public function ingresarEnvio()
+  {
     $query = 'INSERT INTO envios (id_envio, id_paquete, id_camionero, id_camion, id_dest, fecha) VALUES (?,?,?,?,?,?)';
 
     $stmt = $this->conn->prepare($query);
 
 
-    if ($stmt->execute([NULL,$this->id_paquete,$this->id_empleado,$this->id_camion,$this->id_destinatario,$this->fecha_entrega])) {
+    if ($stmt->execute([NULL, $this->id_paquete, $this->id_empleado, $this->id_camion, $this->id_destinatario, $this->fecha_entrega])) {
       return true;
     }
 
@@ -304,6 +306,35 @@ class Post
 
     // Bind data
     $stmt->bindParam(':id', $this->id);
+
+    // Execute query
+    if ($stmt->execute()) {
+      return true;
+    }
+
+    // Print error if something goes wrong
+    printf("Error: %s.\n", $stmt->error);
+
+    return false;
+  }
+
+  public function deleteEmpleado()
+  {
+    // Create query
+    $query = 'DELETE FROM camioneros WHERE camioneros.id_camionero =:id ';
+
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+
+    // Clean data
+    $this->id_empleado = htmlspecialchars(strip_tags($this->id_empleado));
+
+    // Bind data
+    $stmt->bindParam(':id', $this->id_empleado);
+
+
+
+    // Bind data
 
     // Execute query
     if ($stmt->execute()) {

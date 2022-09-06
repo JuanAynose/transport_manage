@@ -124,9 +124,9 @@ class Post
     return $stmt;
   }
 
-  public function ingresarEnvio()
+  public function ingresarRemitos()
   {
-    $query = 'INSERT INTO envios (id_envio, id_paquete, id_camionero, id_camion, id_dest, fecha) VALUES (?,?,?,?,?,?)';
+    $query = 'INSERT INTO remito (`id_envio`, `id_paquete`, `id_camionero`, `id_camion`, `id_dest`, `fecha`) VALUES (?,?,?,?,?,?)';
 
     $stmt = $this->conn->prepare($query);
 

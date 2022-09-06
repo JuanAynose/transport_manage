@@ -1,7 +1,7 @@
 /* post data */
 import { postCamion } from '../callbacks/post/postCamion.js';
 import { postEmpleado } from '../callbacks/post/postEmpleado.js';
-import { postEnvio } from '../callbacks/post/postEnvio.js';
+import { postRemito } from '../callbacks/post/postRemito.js';
 import { postPaquete } from '../callbacks/post/postPaquete.js';
 import { postSalario } from '../callbacks/post/postSalario.js';
 import { FORM_OPTIONS } from '../constants/formOptions.js';
@@ -59,7 +59,7 @@ formEnvio.addEventListener('submit', e => {
 		formData.getAll('id_destinatario')[FORM_OPTIONS.ID_PAQUETE]
 	);
 
-	postEnvio({
+	postRemito({
 		id_destinatario: normalizeFormData[FORM_OPTIONS.ID_DESTINATARIO],
 		id_paquete: normalizeFormData[FORM_OPTIONS.ID_PAQUETE],
 		id_empleado: formData.get('containerEmploye'),

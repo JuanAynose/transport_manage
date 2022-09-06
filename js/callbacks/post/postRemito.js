@@ -1,4 +1,4 @@
-export const postEnvio = data => {
+export const postRemito = data => {
 	const { id_destinatario, id_empleado, id_camion, fecha_entrega, id_paquete } =
 		data;
 
@@ -24,7 +24,7 @@ export const postEnvio = data => {
 		};
 
 		fetch(
-			'http://localhost/transport_manage/api/paquete/ingresar_envio.php',
+			'http://localhost/transport_manage/api/paquete/ingresar_remito.php',
 			requestOptions
 		)
 			.then(response => response.text())

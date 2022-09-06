@@ -32,6 +32,7 @@
                 <li class="item__menu"><a href="#" id="transButton" class="menu__button">Transporte</a></li>
                 <li class="item__menu"><a href="#" id="empleButton" class="menu__button">Empleados</a></li>
                 <li class="item__menu"><a href="#" id="salarioButton" class="menu__button">Salario</a></li>
+                <li class="item__menu"><a href="#" id="remitoButton" class="menu__button">Remito</a></li>
             </ul>
         </div>
     </nav>
@@ -215,13 +216,54 @@
                         <ul id="editarEmpleado" class="editar__empleado empleado-container">                                
         
                         </ul>
-                        <div id="modalEdit" class="bg__modal__delete hidden">
+                        <div id="modalDeleteEmpleado" class="bg__modal__delete hidden">
                             <div class="content__edit modal__content">
                                 <p>Estas seguro de que deseas Borrar el empleado "<span>0</span>" </p>
-                                <div id="modalEditButtons">
+                                <div id="modalDeleteButtons">
                                     <button class="edit__button">Si</button>
                                     <button class="edit__button">No</button>
                                 </div>
+                            </div>
+                        </div>
+                        <div id="modalEditEmpleado" class="bg__modal__delete hidden">
+                            <div class="content__edit modal__content">
+                               <p>editar empleado uwu</p>
+                               <form id="formEmpleadoEdit" class="formEmpleados">
+                                <div>
+                                    <label for="dni_empleado">Ingrese el dni del empleado</label>
+                                    <input type="number" name="dni_empleado" id="dni_empleado" required>
+                                </div>
+                                <div>
+                                    <label for="apellido_empleado">Ingrese apellido del empleado</label>
+                                    <input type="text" id="apellido_empleado" name="apellido_empleado" required>
+                                </div>
+                                <div>
+                                    <label for="telefono_empleado">Ingrese telefono del empleado</label>
+                                    <input type="number" id="telefono_empleado" name="telefono_empleado" required>
+                                </div>
+                                <div>
+                                    <label for="direccion_empleado">Ingrese direccion del empleado</label>
+                                    <input type="text" id="direccion_empleado" name="direccion_empleado" required>
+                                </div>
+                                <div>
+                                    <label for="ciudad">Seleccione la ciudad</label>
+                                    <select id="ciudad "name="ciudad" required>
+                                        <option value="1">San Nicolas De los Arroyos</option>
+                                        <option value="2">Chilecito</option>
+                                        <option value="3">Neuquen</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="fecha_ingreso_empleado">Ingrese fecha de ingreso del empleado</label>
+                                    <input type="date" id="fecha_ingreso_empleado" name="fecha_ingreso_empleado" required>
+                                </div>
+                                <div>
+                                    <label for="fecha_nacimiento_empleado">Ingrese fecha de nacimiento del empleado</label>
+                                    <input type="date" id="fecha_nacimiento_empleado" name="fecha_nacimiento_empleado" required>
+                                </div>
+                                <input type="submit" value="Cargar paquete">
+                                <button>Cancelar</button>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -256,6 +298,11 @@
                     </div>                        
 
                       </div>
+                </div>
+            </div>
+            <div id="modalRemitos" class="bg__modal hidden">
+                <div class="content__remitos modal__content">
+
                 </div>
             </div>
         </div>

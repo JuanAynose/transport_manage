@@ -52,6 +52,9 @@ const makeCall = async indenfyNumber => {
 			CardSalaryManager(getEmployes, contentSalario);
 			CardCheckManager(getEmployesSalary, contentPagosRealizar);
 			break;
+		case MODAL_OPTIONS.REMITOS:
+			console.log("anashe");
+		    break;
 	}
 };
 /*

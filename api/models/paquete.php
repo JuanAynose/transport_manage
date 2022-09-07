@@ -76,6 +76,31 @@ class Post
     return $stmt;
   }
 
+  public function leerEmpleadoById()
+  {
+    // Create query
+    $query ='SELECT * FROM camioneros WHERE id_camionero = ?';
+    // Prepare statement
+
+    $stmt = $this->conn->prepare($query);
+
+     // Bind ID
+     $stmt->bindParam(1, $this->id_empleado);
+
+     // Execute query
+     $stmt->execute();
+
+     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $this->dni_empleado = $row['dni'];
+    $this->apellido_empleado = $row['apellido'];
+    $this->telefono_empleado = $row['telef'];
+    $this->direccion_empleado = $row['direc'];
+    $this->ciudad_empleado = $row['cod_ciudad'];
+    $this->fecha_ingreso_empleado = $row['fecha_ingreso'];
+    $this->fecha_nacimiento_empleado = $row['fecha_nac'];
+  }
+
+
   public function leerCamionesDisponibles()
   {
     $query = 'SELECT * FROM camiones WHERE camiones.disponibilidad = 1';
@@ -124,14 +149,12 @@ class Post
     return $stmt;
   }
 
-  public function ingresarRemitos()
+  public function ingresarRemitos($data)
   {
-    $query = 'INSERT INTO remito (`id_envio`, `id_paquete`, `id_camionero`, `id_camion`, `id_dest`, `fecha`) VALUES (?,?,?,?,?,?)';
-
+    $query = 'INSERT INTO remito (`id_envio`, `id_paquete`, `nombre_paquete`,`id_camionero`, `id_camion`, `id_dest`, `fecha`) VALUES (?,?,?,?,?,?,?)';
     $stmt = $this->conn->prepare($query);
 
-
-    if ($stmt->execute([NULL, $this->id_paquete, $this->id_empleado, $this->id_camion, $this->id_destinatario, $this->fecha_entrega])) {
+    if ($stmt->execute([NULL, $this->id_paquete, $this->nombre_paquete,$this->id_empleado, $this->id_camion, $this->id_destinatario, $this->fecha_entrega])) {
       return true;
     }
 

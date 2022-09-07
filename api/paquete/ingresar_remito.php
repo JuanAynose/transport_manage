@@ -14,10 +14,10 @@ $db = $database->connect();
 
 // Instantiate blog post object
 $remitos = new Post($db);
-
 // Get raw posted data
 $data = json_decode(file_get_contents("php://input"));
 
+print_r($data);
 
 
 $remitos->id_destinatario = $data->id_destinatario;
@@ -25,11 +25,11 @@ $remitos->id_empleado = $data->id_empleado;
 $remitos->id_camion  = $data->id_camion;
 $remitos->id_paquete = $data->id_paquete;
 $remitos->fecha_entrega = $data->fecha_entrega;
-
+$remitos->nombre_paquete = $data->nombre_paquete;
 
 
 // Create post
-if ($remitos->ingresarRemitos()) {
+if ($remitos->ingresarRemitos($data)) {
   echo json_encode(
     array('message' => 'Enviado creado con exito')
   );

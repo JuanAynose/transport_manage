@@ -15,12 +15,22 @@ window.addEventListener('load', e => {
 
 let getIdEmploye;
 
+const getCity = (optionList,valueId)=>{
+	for(const optionItem of optionList){
+		if(optionItem.value === valueId) optionItem.selected = true;
+	}
+}
+
 const callSingleEmploye = async (id_employe, childSelected) => {
 	const getSingleEmploye = await getSingleEmpleados(id_employe);
-	console.log(getSingleEmploye);
 	childSelected.children[0].children[1].value = getSingleEmploye.dni;
 	childSelected.children[1].children[1].value = getSingleEmploye.apellido;
-	console.log(childSelected);
+	childSelected.children[2].children[1].value = getSingleEmploye.telef;
+	childSelected.children[3].children[1].value = getSingleEmploye.direc;
+	getCity(childSelected.children[4].children[1].options,getSingleEmploye.cod_ciudad);
+	childSelected.children[5].children[1].value = getSingleEmploye.fecha_ingreso;
+	childSelected.children[6].children[1].value = getSingleEmploye.fecha_nac;
+
 };
 
 editarEmpleado.addEventListener('click', ev => {

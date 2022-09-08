@@ -13,6 +13,8 @@ import getSalario from '../../callbacks/get/getSalario.js';
 import CardEmpleadoManager from '../../cardsHandlers/CardEmpleadoManager.js';
 import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
 import CardEmpleadoEdit from '../../cardsHandlers/edit/CardEmpleadoEdit.js';
+import getCiudades from '../../callbacks/get/getCiudades.js';
+import CardCiudadListManager from '../../cardsHandlers/CardCiudadListManager.js';
 /* cards container */
 const contentSalario = document.getElementById('formSalaryContent');
 const contentPagosRealizar = document.getElementById('pagosRealizados');
@@ -24,6 +26,8 @@ const contentCamionesDisponibles = document.getElementById(
 );
 const containerTranporte = document.getElementById('containerTranporte');
 const editarEmpleado = document.getElementById('editarEmpleado');
+/*load ciudad*/
+const ciudadList = document.querySelectorAll('.ciudad_form');
 /**/
 
 const makeCall = async indenfyNumber => {
@@ -32,6 +36,9 @@ const makeCall = async indenfyNumber => {
 	const getEmployesSalary = await getSalario();
 	const getTrucks = await getCamiones();
 	const getCamionesDispo = await getCamionesDisponibles();
+	const getCiudad = await getCiudades();
+	CardCiudadListManager(getCiudad, ciudadList);
+
 	switch (indenfyNumber) {
 		case MODAL_OPTIONS.PAQUETERIA:
 			CardPackageManager(getData, containerPackage);

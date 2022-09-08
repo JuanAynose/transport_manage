@@ -79,18 +79,18 @@ class Post
   public function leerEmpleadoById()
   {
     // Create query
-    $query ='SELECT * FROM camioneros WHERE id_camionero = ?';
+    $query = 'SELECT * FROM camioneros WHERE id_camionero = ?';
     // Prepare statement
 
     $stmt = $this->conn->prepare($query);
 
-     // Bind ID
-     $stmt->bindParam(1, $this->id_empleado);
+    // Bind ID
+    $stmt->bindParam(1, $this->id_empleado);
 
-     // Execute query
-     $stmt->execute();
+    // Execute query
+    $stmt->execute();
 
-     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $this->dni_empleado = $row['dni'];
     $this->apellido_empleado = $row['apellido'];
     $this->telefono_empleado = $row['telef'];
@@ -149,12 +149,27 @@ class Post
     return $stmt;
   }
 
+  public function leerCiudades()
+  {
+    // Create query
+    $query = 'SELECT * FROM ciudad';
+
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+
+    // Execute query
+    $stmt->execute();
+
+    return $stmt;
+  }
+
+
   public function ingresarRemitos($data)
   {
     $query = 'INSERT INTO remito (`id_envio`, `id_paquete`, `nombre_paquete`,`id_camionero`, `id_camion`, `id_dest`, `fecha`) VALUES (?,?,?,?,?,?,?)';
     $stmt = $this->conn->prepare($query);
 
-    if ($stmt->execute([NULL, $this->id_paquete, $this->nombre_paquete,$this->id_empleado, $this->id_camion, $this->id_destinatario, $this->fecha_entrega])) {
+    if ($stmt->execute([NULL, $this->id_paquete, $this->nombre_paquete, $this->id_empleado, $this->id_camion, $this->id_destinatario, $this->fecha_entrega])) {
       return true;
     }
 
@@ -192,13 +207,15 @@ class Post
     return false;
   }
 
-  public function ingresarEmpleado()
+  public function ingresarEmpleado($data)
   {
-    $query = 'INSERT INTO camioneros (id_camionero, dni, apellido, telef, direc, cod_ciudad, fecha_ingreso, fecha_nac) VALUES (?,?,?,?,?,?,?,?)';
+    $query = 'INSERT INTO camioneros (id_camionero, dni, apellido, telef, direc, cod_ciudad, fecha_ingreso, fecha_nac) VALUES (NULL,?,?,?,?,?,?,?)';
 
     $stmt = $this->conn->prepare($query);
 
-    if ($stmt->execute([NULL, $this->dni_empleado, $this->apellido_empleado, $this->telefono_empleado, $this->direccion_empleado, $this->ciudad_empleado, $this->fecha_ingreso_empleado, $this->fecha_nacimiento_empleado])) {
+    print_r($data);
+
+    if ($stmt->execute([$this->dni_empleado, $this->apellido_empleado, $this->telefono_empleado, $this->direccion_empleado, $this->ciudad_empleado, $this->fecha_ingreso_empleado, $this->fecha_nacimiento_empleado])) {
       return true;
     }
 

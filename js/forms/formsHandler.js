@@ -5,6 +5,7 @@ import { postRemito } from '../callbacks/post/postRemito.js';
 import { postPaquete } from '../callbacks/post/postPaquete.js';
 import { postSalario } from '../callbacks/post/postSalario.js';
 import { FORM_OPTIONS } from '../constants/formOptions.js';
+import { updateEmpleado } from '../callbacks/update/updateEmpleado.js';
 /**/
 /* form data */
 const formPaquete = document.getElementById('formPaquete');
@@ -12,6 +13,7 @@ const formEmpleado = document.getElementById('formEmpleado');
 const formCamion = document.getElementById('formTransporte');
 const formSalario = document.getElementById('formSalario');
 const formEnvio = document.getElementById('formEnvio');
+const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 /**/
 
 formSalario.addEventListener('submit', e => {
@@ -96,3 +98,19 @@ formCamion.addEventListener('submit', e => {
 	});
 	formCamion.reset();
 });
+
+formEmpleadoEdit.addEventListener('submit', e => {
+	e.preventDefault();
+	const formData = new FormData(formEmpleadoEdit);
+	updateEmpleado({
+		dni_empleado: formData.get('dni_empleado'),
+		apellido_empleado: formData.get('apellido_empleado'),
+		telefono_empleado: formData.get('telefono_empleado'),
+		direccion_empleado: formData.get('direccion_empleado'),
+		ciudad_empleado: formData.get('ciudad'),
+		fecha_ingreso_empleado: formData.get('fecha_ingreso_empleado'),
+		fecha_nacimiento_empleado: formData.get('fecha_nacimiento_empleado')
+	});
+	modalEditEmpleado.classList.add('hidden');
+
+})

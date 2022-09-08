@@ -163,6 +163,65 @@ class Post
     return $stmt;
   }
 
+  public function updateEmpleado()
+  {
+
+
+    $query = 'UPDATE camioneros SET 
+    dni = :dni_empleado,
+    apellido = :apellido_empleado,
+    telef = :telefono_empleado,
+    direc = :direccion_empleado,
+    cod_ciudad = :ciudad_empleado,
+    fecha_ingreso = :fecha_ingreso_empleado,
+    fecha_nac = :fecha_nacimiento_empleado
+    WHERE id_camionero = :id_empleado';
+
+
+    $this->dni_empleado  = htmlspecialchars(strip_tags($this->dni_empleado));
+    $this->apellido_empleado = htmlspecialchars(strip_tags($this->apellido_empleado));
+    $this->telefono_empleado = htmlspecialchars(strip_tags($this->telefono_empleado));
+    $this->direccion_empleado = htmlspecialchars(strip_tags($this->direccion_empleado));
+    $this->ciudad_empleado = htmlspecialchars(strip_tags($this->ciudad_empleado));
+    $this->fecha_ingreso_empleado = htmlspecialchars(strip_tags($this->fecha_ingreso_empleado));
+    $this->fecha_nacimiento_empleado = htmlspecialchars(strip_tags($this->fecha_nacimiento_empleado));
+
+    $stmt->bindParam(':dni_empleado', $this->dni_empleado);
+    $stmt->bindParam(':apellido_empleado', $this->apellido_empleado);
+    $stmt->bindParam(':telefono_empleado', $this->telefono_empleado);
+    $stmt->bindParam(':direccion_empleado', $this->direccion_empleado);
+    $stmt->bindParam(':ciudad_empleado', $this->ciudad_empleado);
+    $stmt->bindParam(':fecha_ingreso_empleado', $this->fecha_ingreso_empleado);
+    $stmt->bindParam(':fecha_nacimiento_empleado', $this->fecha_nacimiento_empleado);
+
+
+    /*
+    UPDATE `camioneros` SET `dni` = '4645844',
+     `apellido` = 'gonzale',
+      `telef` = '336415454',
+       `direc` = 'san martin 50',
+        `cod_ciudad` = '6',
+         `fecha_ingreso` = '2022-05-23',
+          `fecha_nac` = '1980-03-31' 
+          WHERE `camioneros`.`id_camionero` = 4
+    */
+    // Create query
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+
+
+
+    // Execute query
+    if ($stmt->execute()) {
+      return true;
+    }
+
+    // Print error if something goes wrong
+    printf("Error: %s.\n", $stmt->error);
+
+    return false;
+  }
+
 
   public function ingresarRemitos($data)
   {

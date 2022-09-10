@@ -43,7 +43,7 @@ const normalizeDate = str => {
 
 const getEmpleados = () => {
 	return fetch(
-		'http://localhost/transport_manage/api/paquete/leer_empleado.php'
+		'http://localhost/transport_manage/api/calls/empleados/leer_empleado.php'
 	)
 		.then(res => (res.ok ? Promise.resolve(res) : Promise.reject(res)))
 		.then(res => res.json())

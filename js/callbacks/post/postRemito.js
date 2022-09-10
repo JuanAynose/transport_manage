@@ -24,7 +24,7 @@ export const postRemito = data => {
 		};
 
 		fetch(
-			'http://localhost/transport_manage/api/paquete/ingresar_remito.php',
+			'http://localhost/transport_manage/api/calls/remitos/ingresar_remito.php',
 			requestOptions
 		)
 			.then(response => response.text())

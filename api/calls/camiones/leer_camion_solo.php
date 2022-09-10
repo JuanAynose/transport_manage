@@ -1,20 +1,21 @@
-  <?php 
+<?php 
   // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
-  include_once '../config/Database.php';
-  include_once '../models/paquete.php';
+
+  include_once '../../config/Database.php';
+  include_once '../../models/camiones.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
   // Instantiate blog post object
-  $empleadoById = new Post($db);
+  $empleadoById = new Camiones($db);
 
   // Get ID
-  $empleadoById->id_empleado = isset($_GET['id_empleado']) ? $_GET['id_empleado'] : die();
+  $empleadoById->id_camion = isset($_GET['id_camion']) ? $_GET['id_camion'] : die();
 
   // Get post
   $empleadoById->leerEmpleadoById();

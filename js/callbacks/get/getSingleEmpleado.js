@@ -1,6 +1,6 @@
 const getSingleEmpleados = id => {
 	return fetch(
-		`http://localhost/transport_manage/api/paquete/leer_empleado_solo.php?id_empleado=${id}`
+		`http://localhost/transport_manage/api/calls/empleados/leer_empleado_solo.php?id_empleado=${id}`
 	)
 		.then(res => (res.ok ? Promise.resolve(res) : Promise.reject(res)))
 		.then(res => res.json())

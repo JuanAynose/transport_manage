@@ -1,11 +1,11 @@
 /* post data */
 import { postCamion } from '../callbacks/post/postCamion.js';
 import { postEmpleado } from '../callbacks/post/postEmpleado.js';
-import { postRemito } from '../callbacks/post/postRemito.js';
 import { postPaquete } from '../callbacks/post/postPaquete.js';
+import { postRemito } from '../callbacks/post/postRemito.js';
 import { postSalario } from '../callbacks/post/postSalario.js';
-import { FORM_OPTIONS } from '../constants/formOptions.js';
 import { updateEmpleado } from '../callbacks/update/updateEmpleado.js';
+import { FORM_OPTIONS } from '../constants/formOptions.js';
 /**/
 /* form data */
 const formPaquete = document.getElementById('formPaquete');
@@ -103,6 +103,7 @@ formEmpleadoEdit.addEventListener('submit', e => {
 	e.preventDefault();
 	const formData = new FormData(formEmpleadoEdit);
 	updateEmpleado({
+		id_empleado: formData.get('id_empleado'),
 		dni_empleado: formData.get('dni_empleado'),
 		apellido_empleado: formData.get('apellido_empleado'),
 		telefono_empleado: formData.get('telefono_empleado'),
@@ -112,5 +113,4 @@ formEmpleadoEdit.addEventListener('submit', e => {
 		fecha_nacimiento_empleado: formData.get('fecha_nacimiento_empleado')
 	});
 	modalEditEmpleado.classList.add('hidden');
-
-})
+});

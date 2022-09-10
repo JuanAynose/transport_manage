@@ -5,15 +5,15 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: DELETE');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-include_once '../config/Database.php';
-include_once '../models/paquete.php';
+include_once '../../config/Database.php';
+include_once '../../models/empleados.php';
 
 // Instantiate DB & connect
 $database = new Database();
 $db = $database->connect();
 
 // Instantiate blog post object
-$deleteEmple = new Post($db);
+$deleteEmple = new Empleados($db);
 
 // Get raw posted data
 $data = json_decode(file_get_contents("php://input"));

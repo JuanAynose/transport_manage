@@ -3,43 +3,47 @@
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
-  include_once '../config/Database.php';
-  include_once '../models/paquete.php';
+
+  include_once '../../config/Database.php';
+  include_once '../../models/empleados.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
   // Instantiate blog post object
-  $post = new Post($db);
+  $post = new Empleados($db);
 
   // Blog post query
-  $result = $post->leerSalario();
+  $result = $post->leerEmpleados();
   // Get row count
   $num = $result->rowCount();
 
   // Check if any posts
   if($num > 0) {
     // Post array
-    $salary_ready = array();
+    $employes_ready = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
       extract($row);
 
-      $salary_item= array(
-          'apellido'=> $apellido,
-          'direc'=> $direc,
-          'mes_año'=>$mes_año,
-          'monto_hora' => $monto_hora,
-          'cantidad' => $cantidad
+      $employe_item= array(
+          'id_camionero' => $id_camionero,
+            'dni' => $dni,
+            'apellido' => $apellido,
+            'telef' => $telef,
+            'direc' => $direc,
+            'cod_ciudad' => $cod_ciudad,
+            'fecha_ingreso' => $fecha_ingreso,
+            'fecha_nac' => $fecha_nac,       
     );
 
       // Push to "data"
-      array_push($salary_ready,$salary_item);
+      array_push($employes_ready,$employe_item);
     }
 
     // Turn to JSON & output
-    echo json_encode($salary_ready);
+    echo json_encode($employes_ready);
 
   } else {
     // No Posts

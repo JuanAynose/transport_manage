@@ -3,41 +3,42 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-include_once '../config/Database.php';
-include_once '../models/paquete.php';
+include_once '../../config/Database.php';
+include_once '../../models/camiones.php';
 
 // Instantiate DB & connect
 $database = new Database();
 $db = $database->connect();
 
 // Instantiate blog post object
-$post = new Post($db);
+$post = new Camiones($db);
 
 // Blog post query
-$result = $post->read();
+$result = $post->leerCamionesDisponibles();
 // Get row count
 $num = $result->rowCount();
 
 // Check if any posts
 if ($num > 0) {
   // Post array
-  $package_ready = array();
+  $camiones_ready = array();
 
   while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     extract($row);
 
-    $package_item = array(
-      'cod_paquete' => $cod_paquete,
-      'descrip' => $descrip,
-      'dir_destino' => $dir_destino,
-      'id_destinatario' => $id_destinatario,
+    $camiones_item = array(
+      'id_camion' => $id_camion,
+      'capacidad' => $capacidad,
+      'marca' => $marca,
+      'disponibilidad' => $disponibilidad,
     );
 
     // Push to "data"
-    array_push($package_ready, $package_item);
+    array_push($camiones_ready, $camiones_item);
   }
+
   // Turn to JSON & output
-  echo json_encode($package_ready);
+  echo json_encode($camiones_ready);
 } else {
   // No Posts
   echo json_encode(

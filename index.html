@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script defer type="module" src="./js/scripts.js"></script>
     <script defer type="module" src="./js/forms/formsHandler.js"></script>
+    <script defer type="module" src="./js/forms/update/formsUpdate.js"></script>
     <title>Pacco Veloce</title>
 </head>
 <body>
@@ -163,7 +164,7 @@
                         <input type="submit" value="Cargar paquete">
                     </form>
                     <div>
-                        <ul id="containerTranporte" class="camion-container">                                
+                        <ul id="containerTranporte" class="editar__camion camion-container">                                
         
                         </ul>
                     </div>                    
@@ -226,6 +227,10 @@
                                <p>editar empleado uwu</p>
                                <form id="formEmpleadoEdit" class="formEmpleados">
                                 <div>
+                                    <label for="id_empleado">Id empleado</label>
+                                    <input type="text" name="id_empleado" id="id_empleado" readonly>
+                                </div>
+                                <div>
                                     <label for="dni_empleado">Ingrese el dni del empleado</label>
                                     <input type="number" name="dni_empleado" id="dni_empleado" required>
                                 </div>
@@ -255,8 +260,8 @@
                                     <label for="fecha_nacimiento_empleado">Ingrese fecha de nacimiento del empleado</label>
                                     <input type="date" id="fecha_nacimiento_empleado" name="fecha_nacimiento_empleado" required>
                                 </div>
-                                <input type="submit" value="Cargar paquete">
-                                <button>Cancelar</button>
+                                <input type="submit" value="Cargar cambio">
+                                <input type="button" value="Cancelar">
                             </form>
                             </div>
                         </div>

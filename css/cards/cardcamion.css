@@ -75,3 +75,7 @@
 	transform: scale(1.01);
 	transition: ease-in 0.2s transform;
 }
+
+.editar__camion .camion-container__item:hover {
+	transform: none;
+}

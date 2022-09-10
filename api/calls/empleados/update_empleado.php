@@ -5,22 +5,22 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-include_once '../config/Database.php';
-include_once '../models/paquete.php';
+
+include_once '../../config/Database.php';
+include_once '../../models/empleados.php';
 
 // Instantiate DB & connect
 $database = new Database();
 $db = $database->connect();
 
 // Instantiate blog post object
-$updateempleado = new Post($db);
+$updateempleado = new Empleados($db);
 
 // Get raw posted data
 $data = json_decode(file_get_contents("php://input"));
-print_r($data);
 
 //$updateempleado->dni_empleado =  $data-> dni_empleado;
-
+$updateempleado->id_empleado = $data->id_empleado;
 $updateempleado->dni_empleado = $data->dni_empleado;
 $updateempleado->apellido_empleado = $data->apellido_empleado;
 $updateempleado->telefono_empleado = $data->telefono_empleado;
@@ -34,7 +34,7 @@ $updateempleado->fecha_nacimiento_empleado = $data->fecha_nacimiento_empleado;
 if ($updateempleado->updateEmpleado()) {
     //$postCopy->insertarDestinatario();
     echo json_encode(
-        array('message' => 'Empleado ingresado con exito')
+        array('message' => 'Empleado editado con exito')
     );
 } else {
     echo json_encode(

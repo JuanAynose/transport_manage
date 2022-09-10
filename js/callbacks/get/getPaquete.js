@@ -1,5 +1,7 @@
 const getPaquete = () => {
-	return fetch('http://localhost/transport_manage/api/paquete/leer_paquete.php')
+	return fetch(
+		'http://localhost/transport_manage/api/calls/paquetes/leer_paquete.php'
+	)
 		.then(res => (res.ok ? Promise.resolve(res) : Promise.reject(res)))
 		.then(res => res.json())
 		.then(res => {

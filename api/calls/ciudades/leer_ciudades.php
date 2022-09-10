@@ -3,15 +3,15 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-include_once '../config/Database.php';
-include_once '../models/paquete.php';
+include_once '../../config/Database.php';
+include_once '../../models/ciudades.php';
 
 // Instantiate DB & connect
 $database = new Database();
 $db = $database->connect();
 
 // Instantiate blog post object
-$post = new Post($db);
+$post = new Ciudades($db);
 
 // Blog post query
 $result = $post->leerCiudades();

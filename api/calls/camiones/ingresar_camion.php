@@ -5,28 +5,33 @@
   header('Access-Control-Allow-Methods: POST');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-  include_once '../config/Database.php';
-  include_once '../models/paquete.php';
+  include_once '../../config/Database.php';
+  include_once '../../models/camiones.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
   // Instantiate blog post object
-  $salary = new Post($db);
+  $postcamion = new Camiones($db);
 
   // Get raw posted data
   $data = json_decode(file_get_contents("php://input"));
   print_r($data);
   
-  $salary -> fecha_pago_salario = $data ->fecha_pago_salario;
-  $salary -> cantidad_horas_salario = $data ->cantidad_horas_salario;
-  $salary -> precio_hora_salario = $data ->precio_hora_salario;
-  $salary -> id_empleado = $data ->id_empleado;
+    //$postcamion->dni_empleado =  $data-> dni_empleado;
+
+$postcamion->capacidad_camion = $data -> capacidad_camion;
+$postcamion->marca_camion = $data -> marca_camion;
+$postcamion->disponibilidad_camion = $data -> disponibilidad_camion;
+
+
+ 
   // Create post
-  if($salary->ingresarSalario()) {
+  if($postcamion->ingresarCamion()) {
+    //$postCopy->insertarDestinatario();
     echo json_encode(
-      array('message' => 'El salario ha sido ingresado con exito')
+      array('message' => 'Camion ingresado con exito')
     );
   } else {
     echo json_encode(

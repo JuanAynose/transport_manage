@@ -31,6 +31,7 @@ if ($num > 0) {
       'descrip' => $descrip,
       'dir_destino' => $dir_destino,
       'id_destinatario' => $id_destinatario,
+      'dni' => $dni,
     );
 
     // Push to "data"

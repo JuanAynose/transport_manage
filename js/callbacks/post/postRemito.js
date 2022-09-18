@@ -1,6 +1,12 @@
 export const postRemito = data => {
-	const { id_destinatario, id_empleado, id_camion, fecha_entrega, id_paquete } =
-		data;
+	const {
+		nombre_empleado,
+		nombre_camion,
+		fecha_entrega,
+		id_paquete,
+		nombre_paquete,
+		nombre_destinatario
+	} = data;
 
 	console.log(data);
 
@@ -9,11 +15,13 @@ export const postRemito = data => {
 		myHeaders.append('Content-Type', 'application/json');
 
 		const raw = JSON.stringify({
-			id_destinatario: id_destinatario,
-			id_empleado: id_empleado,
-			id_camion: id_camion,
-			fecha_entrega: fecha_entrega,
-			id_paquete: id_paquete
+			id_destinatario,
+			nombre_empleado,
+			nombre_camion,
+			fecha_entrega,
+			id_paquete,
+			nombre_paquete,
+			nombre_destinatario
 		});
 
 		const requestOptions = {

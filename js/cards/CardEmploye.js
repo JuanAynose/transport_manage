@@ -82,6 +82,7 @@ const CardEmploye = data => {
         </div>
         <div>
             <input class="input_empleado input__radio" type="radio" value="${id_empleado}" name="containerEmploye" required>
+            <input class="input_empleado hidden input__radio" type="text" value="${apellido_empleado}" name="nameEmploye">
         </div>
         </li> 
     </label>

@@ -12,7 +12,7 @@ const formPaquete = document.getElementById('formPaquete');
 const formEmpleado = document.getElementById('formEmpleado');
 const formCamion = document.getElementById('formTransporte');
 const formSalario = document.getElementById('formSalario');
-const formEnvio = document.getElementById('formEnvio');
+const formRemito = document.getElementById('formRemito');
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 /**/
 
@@ -52,23 +52,25 @@ formPaquete.addEventListener('submit', e => {
 });
 
 /*open the model of "ingresar paquete"*/
-formEnvio.addEventListener('submit', e => {
+formRemito.addEventListener('submit', e => {
 	e.preventDefault();
-	const formData = new FormData(formEnvio);
+	const formData = new FormData(formRemito);
 	const normalizeFormData = [];
 	normalizeFormData.push(
-		formData.getAll('id_destinatario')[FORM_OPTIONS.ID_DESTINATARIO],
-		formData.getAll('id_destinatario')[FORM_OPTIONS.ID_PAQUETE]
+		formData.getAll('id_destinatario')[FORM_OPTIONS.ID_PAQUETE],
+		formData.getAll('id_destinatario')[FORM_OPTIONS.NOMBRE_PAQUETE],
+		formData.getAll('id_destinatario')[FORM_OPTIONS.NOMBRE_DESTINARIO]
 	);
 
 	postRemito({
-		id_destinatario: normalizeFormData[FORM_OPTIONS.ID_DESTINATARIO],
 		id_paquete: normalizeFormData[FORM_OPTIONS.ID_PAQUETE],
-		id_empleado: formData.get('containerEmploye'),
-		id_camion: formData.get('containerCamion'),
+		nombre_paquete: normalizeFormData[FORM_OPTIONS.NOMBRE_PAQUETE],
+		nombre_destinatario: normalizeFormData[FORM_OPTIONS.NOMBRE_DESTINARIO],
+		nombre_empleado: formData.get('nameEmploye'),
+		nombre_camion: formData.get('nameCamion'),
 		fecha_entrega: formData.get('envio_fecha_estimada')
 	});
-	formEnvio.reset();
+	formRemito.reset();
 });
 
 /* open the modal of "ingresar empleado" uwu */

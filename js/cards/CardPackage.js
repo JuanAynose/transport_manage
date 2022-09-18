@@ -1,5 +1,5 @@
 const CardPackage = data => {
-	const { cod_paquete, id_destinatario, dir_destino, descrip } = data;
+	const { cod_paquete, id_destinatario, dir_destino, descrip, dni } = data;
 	console.log(data);
 	return `
     <label>
@@ -42,6 +42,8 @@ const CardPackage = data => {
                                     <input class="input_package input__radio" type="radio" name="containerPackage" required>
                                     <input type="number" name="id_destinatario" value="${id_destinatario}" id="id_destinatario">
                                     <input type="number" name="id_destinatario" value="${cod_paquete}" id="cod_paquete">                            
+                                    <input type="text" name="id_destinatario" value="${descrip}" id="nombre_paquete">
+                                    <input type="number" name="id_destinatario" value="${dni}" id="nombre_destinatario">
                                   </div>
                             </li>
                             </label>                     

@@ -29,7 +29,7 @@ class Paquetes{
     public function leerPaquetesPreparacion()
     {
       // Create query
-      $query = 'SELECT cod_paquete, descrip, dir_destino, id_destinatario FROM paquete, detalle_paquete, situacion, destinatario WHERE cod_paquete=cod_paque and id_destinatario = paquete.destinatario and paquete.situacion=situacion.id and paquete.situacion=1';
+      $query = 'SELECT cod_paquete, descrip, dir_destino, id_destinatario, dni FROM paquete, detalle_paquete, situacion, destinatario WHERE cod_paquete=cod_paque and id_destinatario = paquete.destinatario and paquete.situacion=situacion.id and paquete.situacion=1 and destinatario.dni=destinatario.dni; ';
   
       // Prepare statement
       $stmt = $this->conn->prepare($query);

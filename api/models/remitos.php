@@ -11,6 +11,8 @@ class Remitos{
     public $id_camion;
     public $id_destinatario;
     public $fecha_entrega;
+    public $nombre_camion;
+    public $nombre_destinatario;
   /**/
   public function __construct($db)
   {

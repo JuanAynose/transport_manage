@@ -145,13 +145,13 @@ body {
 	display: flex;
 }
 
-.bg__modal__delete{
+.bg__modal__delete {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	position: fixed;
 	top: 0;
-	left:0;
+	left: 0;
 	width: 100%;
 	height: 100vh;
 	z-index: 50;
@@ -159,12 +159,12 @@ body {
 	visibility: visible;
 }
 
-.bg__modal__delete.hidden{
+.bg__modal__delete.hidden {
 	visibility: hidden;
 	display: none;
 }
 
-.content__edit{
+.content__edit {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -307,4 +307,9 @@ body {
 	filter: blur(5px);
 	transition: ease-in 0.2s all;
 	background-color: rgba(0, 0, 255, 0.3);
+}
+
+.input_empleado.hidden,
+.input_camion.hidden {
+	display: none;
 }

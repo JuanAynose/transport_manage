@@ -40,6 +40,7 @@ const CardCamion = data => {
     </div>
     <div>
         <input class="input_camion input__radio" type="radio" value="${id_camion}" name="containerCamion"  required>
+        <input class="input_camion hidden input__radio" type="text" value="${marca}" name="nameCamion">
     </div>
 </li>
 </label>

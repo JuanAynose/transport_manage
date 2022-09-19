@@ -2,8 +2,10 @@ import CardPackage from '../cards/CardPackage.js';
 
 const CardPackageManager = (data, containerPaquete) => {
 	containerPaquete.innerHTML = '';
+	let cont =0;
 	for (const packageData of data) {
-		containerPaquete.innerHTML += CardPackage(packageData);
+		containerPaquete.innerHTML += CardPackage(packageData,cont);
+		cont+=1;
 	}
 };
 

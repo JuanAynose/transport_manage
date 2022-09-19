@@ -1,22 +1,42 @@
 <?php
 
-class Remitos{
+class Remitos
+{
   private $conn;
 
   /**/
   /*remitos vars*/
-    public $id_paquete;
-    public $nombre_paquete;
-    public $id_empleado;
-    public $id_camion;
-    public $id_destinatario;
-    public $fecha_entrega;
-    public $nombre_camion;
-    public $nombre_destinatario;
+  public $id_paquete;
+  public $nombre_paquete;
+  public $id_empleado;
+  public $id_camion;
+  public $id_destinatario;
+  public $fecha_entrega;
+  public $nombre_camion;
+  public $nombre_destinatario;
+  public $id_paquete_selected;
   /**/
   public function __construct($db)
   {
     $this->conn = $db;
+  }
+
+  public function updatePaquete($id_paquete_update)
+  {
+    echo $id_paquete_update;
+    $query = 'UPDATE paquete SET situacion = 2 WHERE paquete.cod_paquete = :id_paquete_selected ';
+
+    $this->id_paquete_selected = htmlspecialchars(strip_tags($id_paquete_update));
+
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+
+    $stmt->bindParam(':id_paquete_selected', $id_paquete_update);
+
+    // Execute query
+    $stmt->execute();
+
+    return $stmt;
   }
 
   public function ingresarRemitos($data)
@@ -25,11 +45,12 @@ class Remitos{
     $stmt = $this->conn->prepare($query);
 
     if ($stmt->execute([NULL, $this->id_paquete, $this->nombre_paquete, $this->id_empleado, $this->id_camion, $this->id_destinatario, $this->fecha_entrega])) {
+      $id_paquete_update = $this->id_paquete;
+      $this->updatePaquete($id_paquete_update);
       return true;
     }
 
     printf("Error: %s.\n", $stmt->error);
     return false;
   }
-
 }

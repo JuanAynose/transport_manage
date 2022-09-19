@@ -14,6 +14,8 @@ const formCamion = document.getElementById('formTransporte');
 const formSalario = document.getElementById('formSalario');
 const formRemito = document.getElementById('formRemito');
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
+
+const enviosCardPackage = document.getElementById("enviosCardPackage");
 /**/
 
 formSalario.addEventListener('submit', e => {
@@ -56,12 +58,30 @@ formRemito.addEventListener('submit', e => {
 	e.preventDefault();
 	const formData = new FormData(formRemito);
 	const normalizeFormData = [];
-	normalizeFormData.push(
-		formData.getAll('id_destinatario')[FORM_OPTIONS.ID_PAQUETE],
-		formData.getAll('id_destinatario')[FORM_OPTIONS.NOMBRE_PAQUETE],
-		formData.getAll('id_destinatario')[FORM_OPTIONS.NOMBRE_DESTINARIO]
-	);
+	let cont =0;
+	//console.log(enviosCardPackage.children.length);
 
+	for(let i =0; i<enviosCardPackage.children.length; i++){
+		const childSelected = enviosCardPackage.children[i].children[0].children[4];
+		
+		normalizeFormData.push(
+			{
+				id:i,
+				id_destinatario:childSelected.children[0].value,
+				id_paquete:childSelected.children[1].value,
+				nombre_paquete:childSelected.children[2].value,
+				nombre_destinatario:childSelected.children[3].value
+			}
+		);
+	}
+	console.log(normalizeFormData)
+
+
+/*
+	console.log(formData.getAll('id_destinatario'));
+	console.log(normalizeFormData)
+	*/
+/*
 	postRemito({
 		id_paquete:  normalizeFormData[FORM_OPTIONS.ID_DESTINATARIO],
 		nombre_paquete:normalizeFormData[FORM_OPTIONS.ID_PAQUETE],
@@ -71,6 +91,7 @@ formRemito.addEventListener('submit', e => {
 		fecha_entrega: formData.get('envio_fecha_estimada')
 	});
 	formRemito.reset();
+	*/
 });
 
 /* open the modal of "ingresar empleado" uwu */

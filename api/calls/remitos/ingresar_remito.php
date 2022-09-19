@@ -20,12 +20,12 @@ $data = json_decode(file_get_contents("php://input"));
 print_r($data);
 
 
-$remitos->id_empleado = $data->id_empleado;
-$remitos->nombre_camion  = $data->nombre_camion;
 $remitos->id_paquete = $data->id_paquete;
-$remitos->nombre_destinatario = $data->nombre_destinatario;
+$remitos->nombre_paquete  = $data->nombre_paquete;
+$remitos->id_empleado = $data->nombre_empleado;
+$remitos->id_camion = $data->nombre_camion;
+$remitos->id_destinatario = $data->nombre_destinatario;
 $remitos->fecha_entrega = $data->fecha_entrega;
-$remitos->nombre_paquete = $data->nombre_paquete;
 
 
 // Create post

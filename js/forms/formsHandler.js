@@ -63,9 +63,9 @@ formRemito.addEventListener('submit', e => {
 	);
 
 	postRemito({
-		id_paquete: normalizeFormData[FORM_OPTIONS.ID_PAQUETE],
-		nombre_paquete: normalizeFormData[FORM_OPTIONS.NOMBRE_PAQUETE],
-		nombre_destinatario: normalizeFormData[FORM_OPTIONS.NOMBRE_DESTINARIO],
+		id_paquete:  normalizeFormData[FORM_OPTIONS.ID_DESTINATARIO],
+		nombre_paquete:normalizeFormData[FORM_OPTIONS.ID_PAQUETE],
+		nombre_destinatario: normalizeFormData[FORM_OPTIONS.NOMBRE_PAQUETE],
 		nombre_empleado: formData.get('nameEmploye'),
 		nombre_camion: formData.get('nameCamion'),
 		fecha_entrega: formData.get('envio_fecha_estimada')

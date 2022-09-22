@@ -15,6 +15,7 @@ class Remitos
   public $nombre_camion;
   public $nombre_destinatario;
   public $id_paquete_selected;
+  public $fecha_emision;
   /**/
   public function __construct($db)
   {
@@ -41,10 +42,10 @@ class Remitos
 
   public function ingresarRemitos($data)
   {
-    $query = 'INSERT INTO remito (`id_envio`, `id_paquete`, `nombre_paquete`,`id_camionero`, `id_camion`, `id_dest`, `fecha`) VALUES (?,?,?,?,?,?,?)';
+    $query = 'INSERT INTO remito (`id_envio`, `id_paquete`, `nombre_paquete`,`id_camionero`, `id_camion`, `id_dest`, `fecha`, `fecha_emision`) VALUES (?,?,?,?,?,?,?,?)';
     $stmt = $this->conn->prepare($query);
 
-    if ($stmt->execute([NULL, $this->id_paquete, $this->nombre_paquete, $this->id_empleado, $this->id_camion, $this->id_destinatario, $this->fecha_entrega])) {
+    if ($stmt->execute([NULL, $this->id_paquete, $this->nombre_paquete, $this->id_empleado, $this->id_camion, $this->id_destinatario, $this->fecha_entrega,$this->fecha_emision ])) {
       $id_paquete_update = $this->id_paquete;
       $this->updatePaquete($id_paquete_update);
       return true;

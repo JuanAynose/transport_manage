@@ -1,6 +1,7 @@
 import CardPackage from '../cards/CardPackage.js';
 
 const CardPackageManager = (data, containerPaquete) => {
+	if(!data.length) return data;
 	containerPaquete.innerHTML = '';
 	let cont =0;
 	for (const packageData of data) {

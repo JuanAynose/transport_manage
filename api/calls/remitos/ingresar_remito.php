@@ -26,6 +26,7 @@ $remitos->id_empleado = $data->nombre_empleado;
 $remitos->id_camion = $data->nombre_camion;
 $remitos->id_destinatario = $data->nombre_destinatario;
 $remitos->fecha_entrega = $data->fecha_entrega;
+$remitos->fecha_emision = $data->fecha_emision;
 
 
 // Create post

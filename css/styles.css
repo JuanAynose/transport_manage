@@ -263,6 +263,11 @@ body {
 	background-color: rgba(128, 128, 170, 0.2);
 	color: var(--dark-fade);
 }
+/*content remitos*/
+.content__remitos{
+	display: flex;
+	flex-direction: column;
+}
 
 /*form icons styles*/
 .form-element__icon {

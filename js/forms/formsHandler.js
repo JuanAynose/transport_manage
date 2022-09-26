@@ -6,6 +6,8 @@ import { postRemito } from '../callbacks/post/postRemito.js';
 import { postSalario } from '../callbacks/post/postSalario.js';
 import { updateEmpleado } from '../callbacks/update/updateEmpleado.js';
 import { FORM_OPTIONS } from '../constants/formOptions.js';
+import { MODAL_OPTIONS } from '../constants/modalOptions.js';
+import makeCall from '../modals/controller/makeCall.js';
 /**/
 /* form data */
 const formPaquete = document.getElementById('formPaquete');
@@ -28,6 +30,7 @@ formSalario.addEventListener('submit', e => {
 		id_empleado: formData.get('containerEmploye'),
 	});
 	formSalario.reset();
+	makeCall(MODAL_OPTIONS.SALARIO);
 });
 
 /* open the modal of "ingresar paquete" anashei */
@@ -47,6 +50,7 @@ formPaquete.addEventListener('submit', e => {
 		direccion_destinatario: formData.get('direccion_destinatario')
 	});
 	formPaquete.reset();
+	makeCall(MODAL_OPTIONS.PAQUETERIA);
 });
 
 /*open the model of "ingresar paquete"*/
@@ -89,7 +93,7 @@ formRemito.addEventListener('submit', e => {
 		fecha_entrega: formData.get('envio_fecha_estimada')
 	});
 	formRemito.reset();
-	
+	makeCall(MODAL_OPTIONS.REMITOS);	
 });
 
 /* open the modal of "ingresar empleado" uwu */
@@ -106,6 +110,7 @@ formEmpleado.addEventListener('submit', e => {
 		fecha_nacimiento_empleado: formData.get('fecha_nacimiento_empleado')
 	});
 	formEmpleado.reset();
+	makeCall(MODAL_OPTIONS.EMPLEADOS);
 });
 
 /* open the modal "ingresar camion" */
@@ -118,6 +123,7 @@ formCamion.addEventListener('submit', e => {
 		disponibilidad_camion: formData.get('disponibilidad_camion')
 	});
 	formCamion.reset();
+	makeCall(MODAL_OPTIONS.TRANSPORTE);
 });
 
 formEmpleadoEdit.addEventListener('submit', e => {
@@ -133,5 +139,6 @@ formEmpleadoEdit.addEventListener('submit', e => {
 		fecha_ingreso_empleado: formData.get('fecha_ingreso_empleado'),
 		fecha_nacimiento_empleado: formData.get('fecha_nacimiento_empleado')
 	});
+	makeCall(MODAL_OPTIONS.EMPLEADOS);
 	modalEditEmpleado.classList.add('hidden');
 });

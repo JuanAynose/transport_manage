@@ -16,6 +16,7 @@ import CardEmpleadoManager from '../../cardsHandlers/CardEmpleadoManager.js';
 import CardCamionEdits from '../../cardsHandlers/edit/CardCamionEdits.js';
 import CardEmpleadoEdit from '../../cardsHandlers/edit/CardEmpleadoEdit.js';
 import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
+import modalRemitos from '../modalsHandlers/modalRemitos.js';
 /* cards container */
 const contentSalario = document.getElementById('formSalaryContent');
 const contentPagosRealizar = document.getElementById('pagosRealizados');
@@ -60,6 +61,7 @@ const makeCall = async indenfyNumber => {
 			break;
 		case MODAL_OPTIONS.REMITOS:
 			console.log('anashe');
+			modalRemitos(getData);
 			break;
 	}
 };

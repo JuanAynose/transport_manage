@@ -63,7 +63,7 @@ const makeCall = async indenfyNumber => {
 			break;
 		case MODAL_OPTIONS.REMITOS:
 			console.log('anashe');
-			modalRemitos(getData);
+			modalRemitos(getAllPackages);
 			break;
 	}
 };

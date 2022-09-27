@@ -1,4 +1,4 @@
-export const CHILD = {
+export const REMITO_OPTIONS = {
 	PREPARANCION: 0,
 	CAMINO: 1,
 	ENTREGADO: 2,

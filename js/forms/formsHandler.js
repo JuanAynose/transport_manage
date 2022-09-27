@@ -26,7 +26,7 @@ formSalario.addEventListener('submit', e => {
 		fecha_pago_salario: formData.get('fecha_pago_salario'),
 		cantidad_horas_salario: Number(formData.get('cantidad_horas_salario')),
 		precio_hora_salario: Number(formData.get('precio_hora_salario')),
-		id_empleado: formData.get('containerEmploye'),
+		id_empleado: formData.get('containerEmploye')
 	});
 	formSalario.reset();
 	makeCall(MODAL_OPTIONS.SALARIO);
@@ -60,70 +60,39 @@ formRemito.addEventListener('submit', e => {
 	let month = dateObj.getUTCMonth() + 1;
 	const day = dateObj.getUTCDate();
 	const year = dateObj.getUTCFullYear();
-	if(month<10) month = "0"+month; // si el mes es menor a 10, se agrega un "0" adelante de la fecha
+	if (month < 10) month = '0' + month; // si el mes es menor a 10, se agrega un "0" adelante de la fecha
 
-	const margeDate = year + "-" + month + "-" + day;
+	const margeDate = year + '-' + month + '-' + day;
 
 	const formData = new FormData(formRemito);
 	const normalizeFormData = [];
-<<<<<<< Updated upstream
-=======
 	let cont = 0;
 	//console.log(enviosCardPackage.children.length);
->>>>>>> Stashed changes
 
 	for (let i = 0; i < enviosCardPackage.children.length; i++) {
 		const childSelected = enviosCardPackage.children[i].children[0].children[4];
-<<<<<<< Updated upstream
-		
-		normalizeFormData.push(
-			{
-				id:i,
-				id_paquete:childSelected.children[1].value,
-				nombre_paquete:childSelected.children[2].value,
-				nombre_destinatario:childSelected.children[3].value,
-			}
-		);
-	}
-
-	const getIdData = formData.get('containerPackage');
-
-	postRemito({
-		fecha_emision:margeDate,
-		id_paquete: normalizeFormData[getIdData].id_paquete,
-		nombre_paquete : normalizeFormData[getIdData].nombre_paquete,
-=======
 
 		normalizeFormData.push({
 			id: i,
-			id_destinatario: childSelected.children[0].value,
 			id_paquete: childSelected.children[1].value,
 			nombre_paquete: childSelected.children[2].value,
 			nombre_destinatario: childSelected.children[3].value
 		});
 	}
-	console.log(normalizeFormData);
 
-	/*
-	console.log(formData.getAll('id_destinatario'));
-	console.log(normalizeFormData)
-	*/
+	const getIdData = formData.get('containerPackage');
 
 	postRemito({
-		id_paquete: normalizeFormData[FORM_OPTIONS.ID_DESTINATARIO],
-		nombre_paquete: normalizeFormData[FORM_OPTIONS.ID_PAQUETE],
-		nombre_destinatario: normalizeFormData[FORM_OPTIONS.NOMBRE_PAQUETE],
->>>>>>> Stashed changes
+		fecha_emision: margeDate,
+		id_paquete: normalizeFormData[getIdData].id_paquete,
+		nombre_paquete: normalizeFormData[getIdData].nombre_paquete,
 		nombre_empleado: formData.get('nameEmploye'),
-		nombre_destinatario : normalizeFormData[getIdData].nombre_destinatario,
+		nombre_destinatario: normalizeFormData[getIdData].nombre_destinatario,
 		nombre_camion: formData.get('nameCamion'),
 		fecha_entrega: formData.get('envio_fecha_estimada')
 	});
 	formRemito.reset();
-<<<<<<< Updated upstream
-	makeCall(MODAL_OPTIONS.REMITOS);	
-=======
->>>>>>> Stashed changes
+	makeCall(MODAL_OPTIONS.REMITOS);
 });
 
 /* open the modal of "ingresar empleado" uwu */

@@ -5,6 +5,7 @@ import CardPackageManager from '../../cardsHandlers/CardPackageManager.js';
 import CardSalaryManager from '../../cardsHandlers/CardSalaryManager.js';
 /**/
 //import ModalEnvioHandler from '../../callbacks/callsHandler/modalEnvioHandler.js';
+import getAllPaquete from '../../callbacks/get/getAllPaquete.js';
 import getCamiones from '../../callbacks/get/getCamiones.js';
 import getCamionesDisponibles from '../../callbacks/get/getCamionesDisponibles.js';
 import getCiudades from '../../callbacks/get/getCiudades.js';
@@ -34,6 +35,7 @@ const ciudadList = document.querySelectorAll('.ciudad_form');
 
 const makeCall = async indenfyNumber => {
 	const getData = await getPaquete();
+	const getAllPackages = await getAllPaquete();
 	const getEmployes = await getEmpleados();
 	const getEmployesSalary = await getSalario();
 	const getTrucks = await getCamiones();

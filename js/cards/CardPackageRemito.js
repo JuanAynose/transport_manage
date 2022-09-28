@@ -1,9 +1,6 @@
-const CardPackage = (data, cont) => {
-	if (data.length === 0) return data;
-
-	const { cod_paquete, id_destinatario, dir_destino, descrip, dni } = data;
+const CardPackageRemito = data => {
+	const { cod_paquete, id_destinatario, dir_destino, descrip } = data;
 	return `
-    <label>
                             <li class="package-container__item">
                                 <div class="package-container__header">
                                     <div class="package-container__header__bg">
@@ -38,18 +35,11 @@ const CardPackage = (data, cont) => {
                                         footer-item__text__spacing--low footer-item__text__color--var">Direccion</p>
                                         <p class="package-container__text footer-item__text__height--default">${dir_destino}</p>
                                     </li>                                    
-                                </ul>
+                                </ul>                                
                                 <div>
-                                    <input class="input_package input__radio" type="checkbox" value=${cont} name="containerPackage">
-                                  </div>
-                                <div>
-                                    <input type="number"  value="${id_destinatario}" >
-                                    <input type="number"  value="${cod_paquete}" >                            
-                                    <input type="text"  value="${descrip}" >
-                                    <input type="number"  value="${dni}" >
+                                    <input type="number"  value="${cod_paquete}">                            
                                 </div>
                             </li>
-                            </label>                     
 `;
 };
-export default CardPackage;
+export default CardPackageRemito;

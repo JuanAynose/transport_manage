@@ -1,3 +1,4 @@
+import CardPackageEdit from '../../cardsHandlers/edit/CardPackageEdit.js';
 import { REMITO_OPTIONS } from '../../constants/remitoOptions.js';
 import { SITUATION_PACKAGE } from '../../constants/situationOptions.js';
 
@@ -5,32 +6,42 @@ const modalMenuRemitos = document.getElementById('modalRemitos').children[0];
 const SortDataPackage = (childId, situationChild) => {
 	switch (situationChild) {
 		case SITUATION_PACKAGE.PREPARACION:
-			console.log(
-				modalMenuRemitos.children[REMITO_OPTIONS.PREPARANCION],
-				childId
+			CardPackageEdit(
+				childId,
+				modalMenuRemitos.children[REMITO_OPTIONS.PREPARANCION]
 			);
 			break;
 		case SITUATION_PACKAGE.CAMINO:
-			console.log(modalMenuRemitos.children[REMITO_OPTIONS.CAMINO], childId);
+			CardPackageEdit(
+				childId,
+				modalMenuRemitos.children[REMITO_OPTIONS.CAMINO]
+			);
 			break;
 
 		case SITUATION_PACKAGE.ENTREGADO:
-			console.log(modalMenuRemitos.children[REMITO_OPTIONS.ENTREGADO], childId);
+			CardPackageEdit(
+				childId,
+				modalMenuRemitos.children[REMITO_OPTIONS.ENTREGADO]
+			);
 			break;
 
 		case SITUATION_PACKAGE.DEPOSITO:
-			console.log(modalMenuRemitos.children[REMITO_OPTIONS.DEPOSITO], childId);
+			CardPackageEdit(
+				childId,
+				modalMenuRemitos.children[REMITO_OPTIONS.DEPOSITO]
+			);
 			break;
 
 		case SITUATION_PACKAGE.PERDIDO:
-			console.log(modalMenuRemitos.children[REMITO_OPTIONS.PERDIDO], childId);
+			CardPackageEdit(
+				childId,
+				modalMenuRemitos.children[REMITO_OPTIONS.PERDIDO]
+			);
 			break;
 	}
 };
 
 const modalRemitos = data => {
-	console.log(data);
-
 	for (const itemPackage of data) {
 		const { situacion } = itemPackage;
 		SortDataPackage(itemPackage, Number(situacion));

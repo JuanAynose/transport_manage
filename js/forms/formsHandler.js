@@ -82,17 +82,38 @@ formRemito.addEventListener('submit', e => {
 
 	const getIdData = formData.get('containerPackage');
 
-	postRemito({
-		fecha_emision: margeDate,
-		id_paquete: normalizeFormData[getIdData].id_paquete,
-		nombre_paquete: normalizeFormData[getIdData].nombre_paquete,
-		nombre_empleado: formData.get('nameEmploye'),
-		nombre_destinatario: normalizeFormData[getIdData].nombre_destinatario,
-		nombre_camion: formData.get('nameCamion'),
-		fecha_entrega: formData.get('envio_fecha_estimada')
-	});
+	const packageLenght = Number(formData.getAll('containerPackage').length);
+	console.log(formData.getAll('containerPackage'));
+	console.log(normalizeFormData);
+
+	if (packageLenght <= 1) {
+		postRemito({
+			fecha_emision: margeDate,
+			id_paquete: normalizeFormData[getIdData].id_paquete,
+			nombre_paquete: normalizeFormData[getIdData].nombre_paquete,
+			nombre_empleado: formData.get('nameEmploye'),
+			nombre_destinatario: normalizeFormData[getIdData].nombre_destinatario,
+			nombre_camion: formData.get('nameCamion'),
+			fecha_entrega: formData.get('envio_fecha_estimada')
+		});
+	} else {
+		const very = [...formData.getAll('containerPackage')];
+		const normalizeArray = very.map(itemA => Number(itemA));
+		console.log(normalizeArray);
+		for (const itemTest of normalizeArray) {
+			postRemito({
+				fecha_emision: margeDate,
+				id_paquete: normalizeFormData[itemTest].id_paquete,
+				nombre_paquete: normalizeFormData[itemTest].nombre_paquete,
+				nombre_empleado: formData.get('nameEmploye'),
+				nombre_destinatario: normalizeFormData[itemTest].nombre_destinatario,
+				nombre_camion: formData.get('nameCamion'),
+				fecha_entrega: formData.get('envio_fecha_estimada')
+			});
+		}
+	}
 	formRemito.reset();
-	makeCall(MODAL_OPTIONS.REMITOS);
+	makeCall(MODAL_OPTIONS.PAQUETERIA);
 });
 
 /* open the modal of "ingresar empleado" uwu */

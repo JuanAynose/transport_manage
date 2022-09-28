@@ -45,6 +45,7 @@ const makeCall = async indenfyNumber => {
 
 	switch (indenfyNumber) {
 		case MODAL_OPTIONS.PAQUETERIA:
+			containerPackage.innerHTML = '';
 			CardPackageManager(getData, containerPackage);
 			CardCamionManager(getCamionesDispo, containerCamion);
 			CardEmpleadoManager(getEmployes, containerEmpleado);
@@ -64,6 +65,9 @@ const makeCall = async indenfyNumber => {
 		case MODAL_OPTIONS.REMITOS:
 			console.log('anashe');
 			modalRemitos(getAllPackages);
+			break;
+		case MODAL_OPTIONS.CIUDADES:
+			console.log('anashei ciudad');
 			break;
 	}
 };

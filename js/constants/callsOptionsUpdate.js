@@ -1,0 +1,4 @@
+export const CALL_OPTION = {
+	SINGLE_EMPLOYE: 0,
+	SINGLE_TRUCK: 1
+};

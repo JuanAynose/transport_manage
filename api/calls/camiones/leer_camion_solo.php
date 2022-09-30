@@ -12,25 +12,21 @@
   $db = $database->connect();
 
   // Instantiate blog post object
-  $empleadoById = new Camiones($db);
+  $camionById = new Camiones($db);
 
   // Get ID
-  $empleadoById->id_camion = isset($_GET['id_camion']) ? $_GET['id_camion'] : die();
+  $camionById->id_camion = isset($_GET['id_camion']) ? $_GET['id_camion'] : die();
 
   // Get post
-  $empleadoById->leerEmpleadoById();
+  $camionById->leerCamionById();
   // Create array
   
-  $employe_item= array(
-    'id_empleado' => $empleadoById->id_empleado,
-      'dni' => $empleadoById->dni_empleado,
-      'apellido' => $empleadoById->apellido_empleado,
-      'telef' => $empleadoById->telefono_empleado,
-      'direc' => $empleadoById->direccion_empleado,
-      'cod_ciudad' => $empleadoById->ciudad_empleado,
-      'fecha_ingreso' => $empleadoById->fecha_ingreso_empleado,
-      'fecha_nac' => $empleadoById->fecha_nacimiento_empleado,       
+  $camion_item= array(
+    'id_camion' => $camionById->id_camion,
+      'capacidad' => $camionById->capacidad,
+      'marca' => $camionById->marca,
+      'disponibilidad' => $camionById->disponibilidad,
 );
-print_r(json_encode($employe_item));
+print_r(json_encode($camion_item));
 
   // Make JSON

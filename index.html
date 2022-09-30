@@ -34,6 +34,7 @@
                 <li class="item__menu"><a href="#" id="empleButton" class="menu__button">Empleados</a></li>
                 <li class="item__menu"><a href="#" id="salarioButton" class="menu__button">Salario</a></li>
                 <li class="item__menu"><a href="#" id="remitoButton" class="menu__button">Remito</a></li>
+                <li class="item__menu"><a href="#" id="ciudadButton" class="menu__button">Ciudades</a></li>
             </ul>
         </div>
     </nav>
@@ -167,10 +168,49 @@
                         <ul id="containerTranporte" class="editar__camion camion-container">                                
         
                         </ul>
-                    </div>                    
-                    <div id="editarCamion">
-
                     </div>
+                    <div>
+                        <ul id="editarCamion" class="editar__camion camion-container">                                
+        
+                        </ul>
+                        <div id="modalDeleteCamion" class="bg__modal__delete hidden">
+                            <div class="content__edit modal__content">
+                                <p>Estas seguro de que deseas Borrar el camion "<span>0</span>" </p>
+                                <div>
+                                    <button class="edit__button">Si</button>
+                                    <button class="edit__button">No</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="modalEditCamion" class="bg__modal__delete hidden">
+                            <div class="content__edit modal__content">
+                               <p>editar camion uwu</p>
+                               <form id="formCamionEdit" class="formTransporte">
+                                <div>
+                                    <label for="id_camion">Id camion</label>
+                                    <input type="text" name="id_camion" id="id_camion" readonly>
+                                </div>
+                                <div>
+                                    <label for="capacidad_camion">Ingrese la capacidad del camion</label>
+                                    <input type="number" name="capacidad_camion" id="capacidad_camion" required>
+                                </div>
+                                <div>
+                                    <label for="marca_camion">Ingrese la marca del camion</label>
+                                    <input type="text" id="marca_camion" name="marca_camion" required>
+                                </div>
+                                <div>
+                                    <label for="disponibilidad_camion">Seleccione la disponibilidad</label>
+                                    <select id="disponibilidad_camion"name="disponibilidad_camion" required>
+                                        <option value="0">Ocupado</option>
+                                        <option selected value="1">Disponible</option>
+                                    </select>
+                                </div>                        
+                                <input type="submit" value="Guardar">
+                                <input type="button" value="Cancelar">
+                            </form>
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
             </div>
             <div id="modalEmpleados" class="bg__modal hidden">
@@ -216,7 +256,7 @@
                         <div id="modalDeleteEmpleado" class="bg__modal__delete hidden">
                             <div class="content__edit modal__content">
                                 <p>Estas seguro de que deseas Borrar el empleado "<span>0</span>" </p>
-                                <div id="modalDeleteButtons">
+                                <div>
                                     <button class="edit__button">Si</button>
                                     <button class="edit__button">No</button>
                                 </div>
@@ -299,7 +339,7 @@
                       </div>
                 </div>
             </div>
-            <div id="modalRemitos" class="bg__modal hidden">
+            <div id="modalRemitos" class="bg__modal hidden">                
                 <div class="content__remitos modal__content">
                     <div class="paquete_preparacion">
                         preparasao
@@ -316,9 +356,15 @@
                     <div class="paquete_perdido">
                         perdidao
                     </div>
+                    <div class="paquete_cancelado">
+                        canceladozz
+                    </div>
                 </div>
             </div>
             <div id="modalCiudades" class="bg__modal hidden">
+                <div class="content__ciudades modal__content">
+
+                </div>
             </div>
         </div>
         

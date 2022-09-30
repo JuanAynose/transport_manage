@@ -1,37 +1,25 @@
 /* cards */
+import { deleteCamion } from '../../callbacks/delete/deleteCamion.js';
 import { deleteEmpleado } from '../../callbacks/delete/deleteEmpleado.js';
-import getSingleEmpleados from '../../callbacks/get/getSingleEmpleado.js';
+import { CALL_OPTION } from '../../constants/callsOptionsUpdate.js';
+import singleCall from './callbacks/singleCall.js';
 /*empleados container*/
 const editarEmpleado = document.getElementById('editarEmpleado');
-const modalDeleteButtons = document.getElementById('modalDeleteButtons');
 const modalDeleteEmpleado = document.getElementById('modalDeleteEmpleado');
 const modalEditEmpleado = document.getElementById('modalEditEmpleado');
 
+/*camiones container*/
+const editarCamion = document.getElementById('editarCamion');
+const modalDeleteCamion = document.getElementById('modalDeleteCamion');
+const modalEditCamion = document.getElementById('modalEditCamion');
 /**/
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
+const formCamionEdit = document.getElementById('formCamionEdit');
 
 let getIdEmploye;
+let getIdCamion;
 
-const getCity = (optionList, valueId) => {
-	for (const optionItem of optionList) {
-		if (optionItem.value === valueId) optionItem.selected = true;
-	}
-};
-
-const callSingleEmploye = async (id_employe, childSelected) => {
-	const getSingleEmploye = await getSingleEmpleados(id_employe);
-	childSelected.children[0].children[1].value = id_employe;
-	childSelected.children[1].children[1].value = getSingleEmploye.dni;
-	childSelected.children[2].children[1].value = getSingleEmploye.apellido;
-	childSelected.children[3].children[1].value = getSingleEmploye.telef;
-	childSelected.children[4].children[1].value = getSingleEmploye.direc;
-	getCity(
-		childSelected.children[5].children[1].options,
-		getSingleEmploye.cod_ciudad
-	);
-	childSelected.children[6].children[1].value = getSingleEmploye.fecha_ingreso;
-	childSelected.children[7].children[1].value = getSingleEmploye.fecha_nac;
-};
+/*empleado modals*/
 
 editarEmpleado.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Editar') {
@@ -39,22 +27,29 @@ editarEmpleado.addEventListener('click', ev => {
 			ev.target.parentElement.previousElementSibling.children[0].children[1]
 				.textContent
 		);
-		callSingleEmploye(getIdEmploye, modalEditEmpleado.children[0].children[1]);
+		singleCall(
+			getIdEmploye,
+			modalEditEmpleado.children[0].children[1],
+			CALL_OPTION.SINGLE_EMPLOYE
+		);
 		modalEditEmpleado.classList.remove('hidden');
 	} else if (ev.target.textContent === 'Borrar') {
 		getIdEmploye = Number(
 			ev.target.parentElement.previousElementSibling.children[0].children[1]
 				.textContent
 		);
+		modalDeleteEmpleado.children[0].children[0].children[0].textContent =
+			getIdEmploye;
+		console.log(ev.target);
 		modalDeleteEmpleado.classList.remove('hidden');
 	}
 });
 
-modalDeleteButtons.addEventListener('click', ev => {
+modalDeleteEmpleado.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Si') {
 		modalDeleteEmpleado.classList.add('hidden');
 		deleteEmpleado(getIdEmploye);
-	} else {
+	} else if (ev.target.textContent === 'No') {
 		modalDeleteEmpleado.classList.add('hidden');
 	}
 });
@@ -62,9 +57,53 @@ modalDeleteButtons.addEventListener('click', ev => {
 modalEditEmpleado.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Guardar') {
 		modalEditEmpleado.classList.add('hidden');
-		deleteEmpleado(getIdEmploye);
 	} else if (ev.target.value === 'Cancelar') {
 		formEmpleadoEdit.reset();
 		modalEditEmpleado.classList.add('hidden');
+	}
+});
+
+/*camion modals*/
+
+editarCamion.addEventListener('click', ev => {
+	console.log(modalEditCamion.children[0].children[1]);
+	if (ev.target.textContent === 'Editar') {
+		getIdCamion = Number(
+			ev.target.parentElement.previousElementSibling.children[0].children[0]
+				.textContent
+		);
+		console.log(modalEditCamion.children[0].children[1]);
+		singleCall(
+			getIdCamion,
+			modalEditCamion.children[0].children[1],
+			CALL_OPTION.SINGLE_TRUCK
+		);
+		modalEditCamion.classList.remove('hidden');
+	} else if (ev.target.textContent === 'Borrar') {
+		getIdCamion = Number(
+			ev.target.parentElement.previousElementSibling.children[0].children[0]
+				.textContent
+		);
+		modalDeleteCamion.children[0].children[0].children[0].textContent =
+			getIdCamion;
+		modalDeleteCamion.classList.remove('hidden');
+	}
+});
+
+modalDeleteCamion.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Si') {
+		modalDeleteCamion.classList.add('hidden');
+		deleteCamion(getIdCamion);
+	} else if (ev.target.textContent === 'No') {
+		modalDeleteCamion.classList.add('hidden');
+	}
+});
+
+modalEditCamion.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Guardar') {
+		modalEditCamion.classList.add('hidden');
+	} else if (ev.target.value === 'Cancelar') {
+		formCamionEdit.reset();
+		modalEditCamion.classList.add('hidden');
 	}
 });

@@ -32,8 +32,8 @@ const CardCamionEdit = data => {
                 </p>
             </li>
             <li class="information__item">
-                <button class="empleado-container__button">Editar</button>
-                <button class="empleado-container__button">Borrar</button>
+                <button class="camion-container__button">Editar</button>
+                <button class="camion-container__button">Borrar</button>
             </li>
         </ul>        
         <div class="camion-container__logo">

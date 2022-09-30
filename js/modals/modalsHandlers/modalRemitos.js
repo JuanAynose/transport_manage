@@ -38,6 +38,12 @@ const SortDataPackage = (childId, situationChild) => {
 				modalMenuRemitos.children[REMITO_OPTIONS.PERDIDO]
 			);
 			break;
+		case SITUATION_PACKAGE.CANCELADO:
+			CardPackageEdit(
+				childId,
+				modalMenuRemitos.children[REMITO_OPTIONS.CANCELADOS]
+			);
+			break;
 	}
 };
 

@@ -28,6 +28,7 @@ const contentCamionesDisponibles = document.getElementById(
 	'contentCamionesDisponibles'
 );
 const containerTranporte = document.getElementById('containerTranporte');
+const editarCamion = document.getElementById('editarCamion');
 const editarEmpleado = document.getElementById('editarEmpleado');
 /*load ciudad*/
 const ciudadList = document.querySelectorAll('.ciudad_form');
@@ -51,7 +52,7 @@ const makeCall = async indenfyNumber => {
 			CardEmpleadoManager(getEmployes, containerEmpleado);
 			break;
 		case MODAL_OPTIONS.TRANSPORTE:
-			CardCamionEdits(getTrucks, containerTranporte);
+			CardCamionEdits(getTrucks, editarCamion);
 			break;
 		case MODAL_OPTIONS.EMPLEADOS:
 			CardEmpleadoEdit(getEmployes, editarEmpleado);

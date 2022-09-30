@@ -4,6 +4,7 @@ import { postEmpleado } from '../callbacks/post/postEmpleado.js';
 import { postPaquete } from '../callbacks/post/postPaquete.js';
 import { postRemito } from '../callbacks/post/postRemito.js';
 import { postSalario } from '../callbacks/post/postSalario.js';
+import { updateCamion } from '../callbacks/update/updateCamion.js';
 import { updateEmpleado } from '../callbacks/update/updateEmpleado.js';
 import { MODAL_OPTIONS } from '../constants/modalOptions.js';
 import makeCall from '../modals/controller/makeCall.js';
@@ -15,6 +16,7 @@ const formCamion = document.getElementById('formTransporte');
 const formSalario = document.getElementById('formSalario');
 const formRemito = document.getElementById('formRemito');
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
+const formCamionEdit = document.getElementById('formCamionEdit');
 
 const enviosCardPackage = document.getElementById('enviosCardPackage');
 /**/
@@ -161,4 +163,17 @@ formEmpleadoEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.EMPLEADOS);
 	modalEditEmpleado.classList.add('hidden');
+});
+
+formCamionEdit.addEventListener('submit', e => {
+	e.preventDefault();
+	const formData = new FormData(formCamionEdit);
+	updateCamion({
+		id_camion: formData.get('id_camion'),
+		capacidad: formData.get('capacidad_camion'),
+		marca: formData.get('marca_camion'),
+		disponibilidad: formData.get('disponibilidad_camion')
+	});
+	makeCall(MODAL_OPTIONS.TRANSPORTE);
+	modalEditCamion.classList.add('hidden');
 });

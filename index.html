@@ -363,7 +363,39 @@
             </div>
             <div id="modalCiudades" class="bg__modal hidden">
                 <div class="content__ciudades modal__content">
-
+                    <div>
+                        <form id="formCiudadesProvincia">
+                            <div>
+                                <label for="nombre_provincia">Ingresar provincia</label>
+                                <input type="text" name="nombre_provincia" id="nombre_provincia" required>
+                            </div>
+                            <input type="submit" value="Agregar provincia">
+                        </form>
+                        <form id="formCiudadesCiudad">
+                            <div>
+                                <label for="nombre_ciudad">Ingresar ciudad</label>
+                                <input type="text" name="nombre_ciudad" id="nombre_ciudad" required>
+                            </div>
+                            <div>
+                                <label for="">Codigo Postal</label>
+                                <input type="number" name="cod_postal" id="cod_postal" required>
+                            </div>
+                            <div>
+                                <select name="cod_provinca" id="cod_provinca">
+                                    <option value="1">San nicola</option>                                
+                                </select>
+                            </div>
+                            <input type="submit" value="Agregar ciudad">
+                        </form>
+                    </div>
+                    <div>
+                        <ul id="editarProvincia" class="editar__provincia provincia-container">
+                            
+                        </ul>
+                    </div>
+                    <div>
+                        
+                    </div>
                 </div>
             </div>
         </div>

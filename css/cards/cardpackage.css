@@ -132,6 +132,13 @@
 	transition: none;
 	transform: none;
 }
+
+.paquete-container__button {
+	position: absolute;
+	top: 0.5em;
+	right: 0.5em;
+}
+
 /**/
 
 /******************************/

@@ -162,4 +162,26 @@ class Paquetes
     $this->fecha_ingreso_empleado = $row['fecha_ingreso'];
     $this->fecha_nacimiento_empleado = $row['fecha_nac'];
   }
+
+  public function leerPaqueteByDetallePaquete(){
+    
+    $query = 'SELECT * FROM paquete WHERE cod_paquete = ?';
+
+    $stmt = $this->conn->prepare($query);
+
+    // Bind ID
+    $stmt->bindParam(1, $this->id_paquete);
+
+    // Execute query
+    $stmt->execute();
+
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $this->id_paquete = $row['id_paquete'];
+    $this->cod_paquete = $row['cod_paquete'];
+    $this->dir_destino = $row['dir_destino'];
+    $this->destinatario = $row['destinatario'];
+    $this->prioridad = $row['prioridad'];
+    $this->situacion = $row['situacion'];
+
+  }
 }

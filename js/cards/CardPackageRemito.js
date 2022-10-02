@@ -1,4 +1,5 @@
 const CardPackageRemito = data => {
+	console.log(data);
 	const { cod_paquete, id_destinatario, dir_destino, descrip } = data;
 	return `
                             <li class="package-container__item">

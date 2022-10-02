@@ -127,4 +127,11 @@
 	transition: ease-in 0.2s transform;
 }
 
+/*container remitos*/
+.content__remitos .container__paquete .package-container__item:hover {
+	transition: none;
+	transform: none;
+}
+/**/
+
 /******************************/

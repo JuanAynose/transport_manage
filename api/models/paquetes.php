@@ -34,6 +34,7 @@ class Paquetes
   public $id_destinatario;
   public $id_paquete;
   public $situacion_paquete;
+  public $cod_paque;
   /**/
   public function __construct($db)
   {
@@ -362,4 +363,22 @@ class Paquetes
 
     return false;
   }
+  /*
+  {
+    "apellido_destinatario": "picapiedra",
+"ciudad_destinatario": 1,
+"cod_paquete": 11,
+"direccion_destinatario": "anae 23",
+"dni_destinatario": 4234230,
+"id_destinatario": 10,
+"id_paquete": 11,
+"nivel_prioridad": 2,
+"nombre_destinatario": "pedro",
+"nombre_paquete": "anashe",
+"numero_destinatario": 4324230,
+"peso_paquete": 4,
+"situacion_paquete": 1,
+"tipo_paquete": 2
+}
+  */
 }

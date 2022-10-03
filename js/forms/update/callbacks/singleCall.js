@@ -1,5 +1,6 @@
 import getSingleCamion from '../../../callbacks/get/getSingleCamion.js';
 import getSingleEmpleados from '../../../callbacks/get/getSingleEmpleado.js';
+import getPaqueteAllDetails from '../../../callbacks/get/getPaqueteAllDetails.js';
 import { CALL_OPTION } from '../../../constants/callsOptionsUpdate.js';
 
 const getCity = (optionList, valueId) => {
@@ -11,8 +12,7 @@ const getCity = (optionList, valueId) => {
 const singleCall = async (id_selected, childSelected, call_name) => {
 	const getSingleEmploye = await getSingleEmpleados(id_selected);
 	const getSingleTruck = await getSingleCamion(id_selected);
-
-	console.log(getSingleTruck);
+	const getPaquete = await getPaqueteAllDetails(id_selected);
 	switch (call_name) {
 		case CALL_OPTION.SINGLE_EMPLOYE:
 			console.log('anashei');
@@ -35,6 +35,19 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 			childSelected.children[2].children[1].value = getSingleTruck.marca;
 			childSelected.children[3].children[1].value =
 				getSingleTruck.disponibilidad;
+			break;
+		case CALL_OPTION.SINGLE_PACKAGE:
+			childSelected.children[1].children[1].children[2].value = getPaquete[2].descrip;
+			childSelected.children[2].children[1].value = getPaquete[2].peso;
+			childSelected.children[3].children[1].value = getPaquete[2].tipo_producto;
+			childSelected.children[4].children[1].value = getPaquete[0].prioridad;
+			childSelected.children[5].children[1].children[1].value = getPaquete[1].nombre;
+			childSelected.children[5].children[2].children[1].value = getPaquete[1].apellido; 
+			childSelected.children[5].children[3].children[1].value = getPaquete[1].cel;
+			childSelected.children[5].children[4].children[1].value = getPaquete[1].dni;
+			childSelected.children[5].children[5].children[1].value = getPaquete[1].direccion;
+			childSelected.children[5].children[6].children[1].value = getPaquete[1].ciudad;
+
 			break;
 	}
 };

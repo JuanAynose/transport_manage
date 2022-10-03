@@ -7,15 +7,20 @@ import singleCall from './callbacks/singleCall.js';
 const editarEmpleado = document.getElementById('editarEmpleado');
 const modalDeleteEmpleado = document.getElementById('modalDeleteEmpleado');
 const modalEditEmpleado = document.getElementById('modalEditEmpleado');
+const modalEditRemito = document.getElementById('modalEditRemito');
 
 /*camiones container*/
 const editarCamion = document.getElementById('editarCamion');
 const modalDeleteCamion = document.getElementById('modalDeleteCamion');
 const modalEditCamion = document.getElementById('modalEditCamion');
 /*remito container*/
+const editarRemito = document.getElementById('editarRemito');
+
+
 
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 const formCamionEdit = document.getElementById('formCamionEdit');
+const formRemitoEdit = document.getElementById('formRemitoEdit');
 
 let getIdEmploye;
 let getIdCamion;
@@ -111,20 +116,13 @@ modalEditCamion.addEventListener('click', ev => {
 });
 
 /* paquete modals */
-editarEmpleado.addEventListener('click', ev => {
+editarRemito.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Editar') {
-		/*
-		getIdEmploye = Number(
-			ev.target.parentElement.previousElementSibling.children[0].children[1]
-				.textContent
-		);
-		singleCall(
-			getIdEmploye,
-			modalEditEmpleado.children[0].children[1],
-			CALL_OPTION.SINGLE_EMPLOYE
-		);
-		modalEditEmpleado.classList.remove('hidden');
-		*/
+		getIdPaquete = Number(ev.target.parentElement.parentElement.parentElement.children[2].children[1].children[1].textContent);
+		singleCall(getIdPaquete,
+			formRemitoEdit,
+			CALL_OPTION.SINGLE_PACKAGE);
+		modalEditRemito.classList.remove('hidden');
 	} else if (ev.target.textContent === 'Borrar') {
 		/*
 		getIdEmploye = Number(
@@ -149,12 +147,12 @@ modalDeleteEmpleado.addEventListener('click', ev => {
 	}
 });
 
-modalEditEmpleado.addEventListener('click', ev => {
+*/
+modalEditRemito.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Guardar') {
-		modalEditEmpleado.classList.add('hidden');
+		modalEditRemito.classList.add('hidden');
 	} else if (ev.target.value === 'Cancelar') {
-		formEmpleadoEdit.reset();
-		modalEditEmpleado.classList.add('hidden');
+		formRemitoEdit.reset();
+		modalEditRemito.classList.add('hidden');
 	}
 });
-*/

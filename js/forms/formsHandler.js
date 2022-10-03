@@ -17,6 +17,7 @@ const formSalario = document.getElementById('formSalario');
 const formRemito = document.getElementById('formRemito');
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 const formCamionEdit = document.getElementById('formCamionEdit');
+const formRemitoEdit = document.getElementById('formRemitoEdit');
 
 const enviosCardPackage = document.getElementById('enviosCardPackage');
 /**/
@@ -95,7 +96,7 @@ formRemito.addEventListener('submit', e => {
 			nombre_paquete: normalizeFormData[getIdData].nombre_paquete,
 			nombre_empleado: formData.get('nameEmploye'),
 			nombre_destinatario: normalizeFormData[getIdData].nombre_destinatario,
-			nombre_camion: formData.get('nameCamion'),
+			nombre_camion: formData.get('containerCamion'),
 			fecha_entrega: formData.get('envio_fecha_estimada')
 		});
 	} else {
@@ -109,7 +110,7 @@ formRemito.addEventListener('submit', e => {
 				nombre_paquete: normalizeFormData[itemTest].nombre_paquete,
 				nombre_empleado: formData.get('nameEmploye'),
 				nombre_destinatario: normalizeFormData[itemTest].nombre_destinatario,
-				nombre_camion: formData.get('nameCamion'),
+				nombre_camion: formData.get('containerCamion'),
 				fecha_entrega: formData.get('envio_fecha_estimada')
 			});
 		}
@@ -176,4 +177,18 @@ formCamionEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.TRANSPORTE);
 	modalEditCamion.classList.add('hidden');
+});
+
+formRemitoEdit.addEventListener('submit', e => {
+	e.preventDefault();
+	console.log(formRemitoEdit)
+	const formData = new FormData(formRemitoEdit);
+	console.log({
+		nombre_paquete : formData.get('desc_paquete'),
+		peso_paquete : formData.get('peso_paquete'),
+		tipo_paquete : formData.get('tipo_paquete'),
+		prioridad : formData.get('prioridad'),
+	});
+	//makeCall(MODAL_OPTIONS.TRANSPORTE);
+	//modalEditRemito.classList.add('hidden');
 });

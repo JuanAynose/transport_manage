@@ -27,6 +27,8 @@ class Paquetes
   public $ciudad_empleado;
   public $fecha_ingreso_empleado;
   public $fecha_nacimiento_empleado;
+  public $destinatario;
+  public $tipo_producto;
   /**/
   public function __construct($db)
   {
@@ -183,5 +185,39 @@ class Paquetes
     $this->prioridad = $row['prioridad'];
     $this->situacion = $row['situacion'];
 
+  }
+
+  public function leerPaqueteByCodPaquete(){
+    $query = 'SELECT * FROM paquete, destinatario, detalle_paquete WHERE paquete.cod_paquete = ? and destinatario.id_destinatario = paquete.destinatario and paquete.cod_paquete = detalle_paquete.cod_paque';
+
+    $stmt = $this->conn->prepare($query);
+
+    // Bind ID
+    $stmt->bindParam(1, $this->id_paquete);
+
+    // Execute query
+    $stmt->execute();
+
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    /*paquete column*/
+    $this->id_paquete = $row['id_paquete'];
+    $this->cod_paquete = $row['cod_paquete'];
+    $this->dir_destino = $row['dir_destino'];
+    $this->destinatario = $row['destinatario'];
+    $this->prioridad = $row['prioridad'];
+    $this->situacion = $row['id_paquete'];
+    /*destinatario column*/
+    $this->id_destinatario = $row['id_destinatario'];
+    $this->nombre = $row['nombre'];
+    $this->apellido = $row['apellido'];
+    $this->cel = $row['cel'];
+    $this->dni = $row['dni'];
+    $this->direccion = $row['direccion'];
+    $this->ciudad = $row['ciudad'];
+    /*detalle_paquete column*/
+    $this->cod_paque = $row['cod_paque'];
+    $this->descrip = $row['descrip'];
+    $this->tipo_producto = $row['tipo_producto'];
+    $this->peso = $row['peso'];
   }
 }

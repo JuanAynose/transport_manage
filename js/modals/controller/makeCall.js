@@ -42,6 +42,7 @@ const makeCall = async indenfyNumber => {
 	const getTrucks = await getCamiones();
 	const getCamionesDispo = await getCamionesDisponibles();
 	const getCiudad = await getCiudades();
+	
 	CardCiudadListManager(getCiudad, ciudadList);
 
 	switch (indenfyNumber) {

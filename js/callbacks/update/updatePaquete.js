@@ -12,7 +12,8 @@ export const updatePaquete = data => {
 		direccion_destinatario,
 		id_destinatario,
 		id_paquete,
-		cod_paquete
+		cod_paquete,
+		situacion_paquete
 	} = data;
 
 	console.log(data)
@@ -33,7 +34,8 @@ export const updatePaquete = data => {
 			ciudad_destinatario,
 			id_destinatario,
 			id_paquete,
-			cod_paquete
+			cod_paquete,
+			situacion_paquete
 		});
 
 		const requestOptions = {

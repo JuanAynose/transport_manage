@@ -46,9 +46,10 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 			childSelected.children[5].children[4].children[1].value = getPaquete[1].dni;
 			childSelected.children[5].children[5].children[1].value = getPaquete[1].direccion;
 			childSelected.children[5].children[6].children[1].value = getPaquete[1].ciudad;
-			childSelected.children[5].children[7].children[0].value = getPaquete[0].cod_paquete;
-			childSelected.children[5].children[7].children[1].value = getPaquete[1].id_destinatario;
-			childSelected.children[5].children[7].children[2].value = getPaquete[2].cod_paque;
+			childSelected.children[5].children[7].value = getPaquete[2].situacion;
+			childSelected.children[5].children[8].children[0].value = getPaquete[0].cod_paquete;
+			childSelected.children[5].children[8].children[1].value = getPaquete[1].id_destinatario;
+			childSelected.children[5].children[8].children[2].value = getPaquete[2].cod_paque;
 			break;
 	}
 };

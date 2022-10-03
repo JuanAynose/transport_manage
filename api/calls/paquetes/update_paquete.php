@@ -21,6 +21,21 @@ $data = json_decode(file_get_contents("php://input"));
 
 //$updateempleado->dni_empleado =  $data-> dni_empleado;
 
+$updatepaquete->nombre_paquete = $data->nombre_paquete;
+$updatepaquete->tipo_paquete = $data->tipo_paquete;
+$updatepaquete->situacion_paquete = $data->situacion_paquete;
+$updatepaquete->peso_paquete = $data->peso_paquete;
+$updatepaquete->nivel_prioridad = $data->nivel_prioridad;
+$updatepaquete->direccion_destinatario = $data->direccion_destinatario;
+$updatepaquete->nombre_destinatario = $data->nombre_destinatario;
+$updatepaquete->apellido_destinatario = $data->apellido_destinatario;
+$updatepaquete->numero_destinatario = $data->numero_destinatario;
+$updatepaquete->dni_destinatario = $data->dni_destinatario;
+$updatepaquete->ciudad_destinatario = $data->ciudad_destinatario;
+$updatepaquete->id_destinatario = $data->id_destinatario;
+$updatepaquete->id_paquete = $data->id_paquete;
+$updatepaquete->cod_paquete = $data->cod_paquete;
+
 
 
 // Create post

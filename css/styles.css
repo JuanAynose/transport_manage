@@ -70,6 +70,11 @@ body {
 	opacity: 0;
 }
 
+.hidden {
+	visibility: hidden;
+	opacity: 0;
+}
+
 /*container styles*/
 .container {
 	display: flex;

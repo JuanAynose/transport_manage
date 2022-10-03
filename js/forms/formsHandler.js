@@ -6,6 +6,7 @@ import { postRemito } from '../callbacks/post/postRemito.js';
 import { postSalario } from '../callbacks/post/postSalario.js';
 import { updateCamion } from '../callbacks/update/updateCamion.js';
 import { updateEmpleado } from '../callbacks/update/updateEmpleado.js';
+import { updatePaquete } from '../callbacks/update/updatePaquete.js';
 import { MODAL_OPTIONS } from '../constants/modalOptions.js';
 import makeCall from '../modals/controller/makeCall.js';
 /**/
@@ -181,13 +182,21 @@ formCamionEdit.addEventListener('submit', e => {
 
 formRemitoEdit.addEventListener('submit', e => {
 	e.preventDefault();
-	console.log(formRemitoEdit)
 	const formData = new FormData(formRemitoEdit);
-	console.log({
-		nombre_paquete : formData.get('desc_paquete'),
-		peso_paquete : formData.get('peso_paquete'),
-		tipo_paquete : formData.get('tipo_paquete'),
-		prioridad : formData.get('prioridad'),
+	updatePaquete({
+		peso_paquete: formData.get('peso_paquete'),
+		tipo_paquete: formData.get('tipo_paquete'),
+		nombre_paquete: formData.get('desc_paquete'),
+		nivel_prioridad: formData.get('prioridad'),
+		nombre_destinatario: formData.get('nombre_destinatario'),
+		apellido_destinatario: formData.get('apellido_destinatario'),
+		numero_destinatario: formData.get('numero_destinatario'),
+		dni_destinatario: formData.get('dni_destinatario'),
+		ciudad_destinatario: formData.get('ciudad'),
+		direccion_destinatario: formData.get('direccion_destinatario'),
+		id_destinatario: formData.get('ID_DESTINATARIO'),
+		id_paquete : formData.get('ID_PAQUETE'),
+		cod_paquete : formData.get('ID_DETALLE')
 	});
 	//makeCall(MODAL_OPTIONS.TRANSPORTE);
 	//modalEditRemito.classList.add('hidden');

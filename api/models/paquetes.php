@@ -165,8 +165,9 @@ class Paquetes
     $this->fecha_nacimiento_empleado = $row['fecha_nac'];
   }
 
-  public function leerPaqueteByDetallePaquete(){
-    
+  public function leerPaqueteByDetallePaquete()
+  {
+
     $query = 'SELECT * FROM paquete WHERE cod_paquete = ?';
 
     $stmt = $this->conn->prepare($query);
@@ -184,10 +185,10 @@ class Paquetes
     $this->destinatario = $row['destinatario'];
     $this->prioridad = $row['prioridad'];
     $this->situacion = $row['situacion'];
-
   }
 
-  public function leerPaqueteByCodPaquete(){
+  public function leerPaqueteByCodPaquete()
+  {
     $query = 'SELECT * FROM paquete, destinatario, detalle_paquete WHERE paquete.cod_paquete = ? and destinatario.id_destinatario = paquete.destinatario and paquete.cod_paquete = detalle_paquete.cod_paque';
 
     $stmt = $this->conn->prepare($query);
@@ -219,5 +220,30 @@ class Paquetes
     $this->descrip = $row['descrip'];
     $this->tipo_producto = $row['tipo_producto'];
     $this->peso = $row['peso'];
+  }
+
+  public function updatePaquete($data)
+  {
+    $query = 'UPDATE `detalle_paquete` 
+    SET `descrip` = \'Dildos\',
+     `tipo_producto` = \'1\',
+      `peso` = \'2\' 
+      WHERE `detalle_paquete`.`cod_paque` = 1';
+
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+
+    // Clean dat
+    // Execute query
+    if ($stmt->execute()) {
+      $id = $this->conn->lastInsertId();
+      $this->insertarDestinatario($id, $data);
+      return true;
+    }
+
+    // Print error if something goes wrong
+    printf("Error: %s.\n", $stmt->error);
+
+    return false;
   }
 }

@@ -29,6 +29,11 @@ class Paquetes
   public $fecha_nacimiento_empleado;
   public $destinatario;
   public $tipo_producto;
+  public $nivel_prioridad;
+  public $ciudad_destinatario;
+  public $id_destinatario;
+  public $id_paquete;
+  public $situacion_paquete;
   /**/
   public function __construct($db)
   {
@@ -206,7 +211,7 @@ class Paquetes
     $this->dir_destino = $row['dir_destino'];
     $this->destinatario = $row['destinatario'];
     $this->prioridad = $row['prioridad'];
-    $this->situacion = $row['id_paquete'];
+    $this->situacion = $row['situacion'];
     /*destinatario column*/
     $this->id_destinatario = $row['id_destinatario'];
     $this->nombre = $row['nombre'];
@@ -222,22 +227,133 @@ class Paquetes
     $this->peso = $row['peso'];
   }
 
+  public function updateDetallePaquete($data)
+  {
+    $query = 'UPDATE paquete SET 
+      cod_paquete = :cod_paquete,
+      dir_destino = :direccion_destinatario,
+      destinatario =:id_destinatario,
+      prioridad= :nivel_prioridad,
+      situacion =:situacion_paquete
+      WHERE id_paquete = :id_paquete';
+
+
+    $this->cod_paquete = htmlspecialchars(strip_tags($this->cod_paquete));
+    $this->direccion_destinatario = htmlspecialchars(strip_tags($this->direccion_destinatario));
+    $this->id_destinatario = htmlspecialchars(strip_tags($this->id_destinatario));
+    $this->nivel_prioridad = htmlspecialchars(strip_tags($this->nivel_prioridad));
+    $this->situacion_paquete = htmlspecialchars(strip_tags($this->situacion_paquete));
+    $this->id_paquete = htmlspecialchars(strip_tags($this->id_paquete));
+
+    $stmt = $this->conn->prepare($query);
+
+    $this->cod_paquete = $data->cod_paquete;
+    $this->direccion_destinatario = $data->direccion_destinatario;
+    $this->id_destinatario = $data->id_destinatario;
+    $this->nivel_prioridad = $data->nivel_prioridad;
+    $this->situacion_paquete = $data->situacion_paquete;
+    $this->id_paquete = $data->id_paquete;
+
+    $stmt->bindParam(':cod_paquete', $this->cod_paquete);
+    $stmt->bindParam(':direccion_destinatario', $this->direccion_destinatario);
+    $stmt->bindParam(':id_destinatario', $this->id_destinatario);
+    $stmt->bindParam(':nivel_prioridad', $this->nivel_prioridad);
+    $stmt->bindParam(':situacion_paquete', $this->situacion_paquete);
+    $stmt->bindParam(':id_paquete', $this->id_paquete);
+
+
+
+    if ($stmt->execute()) {
+      return true;
+    }
+
+    // Print error if something goes wrong
+    printf("Error: %s.\n", $stmt->error);
+
+    return false;
+  }
+
+  public function updateDestinatario($data)
+  {
+    $query = 'UPDATE destinatario SET 
+      nombre = :nombre_destinatario,
+      apellido = :apellido_destinatario,
+      cel = :numero_destinatario,
+      dni = :dni_destinatario,
+      direccion = :direccion_destinatario,
+      ciudad =ciudad_destinatario:
+      WHERE id_destinatario = :id_destinatario';
+
+
+
+    $this->id_destinatario = htmlspecialchars(strip_tags($this->id_destinatario));
+    $this->nombre_destinatario = htmlspecialchars(strip_tags($this->nombre_destinatario));
+    $this->apellido_destinatario = htmlspecialchars(strip_tags($this->apellido_destinatario));
+    $this->numero_destinatario = htmlspecialchars(strip_tags($this->numero_destinatario));
+    $this->dni_destinatario = htmlspecialchars(strip_tags($this->dni_destinatario));
+    $this->direccion_destinatario = htmlspecialchars(strip_tags($this->direccion_destinatario));
+    $this->ciudad_destinatario = htmlspecialchars(strip_tags($this->ciudad_destinatario));
+
+
+    $stmt = $this->conn->prepare($query);
+
+    $this->nombre_destinatario = $data->nombre_destinatario;
+    $this->apellido_destinatario = $data->apellido_destinatario;
+    $this->numero_destinatario = $data->numero_destinatario;
+    $this->dni_destinatario = $data->dni_destinatario;
+    $this->direccion_destinatario = $data->direccion_destinatario;
+    $this->ciudad_destinatario = $data->ciudad_destinatario;
+    $this->id_destinatario = $data->id_destinatario;
+
+
+    $stmt->bindParam(':id_destinatario', $this->id_destinatario);
+    $stmt->bindParam(':nombre_destinatario', $this->nombre_destinatario);
+    $stmt->bindParam(':apellido_destinatario', $this->apellido_destinatario);
+    $stmt->bindParam(':numero_destinatario', $this->numero_destinatario);
+    $stmt->bindParam(':dni_destinatario', $this->dni_destinatario);
+    $stmt->bindParam(':direccion_destinatario', $this->direccion_destinatario);
+    $stmt->bindParam(':ciudad_destinatario', $this->ciudad_destinatario);
+
+
+    if ($stmt->execute()) {
+      $this->updateDetallePaquete($data);
+      return true;
+    }
+
+    // Print error if something goes wrong
+    printf("Error: %s.\n", $stmt->error);
+
+    return false;
+  }
+
+
   public function updatePaquete($data)
   {
-    $query = 'UPDATE `detalle_paquete` 
-    SET `descrip` = \'Dildos\',
-     `tipo_producto` = \'1\',
-      `peso` = \'2\' 
-      WHERE `detalle_paquete`.`cod_paque` = 1';
+    $query = 'UPDATE detalle_paquete SET 
+      descrip = :nombre_paquete,
+      tipo_producto = :tipo_paquete,
+      peso = :peso_paquete
+      WHERE detalle_paquete = :cod_paque';
+
+
+    $this->cod_paque = htmlspecialchars(strip_tags($this->cod_paque));
+    $this->nombre_paquete = htmlspecialchars(strip_tags($this->nombre_paquete));
+    $this->tipo_paquete = htmlspecialchars(strip_tags($this->tipo_paquete));
+    $this->peso_paquete = htmlspecialchars(strip_tags($this->peso_paquete));
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
 
+    $stmt->bindParam(':cod_paque', $this->cod_paque);
+    $stmt->bindParam(':nombre_paquete', $this->nombre_paquete);
+    $stmt->bindParam(':tipo_paquete', $this->tipo_paquete);
+    $stmt->bindParam(':peso_paquete', $this->peso_paquete);
+
+
     // Clean dat
     // Execute query
     if ($stmt->execute()) {
-      $id = $this->conn->lastInsertId();
-      $this->insertarDestinatario($id, $data);
+      $this->updateDestinatario($data);
       return true;
     }
 

@@ -194,6 +194,7 @@ formRemitoEdit.addEventListener('submit', e => {
 		dni_destinatario: formData.get('dni_destinatario'),
 		ciudad_destinatario: formData.get('ciudad'),
 		direccion_destinatario: formData.get('direccion_destinatario'),
+		situacion_paquete: formData.get('situacionPaquete'),
 		id_destinatario: formData.get('ID_DESTINATARIO'),
 		id_paquete : formData.get('ID_PAQUETE'),
 		cod_paquete : formData.get('ID_DETALLE')

@@ -7,7 +7,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 
 include_once '../../config/Database.php';
-include_once '../../models/empleados.php';
+include_once '../../models/paquetes.php';
 
 // Instantiate DB & connect
 $database = new Database();

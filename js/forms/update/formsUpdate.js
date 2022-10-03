@@ -12,12 +12,14 @@ const modalEditEmpleado = document.getElementById('modalEditEmpleado');
 const editarCamion = document.getElementById('editarCamion');
 const modalDeleteCamion = document.getElementById('modalDeleteCamion');
 const modalEditCamion = document.getElementById('modalEditCamion');
-/**/
+/*remito container*/
+
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 const formCamionEdit = document.getElementById('formCamionEdit');
 
 let getIdEmploye;
 let getIdCamion;
+let getIdPaquete;
 
 /*empleado modals*/
 
@@ -107,3 +109,52 @@ modalEditCamion.addEventListener('click', ev => {
 		modalEditCamion.classList.add('hidden');
 	}
 });
+
+/* paquete modals */
+editarEmpleado.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Editar') {
+		/*
+		getIdEmploye = Number(
+			ev.target.parentElement.previousElementSibling.children[0].children[1]
+				.textContent
+		);
+		singleCall(
+			getIdEmploye,
+			modalEditEmpleado.children[0].children[1],
+			CALL_OPTION.SINGLE_EMPLOYE
+		);
+		modalEditEmpleado.classList.remove('hidden');
+		*/
+	} else if (ev.target.textContent === 'Borrar') {
+		/*
+		getIdEmploye = Number(
+			ev.target.parentElement.previousElementSibling.children[0].children[1]
+				.textContent
+		);
+		modalDeleteEmpleado.children[0].children[0].children[0].textContent =
+			getIdEmploye;
+		console.log(ev.target);
+		modalDeleteEmpleado.classList.remove('hidden');
+		*/
+	}
+});
+/*
+
+modalDeleteEmpleado.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Si') {
+		modalDeleteEmpleado.classList.add('hidden');
+		deleteEmpleado(getIdEmploye);
+	} else if (ev.target.textContent === 'No') {
+		modalDeleteEmpleado.classList.add('hidden');
+	}
+});
+
+modalEditEmpleado.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Guardar') {
+		modalEditEmpleado.classList.add('hidden');
+	} else if (ev.target.value === 'Cancelar') {
+		formEmpleadoEdit.reset();
+		modalEditEmpleado.classList.add('hidden');
+	}
+});
+*/

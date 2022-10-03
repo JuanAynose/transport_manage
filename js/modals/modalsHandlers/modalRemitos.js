@@ -2,7 +2,8 @@ import CardPackageEdit from '../../cardsHandlers/edit/CardPackageEdit.js';
 import { REMITO_OPTIONS } from '../../constants/remitoOptions.js';
 import { SITUATION_PACKAGE } from '../../constants/situationOptions.js';
 
-const modalMenuRemitos = document.getElementById('modalRemitos').children[0];
+const modalMenuRemitos =
+	document.getElementById('modalRemitos').children[0].children[0];
 const SortDataPackage = (childId, situationChild) => {
 	switch (situationChild) {
 		case SITUATION_PACKAGE.PREPARACION:

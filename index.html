@@ -1,407 +1,822 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="./assets/icons/logo.png" itemprop="image">
-    <link rel="stylesheet" href="css/styles.css">
-    <script defer type="module" src="./js/scripts.js"></script>
-    <script defer type="module" src="./js/forms/formsHandler.js"></script>
-    <script defer type="module" src="./js/forms/update/formsUpdate.js"></script>
-    <title>Pacco Veloce</title>
-</head>
-<body>
-    <nav class="nav__bar">
-        <div class="logo">
-            <h1 class="company__name">Pacco veloce</h1>
-            <img src="./assets/icons/logo.png" alt="icon logo" class="logo__img">
-        </div>
-        <button id="modal__button" class="profile">
-            <img src="./assets/icons/icons8-guest-64.png" alt="img profile" class="profile__img">
-        </button>
-        <div id="modal__profile" class="modal__profile hidden">
-            <div class="modal__profile__content">
-                <p>juan</p>
-                <p>fink</p>
-                <p>admin</p>
-            </div>
-        </div>
-        <div class="content__left menu__aside">
-            <ul id="menuList" class="menu__list">
-                <li class="item__menu"><a href="#" id="paqueButton" class="menu__button">Paqueteria</a></li>
-                <li class="item__menu"><a href="#" id="transButton" class="menu__button">Transporte</a></li>
-                <li class="item__menu"><a href="#" id="empleButton" class="menu__button">Empleados</a></li>
-                <li class="item__menu"><a href="#" id="salarioButton" class="menu__button">Salario</a></li>
-                <li class="item__menu"><a href="#" id="remitoButton" class="menu__button">Remito</a></li>
-                <li class="item__menu"><a href="#" id="ciudadButton" class="menu__button">Ciudades</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">              
-        <div id="contentRight" class="content__right">
-            <div id="modalPaqueteria" class="bg__modal hidden">
-                <div class="content__paqueteria modal__content">
-                    <div class="content-paqueteria__form__paqueteria">
-                        <div class="form-paqueteria__bg">
-                            <form id="formPaquete" class="formPaquete" method="post">
-                                <div class="formpaquete-datos__content">
-                                    <p>Ingresar datos del paquete</p>
-                                    <div class="form__element">
-                                        <p>Ingrese el nombre del paquete</p>
-                                        <div>
-                                            <a href="https://freefrontend.com/assets/img/css-forms/form-2021.png"> example</a>
-                                        <label for="desc_paquete">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="20" width="20"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path class="icon__form form-element__icon" d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg>
-                                        </label>
-                                            <input class="form__input" type="text" id="desc_paquete "name="desc_paquete" required placeholder="Nombre del paquete">
-                                        </div>                                        
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta content="./assets/icons/logo.png" itemprop="image" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<script defer type="module" src="./js/scripts.js"></script>
+		<script defer type="module" src="./js/forms/formsHandler.js"></script>
+		<script defer type="module" src="./js/forms/update/formsUpdate.js"></script>
+		<title>Pacco Veloce</title>
+	</head>
+	<body>
+		<nav class="nav__bar">
+			<div class="logo">
+				<h1 class="company__name">Pacco veloce</h1>
+				<img src="./assets/icons/logo.png" alt="icon logo" class="logo__img" />
+			</div>
+			<button id="modal__button" class="profile">
+				<img
+					src="./assets/icons/icons8-guest-64.png"
+					alt="img profile"
+					class="profile__img"
+				/>
+			</button>
+			<div id="modal__profile" class="modal__profile hidden">
+				<div class="modal__profile__content">
+					<p>juan</p>
+					<p>fink</p>
+					<p>admin</p>
+				</div>
+			</div>
+			<div class="content__left menu__aside">
+				<ul id="menuList" class="menu__list">
+					<li class="item__menu">
+						<a href="#" id="paqueButton" class="menu__button">Paqueteria</a>
+					</li>
+					<li class="item__menu">
+						<a href="#" id="transButton" class="menu__button">Transporte</a>
+					</li>
+					<li class="item__menu">
+						<a href="#" id="empleButton" class="menu__button">Empleados</a>
+					</li>
+					<li class="item__menu">
+						<a href="#" id="salarioButton" class="menu__button">Salario</a>
+					</li>
+					<li class="item__menu">
+						<a href="#" id="remitoButton" class="menu__button">Remito</a>
+					</li>
+					<li class="item__menu">
+						<a href="#" id="ciudadButton" class="menu__button">Ciudades</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container">
+			<div id="contentRight" class="content__right">
+				<div id="modalPaqueteria" class="bg__modal hidden">
+					<div class="content__paqueteria modal__content">
+						<div class="content-paqueteria__form__paqueteria">
+							<div class="form-paqueteria__bg">
+								<form id="formPaquete" class="formPaquete" method="post">
+									<div class="formpaquete-datos__content">
+										<p>Ingresar datos del paquete</p>
+										<div class="form__element">
+											<p>Ingrese el nombre del paquete</p>
+											<div>
+												<label for="desc_paquete">
+													<svg
+														xmlns="http://www.w3.org/2000/svg"
+														viewBox="0 0 448 512"
+														height="20"
+														width="20"
+													>
+														<!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+														<path
+															class="icon__form form-element__icon"
+															d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"
+														/>
+													</svg>
+												</label>
+												<input
+													class="form__input"
+													type="text"
+													id="desc_paquete "
+													name="desc_paquete"
+													required
+													placeholder="Nombre del paquete"
+												/>
+											</div>
+										</div>
+										<div class="form__element">
+											<label for="peso_paquete">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													viewBox="0 0 512 512"
+													height="20"
+													width="20"
+												>
+													<!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+													<path
+														class="icon__form form-element__icon"
+														d="M288 96c0 17.7-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32zm58.5 32c3.5-10 5.5-20.8 5.5-32c0-53-43-96-96-96s-96 43-96 96c0 11.2 1.9 22 5.5 32H120c-22 0-41.2 15-46.6 36.4l-72 288c-3.6 14.3-.4 29.5 8.7 41.2S33.2 512 48 512H464c14.8 0 28.7-6.8 37.8-18.5s12.3-26.8 8.7-41.2l-72-288C433.2 143 414 128 392 128H346.5z"
+													/>
+												</svg>
+											</label>
+											<input
+												class="form__input"
+												type="number"
+												id="peso_paquete "
+												name="peso_paquete"
+												required
+												placeholder="Peso del paquete"
+											/>
+										</div>
+										<div class="form__element">
+											<label for="tipo_paquete">Tipo de paquete</label>
+											<select id="tipo_paquete " name="tipo_paquete" required>
+												<option value="1">No Fragil</option>
+												<option value="2">Fragil</option>
+											</select>
+										</div>
+										<div class="form__element">
+											<label for="prioridad"
+												>Seleccion nivel de prioridad</label
+											>
+											<select id="prioridad " name="prioridad" required>
+												<option value="1">Baja</option>
+												<option value="2">Media</option>
+												<option value="3">Alta</option>
+											</select>
+										</div>
+									</div>
+									<div>
+										<p>Datos Destinatario uwu</p>
+										<div>
+											<label for="nombre_destinatario"
+												>Nombre del destinatario</label
+											>
+											<input
+												type="text"
+												name="nombre_destinatario"
+												id="nombre_destinatario"
+												required
+											/>
+										</div>
+										<div>
+											<label for="apellido_destinatario"
+												>Apellido del destinatario</label
+											>
+											<input
+												type="text"
+												name="apellido_destinatario"
+												id="apellido_destinatario"
+												required
+											/>
+										</div>
+										<div>
+											<label for="numero_destinatario"
+												>numero del destinatario</label
+											>
+											<input
+												type="number"
+												name="numero_destinatario"
+												id="numero_destinatario"
+												required
+											/>
+										</div>
+										<div>
+											<label for="dni_destinatario">dni del destinatario</label>
+											<input
+												type="number"
+												name="dni_destinatario"
+												id="dni_destinatario"
+												required
+											/>
+										</div>
+										<div>
+											<label for="direccion_destinatario"
+												>Direccion del destinatario</label
+											>
+											<input
+												type="text"
+												placeholder="ej:Peron 325"
+												id="direccion_destinatario"
+												name="direccion_destinatario"
+												required
+											/>
+										</div>
+										<div>
+											<label for="ciudad">Seleccione la ciudad</label>
+											<select
+												id="ciudad"
+												class="ciudad_form"
+												name="ciudad"
+												required
+											></select>
+										</div>
+									</div>
+									<input type="submit" value="Cargar paquete" />
+								</form>
+							</div>
+						</div>
+						<div class="content-paqueteria__form__envio">
+							<form id="formRemito">
+								<p>Realzar el envio del paquete</p>
+								<fieldset name="containerPackage" id="containerPackage">
+									<div id="enviosCardPackage" class="container__items--paquete">
+										<ul class="package-container"></ul>
+									</div>
+								</fieldset>
+								<fieldset id="containerCamion">
+									<ul id="enviosCardCamion" class="camion-container"></ul>
+								</fieldset>
+								<fieldset id="containerEmploye">
+									<ul id="enviosCardEmploye" class="empleado-container"></ul>
+								</fieldset>
+								<div>
+									<label for="envio_fecha_estimada"
+										>Ingrese fecha estimada</label
+									>
+									<input
+										type="date"
+										name="envio_fecha_estimada"
+										id="envio_fecha_estimada"
+									/>
+								</div>
+								<input type="submit" value="Cargar envio" />
+							</form>
+						</div>
+						<div id="editarPaquete"></div>
+					</div>
+				</div>
+				<div id="modalTransporte" class="bg__modal hidden">
+					<div class="content__transporte modal__content">
+						<form id="formTransporte" class="formTransporte" method="post">
+							<div>
+								<label for="capacidad_camion"
+									>Ingrese la capacidad del camion</label
+								>
+								<input
+									type="number"
+									name="capacidad_camion"
+									id="capacidad_camion"
+									required
+								/>
+							</div>
+							<div>
+								<label for="marca_camion">Ingrese la marca del camion</label>
+								<input
+									type="text"
+									id="marca_camion"
+									name="marca_camion"
+									required
+								/>
+							</div>
+							<div>
+								<label for="disponibilidad_camion"
+									>Seleccione la disponibilidad</label
+								>
+								<select
+									id="disponibilidad_camion"
+									name="disponibilidad_camion"
+									required
+								>
+									<option value="0">Ocupado</option>
+									<option selected value="1">Disponible</option>
+								</select>
+							</div>
+							<input type="submit" value="Cargar paquete" />
+						</form>
+						<div>
+							<ul
+								id="containerTranporte"
+								class="editar__camion camion-container"
+							></ul>
+						</div>
+						<div>
+							<ul
+								id="editarCamion"
+								class="editar__camion camion-container"
+							></ul>
+							<div id="modalDeleteCamion" class="bg__modal__delete hidden">
+								<div class="content__edit modal__content">
+									<p>
+										Estas seguro de que deseas Borrar el camion "<span>0</span>"
+									</p>
+									<div>
+										<button class="edit__button">Si</button>
+										<button class="edit__button">No</button>
+									</div>
+								</div>
+							</div>
+							<div id="modalEditCamion" class="bg__modal__delete hidden">
+								<div class="content__edit modal__content">
+									<p>editar camion uwu</p>
+									<form id="formCamionEdit" class="formTransporte">
+										<div>
+											<label for="id_camion">Id camion</label>
+											<input
+												type="text"
+												name="id_camion"
+												id="id_camion"
+												readonly
+											/>
+										</div>
+										<div>
+											<label for="capacidad_camion"
+												>Ingrese la capacidad del camion</label
+											>
+											<input
+												type="number"
+												name="capacidad_camion"
+												id="capacidad_camion"
+												required
+											/>
+										</div>
+										<div>
+											<label for="marca_camion"
+												>Ingrese la marca del camion</label
+											>
+											<input
+												type="text"
+												id="marca_camion"
+												name="marca_camion"
+												required
+											/>
+										</div>
+										<div>
+											<label for="disponibilidad_camion"
+												>Seleccione la disponibilidad</label
+											>
+											<select
+												id="disponibilidad_camion"
+												name="disponibilidad_camion"
+												required
+											>
+												<option value="0">Ocupado</option>
+												<option selected value="1">Disponible</option>
+											</select>
+										</div>
+										<input type="submit" value="Guardar" />
+										<input type="button" value="Cancelar" />
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="modalEmpleados" class="bg__modal hidden">
+					<div class="content__empleados modal__content">
+						<p>paquete, gena el empleado</p>
+						<form id="formEmpleado" class="formEmpleados" method="post">
+							<div>
+								<label for="dni_empleado">Ingrese el dni del empleado</label>
+								<input
+									type="number"
+									name="dni_empleado"
+									id="dni_empleado"
+									required
+								/>
+							</div>
+							<div>
+								<label for="apellido_empleado"
+									>Ingrese apellido del empleado</label
+								>
+								<input
+									type="text"
+									id="apellido_empleado"
+									name="apellido_empleado"
+									required
+								/>
+							</div>
+							<div>
+								<label for="telefono_empleado"
+									>Ingrese telefono del empleado</label
+								>
+								<input
+									type="number"
+									id="telefono_empleado"
+									name="telefono_empleado"
+									required
+								/>
+							</div>
+							<div>
+								<label for="direccion_empleado"
+									>Ingrese direccion del empleado</label
+								>
+								<input
+									type="text"
+									id="direccion_empleado"
+									name="direccion_empleado"
+									required
+								/>
+							</div>
+							<div>
+								<label for="ciudad">Seleccione la ciudad</label>
+								<select
+									id="ciudad"
+									class="ciudad_form"
+									name="ciudad"
+									required
+								></select>
+							</div>
+							<div>
+								<label for="fecha_ingreso_empleado"
+									>Ingrese fecha de ingreso del empleado</label
+								>
+								<input
+									type="date"
+									id="fecha_ingreso_empleado"
+									name="fecha_ingreso_empleado"
+									required
+								/>
+							</div>
+							<div>
+								<label for="fecha_nacimiento_empleado"
+									>Ingrese fecha de nacimiento del empleado</label
+								>
+								<input
+									type="date"
+									id="fecha_nacimiento_empleado"
+									name="fecha_nacimiento_empleado"
+									required
+								/>
+							</div>
+							<input type="submit" value="Cargar paquete" />
+						</form>
+						<div>
+							<ul
+								id="editarEmpleado"
+								class="editar__empleado empleado-container"
+							></ul>
+							<div id="modalDeleteEmpleado" class="bg__modal__delete hidden">
+								<div class="content__edit modal__content">
+									<p>
+										Estas seguro de que deseas Borrar el empleado
+										"<span>0</span>"
+									</p>
+									<div>
+										<button class="edit__button">Si</button>
+										<button class="edit__button">No</button>
+									</div>
+								</div>
+							</div>
+							<div id="modalEditEmpleado" class="bg__modal__delete hidden">
+								<div class="content__edit modal__content">
+									<p>editar empleado uwu</p>
+									<form id="formEmpleadoEdit" class="formEmpleados">
+										<div>
+											<label for="id_empleado">Id empleado</label>
+											<input
+												type="text"
+												name="id_empleado"
+												id="id_empleado"
+												readonly
+											/>
+										</div>
+										<div>
+											<label for="dni_empleado"
+												>Ingrese el dni del empleado</label
+											>
+											<input
+												type="number"
+												name="dni_empleado"
+												id="dni_empleado"
+												required
+											/>
+										</div>
+										<div>
+											<label for="apellido_empleado"
+												>Ingrese apellido del empleado</label
+											>
+											<input
+												type="text"
+												id="apellido_empleado"
+												name="apellido_empleado"
+												required
+											/>
+										</div>
+										<div>
+											<label for="telefono_empleado"
+												>Ingrese telefono del empleado</label
+											>
+											<input
+												type="number"
+												id="telefono_empleado"
+												name="telefono_empleado"
+												required
+											/>
+										</div>
+										<div>
+											<label for="direccion_empleado"
+												>Ingrese direccion del empleado</label
+											>
+											<input
+												type="text"
+												id="direccion_empleado"
+												name="direccion_empleado"
+												required
+											/>
+										</div>
+										<div>
+											<label for="ciudad">Seleccione la ciudad</label>
+											<select
+												id="ciudad "
+												class="ciudad_form"
+												name="ciudad"
+												required
+											></select>
+										</div>
+										<div>
+											<label for="fecha_ingreso_empleado"
+												>Ingrese fecha de ingreso del empleado</label
+											>
+											<input
+												type="date"
+												id="fecha_ingreso_empleado"
+												name="fecha_ingreso_empleado"
+												required
+											/>
+										</div>
+										<div>
+											<label for="fecha_nacimiento_empleado"
+												>Ingrese fecha de nacimiento del empleado</label
+											>
+											<input
+												type="date"
+												id="fecha_nacimiento_empleado"
+												name="fecha_nacimiento_empleado"
+												required
+											/>
+										</div>
+										<input type="submit" value="Cargar cambio" />
+										<input type="button" value="Cancelar" />
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="modalSalario" class="bg__modal hidden">
+					<div class="content__salario modal__content">
+						<form id="formSalario" method="post">
+							<div>
+								<label for="fecha_pago_salario">Ingrese la fecha de pago</label>
+								<input
+									type="date"
+									name="fecha_pago_salario"
+									id="fecha_pago_salario"
+									required
+								/>
+							</div>
+							<div>
+								<label for="cantidad_horas_salario"
+									>Ingrese la cantidad de horas realizadas</label
+								>
+								<input
+									type="number"
+									name="cantidad_horas_salario"
+									id="cantidad_horas_salario"
+									required
+								/>
+							</div>
+							<div>
+								<label for="precio_hora_salario"
+									>Ingrese el precio de cada hora</label
+								>
+								<input
+									type="number"
+									name="precio_hora_salario"
+									id="precio_hora_salario"
+									required
+								/>
+							</div>
+							<fieldset>
+								<p>Seleccione al empleado</p>
+								<article
+									id="formSalaryContent"
+									class="container__salario--options"
+								></article>
+							</fieldset>
+							<input type="submit" value="Realizar el pago" />
+						</form>
+						<div>
+							<p>Historial de pagos realizados</p>
+							<div class="container__pagos--salario" id="pagosRealizados"></div>
+						</div>
+					</div>
+				</div>
+				<div id="modalRemitos" class="bg__modal hidden">
+					<div class="content__remitos modal__content">
+						<div id="editarRemito" class="container__paquete">
+							<div class="container-paquete__item">preparasao</div>
+							<div class="container-paquete__item">en camino</div>
+							<div class="container-paquete__item">entregado</div>
+							<div class="container-paquete__item">en deposito</div>
+							<div class="container-paquete__item">perdidao</div>
+							<div class="container-paquete__item">canceladozz</div>
+						</div>
+						<div id="modalDeleteRemito" class="bg__modal__delete hidden">
+							<div class="content__edit modal__content">
+								<p>
+									Estas seguro de que deseas Borrar el remito "<span>0</span>"
+								</p>
+								<div>
+									<button class="edit__button">Si</button>
+									<button class="edit__button">No</button>
+								</div>
+							</div>
+						</div>
+						<div id="modalEditRemito" class="bg__modal__delete hidden">
+							<div class="content__edit modal__content">
+								<p>editar remito uwu</p>
+								<form id="formRemitoEdit" class="formRemitos">
+									<p>Ingresar datos del paquete</p>
+									<div class="form__element">
+										<p>Ingrese el nombre del paquete</p>
+										<div>
+											<a
+												href="https://freefrontend.com/assets/img/css-forms/form-2021.png"
+											>
+												example</a
+											>
+											<label for="desc_paquete">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													viewBox="0 0 448 512"
+													height="20"
+													width="20"
+												>
+													<!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+													<path
+														class="icon__form form-element__icon"
+														d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"
+													/>
+												</svg>
+											</label>
+											<input
+												class="form__input"
+												type="text"
+												id="desc_paquete "
+												name="desc_paquete"
+												required
+												placeholder="Nombre del paquete"
+											/>
+										</div>
+									</div>
+									<div class="form__element">
+										<label for="peso_paquete">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 512 512"
+												height="20"
+												width="20"
+											>
+												<!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+												<path
+													class="icon__form form-element__icon"
+													d="M288 96c0 17.7-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32zm58.5 32c3.5-10 5.5-20.8 5.5-32c0-53-43-96-96-96s-96 43-96 96c0 11.2 1.9 22 5.5 32H120c-22 0-41.2 15-46.6 36.4l-72 288c-3.6 14.3-.4 29.5 8.7 41.2S33.2 512 48 512H464c14.8 0 28.7-6.8 37.8-18.5s12.3-26.8 8.7-41.2l-72-288C433.2 143 414 128 392 128H346.5z"
+												/>
+											</svg>
+										</label>
+										<input
+											class="form__input"
+											type="number"
+											id="peso_paquete "
+											name="peso_paquete"
+											required
+											placeholder="Peso del paquete"
+										/>
+									</div>
+									<div class="form__element">
+										<label for="tipo_paquete">Tipo de paquete</label>
+										<select id="tipo_paquete " name="tipo_paquete" required>
+											<option value="1">No Fragil</option>
+											<option value="2">Fragil</option>
+										</select>
+									</div>
+									<div class="form__element">
+										<label for="prioridad">Seleccion nivel de prioridad</label>
+										<select id="prioridad " name="prioridad" required>
+											<option value="1">Baja</option>
+											<option value="2">Media</option>
+											<option value="3">Alta</option>
+										</select>
+									</div>
+									<div>
+										<p>Datos Destinatario uwu</p>
+										<div>
+											<label for="nombre_destinatario"
+												>Nombre del destinatario</label
+											>
+											<input
+												type="text"
+												name="nombre_destinatario"
+												id="nombre_destinatario"
+												required
+											/>
+										</div>
+										<div>
+											<label for="apellido_destinatario"
+												>Apellido del destinatario</label
+											>
+											<input
+												type="text"
+												name="apellido_destinatario"
+												id="apellido_destinatario"
+												required
+											/>
+										</div>
+										<div>
+											<label for="numero_destinatario"
+												>numero del destinatario</label
+											>
+											<input
+												type="number"
+												name="numero_destinatario"
+												id="numero_destinatario"
+												required
+											/>
+										</div>
+										<div>
+											<label for="dni_destinatario">dni del destinatario</label>
+											<input
+												type="number"
+												name="dni_destinatario"
+												id="dni_destinatario"
+												required
+											/>
+										</div>
+										<div>
+											<label for="direccion_destinatario"
+												>Direccion del destinatario</label
+											>
+											<input
+												type="text"
+												placeholder="ej:Peron 325"
+												id="direccion_destinatario"
+												name="direccion_destinatario"
+												required
+											/>
+										</div>
+										<div>
+											<label for="ciudad">Seleccione la ciudad</label>
+											<select
+												id="ciudad"
+												class="ciudad_form"
+												name="ciudad"
+												required
+											></select>
+										</div>
+									</div>
 
-                                    </div>                                    
-                                    <div class="form__element">                                        
-                                            <label for="peso_paquete">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="20" width="20"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path class="icon__form form-element__icon" d="M288 96c0 17.7-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32zm58.5 32c3.5-10 5.5-20.8 5.5-32c0-53-43-96-96-96s-96 43-96 96c0 11.2 1.9 22 5.5 32H120c-22 0-41.2 15-46.6 36.4l-72 288c-3.6 14.3-.4 29.5 8.7 41.2S33.2 512 48 512H464c14.8 0 28.7-6.8 37.8-18.5s12.3-26.8 8.7-41.2l-72-288C433.2 143 414 128 392 128H346.5z"/></svg>
-                                            </label>
-                                            <input class="form__input" type="number" id="peso_paquete "name="peso_paquete" required placeholder="Peso del paquete">
-                                    </div>
-                                    <div class="form__element">
-                                        <label for="tipo_paquete">Tipo de paquete</label>
-                                        <select id="tipo_paquete "name="tipo_paquete" required>
-                                            <option value="1">No Fragil</option>
-                                            <option value="2">Fragil</option>
-                                        </select>
-                                    </div>
-                                    <div class="form__element">
-                                        <label for="prioridad">Seleccion nivel de prioridad</label>
-                                        <select id="prioridad "name="prioridad" required>
-                                            <option value="1">Baja</option>
-                                            <option value="2">Media</option>
-                                            <option value="3">Alta</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>Datos Destinatario uwu</p>
-                                    <div>
-                                        <label for="nombre_destinatario">Nombre del destinatario</label>
-                                        <input type="text" name="nombre_destinatario" id="nombre_destinatario" required>
-                                    </div>
-                                    <div>
-                                        <label for="apellido_destinatario">Apellido del destinatario</label>
-                                        <input type="text" name="apellido_destinatario" id="apellido_destinatario" required>
-                                    </div>
-                                    <div>
-                                        <label for="numero_destinatario">numero del destinatario</label>
-                                        <input type="number" name="numero_destinatario" id="numero_destinatario" required>
-                                    </div>
-                                    <div>
-                                        <label for="dni_destinatario">dni del destinatario</label>
-                                        <input type="number" name="dni_destinatario" id="dni_destinatario" required>
-                                    </div>
-                                    <div>
-                                        <label for="direccion_destinatario">Direccion del destinatario</label>
-                                        <input type="text" placeholder="ej:Peron 325" id="direccion_destinatario" name="direccion_destinatario" required> 
-                                    </div>
-                                    <div>
-                                        <label for="ciudad">Seleccione la ciudad</label>
-                                        <select id="ciudad" class="ciudad_form" name="ciudad" required>                                            
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                <input type="submit" value="Cargar paquete">
-                            </form>
-                        </div>
-                    </div>
-                    <div class="content-paqueteria__form__envio">
-                        <form id="formRemito">
-                            <p>Realzar el envio del paquete</p>
-                            <fieldset name="containerPackage" id="containerPackage">
-                                <div id="enviosCardPackage" class="container__items--paquete">
-                                    <ul class="package-container">
-                                    </ul>   
-                                </div>
-                            </fieldset>
-                            <fieldset id="containerCamion">
-                                <ul id="enviosCardCamion" class="camion-container">                                
-        
-                                </ul>
-                            </fieldset>
-                            <fieldset id="containerEmploye">
-                                <ul id="enviosCardEmploye" class="empleado-container">
-                                    
-                                </ul>
-                            </fieldset>
-                            <div>
-                                <label for="envio_fecha_estimada">Ingrese fecha estimada</label>
-                                <input type="date" name="envio_fecha_estimada" id="envio_fecha_estimada">
-                            </div>
-                            <input type="submit" value="Cargar envio">                            
-                        </form>
-                    </div>
-                    <div id="editarPaquete">
-
-                    </div>
-                </div>
-            </div>
-            <div id="modalTransporte" class="bg__modal hidden">
-                <div class="content__transporte modal__content">
-                    <form id="formTransporte" class="formTransporte" method="post">
-                        <div>
-                            <label for="capacidad_camion">Ingrese la capacidad del camion</label>
-                            <input type="number" name="capacidad_camion" id="capacidad_camion" required>
-                        </div>
-                        <div>
-                            <label for="marca_camion">Ingrese la marca del camion</label>
-                            <input type="text" id="marca_camion" name="marca_camion" required>
-                        </div>
-                        <div>
-                            <label for="disponibilidad_camion">Seleccione la disponibilidad</label>
-                            <select id="disponibilidad_camion"name="disponibilidad_camion" required>
-                                <option value="0">Ocupado</option>
-                                <option selected value="1">Disponible</option>
-                            </select>
-                        </div>                        
-                        <input type="submit" value="Cargar paquete">
-                    </form>
-                    <div>
-                        <ul id="containerTranporte" class="editar__camion camion-container">                                
-        
-                        </ul>
-                    </div>
-                    <div>
-                        <ul id="editarCamion" class="editar__camion camion-container">                                
-        
-                        </ul>
-                        <div id="modalDeleteCamion" class="bg__modal__delete hidden">
-                            <div class="content__edit modal__content">
-                                <p>Estas seguro de que deseas Borrar el camion "<span>0</span>" </p>
-                                <div>
-                                    <button class="edit__button">Si</button>
-                                    <button class="edit__button">No</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="modalEditCamion" class="bg__modal__delete hidden">
-                            <div class="content__edit modal__content">
-                               <p>editar camion uwu</p>
-                               <form id="formCamionEdit" class="formTransporte">
-                                <div>
-                                    <label for="id_camion">Id camion</label>
-                                    <input type="text" name="id_camion" id="id_camion" readonly>
-                                </div>
-                                <div>
-                                    <label for="capacidad_camion">Ingrese la capacidad del camion</label>
-                                    <input type="number" name="capacidad_camion" id="capacidad_camion" required>
-                                </div>
-                                <div>
-                                    <label for="marca_camion">Ingrese la marca del camion</label>
-                                    <input type="text" id="marca_camion" name="marca_camion" required>
-                                </div>
-                                <div>
-                                    <label for="disponibilidad_camion">Seleccione la disponibilidad</label>
-                                    <select id="disponibilidad_camion"name="disponibilidad_camion" required>
-                                        <option value="0">Ocupado</option>
-                                        <option selected value="1">Disponible</option>
-                                    </select>
-                                </div>                        
-                                <input type="submit" value="Guardar">
-                                <input type="button" value="Cancelar">
-                            </form>
-                            </div>
-                        </div>
-                    </div>                    
-                </div>
-            </div>
-            <div id="modalEmpleados" class="bg__modal hidden">
-                <div class="content__empleados modal__content">
-                    <p>paquete, gena el empleado</p>
-                    <form id="formEmpleado" class="formEmpleados" method="post">
-                        <div>
-                            <label for="dni_empleado">Ingrese el dni del empleado</label>
-                            <input type="number" name="dni_empleado" id="dni_empleado" required>
-                        </div>
-                        <div>
-                            <label for="apellido_empleado">Ingrese apellido del empleado</label>
-                            <input type="text" id="apellido_empleado" name="apellido_empleado" required>
-                        </div>
-                        <div>
-                            <label for="telefono_empleado">Ingrese telefono del empleado</label>
-                            <input type="number" id="telefono_empleado" name="telefono_empleado" required>
-                        </div>
-                        <div>
-                            <label for="direccion_empleado">Ingrese direccion del empleado</label>
-                            <input type="text" id="direccion_empleado" name="direccion_empleado" required>
-                        </div>
-                        <div>
-                            <label for="ciudad">Seleccione la ciudad</label>
-                            <select id="ciudad" class="ciudad_form" name="ciudad" required>
-        
-                            </select>
-                        </div>
-                        <div>
-                            <label for="fecha_ingreso_empleado">Ingrese fecha de ingreso del empleado</label>
-                            <input type="date" id="fecha_ingreso_empleado" name="fecha_ingreso_empleado" required>
-                        </div>
-                        <div>
-                            <label for="fecha_nacimiento_empleado">Ingrese fecha de nacimiento del empleado</label>
-                            <input type="date" id="fecha_nacimiento_empleado" name="fecha_nacimiento_empleado" required>
-                        </div>
-                        <input type="submit" value="Cargar paquete">
-                    </form>
-                    <div>
-                        <ul id="editarEmpleado" class="editar__empleado empleado-container">                                
-        
-                        </ul>
-                        <div id="modalDeleteEmpleado" class="bg__modal__delete hidden">
-                            <div class="content__edit modal__content">
-                                <p>Estas seguro de que deseas Borrar el empleado "<span>0</span>" </p>
-                                <div>
-                                    <button class="edit__button">Si</button>
-                                    <button class="edit__button">No</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="modalEditEmpleado" class="bg__modal__delete hidden">
-                            <div class="content__edit modal__content">
-                               <p>editar empleado uwu</p>
-                               <form id="formEmpleadoEdit" class="formEmpleados">
-                                <div>
-                                    <label for="id_empleado">Id empleado</label>
-                                    <input type="text" name="id_empleado" id="id_empleado" readonly>
-                                </div>
-                                <div>
-                                    <label for="dni_empleado">Ingrese el dni del empleado</label>
-                                    <input type="number" name="dni_empleado" id="dni_empleado" required>
-                                </div>
-                                <div>
-                                    <label for="apellido_empleado">Ingrese apellido del empleado</label>
-                                    <input type="text" id="apellido_empleado" name="apellido_empleado" required>
-                                </div>
-                                <div>
-                                    <label for="telefono_empleado">Ingrese telefono del empleado</label>
-                                    <input type="number" id="telefono_empleado" name="telefono_empleado" required>
-                                </div>
-                                <div>
-                                    <label for="direccion_empleado">Ingrese direccion del empleado</label>
-                                    <input type="text" id="direccion_empleado" name="direccion_empleado" required>
-                                </div>
-                                <div>
-                                    <label for="ciudad">Seleccione la ciudad</label>
-                                    <select id="ciudad " class="ciudad_form" name="ciudad" required>
-                                        
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="fecha_ingreso_empleado">Ingrese fecha de ingreso del empleado</label>
-                                    <input type="date" id="fecha_ingreso_empleado" name="fecha_ingreso_empleado" required>
-                                </div>
-                                <div>
-                                    <label for="fecha_nacimiento_empleado">Ingrese fecha de nacimiento del empleado</label>
-                                    <input type="date" id="fecha_nacimiento_empleado" name="fecha_nacimiento_empleado" required>
-                                </div>
-                                <input type="submit" value="Cargar cambio">
-                                <input type="button" value="Cancelar">
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="modalSalario" class="bg__modal hidden">
-                <div class="content__salario modal__content">
-                    <form id="formSalario" method="post">
-                        <div>
-                            <label for="fecha_pago_salario">Ingrese la fecha de pago</label>
-                            <input type="date" name="fecha_pago_salario" id="fecha_pago_salario" required>
-                        </div>
-                        <div>
-                            <label for="cantidad_horas_salario">Ingrese la cantidad de horas realizadas</label>
-                            <input type="number" name="cantidad_horas_salario" id="cantidad_horas_salario" required>
-                        </div>
-                        <div>
-                            <label for="precio_hora_salario">Ingrese el precio de cada hora</label>
-                            <input type="number" name="precio_hora_salario" id="precio_hora_salario" required>
-                        </div>
-                        <fieldset>
-                            <p>Seleccione al empleado</p>
-                            <article id="formSalaryContent" class="container__salario--options">
-                            </article>
-                        </fieldset>
-                        <input type="submit" value="Realizar el pago">
-                      </form>                      
-                      <div>
-                        <p>Historial de pagos realizados</p>
-                        <div  class="container__pagos--salario" id="pagosRealizados">
-                        
-                    </div>                        
-
-                      </div>
-                </div>
-            </div>
-            <div id="modalRemitos" class="bg__modal hidden">                
-                <div class="content__remitos modal__content">
-                    <div class="container__paquete">
-                        preparasao
-                    </div>
-                    <div class="container__paquete">
-                        en camino
-                    </div>
-                    <div class="container__paquete">
-                        entregado
-                    </div>
-                    <div class="container__paquete">
-                        en deposito
-                    </div>
-                    <div class="container__paquete">
-                        perdidao
-                    </div>
-                    <div class="container__paquete">
-                        canceladozz
-                    </div>
-                </div>
-            </div>
-            <div id="modalCiudades" class="bg__modal hidden">
-                <div class="content__ciudades modal__content">
-                    <div>
-                        <form id="formCiudadesProvincia">
-                            <div>
-                                <label for="nombre_provincia">Ingresar provincia</label>
-                                <input type="text" name="nombre_provincia" id="nombre_provincia" required>
-                            </div>
-                            <input type="submit" value="Agregar provincia">
-                        </form>
-                        <form id="formCiudadesCiudad">
-                            <div>
-                                <label for="nombre_ciudad">Ingresar ciudad</label>
-                                <input type="text" name="nombre_ciudad" id="nombre_ciudad" required>
-                            </div>
-                            <div>
-                                <label for="">Codigo Postal</label>
-                                <input type="number" name="cod_postal" id="cod_postal" required>
-                            </div>
-                            <div>
-                                <select name="cod_provinca" id="cod_provinca">
-                                    <option value="1">San nicola</option>                                
-                                </select>
-                            </div>
-                            <input type="submit" value="Agregar ciudad">
-                        </form>
-                    </div>
-                    <div>
-                        <ul id="editarProvincia" class="editar__provincia provincia-container">
-                            
-                        </ul>
-                    </div>
-                    <div>
-                        <ul id="editarCiudad" class="editar__ciudad ciudad-container">
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-</body>
+									<input type="submit" value="Cargar cambio" />
+									<input type="button" value="Cancelar" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="modalCiudades" class="bg__modal hidden">
+					<div class="content__ciudades modal__content">
+						<div>
+							<form id="formCiudadesProvincia">
+								<div>
+									<label for="nombre_provincia">Ingresar provincia</label>
+									<input
+										type="text"
+										name="nombre_provincia"
+										id="nombre_provincia"
+										required
+									/>
+								</div>
+								<input type="submit" value="Agregar provincia" />
+							</form>
+							<form id="formCiudadesCiudad">
+								<div>
+									<label for="nombre_ciudad">Ingresar ciudad</label>
+									<input
+										type="text"
+										name="nombre_ciudad"
+										id="nombre_ciudad"
+										required
+									/>
+								</div>
+								<div>
+									<label for="">Codigo Postal</label>
+									<input
+										type="number"
+										name="cod_postal"
+										id="cod_postal"
+										required
+									/>
+								</div>
+								<div>
+									<select name="cod_provinca" id="cod_provinca">
+										<option value="1">San nicola</option>
+									</select>
+								</div>
+								<input type="submit" value="Agregar ciudad" />
+							</form>
+						</div>
+						<div>
+							<ul
+								id="editarProvincia"
+								class="editar__provincia provincia-container"
+							></ul>
+						</div>
+						<div>
+							<ul
+								id="editarCiudad"
+								class="editar__ciudad ciudad-container"
+							></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

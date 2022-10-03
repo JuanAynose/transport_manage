@@ -15,7 +15,6 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 	const getPaquete = await getPaqueteAllDetails(id_selected);
 	switch (call_name) {
 		case CALL_OPTION.SINGLE_EMPLOYE:
-			console.log('anashei');
 			childSelected.children[0].children[1].value = id_selected;
 			childSelected.children[1].children[1].value = getSingleEmploye.dni;
 			childSelected.children[2].children[1].value = getSingleEmploye.apellido;
@@ -47,7 +46,9 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 			childSelected.children[5].children[4].children[1].value = getPaquete[1].dni;
 			childSelected.children[5].children[5].children[1].value = getPaquete[1].direccion;
 			childSelected.children[5].children[6].children[1].value = getPaquete[1].ciudad;
-
+			childSelected.children[5].children[7].children[0].value = getPaquete[0].cod_paquete;
+			childSelected.children[5].children[7].children[1].value = getPaquete[1].id_destinatario;
+			childSelected.children[5].children[7].children[2].value = getPaquete[2].cod_paque;
 			break;
 	}
 };

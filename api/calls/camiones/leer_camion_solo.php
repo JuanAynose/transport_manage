@@ -25,7 +25,7 @@
     'id_camion' => $camionById->id_camion,
       'capacidad' => $camionById->capacidad,
       'marca' => $camionById->marca,
-      'disponibilidad' => $camionById->disponibilidad,
+      'disponibilidad' => $camionById->disponibilidad
 );
 print_r(json_encode($camion_item));
 

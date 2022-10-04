@@ -54,4 +54,18 @@ class Remitos
     printf("Error: %s.\n", $stmt->error);
     return false;
   }
+
+  public function leerRemitos()
+  {
+    // Create query
+    $query = '';
+
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+
+    // Execute query
+    $stmt->execute();
+
+    return $stmt;
+  }
 }

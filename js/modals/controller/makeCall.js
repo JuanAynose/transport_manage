@@ -27,6 +27,7 @@ const containerEmpleado = document.getElementById('enviosCardEmploye');
 const contentCamionesDisponibles = document.getElementById(
 	'contentCamionesDisponibles'
 );
+const containerRemitos = document.getElementById('containerRemitos');
 const containerTranporte = document.getElementById('containerTranporte');
 const editarCamion = document.getElementById('editarCamion');
 const editarEmpleado = document.getElementById('editarEmpleado');
@@ -42,7 +43,7 @@ const makeCall = async indenfyNumber => {
 	const getTrucks = await getCamiones();
 	const getCamionesDispo = await getCamionesDisponibles();
 	const getCiudad = await getCiudades();
-	
+
 	CardCiudadListManager(getCiudad, ciudadList);
 
 	switch (indenfyNumber) {

@@ -599,6 +599,7 @@
 							<div class="container-paquete__item">perdidao</div>
 							<div class="container-paquete__item">canceladozz</div>
 						</div>
+						<div id="containerRemitos"></div>
 						<div id="modalDeleteRemito" class="bg__modal__delete hidden">
 							<div class="content__edit modal__content">
 								<p>
@@ -746,35 +747,41 @@
 											<label for="ciudad">Seleccione la ciudad</label>
 											<select
 												id="ciudad"
-												class="ciudadList ciudad_form "
+												class="ciudadList ciudad_form"
 												name="ciudad"
 												required
 											></select>
 										</div>
 										<div>
-											<label for="situacionPaquete">Seleccione el nivel de situacion</label>
+											<label for="situacionPaquete"
+												>Seleccione el nivel de situacion</label
+											>
 											<select
-												id="situacionPaquete"												
+												id="situacionPaquete"
 												name="situacionPaquete"
 												required
 											>
-											<option value="1">Preparacion</option>
-											<option value="2">En camino</option>
-											<option value="3">Entregado</option>
-											<option value="4">En deposito</option>
-											<option value="5">Perdido</option>
-											<option value="6">Cancelado</option>
-										</select>
+												<option value="1">Preparacion</option>
+												<option value="2">En camino</option>
+												<option value="3">Entregado</option>
+												<option value="4">En deposito</option>
+												<option value="5">Perdido</option>
+												<option value="6">Cancelado</option>
+											</select>
 										</div>
 										<div class="hidden">
-											<input type="number" id="ID_PAQUETE" name="ID_PAQUETE">
-											<input type="number" id="ID_DESTINATARIO" name="ID_DESTINATARIO">
-											<input type="number" id="ID_DETALLE" name="ID_DETALLE">
+											<input type="number" id="ID_PAQUETE" name="ID_PAQUETE" />
+											<input
+												type="number"
+												id="ID_DESTINATARIO"
+												name="ID_DESTINATARIO"
+											/>
+											<input type="number" id="ID_DETALLE" name="ID_DETALLE" />
 										</div>
 									</div>
 
 									<input type="submit" value="Cargar cambio" />
-									<input type="button" value="Cancelar" />									
+									<input type="button" value="Cancelar" />
 								</form>
 							</div>
 						</div>

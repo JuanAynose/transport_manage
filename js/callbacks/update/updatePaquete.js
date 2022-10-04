@@ -39,7 +39,7 @@ export const updatePaquete = data => {
 		});
 
 		const requestOptions = {
-			method: 'POST',
+			method: 'PUT',
 			headers: myHeaders,
 			body: raw,
 			redirect: 'follow'
@@ -53,5 +53,5 @@ export const updatePaquete = data => {
 			.then(result => console.log(result))
 			.catch(error => console.log('error', error));
 	};
-	//sendShit();
+	sendShit();
 };

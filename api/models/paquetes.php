@@ -238,7 +238,6 @@ class Paquetes
       situacion =:situacion_paquete
       WHERE id_paquete = :id_paquete';
     print_r($data);
-    echo $query;
 
     $this->cod_paquete = htmlspecialchars(strip_tags($this->cod_paquete));
     $this->direccion_destinatario = htmlspecialchars(strip_tags($this->direccion_destinatario));
@@ -285,7 +284,6 @@ class Paquetes
       direccion = :direccion_destinatario,
       ciudad =:ciudad_destinatario
       WHERE id_destinatario = :id_destinatario';
-    echo $query;
 
 
     $this->id_destinatario = htmlspecialchars(strip_tags($this->id_destinatario));
@@ -335,10 +333,9 @@ class Paquetes
       descrip = :nombre_paquete,
       tipo_producto = :tipo_paquete,
       peso = :peso_paquete
-      WHERE cod_paque = :cod_paque';
+      WHERE cod_paque = :cod_paquete';
 
-
-    $this->cod_paque = htmlspecialchars(strip_tags($this->cod_paque));
+    $this->cod_paquete = htmlspecialchars(strip_tags($this->cod_paquete));
     $this->nombre_paquete = htmlspecialchars(strip_tags($this->nombre_paquete));
     $this->tipo_paquete = htmlspecialchars(strip_tags($this->tipo_paquete));
     $this->peso_paquete = htmlspecialchars(strip_tags($this->peso_paquete));
@@ -346,7 +343,13 @@ class Paquetes
     // Prepare statement
     $stmt = $this->conn->prepare($query);
 
-    $stmt->bindParam(':cod_paque', $this->cod_paque);
+    $this->cod_paquete = $data->cod_paquete;
+    $this->nombre_paquete = $data->nombre_paquete;
+    $this->tipo_paquete = $data->tipo_paquete;
+    $this->peso_paquete = $data->peso_paquete;
+
+
+    $stmt->bindParam(':cod_paquete', $this->cod_paquete);
     $stmt->bindParam(':nombre_paquete', $this->nombre_paquete);
     $stmt->bindParam(':tipo_paquete', $this->tipo_paquete);
     $stmt->bindParam(':peso_paquete', $this->peso_paquete);
@@ -364,22 +367,4 @@ class Paquetes
 
     return false;
   }
-  /*
-  {
-    "apellido_destinatario": "picapiedra",
-"ciudad_destinatario": 1,
-"cod_paquete": 11,
-"direccion_destinatario": "anae 23",
-"dni_destinatario": 4234230,
-"id_destinatario": 10,
-"id_paquete": 11,
-"nivel_prioridad": 2,
-"nombre_destinatario": "pedro",
-"nombre_paquete": "anashe",
-"numero_destinatario": 4324230,
-"peso_paquete": 4,
-"situacion_paquete": 1,
-"tipo_paquete": 2
-}
-  */
 }

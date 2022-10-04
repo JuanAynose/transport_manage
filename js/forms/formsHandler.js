@@ -26,13 +26,15 @@ const enviosCardPackage = document.getElementById('enviosCardPackage');
 formSalario.addEventListener('submit', e => {
 	e.preventDefault();
 	const formData = new FormData(formSalario);
-	const normalizeSalario = Number(formData.get('cantidad_horas_salario')) * Number(formData.get('precio_hora_salario'));
+	const normalizeSalario =
+		Number(formData.get('cantidad_horas_salario')) *
+		Number(formData.get('precio_hora_salario'));
 	postSalario({
 		fecha_pago_salario: formData.get('fecha_pago_salario'),
 		cantidad_horas_salario: Number(formData.get('cantidad_horas_salario')),
 		precio_hora_salario: Number(formData.get('precio_hora_salario')),
 		id_empleado: formData.get('containerEmploye'),
-		sueldo : normalizeSalario,
+		sueldo: normalizeSalario
 	});
 	formSalario.reset();
 	makeCall(MODAL_OPTIONS.SALARIO);
@@ -83,7 +85,7 @@ formRemito.addEventListener('submit', e => {
 			id_paquete: childSelected.children[1].value,
 			nombre_destinatario: childSelected.children[0].value
 		});
-		console.log(childSelected)
+		console.log(childSelected);
 	}
 
 	const getIdData = formData.get('containerPackage');
@@ -196,9 +198,9 @@ formRemitoEdit.addEventListener('submit', e => {
 		direccion_destinatario: formData.get('direccion_destinatario'),
 		situacion_paquete: formData.get('situacionPaquete'),
 		id_destinatario: formData.get('ID_DESTINATARIO'),
-		id_paquete : formData.get('ID_PAQUETE'),
-		cod_paquete : formData.get('ID_DETALLE')
+		id_paquete: formData.get('ID_PAQUETE'),
+		cod_paquete: formData.get('ID_DETALLE')
 	});
-	//makeCall(MODAL_OPTIONS.TRANSPORTE);
-	//modalEditRemito.classList.add('hidden');
+	makeCall(MODAL_OPTIONS.TRANSPORTE);
+	modalEditRemito.classList.add('hidden');
 });

@@ -4,7 +4,6 @@ export const postRemito = data => {
 		nombre_camion,
 		fecha_entrega,
 		id_paquete,
-		nombre_paquete,
 		nombre_destinatario,
 		fecha_emision
 	} = data;
@@ -20,7 +19,6 @@ export const postRemito = data => {
 			nombre_camion,
 			fecha_entrega,
 			id_paquete,
-			nombre_paquete,
 			nombre_destinatario,
 			fecha_emision
 		});

@@ -26,11 +26,13 @@ const enviosCardPackage = document.getElementById('enviosCardPackage');
 formSalario.addEventListener('submit', e => {
 	e.preventDefault();
 	const formData = new FormData(formSalario);
+	const normalizeSalario = Number(formData.get('cantidad_horas_salario')) * Number(formData.get('precio_hora_salario'));
 	postSalario({
 		fecha_pago_salario: formData.get('fecha_pago_salario'),
 		cantidad_horas_salario: Number(formData.get('cantidad_horas_salario')),
 		precio_hora_salario: Number(formData.get('precio_hora_salario')),
-		id_empleado: formData.get('containerEmploye')
+		id_empleado: formData.get('containerEmploye'),
+		sueldo : normalizeSalario,
 	});
 	formSalario.reset();
 	makeCall(MODAL_OPTIONS.SALARIO);
@@ -79,9 +81,9 @@ formRemito.addEventListener('submit', e => {
 		normalizeFormData.push({
 			id: i,
 			id_paquete: childSelected.children[1].value,
-			nombre_paquete: childSelected.children[2].value,
-			nombre_destinatario: childSelected.children[3].value
+			nombre_destinatario: childSelected.children[0].value
 		});
+		console.log(childSelected)
 	}
 
 	const getIdData = formData.get('containerPackage');
@@ -94,8 +96,7 @@ formRemito.addEventListener('submit', e => {
 		postRemito({
 			fecha_emision: margeDate,
 			id_paquete: normalizeFormData[getIdData].id_paquete,
-			nombre_paquete: normalizeFormData[getIdData].nombre_paquete,
-			nombre_empleado: formData.get('nameEmploye'),
+			nombre_empleado: formData.get('containerEmploye'),
 			nombre_destinatario: normalizeFormData[getIdData].nombre_destinatario,
 			nombre_camion: formData.get('containerCamion'),
 			fecha_entrega: formData.get('envio_fecha_estimada')
@@ -108,16 +109,15 @@ formRemito.addEventListener('submit', e => {
 			postRemito({
 				fecha_emision: margeDate,
 				id_paquete: normalizeFormData[itemTest].id_paquete,
-				nombre_paquete: normalizeFormData[itemTest].nombre_paquete,
-				nombre_empleado: formData.get('nameEmploye'),
+				nombre_empleado: formData.get('containerEmploye'),
 				nombre_destinatario: normalizeFormData[itemTest].nombre_destinatario,
 				nombre_camion: formData.get('containerCamion'),
 				fecha_entrega: formData.get('envio_fecha_estimada')
 			});
 		}
 	}
-	formRemito.reset();
-	makeCall(MODAL_OPTIONS.PAQUETERIA);
+	//formRemito.reset();
+	//makeCall(MODAL_OPTIONS.PAQUETERIA);
 });
 
 /* open the modal of "ingresar empleado" uwu */

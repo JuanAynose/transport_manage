@@ -237,7 +237,8 @@ class Paquetes
       prioridad= :nivel_prioridad,
       situacion =:situacion_paquete
       WHERE id_paquete = :id_paquete';
-
+    print_r($data);
+    echo $query;
 
     $this->cod_paquete = htmlspecialchars(strip_tags($this->cod_paquete));
     $this->direccion_destinatario = htmlspecialchars(strip_tags($this->direccion_destinatario));
@@ -282,9 +283,9 @@ class Paquetes
       cel = :numero_destinatario,
       dni = :dni_destinatario,
       direccion = :direccion_destinatario,
-      ciudad =ciudad_destinatario:
+      ciudad =:ciudad_destinatario
       WHERE id_destinatario = :id_destinatario';
-
+    echo $query;
 
 
     $this->id_destinatario = htmlspecialchars(strip_tags($this->id_destinatario));
@@ -334,7 +335,7 @@ class Paquetes
       descrip = :nombre_paquete,
       tipo_producto = :tipo_paquete,
       peso = :peso_paquete
-      WHERE detalle_paquete = :cod_paque';
+      WHERE cod_paque = :cod_paque';
 
 
     $this->cod_paque = htmlspecialchars(strip_tags($this->cod_paque));

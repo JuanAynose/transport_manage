@@ -3,7 +3,8 @@ export const postSalario = data => {
 		fecha_pago_salario,
 		cantidad_horas_salario,
 		precio_hora_salario,
-		id_empleado
+		id_empleado,
+		sueldo
 	} = data;
 	console.log(data);
 	const sendShit = () => {
@@ -14,7 +15,8 @@ export const postSalario = data => {
 			fecha_pago_salario,
 			cantidad_horas_salario,
 			precio_hora_salario,
-			id_empleado
+			id_empleado,
+			sueldo
 		});
 
 		const requestOptions = {

@@ -16,7 +16,7 @@ export const updatePaquete = data => {
 		situacion_paquete
 	} = data;
 
-	console.log(data)
+	console.log(data);
 	const sendShit = () => {
 		const myHeaders = new Headers();
 		myHeaders.append('Content-Type', 'application/json');
@@ -39,14 +39,14 @@ export const updatePaquete = data => {
 		});
 
 		const requestOptions = {
-			method: 'PUT',
+			method: 'PATCH',
 			headers: myHeaders,
 			body: raw,
 			redirect: 'follow'
 		};
 
 		fetch(
-			'http://localhost/transport_manage/api/calls/paquetes/ingresar_paquete.php',
+			'http://localhost/transport_manage/api/calls/paquetes/update_paquete.php',
 			requestOptions
 		)
 			.then(response => response.text())

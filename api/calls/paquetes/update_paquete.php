@@ -2,7 +2,7 @@
 // Headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: PATCH');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
 
@@ -34,7 +34,7 @@ $updatepaquete->dni_destinatario = $data->dni_destinatario;
 $updatepaquete->ciudad_destinatario = $data->ciudad_destinatario;
 $updatepaquete->id_destinatario = $data->id_destinatario;
 $updatepaquete->id_paquete = $data->id_paquete;
-$updatepaquete->cod_paquete = $data->cod_paquete;
+$updatepaquete->cod_paque = $data->cod_paquete;
 
 
 

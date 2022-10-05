@@ -58,7 +58,7 @@ class Remitos
   public function leerRemitos()
   {
     // Create query
-    $query = '';
+    $query = 'SELECT remito.id_envio, remito.id_paquete, detalle_paquete.descrip, camioneros.apellido, camiones.marca, paquete.dir_destino, destinatario.nombre as "destinatario_nombre", ciudad.nombre as "ciudad_nombre", ciudad.cod_postal, provincias.nombre as "provincia_nombre", situacion.situacion, remito.fecha, remito.fecha_emision FROM remito,paquete, camioneros, camiones, destinatario,ciudad, provincias, situacion,detalle_paquete WHERE remito.id_paquete = paquete.id_paquete and remito.id_camionero = camioneros.id_camionero and ciudad.cod_ciudad = destinatario.ciudad and provincias.cod_prov = ciudad.cod_prov and paquete.cod_paquete = detalle_paquete.cod_paque and camiones.id_camion = remito.id_camion and destinatario.id_destinatario = remito.id_dest and situacion.id = paquete.situacion';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);

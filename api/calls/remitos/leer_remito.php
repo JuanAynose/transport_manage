@@ -4,14 +4,14 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 include_once '../../config/Database.php';
-include_once '../../models/paquetes.php';
+include_once '../../models/remitos.php';
 
 // Instantiate DB & connect
 $database = new Database();
 $db = $database->connect();
 
 // Instantiate blog post object
-$post = new Remito($db);
+$post = new Remitos($db);
 
 // Blog post query
 $result = $post->leerRemitos();
@@ -25,13 +25,20 @@ if ($num > 0) {
 
   while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     extract($row);
-
+    print_r($row);
     $remito_item = array(
-      'cod_paquete' => $cod_paquete,
+      'id_paquete' => $id_paquete,
       'descrip' => $descrip,
+      'apellido' => $apellido,
+      'marca' => $marca,
       'dir_destino' => $dir_destino,
-      'id_destinatario' => $id_destinatario,
-      'dni' => $dni,
+      'destinatario_nombre' => $destinatario_nombre,
+      'ciudad_nombre' => $ciudad_nombre,
+      'cod_postal' => $cod_postal,
+      'provincia_nombre' => $provincia_nombre,
+      'situacion' => $situacion,
+      'fecha' => $fecha,
+      'fecha_emision' => $fecha_emision,
     );
 
     // Push to "data"

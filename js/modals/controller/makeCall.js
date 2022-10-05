@@ -11,6 +11,7 @@ import getCamionesDisponibles from '../../callbacks/get/getCamionesDisponibles.j
 import getCiudades from '../../callbacks/get/getCiudades.js';
 import getEmpleados from '../../callbacks/get/getEmpleados.js';
 import getPaquete from '../../callbacks/get/getPaquete.js';
+import getRemitos from '../../callbacks/get/getRemitos.js';
 import getSalario from '../../callbacks/get/getSalario.js';
 import CardCiudadListManager from '../../cardsHandlers/CardCiudadListManager.js';
 import CardEmpleadoManager from '../../cardsHandlers/CardEmpleadoManager.js';
@@ -43,6 +44,7 @@ const makeCall = async indenfyNumber => {
 	const getTrucks = await getCamiones();
 	const getCamionesDispo = await getCamionesDisponibles();
 	const getCiudad = await getCiudades();
+	const getRemito = await getRemitos();
 
 	CardCiudadListManager(getCiudad, ciudadList);
 
@@ -68,6 +70,7 @@ const makeCall = async indenfyNumber => {
 		case MODAL_OPTIONS.REMITOS:
 			console.log('anashe');
 			modalRemitos(getAllPackages);
+			console.log(getRemito);
 			break;
 		case MODAL_OPTIONS.CIUDADES:
 			console.log('anashei ciudad');

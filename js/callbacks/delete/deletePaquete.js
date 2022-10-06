@@ -4,7 +4,7 @@ export const deletePaquete = id => {
 		myHeaders.append('Content-Type', 'application/json');
 
 		var raw = JSON.stringify({
-			id: id
+			id
 		});
 
 		var requestOptions = {
@@ -15,7 +15,7 @@ export const deletePaquete = id => {
 		};
 
 		fetch(
-			'http://localhost/transport_manage/api/calls/empleados/delete_empleado.php',
+			'http://localhost/transport_manage/api/calls/paquetes/delete_paquete.php',
 			requestOptions
 		)
 			.then(response => response.text())

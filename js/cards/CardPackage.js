@@ -1,7 +1,14 @@
 const CardPackage = (data, cont) => {
 	if (data.length === 0) return data;
-
-	const { cod_paquete, id_destinatario, dir_destino, descrip, dni } = data;
+	console.log(data);
+	const {
+		cod_paquete,
+		id_destinatario,
+		dir_destino,
+		descrip,
+		dni,
+		id_paquete
+	} = data;
 	return `
     <label>
                             <li class="package-container__item">
@@ -47,6 +54,7 @@ const CardPackage = (data, cont) => {
                                     <input type="number"  value="${cod_paquete}" >                            
                                     <input type="text"  value="${descrip}" >
                                     <input type="number"  value="${dni}" >
+                                    <input type="number"  value="${id_paquete}" >
                                 </div>
                             </li>
                             </label>                     

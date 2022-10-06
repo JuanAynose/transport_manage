@@ -17,7 +17,6 @@ $remitos = new Remitos($db);
 // Get raw posted data
 $data = json_decode(file_get_contents("php://input"));
 
-print_r($data);
 
 
 $remitos->id_paquete = $data->id_paquete;

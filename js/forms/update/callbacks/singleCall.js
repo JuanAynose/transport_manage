@@ -1,6 +1,6 @@
+import getPaqueteAllDetails from '../../../callbacks/get/getPaqueteAllDetails.js';
 import getSingleCamion from '../../../callbacks/get/getSingleCamion.js';
 import getSingleEmpleados from '../../../callbacks/get/getSingleEmpleado.js';
-import getPaqueteAllDetails from '../../../callbacks/get/getPaqueteAllDetails.js';
 import { CALL_OPTION } from '../../../constants/callsOptionsUpdate.js';
 
 const getCity = (optionList, valueId) => {
@@ -36,20 +36,30 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 				getSingleTruck.disponibilidad;
 			break;
 		case CALL_OPTION.SINGLE_PACKAGE:
-			childSelected.children[1].children[1].children[2].value = getPaquete[2].descrip;
+			childSelected.children[1].children[1].children[2].value =
+				getPaquete[2].descrip;
 			childSelected.children[2].children[1].value = getPaquete[2].peso;
 			childSelected.children[3].children[1].value = getPaquete[2].tipo_producto;
 			childSelected.children[4].children[1].value = getPaquete[0].prioridad;
-			childSelected.children[5].children[1].children[1].value = getPaquete[1].nombre;
-			childSelected.children[5].children[2].children[1].value = getPaquete[1].apellido; 
-			childSelected.children[5].children[3].children[1].value = getPaquete[1].cel;
-			childSelected.children[5].children[4].children[1].value = getPaquete[1].dni;
-			childSelected.children[5].children[5].children[1].value = getPaquete[1].direccion;
-			childSelected.children[5].children[6].children[1].value = getPaquete[1].ciudad;
+			childSelected.children[5].children[1].children[1].value =
+				getPaquete[1].nombre;
+			childSelected.children[5].children[2].children[1].value =
+				getPaquete[1].apellido;
+			childSelected.children[5].children[3].children[1].value =
+				getPaquete[1].cel;
+			childSelected.children[5].children[4].children[1].value =
+				getPaquete[1].dni;
+			childSelected.children[5].children[5].children[1].value =
+				getPaquete[1].direccion;
+			childSelected.children[5].children[6].children[1].value =
+				getPaquete[1].ciudad;
 			childSelected.children[5].children[7].value = getPaquete[2].situacion;
-			childSelected.children[5].children[8].children[0].value = getPaquete[0].cod_paquete;
-			childSelected.children[5].children[8].children[1].value = getPaquete[1].id_destinatario;
-			childSelected.children[5].children[8].children[2].value = getPaquete[2].cod_paque;
+			childSelected.children[5].children[8].children[0].value =
+				getPaquete[0].cod_paquete;
+			childSelected.children[5].children[8].children[1].value =
+				getPaquete[1].id_destinatario;
+			childSelected.children[5].children[8].children[2].value =
+				getPaquete[2].cod_paque;
 			break;
 	}
 };

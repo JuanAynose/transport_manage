@@ -82,8 +82,9 @@ formRemito.addEventListener('submit', e => {
 
 		normalizeFormData.push({
 			id: i,
-			id_paquete: childSelected.children[1].value,
-			nombre_destinatario: childSelected.children[0].value
+			cod_paquete: childSelected.children[1].value,
+			nombre_destinatario: childSelected.children[0].value,
+			id_paquete: childSelected.children[4].value
 		});
 		console.log(childSelected);
 	}
@@ -118,8 +119,8 @@ formRemito.addEventListener('submit', e => {
 			});
 		}
 	}
-	//formRemito.reset();
-	//makeCall(MODAL_OPTIONS.PAQUETERIA);
+	formRemito.reset();
+	makeCall(MODAL_OPTIONS.PAQUETERIA);
 });
 
 /* open the modal of "ingresar empleado" uwu */

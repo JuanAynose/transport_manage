@@ -41,8 +41,8 @@ const CardPackageRemito = data => {
                                 </ul>                                
                                 <div>
                                     <input type="number"  value="${cod_paquete}">  
-                                    <input type="number"  value="${id_paquete}">  
-                                                              
+                                    <input type="number"  value="${id_paquete}">
+                                    <input type="number"  value="">                                                               
                                 </div>
                             </li>
 `;

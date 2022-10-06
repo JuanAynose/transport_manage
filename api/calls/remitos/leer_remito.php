@@ -25,7 +25,6 @@ if ($num > 0) {
 
   while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     extract($row);
-    print_r($row);
     $remito_item = array(
       'id_paquete' => $id_paquete,
       'descrip' => $descrip,
@@ -38,7 +37,7 @@ if ($num > 0) {
       'provincia_nombre' => $provincia_nombre,
       'situacion' => $situacion,
       'fecha' => $fecha,
-      'fecha_emision' => $fecha_emision,
+      'fecha_emision' => $fecha_emision
     );
 
     // Push to "data"

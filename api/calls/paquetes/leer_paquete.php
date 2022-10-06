@@ -27,11 +27,12 @@ if ($num > 0) {
     extract($row);
 
     $package_item = array(
+      'id_paquete' => $id_paquete,
       'cod_paquete' => $cod_paquete,
       'descrip' => $descrip,
       'dir_destino' => $dir_destino,
       'id_destinatario' => $id_destinatario,
-      'dni' => $dni,
+      'dni' => $dni
     );
 
     // Push to "data"

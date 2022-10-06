@@ -47,7 +47,7 @@ class Paquetes
   public function leerPaquetesPreparacion()
   {
     // Create query
-    $query = 'SELECT cod_paquete, descrip, dir_destino, id_destinatario, dni FROM paquete, detalle_paquete, situacion, destinatario WHERE cod_paquete=cod_paque and id_destinatario = paquete.destinatario and paquete.situacion=situacion.id and paquete.situacion=1 and destinatario.dni=destinatario.dni; ';
+    $query = 'SELECT  paquete.id_paquete,cod_paquete, descrip, dir_destino, id_destinatario, dni FROM paquete, detalle_paquete, situacion, destinatario WHERE cod_paquete=cod_paque and id_destinatario = paquete.destinatario and paquete.situacion=situacion.id and paquete.situacion=1 and destinatario.dni=destinatario.dni ';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
@@ -61,7 +61,7 @@ class Paquetes
   public function leerPaquetesTodos()
   {
     // Create query
-    $query = 'SELECT cod_paquete, descrip, dir_destino, id_destinatario, dni, situacion FROM paquete, detalle_paquete, destinatario WHERE cod_paquete=cod_paque and id_destinatario = paquete.destinatario and paquete.situacion=paquete.situacion and destinatario.dni=destinatario.dni';
+    $query = 'SELECT paquete.id_paquete,cod_paquete, descrip, dir_destino, id_destinatario, dni, situacion FROM paquete, detalle_paquete, destinatario WHERE cod_paquete=cod_paque and id_destinatario = paquete.destinatario and paquete.situacion=paquete.situacion and destinatario.dni=destinatario.dni';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
@@ -226,6 +226,26 @@ class Paquetes
     $this->descrip = $row['descrip'];
     $this->tipo_producto = $row['tipo_producto'];
     $this->peso = $row['peso'];
+  }
+
+  public function deletePaquete(){
+    $query = 'DELETE FROM paquete WHERE paquete.id_paquete =:id ';
+
+     // Prepare statement
+     $stmt = $this->conn->prepare($query);
+ 
+     // Clean data
+     $this->id_paquete = htmlspecialchars(strip_tags($this->id_paquete));
+ 
+     // Bind data
+     $stmt->bindParam(':id', $this->id_paquete);
+ 
+     // Bind data
+ 
+     // Execute query
+     if ($stmt->execute()) {
+       return true;
+      }
   }
 
   public function updateDetallePaquete($data)

@@ -1,13 +1,13 @@
 /* cards */
 import { deleteCamion } from '../../callbacks/delete/deleteCamion.js';
 import { deleteEmpleado } from '../../callbacks/delete/deleteEmpleado.js';
+import { deletePaquete } from '../../callbacks/delete/deletePaquete.js';
 import { CALL_OPTION } from '../../constants/callsOptionsUpdate.js';
 import singleCall from './callbacks/singleCall.js';
 /*empleados container*/
 const editarEmpleado = document.getElementById('editarEmpleado');
 const modalDeleteEmpleado = document.getElementById('modalDeleteEmpleado');
 const modalEditEmpleado = document.getElementById('modalEditEmpleado');
-const modalEditRemito = document.getElementById('modalEditRemito');
 
 /*camiones container*/
 const editarCamion = document.getElementById('editarCamion');
@@ -15,8 +15,8 @@ const modalDeleteCamion = document.getElementById('modalDeleteCamion');
 const modalEditCamion = document.getElementById('modalEditCamion');
 /*remito container*/
 const editarRemito = document.getElementById('editarRemito');
-
-
+const modalEditRemito = document.getElementById('modalEditRemito');
+const modalDeleteRemito = document.getElementById('modalDeleteRemito');
 
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 const formCamionEdit = document.getElementById('formCamionEdit');
@@ -24,6 +24,7 @@ const formRemitoEdit = document.getElementById('formRemitoEdit');
 
 let getIdEmploye;
 let getIdCamion;
+let getIdPaqueteDetalle;
 let getIdPaquete;
 
 /*empleado modals*/
@@ -118,41 +119,38 @@ modalEditCamion.addEventListener('click', ev => {
 /* paquete modals */
 editarRemito.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Editar') {
-		getIdPaquete = Number(ev.target.parentElement.parentElement.parentElement.children[2].children[1].children[1].textContent);
-		singleCall(getIdPaquete,
-			formRemitoEdit,
-			CALL_OPTION.SINGLE_PACKAGE);
-		modalEditRemito.classList.remove('hidden');
-	} else if (ev.target.textContent === 'Borrar') {
-		/*
-		getIdEmploye = Number(
-			ev.target.parentElement.previousElementSibling.children[0].children[1]
-				.textContent
+		getIdPaqueteDetalle = Number(
+			ev.target.parentElement.parentElement.parentElement.children[2]
+				.children[1].children[1].textContent
 		);
-		modalDeleteEmpleado.children[0].children[0].children[0].textContent =
-			getIdEmploye;
-		console.log(ev.target);
-		modalDeleteEmpleado.classList.remove('hidden');
-		*/
+		getIdPaquete = Number(
+			ev.target.parentElement.parentElement.parentElement.children[3]
+				.children[1].value
+		);
+		singleCall(getIdPaqueteDetalle, formRemitoEdit, CALL_OPTION.SINGLE_PACKAGE);
+		modalEditRemito.classList.remove('hidden');
 	}
 });
-/*
 
-modalDeleteEmpleado.addEventListener('click', ev => {
+modalDeleteRemito.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Si') {
-		modalDeleteEmpleado.classList.add('hidden');
-		deleteEmpleado(getIdEmploye);
+		modalDeleteRemito.classList.add('hidden');
+		deletePaquete(getIdPaquete);
 	} else if (ev.target.textContent === 'No') {
-		modalDeleteEmpleado.classList.add('hidden');
+		modalDeleteRemito.classList.add('hidden');
 	}
 });
 
-*/
 modalEditRemito.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Guardar') {
 		modalEditRemito.classList.add('hidden');
 	} else if (ev.target.value === 'Cancelar') {
 		formRemitoEdit.reset();
+		modalEditRemito.classList.add('hidden');
+	} else if (ev.target.value === 'Borrar') {
+		modalDeleteRemito.children[0].children[0].children[0].textContent =
+			getIdPaqueteDetalle;
+		modalDeleteRemito.classList.remove('hidden');
 		modalEditRemito.classList.add('hidden');
 	}
 });

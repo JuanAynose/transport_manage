@@ -1,5 +1,7 @@
 const CardPackageRemito = data => {
-	const { cod_paquete, id_destinatario, dir_destino, descrip } = data;
+	const { cod_paquete, id_destinatario, dir_destino, descrip, id_paquete } =
+		data;
+	console.log('soy na', data);
 	return `
                             <li class="package-container__item">
                                 <div class="package-container__header">
@@ -38,7 +40,9 @@ const CardPackageRemito = data => {
                                     </li>                                    
                                 </ul>                                
                                 <div>
-                                    <input type="number"  value="${cod_paquete}">                            
+                                    <input type="number"  value="${cod_paquete}">  
+                                    <input type="number"  value="${id_paquete}">  
+                                                              
                                 </div>
                             </li>
 `;

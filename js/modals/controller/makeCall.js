@@ -68,9 +68,7 @@ const makeCall = async indenfyNumber => {
 			CardCheckManager(getEmployesSalary, contentPagosRealizar);
 			break;
 		case MODAL_OPTIONS.REMITOS:
-			console.log('anashe');
 			modalRemitos(getAllPackages);
-			console.log(getRemito);
 			break;
 		case MODAL_OPTIONS.CIUDADES:
 			console.log('anashei ciudad');

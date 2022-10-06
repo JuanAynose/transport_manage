@@ -49,9 +49,11 @@ const SortDataPackage = (childId, situationChild) => {
 };
 
 const modalRemitos = data => {
-	for (const itemPackage of data) {
-		const { situacion } = itemPackage;
-		SortDataPackage(itemPackage, Number(situacion));
+	if (data.length) {
+		for (const itemPackage of data) {
+			const { situacion } = itemPackage;
+			SortDataPackage(itemPackage, Number(situacion));
+		}
 	}
 };
 export default modalRemitos;

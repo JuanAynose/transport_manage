@@ -16,6 +16,7 @@ class Remitos
   public $nombre_destinatario;
   public $id_paquete_selected;
   public $fecha_emision;
+  public $id_remito;
   /**/
   public function __construct($db)
   {
@@ -70,4 +71,34 @@ class Remitos
 
     return $stmt;
   }
+
+  public function deleteRemitos()
+  {
+    // Create query
+    $query = 'DELETE FROM remito WHERE remito.id_envio =:id ';
+
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
+
+    // Clean data
+    $this->id_remito = htmlspecialchars(strip_tags($this->id_remito));
+
+    // Bind data
+    $stmt->bindParam(':id', $this->id_remito);
+
+
+
+    // Bind data
+
+    // Execute query
+    if ($stmt->execute()) {
+      return true;
+    }
+
+    // Print error if something goes wrong
+    printf("Error: %s.\n", $stmt->error);
+
+    return false;
+  }
+
 }

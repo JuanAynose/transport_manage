@@ -248,6 +248,47 @@ class Paquetes
       }
   }
 
+  public function deleteDetallePaquete(){
+    $query = 'DELETE FROM detalle_paquete WHERE detalle_paquete.cod_paque =:id ';
+
+     // Prepare statement
+     $stmt = $this->conn->prepare($query);
+ 
+     // Clean data
+     $this->id_paquete = htmlspecialchars(strip_tags($this->id_paquete));
+ 
+     // Bind data
+     $stmt->bindParam(':id', $this->id_paquete);
+ 
+     // Bind data
+ 
+     // Execute query
+     if ($stmt->execute()) {
+       return true;
+      }
+  }
+
+  public function deleteDestinatario(){
+    $query = 'DELETE FROM destinatario WHERE destinatario.id_destinatario =:id ';
+
+     // Prepare statement
+     $stmt = $this->conn->prepare($query);
+ 
+     // Clean data
+     $this->id_destinatario = htmlspecialchars(strip_tags($this->id_destinatario));
+ 
+     // Bind data
+     $stmt->bindParam(':id', $this->id_destinatario);
+ 
+     // Bind data
+ 
+     // Execute query
+     if ($stmt->execute()) {
+       return true;
+      }
+  }
+  
+
   public function updateDetallePaquete($data)
   {
     $query = 'UPDATE paquete SET 

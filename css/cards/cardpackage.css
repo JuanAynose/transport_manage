@@ -33,7 +33,6 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	border-radius: 0.8em;
 	overflow: hidden;
 	width: 330px;
 	height: 200px;

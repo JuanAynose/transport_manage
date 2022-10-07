@@ -17,6 +17,13 @@
 	flex-wrap: wrap;
 }
 
+.container-paquete__item__content {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	gap: 1em;
+}
+
 /*package container styles*/
 .container__items--paquete {
 	display: flex;
@@ -36,6 +43,8 @@
 	overflow: hidden;
 	width: 330px;
 	height: 200px;
+	margin-bottom: 1em;
+	padding: 0 1em;
 	background-color: var(---white);
 	box-shadow: var(--shadow-solid), var(--shadow-sm);
 	transform: scale(1);

@@ -17,12 +17,11 @@ const CardRemito = data => {
 		situacion
 	} = data;
 
-	console.log(SITUACION_VALUE);
 	let barColor = '#94ee94';
-	console.log(situacion);
 
 	if (Number(situacion) === 5 || Number(situacion) === 6) barColor = '#fa7e7e';
 	else barColor = '#94ee94';
+
 	return `
     <li class="remito-container">
     <div class="remito-container__header">

@@ -305,7 +305,7 @@ class Paquetes
       destinatario =:id_destinatario,
       prioridad= :nivel_prioridad,
       situacion =:situacion_paquete
-      WHERE id_paquete = :id_paquete';
+      WHERE cod_paquete = :id_paquete';
     print_r($data);
 
     $this->cod_paquete = htmlspecialchars(strip_tags($this->cod_paquete));

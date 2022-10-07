@@ -2,7 +2,9 @@
 import CardCamionManager from '../../cardsHandlers/CardCamionManager.js';
 import CardCheckManager from '../../cardsHandlers/CardCheckManager.js';
 import CardPackageManager from '../../cardsHandlers/CardPackageManager.js';
+import CardRemitoManager from '../../cardsHandlers/CardRemitoManager.js';
 import CardSalaryManager from '../../cardsHandlers/CardSalaryManager.js';
+
 /**/
 //import ModalEnvioHandler from '../../callbacks/callsHandler/modalEnvioHandler.js';
 import getAllPaquete from '../../callbacks/get/getAllPaquete.js';
@@ -69,6 +71,7 @@ const makeCall = async indenfyNumber => {
 			break;
 		case MODAL_OPTIONS.REMITOS:
 			modalRemitos(getAllPackages);
+			CardRemitoManager(getRemito, containerRemitos);
 			break;
 		case MODAL_OPTIONS.CIUDADES:
 			console.log('anashei ciudad');

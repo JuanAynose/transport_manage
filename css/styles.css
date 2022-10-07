@@ -4,6 +4,7 @@
 @import url('cards/cardpackage.css');
 @import url('cards/cardcamion.css');
 @import url('cards/cardempleado.css');
+@import url('cards/cardremito.css');
 
 body {
 	font-family: 'Roboto', sans-serif;
@@ -269,7 +270,7 @@ body {
 	color: var(--dark-fade);
 }
 /*content remitos*/
-.content__remitos{
+.content__remitos {
 	display: flex;
 	flex-direction: column;
 }

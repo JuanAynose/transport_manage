@@ -13,18 +13,20 @@ $database = new Database();
 $db = $database->connect();
 
 // Instantiate blog post object
-$deleteDetallePaque = new Paquetes($db);
+$deletePaque = new Paquetes($db);
 
 // Get raw posted data
 $data = json_decode(file_get_contents("php://input"));
 print_r($data);
 // Set ID to update
-$deleteDetallePaque->id_paquete = $data->id;
+$deletePaque->id_destinatario = $data->id_destinatario;
+$deletePaque->id_detalle_paquete = $data->id_detalle_paquete;
+$deletePaque->id_paquete = $data->id_paquete;
 
 // Delete post
-if ($deleteDetallePaque->deleteDetallePaquete()) {
+if ($deletePaque->deletePaqueteAllData($data)) {
     echo json_encode(
-        array('message' => 'Detalle Deleted')
+        array('message' => 'all paquete Deleted')
     );
 } else {
     echo json_encode(

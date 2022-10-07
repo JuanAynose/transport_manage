@@ -26,6 +26,7 @@ if ($num > 0) {
   while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     extract($row);
     $remito_item = array(
+      'id_envio' =>$id_envio,
       'id_paquete' => $id_paquete,
       'descrip' => $descrip,
       'apellido' => $apellido,

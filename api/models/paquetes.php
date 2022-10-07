@@ -35,6 +35,7 @@ class Paquetes
   public $id_paquete;
   public $situacion_paquete;
   public $cod_paque;
+  public $id_detalle_paquete;
   /**/
   public function __construct($db)
   {
@@ -227,56 +228,15 @@ class Paquetes
     $this->tipo_producto = $row['tipo_producto'];
     $this->peso = $row['peso'];
   }
-
-  public function deletePaquete(){
-    $query = 'DELETE FROM paquete WHERE paquete.id_paquete =:id ';
-
-     // Prepare statement
-     $stmt = $this->conn->prepare($query);
- 
-     // Clean data
-     $this->id_paquete = htmlspecialchars(strip_tags($this->id_paquete));
- 
-     // Bind data
-     $stmt->bindParam(':id', $this->id_paquete);
- 
-     // Bind data
- 
-     // Execute query
-     if ($stmt->execute()) {
-       return true;
-      }
-  }
-
-  public function deleteDetallePaquete(){
-    $query = 'DELETE FROM detalle_paquete WHERE detalle_paquete.cod_paque =:id ';
-
-     // Prepare statement
-     $stmt = $this->conn->prepare($query);
- 
-     // Clean data
-     $this->id_paquete = htmlspecialchars(strip_tags($this->id_paquete));
- 
-     // Bind data
-     $stmt->bindParam(':id', $this->id_paquete);
- 
-     // Bind data
- 
-     // Execute query
-     if ($stmt->execute()) {
-       return true;
-      }
-  }
-
-  public function deleteDestinatario(){
+  
+  public function deleteDestinatario($data){
     $query = 'DELETE FROM destinatario WHERE destinatario.id_destinatario =:id ';
-
      // Prepare statement
      $stmt = $this->conn->prepare($query);
  
      // Clean data
      $this->id_destinatario = htmlspecialchars(strip_tags($this->id_destinatario));
- 
+     $this->id_destinatario = $data->id_destinatario;
      // Bind data
      $stmt->bindParam(':id', $this->id_destinatario);
  
@@ -286,6 +246,54 @@ class Paquetes
      if ($stmt->execute()) {
        return true;
       }
+  }
+
+  public function deleteDetallePaquete($data){
+    $query = 'DELETE FROM detalle_paquete WHERE detalle_paquete.cod_paque =:id ';
+     // Prepare statement
+     $stmt = $this->conn->prepare($query);
+ 
+     // Clean data
+     $this->id_paquete = htmlspecialchars(strip_tags($this->id_paquete));
+     $this->id_paquete = $data->id_detalle_paquete;
+     // Bind data
+     $stmt->bindParam(':id', $this->id_paquete);
+ 
+     // Bind data
+ 
+     // Execute query
+     if ($stmt->execute()) {
+       return true;
+      }
+  }
+
+
+  public function deletePaquete($data){
+    $query = 'DELETE FROM paquete WHERE paquete.id_paquete =:id ';
+     // Prepare statement
+     $stmt = $this->conn->prepare($query);
+ 
+     // Clean data
+     $this->id_paquete = htmlspecialchars(strip_tags($this->id_paquete));
+
+     $this->id_paquete = $data->id_paquete;
+
+ 
+     // Bind data
+     $stmt->bindParam(':id', $this->id_paquete);
+ 
+     // Bind data
+ 
+     // Execute query
+     if ($stmt->execute()) {
+       return true;
+      }
+  }
+
+  public function deletePaqueteAllData($data){
+    $this->deletePaquete($data);
+    $this->deleteDetallePaquete($data);
+    $this->deleteDestinatario($data);
   }
   
 

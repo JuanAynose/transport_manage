@@ -14,8 +14,8 @@
 	<body>
 		<nav class="nav__bar">
 			<div class="logo">
-				<h1 class="company__name">Pacco veloce</h1>				
-					<img src="./assets/icons/logo.png" alt="icon logo" class="logo__img" />				
+				<h1 class="company__name">Pacco veloce</h1>
+				<img src="./assets/icons/logo.png" alt="icon logo" class="logo__img" />
 			</div>
 			<button id="modal__button" class="profile">
 				<img
@@ -848,3 +848,131 @@
 		</div>
 	</body>
 </html>
+
+<!--
+	remito
+	-----
+	<div class="remito-container">
+      <div class="remito-container__header">
+        <div class="remito-container__header__bg">
+          <p class="remito-container__title">Remito</p>
+          <img class="icon_ticket" src="./ticket-solid.svg" alt="icono flama" />
+          <p>#13</p>
+        </div>
+      </div>
+      <div class="remito-container__main">
+        <ul class="main-container__list">
+          <li class="main-container__item">Id Paquete: <span>12</span></li>
+          <li class="main-container__item">Paquete: <span>Dildo</span></li>
+          <li class="main-container__item">
+            Destinatario: <span>Genaro</span>
+          </li>
+          <li class="main-container__item">
+            Direccion: <span>anashe 123</span>
+          </li>
+          <li class="main-container__item">
+            Ciudad: <span>San petes asdasdasdasdasdasdsdasd</span>
+          </li>
+          <li class="main-container__item">
+            Provincia: <span>Buenos aires</span>
+          </li>
+          <li class="main-container__item">Codigo Postal: <span>2555</span></li>
+          <li class="main-container__item">Estado: <span>En camino</span></li>
+          <li class="main-container__item">Empleado: <span>Esteban</span></li>
+          <li class="main-container__item">Camion: <span>Ford</span></li>
+          <li class="main-container__item">
+            Fecha de emisión: <span>2022/10/06</span>
+          </li>
+          <li class="main-container__item">
+            Fecha de entrega: <span>2022/10/20</span>
+          </li>
+        </ul>
+      </div>
+      <div class="remito-container__footer">
+        <div id="bar_remito" class="progress__bar__info">
+          <p>En camino</p>
+          <p></p>
+        </div>
+        <div class="remito-container__bar__progress">
+          <span id="progress" class="progress"></span>
+        </div>
+      </div>
+    </div>
+	----
+	* {
+  box-sizing: border-box;
+}
+
+:root {
+  --progress-bar: 1%;
+}
+
+.remito-container {
+  display: inline-flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 25px #333;
+  padding: 0 1em;
+  border-top: 0.5em solid #7c2f8a;
+  border-bottom: 0.5em solid #7c2f8a;
+}
+
+.remito-container__header__bg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-container__list,
+.main-container__item {
+  padding-left: 0;
+  list-style: none;
+}
+
+.main-container__item {
+  margin-bottom: 0.4em;
+}
+
+.main-container__item > span {
+  color: gray;
+}
+
+/**/
+.remito-container__footer {
+  margin-bottom: 2em;
+}
+
+.progress__bar__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.remito-container__bar__progress {
+  position: relative;
+  border: 1px solid #7c2f8a;
+  height: 10px;
+  border-radius: 0.2em;
+  overflow: hidden;
+}
+
+.progress {
+  display: block;
+  width: var(--progress-bar);
+  height: 10px;
+  background-color: rgb(148, 238, 148);
+}
+
+----
+const bar_remito = document.getElementById("bar_remito");
+let root = document.documentElement;
+
+root.style.setProperty("--progress-bar", 50 + "%");
+console.log(bar_remito);
+let uwu = getComputedStyle(document.documentElement).getPropertyValue(
+  "--progress-bar"
+);
+bar_remito.children[1].textContent = uwu;
+
+console.log(uwu);
+
+-->

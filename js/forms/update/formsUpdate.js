@@ -1,11 +1,8 @@
 /* cards */
 import { deleteCamion } from '../../callbacks/delete/deleteCamion.js';
 import { deleteEmpleado } from '../../callbacks/delete/deleteEmpleado.js';
-import { deletePaquete } from '../../callbacks/delete/deletePaquete.js';
-import { deleteDestinatario } from '../../callbacks/delete/deleteDestinatario.js';
-import { deleteDetallePaquete } from '../../callbacks/delete/deleteDetallePaquete.js';
+import { deletePaqueteAll } from '../../callbacks/delete/deletePaqueteAll.js';
 import { deleteRemito } from '../../callbacks/delete/deleteRemito.js';
-
 import { CALL_OPTION } from '../../constants/callsOptionsUpdate.js';
 import singleCall from './callbacks/singleCall.js';
 /*empleados container*/
@@ -138,10 +135,14 @@ editarRemito.addEventListener('click', ev => {
 
 modalDeleteRemito.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Si') {
-		deleteDestinatario(Number(formRemitoEdit.children[5].children[8].children[1].value));
-		deleteDetallePaquete(getIdPaqueteDetalle);
-		deletePaquete(getIdPaquete);
 		deleteRemito(getIdPaquete);
+		deletePaqueteAll({
+			id_destinatario: Number(
+				formRemitoEdit.children[5].children[8].children[1].value
+			),
+			id_detalle_paquete: getIdPaqueteDetalle,
+			id_paquete: getIdPaquete
+		});
 		modalDeleteRemito.classList.add('hidden');
 	} else if (ev.target.textContent === 'No') {
 		modalDeleteRemito.classList.add('hidden');
@@ -151,7 +152,7 @@ modalDeleteRemito.addEventListener('click', ev => {
 modalEditRemito.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Guardar') {
 		modalEditRemito.classList.add('hidden');
-	} else if (ev.target.value === 'Cancelar') {		
+	} else if (ev.target.value === 'Cancelar') {
 		formRemitoEdit.reset();
 		modalEditRemito.classList.add('hidden');
 	} else if (ev.target.value === 'Borrar') {

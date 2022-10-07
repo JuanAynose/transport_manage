@@ -1,3 +1,9 @@
+.containerRemitos {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	gap: 1em;
+}
 .remito-container {
 	display: inline-flex;
 	flex-direction: column;

@@ -2,7 +2,6 @@ import CardPackageRemito from '../../cards/CardPackageRemito.js';
 
 const CardPackageEdit = (data, containerPaquete) => {
 	if (!data.length <= 0) return data;
-	containerPaquete.innerHTML = '';
 	let cont = 0;
 	if (!data.length) {
 		containerPaquete.innerHTML += CardPackageRemito(data);

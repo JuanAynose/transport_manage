@@ -1,0 +1,47 @@
+.provincia-container,
+.ciudad-container {
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
+.provincia-container__item {
+	display: inline-block;
+	box-shadow: 5px 5px 25px #333;
+	width: 100%;
+	max-width: 320px;
+	padding: 0 1em 1em 1em;
+	border-top: 0.5em solid #7c2f8a;
+	border-bottom: 0.5em solid #7c2f8a;
+}
+
+.provincia-container__header {
+	margin-bottom: 0.4em;
+}
+
+.provincia-container__main {
+	display: flex;
+	justify-content: space-between;
+}
+.provincia-container__information,
+.provincia-container__information__item {
+	list-style: none;
+	padding-left: 0;
+}
+
+.provincia-container__title,
+.provincia-container__text--violet {
+	color: #7c2f8a;
+}
+
+.provincia-container__text {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.provincia-container__text--black {
+	text-transform: none;
+	color: black;
+}

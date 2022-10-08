@@ -1,8 +1,6 @@
 export const postCiudad = data => {
 	const { nombre_ciudad, cod_prov, cod_postal } = data;
 
-	console.log(data);
-
 	const sendShit = () => {
 		const myHeaders = new Headers();
 		myHeaders.append('Content-Type', 'application/json');

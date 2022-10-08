@@ -1,7 +1,9 @@
 /* post data */
 import { postCamion } from '../callbacks/post/postCamion.js';
+import { postCiudad } from '../callbacks/post/postCiudad.js';
 import { postEmpleado } from '../callbacks/post/postEmpleado.js';
 import { postPaquete } from '../callbacks/post/postPaquete.js';
+import { postProvincia } from '../callbacks/post/postProvincia.js';
 import { postRemito } from '../callbacks/post/postRemito.js';
 import { postSalario } from '../callbacks/post/postSalario.js';
 import { updateCamion } from '../callbacks/update/updateCamion.js';
@@ -19,7 +21,8 @@ const formRemito = document.getElementById('formRemito');
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 const formCamionEdit = document.getElementById('formCamionEdit');
 const formRemitoEdit = document.getElementById('formRemitoEdit');
-
+const formProvincia = document.getElementById('formCiudadesProvincia');
+const formCiudad = document.getElementById('formCiudadesCiudad');
 const enviosCardPackage = document.getElementById('enviosCardPackage');
 /**/
 
@@ -75,7 +78,6 @@ formRemito.addEventListener('submit', e => {
 	const formData = new FormData(formRemito);
 	const normalizeFormData = [];
 	let cont = 0;
-	//console.log(enviosCardPackage.children.length);
 
 	for (let i = 0; i < enviosCardPackage.children.length; i++) {
 		const childSelected = enviosCardPackage.children[i].children[0].children[4];
@@ -86,14 +88,11 @@ formRemito.addEventListener('submit', e => {
 			nombre_destinatario: childSelected.children[0].value,
 			id_paquete: childSelected.children[4].value
 		});
-		console.log(childSelected);
 	}
 
 	const getIdData = formData.get('containerPackage');
 
 	const packageLenght = Number(formData.getAll('containerPackage').length);
-	console.log(formData.getAll('containerPackage'));
-	console.log(normalizeFormData);
 
 	if (packageLenght <= 1) {
 		postRemito({
@@ -107,7 +106,6 @@ formRemito.addEventListener('submit', e => {
 	} else {
 		const very = [...formData.getAll('containerPackage')];
 		const normalizeArray = very.map(itemA => Number(itemA));
-		console.log(normalizeArray);
 		for (const itemTest of normalizeArray) {
 			postRemito({
 				fecha_emision: margeDate,
@@ -153,6 +151,33 @@ formCamion.addEventListener('submit', e => {
 	makeCall(MODAL_OPTIONS.TRANSPORTE);
 });
 
+/* open the modal "ingresar provincia"*/
+
+formProvincia.addEventListener('submit', e => {
+	e.preventDefault();
+	const formData = new FormData(formProvincia);
+	postProvincia({
+		nombre_provincia: formData.get('nombre_provincia')
+	});
+	formProvincia.reset();
+	makeCall(MODAL_OPTIONS.CIUDADES);
+});
+
+/* open the modal "ingresar provincia"*/
+
+formCiudad.addEventListener('submit', e => {
+	e.preventDefault();
+	const formData = new FormData(formCiudad);
+	postCiudad({
+		nombre_ciudad: formData.get('nombre_ciudad'),
+		cod_prov: formData.get('provincia'),
+		cod_postal: formData.get('cod_postal')
+	});
+	formCiudad.reset();
+	makeCall(MODAL_OPTIONS.CIUDADES);
+});
+
+/**/
 formEmpleadoEdit.addEventListener('submit', e => {
 	e.preventDefault();
 	const formData = new FormData(formEmpleadoEdit);

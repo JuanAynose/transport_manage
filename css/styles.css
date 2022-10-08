@@ -5,6 +5,7 @@
 @import url('cards/cardcamion.css');
 @import url('cards/cardempleado.css');
 @import url('cards/cardremito.css');
+@import url('cards/cardciudad.css');
 
 body {
 	font-family: 'Roboto', sans-serif;
@@ -278,6 +279,11 @@ body {
 /*form icons styles*/
 .form-element__icon {
 	fill: var(--violet-anashei);
+}
+/*container ciudades styles*/
+.content__ciudades {
+	display: flex;
+	flex-direction: column;
 }
 
 /*all the hovers styles*/

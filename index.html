@@ -812,7 +812,7 @@
 				</div>
 				<div id="modalCiudades" class="bg__modal hidden">
 					<div class="content__ciudades modal__content">
-						<div>
+						<div class="formCiudades">
 							<form id="formCiudadesProvincia">
 								<div>
 									<label for="nombre_provincia">Ingresar provincia</label>
@@ -845,24 +845,97 @@
 									/>
 								</div>
 								<div>
-									<select name="cod_provinca" id="cod_provinca">
-										<option value="1">San nicola</option>
-									</select>
+									<label for="provincia">Seleccione la provincia</label>
+									<select
+										id="provincia"
+										class="provincia_form"
+										name="provincia"
+										required
+									></select>
 								</div>
 								<input type="submit" value="Agregar ciudad" />
 							</form>
 						</div>
 						<div>
-							<ul
-								id="editarProvincia"
-								class="editar__provincia provincia-container"
-							></ul>
+							<ul id="containerProvincia" class="provincia-container"></ul>
+							<ul id="containerCiudad" class="ciudad-container"></ul>
 						</div>
-						<div>
-							<ul
-								id="editarCiudad"
-								class="editar__ciudad ciudad-container"
-							></ul>
+						<div id="modalDeleteProvincia" class="bg__modal__delete hidden">
+							<div class="content__edit modal__content">
+								<p>
+									Estas seguro de que deseas Borrar la provincia
+									"<span>0</span>"
+								</p>
+								<div>
+									<button class="edit__button">Si</button>
+									<button class="edit__button">No</button>
+								</div>
+							</div>
+						</div>
+						<div id="modalEditProvincia" class="bg__modal__delete hidden">
+							<div class="content__edit modal__content">
+								<p>editar provincia uwu</p>
+								<form id="formProvinciaEdit" class="formProvincia">
+									<div>
+										<label for="nombre_provincia">Ingresar provincia</label>
+										<input
+											type="text"
+											name="nombre_provincia"
+											id="nombre_provincia"
+											required
+										/>
+									</div>
+									<input type="submit" value="Cargar cambio" />
+									<input type="button" value="Cancelar" />
+								</form>
+							</div>
+						</div>
+						<div id="modalDeleteCiudad" class="bg__modal__delete hidden">
+							<div class="content__edit modal__content">
+								<p>
+									Estas seguro de que deseas Borrar la ciudad "<span>0</span>"
+								</p>
+								<div>
+									<button class="edit__button">Si</button>
+									<button class="edit__button">No</button>
+								</div>
+							</div>
+						</div>
+						<div id="modalEditCiudad" class="bg__modal__delete hidden">
+							<div class="content__edit modal__content">
+								<p>editar ciudad uwu</p>
+								<form id="formCiudadEdit" class="formCiudad">
+									<div>
+										<label for="nombre_ciudad">Ingresar ciudad</label>
+										<input
+											type="text"
+											name="nombre_ciudad"
+											id="nombre_ciudad"
+											required
+										/>
+									</div>
+									<div>
+										<label for="">Codigo Postal</label>
+										<input
+											type="number"
+											name="cod_postal"
+											id="cod_postal"
+											required
+										/>
+									</div>
+									<div>
+										<label for="ciudad">Seleccione la ciudad</label>
+										<select
+											id="ciudad"
+											class="ciudad_form"
+											name="ciudad"
+											required
+										></select>
+									</div>
+									<input type="submit" value="Cargar cambio" />
+									<input type="button" value="Cancelar" />
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -1,7 +1,11 @@
 /* gets calls */
 import CardCamionManager from '../../cardsHandlers/CardCamionManager.js';
 import CardCheckManager from '../../cardsHandlers/CardCheckManager.js';
+import CardCiudadListManager from '../../cardsHandlers/CardCiudadListManager.js';
+import CardCiudadManager from '../../cardsHandlers/CardCiudadManager.js';
+import CardEmpleadoManager from '../../cardsHandlers/CardEmpleadoManager.js';
 import CardPackageManager from '../../cardsHandlers/CardPackageManager.js';
+import CardProvinciaManager from '../../cardsHandlers/CardProvinciaManager.js';
 import CardRemitoManager from '../../cardsHandlers/CardRemitoManager.js';
 import CardSalaryManager from '../../cardsHandlers/CardSalaryManager.js';
 
@@ -13,10 +17,10 @@ import getCamionesDisponibles from '../../callbacks/get/getCamionesDisponibles.j
 import getCiudades from '../../callbacks/get/getCiudades.js';
 import getEmpleados from '../../callbacks/get/getEmpleados.js';
 import getPaquete from '../../callbacks/get/getPaquete.js';
+import getProvincias from '../../callbacks/get/getProvincias.js';
 import getRemitos from '../../callbacks/get/getRemitos.js';
 import getSalario from '../../callbacks/get/getSalario.js';
-import CardCiudadListManager from '../../cardsHandlers/CardCiudadListManager.js';
-import CardEmpleadoManager from '../../cardsHandlers/CardEmpleadoManager.js';
+import CardProvinciaListManager from '../../cardsHandlers/CardProvinciaListManager.js';
 import CardCamionEdits from '../../cardsHandlers/edit/CardCamionEdits.js';
 import CardEmpleadoEdit from '../../cardsHandlers/edit/CardEmpleadoEdit.js';
 import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
@@ -26,6 +30,8 @@ const contentSalario = document.getElementById('formSalaryContent');
 const contentPagosRealizar = document.getElementById('pagosRealizados');
 const containerPackage = document.getElementById('enviosCardPackage');
 const containerCamion = document.getElementById('enviosCardCamion');
+const containerProvincia = document.getElementById('containerProvincia');
+const containerCiudad = document.getElementById('containerCiudad');
 const containerEmpleado = document.getElementById('enviosCardEmploye');
 const contentCamionesDisponibles = document.getElementById(
 	'contentCamionesDisponibles'
@@ -36,6 +42,7 @@ const editarCamion = document.getElementById('editarCamion');
 const editarEmpleado = document.getElementById('editarEmpleado');
 /*load ciudad*/
 const ciudadList = document.querySelectorAll('.ciudad_form');
+const provinciaList = document.querySelectorAll('.provincia_form');
 /**/
 
 const makeCall = async indenfyNumber => {
@@ -46,9 +53,11 @@ const makeCall = async indenfyNumber => {
 	const getTrucks = await getCamiones();
 	const getCamionesDispo = await getCamionesDisponibles();
 	const getCiudad = await getCiudades();
+	const getProvincia = await getProvincias();
 	const getRemito = await getRemitos();
 
 	CardCiudadListManager(getCiudad, ciudadList);
+	CardProvinciaListManager(getProvincia, provinciaList);
 
 	switch (indenfyNumber) {
 		case MODAL_OPTIONS.PAQUETERIA:
@@ -75,6 +84,8 @@ const makeCall = async indenfyNumber => {
 			break;
 		case MODAL_OPTIONS.CIUDADES:
 			console.log('anashei ciudad');
+			CardCiudadManager(getCiudad, containerCiudad);
+			CardProvinciaManager(getProvincia, containerProvincia);
 			break;
 	}
 };

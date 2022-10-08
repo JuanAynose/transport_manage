@@ -62,6 +62,14 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 			childSelected.children[5].children[8].children[2].value =
 				getPaquete[2].cod_paque;
 			break;
+		case CALL_OPTION.SINGLE_CITY:
+			console.log(childSelected, call_name, id_selected);
+			console.log('ciyyu :D');
+			break;
+		case CALL_OPTION.SINGLE_STATE:
+			console.log(childSelected, call_name, id_selected);
+			console.log('stateeess :D');
+			break;
 	}
 };
 

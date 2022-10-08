@@ -19,6 +19,11 @@ const editarRemito = document.getElementById('editarRemito');
 const modalEditRemito = document.getElementById('modalEditRemito');
 const modalDeleteRemito = document.getElementById('modalDeleteRemito');
 
+/*ciudad container*/
+const modalEditCiudad = document.getElementById('modalEditCiudad');
+const modalDeleteCiudad = document.getElementById('modalDeleteCiudad');
+const editarCiudad = document.getElementById('containerCiudad');
+/**/
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 const formCamionEdit = document.getElementById('formCamionEdit');
 const formRemitoEdit = document.getElementById('formRemitoEdit');
@@ -27,6 +32,7 @@ let getIdEmploye;
 let getIdCamion;
 let getIdPaqueteDetalle;
 let getIdPaquete;
+let getIdCiudad;
 
 /*empleado modals*/
 
@@ -162,3 +168,51 @@ modalEditRemito.addEventListener('click', ev => {
 		modalEditRemito.classList.add('hidden');
 	}
 });
+
+/* provinca modals */
+editarCiudad.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Editar') {
+		console.log(ev.target.textContent);
+		getIdCiudad = Number(
+			ev.target.parentElement.parentElement.children[3].children[0].children[0]
+				.textContent
+		);
+		singleCall(
+			getIdCiudad,
+			modalEditCiudad.children[0].children[1],
+			CALL_OPTION.SINGLE_CITY
+		);
+		modalEditCiudad.classList.remove('hidden');
+	} else if (ev.target.textContent === 'Borrar') {
+		console.log(ev.target.textContent);
+		/*
+		getIdEmploye = Number(
+			ev.target.parentElement.previousElementSibling.children[0].children[1]
+				.textContent
+		);
+		modalDeleteEmpleado.children[0].children[0].children[0].textContent =
+			getIdEmploye;
+		console.log(ev.target);
+		modalDeleteEmpleado.classList.remove('hidden');
+		*/
+	}
+});
+/*
+modalDeleteEmpleado.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Si') {
+		modalDeleteEmpleado.classList.add('hidden');
+		deleteEmpleado(getIdEmploye);
+	} else if (ev.target.textContent === 'No') {
+		modalDeleteEmpleado.classList.add('hidden');
+	}
+});
+
+modalEditEmpleado.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Guardar') {
+		modalEditEmpleado.classList.add('hidden');
+	} else if (ev.target.value === 'Cancelar') {
+		formEmpleadoEdit.reset();
+		modalEditEmpleado.classList.add('hidden');
+	}
+});
+*/

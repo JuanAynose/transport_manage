@@ -7,6 +7,7 @@ import { postProvincia } from '../callbacks/post/postProvincia.js';
 import { postRemito } from '../callbacks/post/postRemito.js';
 import { postSalario } from '../callbacks/post/postSalario.js';
 import { updateCamion } from '../callbacks/update/updateCamion.js';
+import { updateCiudad } from '../callbacks/update/updateCiudad.js';
 import { updateEmpleado } from '../callbacks/update/updateEmpleado.js';
 import { updatePaquete } from '../callbacks/update/updatePaquete.js';
 import { MODAL_OPTIONS } from '../constants/modalOptions.js';
@@ -21,6 +22,7 @@ const formRemito = document.getElementById('formRemito');
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 const formCamionEdit = document.getElementById('formCamionEdit');
 const formRemitoEdit = document.getElementById('formRemitoEdit');
+const formCiudadEdit = document.getElementById('formCiudadEdit');
 const formProvincia = document.getElementById('formCiudadesProvincia');
 const formCiudad = document.getElementById('formCiudadesCiudad');
 const enviosCardPackage = document.getElementById('enviosCardPackage');
@@ -229,4 +231,17 @@ formRemitoEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.TRANSPORTE);
 	modalEditRemito.classList.add('hidden');
+});
+
+formCiudadEdit.addEventListener('submit', e => {
+	e.preventDefault();
+	const formData = new FormData(formCiudadEdit);
+	updateCiudad({
+		nombre_ciudad: formData.get('nombre_ciudad'),
+		codigo_provincia: formData.get('provincia'),
+		codigo_postal: formData.get('cod_postal'),
+		id_ciudad: formData.get('ID_CIUDAD')
+	});
+	makeCall(MODAL_OPTIONS.CIUDADES);
+	modalEditCiudad.classList.add('hidden');
 });

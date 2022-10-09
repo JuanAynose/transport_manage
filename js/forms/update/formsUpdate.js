@@ -1,8 +1,10 @@
 /* cards */
 import { deleteCamion } from '../../callbacks/delete/deleteCamion.js';
+import { deleteCiudad } from '../../callbacks/delete/deleteCiudad.js';
 import { deleteEmpleado } from '../../callbacks/delete/deleteEmpleado.js';
 import { deletePaqueteAll } from '../../callbacks/delete/deletePaqueteAll.js';
 import { deleteRemito } from '../../callbacks/delete/deleteRemito.js';
+
 import { CALL_OPTION } from '../../constants/callsOptionsUpdate.js';
 import singleCall from './callbacks/singleCall.js';
 /*empleados container*/
@@ -23,6 +25,9 @@ const modalDeleteRemito = document.getElementById('modalDeleteRemito');
 const modalEditCiudad = document.getElementById('modalEditCiudad');
 const modalDeleteCiudad = document.getElementById('modalDeleteCiudad');
 const editarCiudad = document.getElementById('containerCiudad');
+
+/*provincia container*/
+
 /**/
 const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 const formCamionEdit = document.getElementById('formCamionEdit');
@@ -169,7 +174,7 @@ modalEditRemito.addEventListener('click', ev => {
 	}
 });
 
-/* provinca modals */
+/* ciudad modals */
 editarCiudad.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Editar') {
 		console.log(ev.target.textContent);
@@ -184,35 +189,73 @@ editarCiudad.addEventListener('click', ev => {
 		);
 		modalEditCiudad.classList.remove('hidden');
 	} else if (ev.target.textContent === 'Borrar') {
-		console.log(ev.target.textContent);
-		/*
-		getIdEmploye = Number(
-			ev.target.parentElement.previousElementSibling.children[0].children[1]
+		getIdCiudad = Number(
+			ev.target.parentElement.parentElement.children[3].children[0].children[0]
 				.textContent
 		);
-		modalDeleteEmpleado.children[0].children[0].children[0].textContent =
-			getIdEmploye;
-		console.log(ev.target);
-		modalDeleteEmpleado.classList.remove('hidden');
-		*/
-	}
-});
-/*
-modalDeleteEmpleado.addEventListener('click', ev => {
-	if (ev.target.textContent === 'Si') {
-		modalDeleteEmpleado.classList.add('hidden');
-		deleteEmpleado(getIdEmploye);
-	} else if (ev.target.textContent === 'No') {
-		modalDeleteEmpleado.classList.add('hidden');
+		modalDeleteCiudad.children[0].children[0].children[0].textContent =
+			getIdCiudad;
+		modalDeleteCiudad.classList.remove('hidden');
 	}
 });
 
-modalEditEmpleado.addEventListener('click', ev => {
-	if (ev.target.textContent === 'Guardar') {
-		modalEditEmpleado.classList.add('hidden');
-	} else if (ev.target.value === 'Cancelar') {
-		formEmpleadoEdit.reset();
-		modalEditEmpleado.classList.add('hidden');
+modalDeleteCiudad.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Si') {
+		modalDeleteCiudad.classList.add('hidden');
+		deleteCiudad(getIdCiudad);
+	} else if (ev.target.textContent === 'No') {
+		modalDeleteCiudad.classList.add('hidden');
 	}
 });
-*/
+
+modalEditCiudad.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Guardar') {
+		modalEditCiudad.classList.add('hidden');
+	} else if (ev.target.value === 'Cancelar') {
+		formEmpleadoEdit.reset();
+		modalEditCiudad.classList.add('hidden');
+	}
+});
+
+/* provincia modals */
+editarCiudad.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Editar') {
+		console.log(ev.target.textContent);
+		getIdCiudad = Number(
+			ev.target.parentElement.parentElement.children[3].children[0].children[0]
+				.textContent
+		);
+		singleCall(
+			getIdCiudad,
+			modalEditCiudad.children[0].children[1],
+			CALL_OPTION.SINGLE_CITY
+		);
+		modalEditCiudad.classList.remove('hidden');
+	} else if (ev.target.textContent === 'Borrar') {
+		getIdCiudad = Number(
+			ev.target.parentElement.parentElement.children[3].children[0].children[0]
+				.textContent
+		);
+		modalDeleteCiudad.children[0].children[0].children[0].textContent =
+			getIdCiudad;
+		modalDeleteCiudad.classList.remove('hidden');
+	}
+});
+
+modalDeleteCiudad.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Si') {
+		modalDeleteCiudad.classList.add('hidden');
+		deleteCiudad(getIdCiudad);
+	} else if (ev.target.textContent === 'No') {
+		modalDeleteCiudad.classList.add('hidden');
+	}
+});
+
+modalEditCiudad.addEventListener('click', ev => {
+	if (ev.target.textContent === 'Guardar') {
+		modalEditCiudad.classList.add('hidden');
+	} else if (ev.target.value === 'Cancelar') {
+		formEmpleadoEdit.reset();
+		modalEditCiudad.classList.add('hidden');
+	}
+});

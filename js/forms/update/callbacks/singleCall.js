@@ -1,6 +1,8 @@
 import getPaqueteAllDetails from '../../../callbacks/get/getPaqueteAllDetails.js';
 import getSingleCamion from '../../../callbacks/get/getSingleCamion.js';
+import getSingleCiudad from '../../../callbacks/get/getSingleCiudad.js';
 import getSingleEmpleados from '../../../callbacks/get/getSingleEmpleado.js';
+import getSingleProvincia from '../../../callbacks/get/getSingleProvincia.js';
 import { CALL_OPTION } from '../../../constants/callsOptionsUpdate.js';
 
 const getCity = (optionList, valueId) => {
@@ -13,6 +15,8 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 	const getSingleEmploye = await getSingleEmpleados(id_selected);
 	const getSingleTruck = await getSingleCamion(id_selected);
 	const getPaquete = await getPaqueteAllDetails(id_selected);
+	const getSingleCity = await getSingleCiudad(id_selected);
+	const getSingleStates = await getSingleProvincia(id_selected);
 	switch (call_name) {
 		case CALL_OPTION.SINGLE_EMPLOYE:
 			childSelected.children[0].children[1].value = id_selected;
@@ -63,12 +67,15 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 				getPaquete[2].cod_paque;
 			break;
 		case CALL_OPTION.SINGLE_CITY:
-			console.log(childSelected, call_name, id_selected);
-			console.log('ciyyu :D');
+			childSelected.children[0].children[1].value = getSingleCity.nombre_ciudad;
+			childSelected.children[1].children[1].value = getSingleCity.cod_postal;
+			childSelected.children[2].children[1].value = getSingleCity.id_prov;
+			childSelected.children[3].children[0].value = getSingleCity.id_ciudad;
 			break;
 		case CALL_OPTION.SINGLE_STATE:
-			console.log(childSelected, call_name, id_selected);
-			console.log('stateeess :D');
+			childSelected.children[0].children[1].value =
+				getSingleStates.nombre_provincia;
+			childSelected.children[1].children[0].value = getSingleStates.id_prov;
 			break;
 	}
 };

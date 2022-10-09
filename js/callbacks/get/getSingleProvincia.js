@@ -1,6 +1,6 @@
-const getSingleCiudad = id => {
+const getSingleProvincia = id => {
 	return fetch(
-		`http://localhost/transport_manage/api/calls/ciudades/leer_ciudad_sola.php?id_ciudade=${id}`
+		`http://localhost/transport_manage/api/calls/ciudades/leer_provincia_sola.php?id_provincia=${id}`
 	)
 		.then(res => (res.ok ? Promise.resolve(res) : Promise.reject(res)))
 		.then(res => res.json())
@@ -10,4 +10,4 @@ const getSingleCiudad = id => {
 		.catch(console.log);
 };
 
-export default getSingleCiudad;
+export default getSingleProvincia;

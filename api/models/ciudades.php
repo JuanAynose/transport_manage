@@ -13,6 +13,8 @@ class Ciudades{
     public $nombre_provincia;
     public $codigo_provincia;    
     public $codigo_postal;
+    public $id_prov;
+    public $id_ciudade;
 
     /**/
   public function __construct($db)
@@ -191,4 +193,49 @@ class Ciudades{
   
       return false;
   }
+
+  public function leerCiudadById(){
+    // Create query
+    $query = 'SELECT * FROM ciudad WHERE cod_ciudad = ?';
+    // Prepare statement
+
+    $stmt = $this->conn->prepare($query);
+
+    // Bind ID
+    $stmt->bindParam(1, $this->id_ciudade);
+
+    // Execute query
+    $stmt->execute();
+
+    
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $this->cod_ciudad = $row['cod_ciudad'];
+    $this->nombre = $row['nombre'];
+    $this->cod_prov = $row['cod_prov'];
+    $this->cod_postal = $row['cod_postal'];
+
+
+  }
+
+  public function leerProvinciaById(){
+    // Create query
+    $query = 'SELECT * FROM provincias WHERE cod_prov = ?';
+    // Prepare statement
+
+    $stmt = $this->conn->prepare($query);
+
+    // Bind ID
+    $stmt->bindParam(1, $this->id_provincia);
+
+    // Execute query
+    $stmt->execute();
+
+    
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $this->nombre = $row['nombre'];
+    $this->cod_prov = $row['cod_prov'];
+
+
+  }
+  
 }

@@ -55,6 +55,19 @@
 			</div>
 		</nav>
 		<div class="container">
+			<img
+				style="
+					top: 0;
+					left: 0;
+					position: fixed;
+					width: 1360px;
+					height: 1000px;
+					display: block;
+					z-index: 50;
+				"
+				src="./assets/images/optimus-prime-transformers-truck-en-la-65-feria-de-vehiculos-comerciales-iaa-2014-en-hannover-alemania-e826d8.jpg"
+				alt=""
+			/>
 			<div id="contentRight" class="content__right">
 				<div id="modalPaqueteria" class="bg__modal hidden">
 					<div class="content__paqueteria modal__content">
@@ -587,6 +600,75 @@
 							<p>Historial de pagos realizados</p>
 							<div class="container__pagos--salario" id="pagosRealizados"></div>
 						</div>
+						<div id="modalDeleteSalario" class="bg__modal__delete hidden">
+							<div class="content__edit modal__content">
+								<p>
+									Estas seguro de que deseas Borrar el salario "<span>0</span>"
+								</p>
+								<div>
+									<button class="edit__button">Si</button>
+									<button class="edit__button">No</button>
+								</div>
+							</div>
+						</div>
+						<div id="modalEditSalario" class="bg__modal__delete hidden">
+							<div class="content__edit modal__content">
+								<p>editar salario uwu</p>
+								<form id="formSalarioEdit" class="formSalario">
+									<div>
+										<label for="fecha_pago_salario"
+											>Ingrese la fecha de pago</label
+										>
+										<input
+											type="date"
+											name="fecha_pago_salario"
+											id="fecha_pago_salario"
+											required
+										/>
+									</div>
+									<div>
+										<label for="cantidad_horas_salario"
+											>Ingrese la cantidad de horas realizadas</label
+										>
+										<input
+											type="number"
+											name="cantidad_horas_salario"
+											id="cantidad_horas_salario"
+											required
+										/>
+									</div>
+									<div>
+										<label for="precio_hora_salario"
+											>Ingrese el precio de cada hora</label
+										>
+										<input
+											type="number"
+											name="precio_hora_salario"
+											id="precio_hora_salario"
+											required
+										/>
+									</div>
+									<div>
+										<label for="empleado_select">Seleccione al empleado</label>
+										<select
+											id="empleado_select"
+											class="empleado_select"
+											name="empleado_select"
+										></select>
+									</div>
+									<div class="hidden">
+										<input
+											type="number"
+											name="ID_SALARIO"
+											value=""
+											id="ID_SALARIO"
+										/>
+									</div>
+									<input type="submit" value="Guardar" />
+									<input type="button" value="Cancelar" />
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div id="modalRemitos" class="bg__modal hidden">
@@ -893,7 +975,7 @@
 											id="ID_CIUDAD"
 										/>
 									</div>
-									<input type="submit" value="Cargar cambio" />
+									<input type="submit" value="Guardar" />
 									<input type="button" value="Cancelar" />
 								</form>
 							</div>
@@ -948,7 +1030,7 @@
 											id="ID_CIUDAD"
 										/>
 									</div>
-									<input type="submit" value="Cargar cambio" />
+									<input type="submit" value="Guardar" />
 									<input type="button" value="Cancelar" />
 								</form>
 							</div>

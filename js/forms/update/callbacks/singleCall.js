@@ -3,6 +3,7 @@ import getSingleCamion from '../../../callbacks/get/getSingleCamion.js';
 import getSingleCiudad from '../../../callbacks/get/getSingleCiudad.js';
 import getSingleEmpleados from '../../../callbacks/get/getSingleEmpleado.js';
 import getSingleProvincia from '../../../callbacks/get/getSingleProvincia.js';
+import getSingleSalario from '../../../callbacks/get/getSingleSalario.js';
 import { CALL_OPTION } from '../../../constants/callsOptionsUpdate.js';
 
 const getCity = (optionList, valueId) => {
@@ -17,6 +18,7 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 	const getPaquete = await getPaqueteAllDetails(id_selected);
 	const getSingleCity = await getSingleCiudad(id_selected);
 	const getSingleStates = await getSingleProvincia(id_selected);
+	const getSalario = await getSingleSalario(id_selected);
 	switch (call_name) {
 		case CALL_OPTION.SINGLE_EMPLOYE:
 			childSelected.children[0].children[1].value = id_selected;
@@ -76,6 +78,13 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 			childSelected.children[0].children[1].value =
 				getSingleStates.nombre_provincia;
 			childSelected.children[1].children[0].value = getSingleStates.id_prov;
+			break;
+		case CALL_OPTION.SINGLE_SALARY:
+			childSelected.children[0].children[1].value = getSalario.fecha_pago;
+			childSelected.children[1].children[1].value = getSalario.cantidad_hora;
+			childSelected.children[2].children[1].value = getSalario.precio_hora;
+			childSelected.children[3].children[1].value = getSalario.id_empleado;
+			childSelected.children[4].children[0].value = getSalario.id_salario;
 			break;
 	}
 };

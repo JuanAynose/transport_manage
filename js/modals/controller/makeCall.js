@@ -20,6 +20,7 @@ import getPaquete from '../../callbacks/get/getPaquete.js';
 import getProvincias from '../../callbacks/get/getProvincias.js';
 import getRemitos from '../../callbacks/get/getRemitos.js';
 import getSalario from '../../callbacks/get/getSalario.js';
+import CardEmpleadosListManager from '../../cardsHandlers/CardEmpleadosListManager.js';
 import CardProvinciaListManager from '../../cardsHandlers/CardProvinciaListManager.js';
 import CardCamionEdits from '../../cardsHandlers/edit/CardCamionEdits.js';
 import CardEmpleadoEdit from '../../cardsHandlers/edit/CardEmpleadoEdit.js';
@@ -43,6 +44,7 @@ const editarEmpleado = document.getElementById('editarEmpleado');
 /*load ciudad*/
 const ciudadList = document.querySelectorAll('.ciudad_form');
 const provinciaList = document.querySelectorAll('.provincia_form');
+const empleadoList = document.querySelectorAll('.empleado_select');
 /**/
 
 const makeCall = async indenfyNumber => {
@@ -58,6 +60,7 @@ const makeCall = async indenfyNumber => {
 
 	CardCiudadListManager(getCiudad, ciudadList);
 	CardProvinciaListManager(getProvincia, provinciaList);
+	CardEmpleadosListManager(getEmployes, empleadoList);
 
 	switch (indenfyNumber) {
 		case MODAL_OPTIONS.PAQUETERIA:
@@ -83,7 +86,6 @@ const makeCall = async indenfyNumber => {
 			CardRemitoManager(getRemito, containerRemitos);
 			break;
 		case MODAL_OPTIONS.CIUDADES:
-			console.log('anashei ciudad');
 			CardCiudadManager(getCiudad, containerCiudad);
 			CardProvinciaManager(getProvincia, containerProvincia);
 			break;

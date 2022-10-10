@@ -11,45 +11,45 @@ const cleanRemitoContainer = childrens => {
 const modalMenuRemitos =
 	document.getElementById('modalRemitos').children[0].children[0];
 
-const SortDataPackage = (childId, situationChild) => {
+const SortDataPackage = (child, situationChild) => {
 	switch (situationChild) {
 		case SITUATION_PACKAGE.PREPARACION:
 			CardPackageEdit(
-				childId,
-				modalMenuRemitos.children[1].children[REMITO_OPTIONS.PREPARANCION]
+				modalMenuRemitos.children[REMITO_OPTIONS.PERDIDO].children[1],
+				child
 			);
 			break;
 		case SITUATION_PACKAGE.CAMINO:
 			CardPackageEdit(
-				childId,
-				modalMenuRemitos.children[1].children[REMITO_OPTIONS.CAMINO]
+				modalMenuRemitos.children[REMITO_OPTIONS.CAMINO].children[1],
+				child
 			);
 			break;
 
 		case SITUATION_PACKAGE.ENTREGADO:
 			CardPackageEdit(
-				childId,
-				modalMenuRemitos.children[1].children[REMITO_OPTIONS.ENTREGADO]
+				modalMenuRemitos.children[REMITO_OPTIONS.ENTREGADO].children[1],
+				child
 			);
 			break;
 
 		case SITUATION_PACKAGE.DEPOSITO:
 			CardPackageEdit(
-				childId,
-				modalMenuRemitos.children[1].children[REMITO_OPTIONS.DEPOSITO]
+				modalMenuRemitos.children[REMITO_OPTIONS.DEPOSITO].children[1],
+				child
 			);
 			break;
 
 		case SITUATION_PACKAGE.PERDIDO:
 			CardPackageEdit(
-				childId,
-				modalMenuRemitos.children[1].children[REMITO_OPTIONS.PERDIDO]
+				modalMenuRemitos.children[REMITO_OPTIONS.PERDIDO].children[1],
+				child
 			);
 			break;
 		case SITUATION_PACKAGE.CANCELADO:
 			CardPackageEdit(
-				childId,
-				modalMenuRemitos.children[1].children[REMITO_OPTIONS.CANCELADOS]
+				modalMenuRemitos.children[REMITO_OPTIONS.CANCELADOS].children[1],
+				child
 			);
 			break;
 	}

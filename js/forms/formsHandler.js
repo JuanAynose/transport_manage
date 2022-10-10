@@ -10,6 +10,8 @@ import { updateCamion } from '../callbacks/update/updateCamion.js';
 import { updateCiudad } from '../callbacks/update/updateCiudad.js';
 import { updateEmpleado } from '../callbacks/update/updateEmpleado.js';
 import { updatePaquete } from '../callbacks/update/updatePaquete.js';
+import { updateProvincia } from '../callbacks/update/updateProvincia.js';
+import { updateSalario } from '../callbacks/update/updateSalario.js';
 import { MODAL_OPTIONS } from '../constants/modalOptions.js';
 import makeCall from '../modals/controller/makeCall.js';
 /**/
@@ -23,9 +25,11 @@ const formEmpleadoEdit = document.getElementById('formEmpleadoEdit');
 const formCamionEdit = document.getElementById('formCamionEdit');
 const formRemitoEdit = document.getElementById('formRemitoEdit');
 const formCiudadEdit = document.getElementById('formCiudadEdit');
+const formProvinciaEdit = document.getElementById('formProvinciaEdit');
 const formProvincia = document.getElementById('formCiudadesProvincia');
 const formCiudad = document.getElementById('formCiudadesCiudad');
 const enviosCardPackage = document.getElementById('enviosCardPackage');
+const formSalarioEdit = document.getElementById('formSalarioEdit');
 /**/
 
 formSalario.addEventListener('submit', e => {
@@ -79,7 +83,6 @@ formRemito.addEventListener('submit', e => {
 
 	const formData = new FormData(formRemito);
 	const normalizeFormData = [];
-	let cont = 0;
 
 	for (let i = 0; i < enviosCardPackage.children.length; i++) {
 		const childSelected = enviosCardPackage.children[i].children[0].children[4];
@@ -244,4 +247,33 @@ formCiudadEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.CIUDADES);
 	modalEditCiudad.classList.add('hidden');
+});
+
+formProvinciaEdit.addEventListener('submit', e => {
+	e.preventDefault();
+	const formData = new FormData(formProvinciaEdit);
+	updateProvincia({
+		nombre_provincia: formData.get('nombre_provincia'),
+		id_provincia: formData.get('ID_CIUDAD')
+	});
+	makeCall(MODAL_OPTIONS.CIUDADES);
+	modalEditProvincia.classList.add('hidden');
+});
+
+formSalarioEdit.addEventListener('submit', e => {
+	e.preventDefault();
+	const formData = new FormData(formSalarioEdit);
+	const normalizeSalarioUpdate =
+		Number(formData.get('cantidad_horas_salario')) *
+		Number(formData.get('precio_hora_salario'));
+	updateSalario({
+		id_salario: formData.get('ID_SALARIO'),
+		id_empleado: formData.get('empleado_select'),
+		cantidad_hora: formData.get('cantidad_horas_salario'),
+		monto_hora: formData.get('precio_hora_salario'),
+		sueldo_neto: normalizeSalarioUpdate,
+		fecha_pago: formData.get('fecha_pago_salario')
+	});
+	makeCall(MODAL_OPTIONS.SALARIO);
+	modalEditSalario.classList.add('hidden');
 });

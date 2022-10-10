@@ -1,6 +1,5 @@
 const CardProvinciaListManager = (data, containerProvincia) => {
 	if (!data.length) return data;
-	console.log(containerProvincia);
 	containerProvincia[0].innerHTML = '';
 	containerProvincia[1].innerHTML = '';
 

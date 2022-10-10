@@ -27,6 +27,7 @@
       extract($row);
 
       $salary_item= array(
+        'id_salario'=>$id,
           'apellido'=> $apellido,
           'direc'=> $direc,
           'mes_año'=>$mes_año,

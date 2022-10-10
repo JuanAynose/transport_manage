@@ -1,6 +1,5 @@
 const CardCiudadListManager = (data, containerCiudad) => {
 	if (!data.length) return data;
-	console.log(containerCiudad);
 	containerCiudad[0].innerHTML = '';
 	containerCiudad[1].innerHTML = '';
 	containerCiudad[2].innerHTML = '';

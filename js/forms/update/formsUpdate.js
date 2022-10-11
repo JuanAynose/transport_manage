@@ -73,7 +73,6 @@ editarEmpleado.addEventListener('click', ev => {
 		);
 		modalDeleteEmpleado.children[0].children[0].children[0].textContent =
 			getIdEmploye;
-		console.log(ev.target);
 		modalDeleteEmpleado.classList.remove('hidden');
 	}
 });
@@ -100,13 +99,11 @@ modalEditEmpleado.addEventListener('click', ev => {
 /*camion modals*/
 
 editarCamion.addEventListener('click', ev => {
-	console.log(modalEditCamion.children[0].children[1]);
 	if (ev.target.textContent === 'Editar') {
 		getIdCamion = Number(
 			ev.target.parentElement.previousElementSibling.children[0].children[0]
 				.textContent
 		);
-		console.log(modalEditCamion.children[0].children[1]);
 		singleCall(
 			getIdCamion,
 			modalEditCamion.children[0].children[1],
@@ -193,7 +190,6 @@ modalEditRemito.addEventListener('click', ev => {
 /* ciudad modals */
 editarCiudad.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Editar') {
-		console.log(ev.target.textContent);
 		getIdCiudad = Number(
 			ev.target.parentElement.parentElement.children[3].children[0].children[0]
 				.textContent

@@ -1,7 +1,6 @@
 export const updateCamion = data => {
 	const { id_camion, capacidad, marca, disponibilidad } = data;
 
-	console.log(data);
 
 	const sendShit = () => {
 		const myHeaders = new Headers();

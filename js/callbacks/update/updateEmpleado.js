@@ -10,8 +10,6 @@ export const updateEmpleado = data => {
 		fecha_nacimiento_empleado
 	} = data;
 
-	console.log(data);
-
 	const sendShit = () => {
 		const myHeaders = new Headers();
 		myHeaders.append('Content-Type', 'application/json');

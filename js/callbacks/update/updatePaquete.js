@@ -16,7 +16,6 @@ export const updatePaquete = data => {
 		situacion_paquete
 	} = data;
 
-	console.log(data);
 	const sendShit = () => {
 		const myHeaders = new Headers();
 		myHeaders.append('Content-Type', 'application/json');

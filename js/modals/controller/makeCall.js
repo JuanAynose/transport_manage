@@ -45,6 +45,7 @@ const editarEmpleado = document.getElementById('editarEmpleado');
 const ciudadList = document.querySelectorAll('.ciudad_form');
 const provinciaList = document.querySelectorAll('.provincia_form');
 const empleadoList = document.querySelectorAll('.empleado_select');
+/*filters*/
 /**/
 
 const makeCall = async indenfyNumber => {

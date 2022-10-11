@@ -1,4 +1,5 @@
 /* post data */
+import getSalario from '../callbacks/get/getSalario.js';
 import { postCamion } from '../callbacks/post/postCamion.js';
 import { postCiudad } from '../callbacks/post/postCiudad.js';
 import { postEmpleado } from '../callbacks/post/postEmpleado.js';
@@ -14,7 +15,9 @@ import { updateProvincia } from '../callbacks/update/updateProvincia.js';
 import { updateSalario } from '../callbacks/update/updateSalario.js';
 import { MODAL_OPTIONS } from '../constants/modalOptions.js';
 import makeCall from '../modals/controller/makeCall.js';
-/**/
+/*filterrs*/
+const formFilterSalario = document.getElementById('formFilterSalario');
+
 /* form data */
 const formPaquete = document.getElementById('formPaquete');
 const formEmpleado = document.getElementById('formEmpleado');
@@ -277,3 +280,38 @@ formSalarioEdit.addEventListener('submit', e => {
 	makeCall(MODAL_OPTIONS.SALARIO);
 	modalEditSalario.classList.add('hidden');
 });
+
+
+/* filters */
+formFilterSalario.addEventListener("click",ev =>{
+	const formData = new FormData(formFilterSalario);
+			let desdeFecha =formData.get('desde_fecha');
+			let hastaFecha = formData.get('hasta_fecha');
+	const callAndFilter =() =>{
+		const arrTest = [];
+		for(const childPagos of pagosRealizados.children){
+			const dateChild = childPagos.children[0].children[1].children[1].textContent.slice(15,25);
+			if( desdeFecha => dateChild && hastaFecha <= dateChild) console.log("si :D")
+			//console.log(childPagos.children[0].children[1].children[1].textContent.slice(15,25))
+			//console.log(childPagos)			
+			arrTest.push({children_pago:childPagos,children_date:childPagos.children[0].children[1].children[1].textContent.slice(15,25)})
+		}
+		console.log(arrTest)
+		//console.log(pagosRealizados)
+	}
+	
+	if(ev.target.value === "Filtrar"){
+		console.log("filter");
+		console.log({
+			desde_fecha:formData.get('desde_fecha'),
+			hasta_fecha:formData.get('hasta_fecha')
+		})
+	callAndFilter()
+
+	}else if(ev.target.value === "Limpiar"){
+		formData.get('desde_fecha')
+		console.log("clean");
+		formFilterSalario.children[0].children[1].value ="";
+		formFilterSalario.children[1].children[1].value ="";
+	}
+})

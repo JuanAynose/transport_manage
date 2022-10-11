@@ -1,6 +1,5 @@
 export const updateCiudad = data => {
 	const { nombre_ciudad, codigo_provincia, codigo_postal, id_ciudad } = data;
-	console.log(data);
 	const sendShit = () => {
 		const myHeaders = new Headers();
 		myHeaders.append('Content-Type', 'application/json');

@@ -15,7 +15,7 @@ const SortDataPackage = (child, situationChild) => {
 	switch (situationChild) {
 		case SITUATION_PACKAGE.PREPARACION:
 			CardPackageEdit(
-				modalMenuRemitos.children[REMITO_OPTIONS.PERDIDO].children[1],
+				modalMenuRemitos.children[REMITO_OPTIONS.PREPARACION].children[1],
 				child
 			);
 			break;

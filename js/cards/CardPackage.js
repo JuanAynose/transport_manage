@@ -1,6 +1,5 @@
 const CardPackage = (data, cont) => {
 	if (data.length === 0) return data;
-	console.log(data);
 	const {
 		cod_paquete,
 		id_destinatario,

@@ -1,4 +1,9 @@
+import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
+import makeCall from '../../modals/controller/makeCall.js';
+
 export const postPaquete = data => {
+	makeCall(MODAL_OPTIONS.PAQUETERIA);
+
 	const {
 		nombre_paquete,
 		tipo_paquete,

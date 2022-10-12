@@ -13,8 +13,8 @@
 	width: 100%;
 	max-width: 320px;
 	padding: 0 1em 1em 1em;
-	border-top: 0.5em solid #7c2f8a;
-	border-bottom: 0.5em solid #7c2f8a;
+	border-top: 0.5em solid var(--violet-anashei);
+	border-bottom: 0.5em solid var(--violet-anashei);
 }
 
 .provincia-container__header {

@@ -72,11 +72,6 @@ body {
 	opacity: 0;
 }
 
-.hidden {
-	visibility: hidden;
-	opacity: 0;
-}
-
 /*container styles*/
 .container {
 	display: flex;
@@ -329,4 +324,11 @@ body {
 .input_empleado.hidden,
 .input_camion.hidden {
 	display: none;
+}
+
+.hidden {
+	visibility: hidden;
+	height: 0;
+	margin: 0;
+	opacity: 0;
 }

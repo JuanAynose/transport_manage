@@ -9,6 +9,7 @@
 		<script defer type="module" src="./js/scripts.js"></script>
 		<script defer type="module" src="./js/forms/formsHandler.js"></script>
 		<script defer type="module" src="./js/forms/update/formsUpdate.js"></script>
+		<script defer src="./js/filters/filters.js"></script>
 		<title>Pacco Veloce</title>
 	</head>
 	<body>
@@ -55,7 +56,7 @@
 			</div>
 		</nav>
 		<div class="container">
-		<!--
+			<!--
 			<img
 				style="
 					top: 0;
@@ -75,7 +76,7 @@
 					<div class="content__paqueteria modal__content">
 						<div class="content-paqueteria__form__paqueteria">
 							<div class="form-paqueteria__bg">
-								<form id="formPaquete" class="formPaquete" method="post">
+								<form id="formPaquete" class="formPaquete">
 									<div class="formpaquete-datos__content">
 										<p>Ingresar datos del paquete</p>
 										<div class="form__element">
@@ -605,15 +606,15 @@
 									<form id="formFilterSalario">
 										<div>
 											<label for="desde_fecha">Desde Fecha</label>
-											<input type="date" name="desde_fecha" id="desde_fecha">
+											<input type="date" name="desde_fecha" id="desde_fecha" />
 										</div>
 										<div>
 											<label for="hasta_fecha">Hasta Fecha</label>
-											<input type="date" name="hasta_fecha" id="">
+											<input type="date" name="hasta_fecha" id="" />
 										</div>
 										<div>
-											<input type="button" value="Filtrar">
-											<input type="button" value="Limpiar">
+											<input type="button" value="Filtrar" />
+											<input type="button" value="Limpiar" />
 										</div>
 									</form>
 								</div>
@@ -909,7 +910,28 @@
 								</form>
 							</div>
 						</div>
-						<div id="containerRemitos" class="containerRemitos"></div>
+						<div>
+							<div>
+								<p>Remitos por fechas de entrega</p>
+								<div>
+									<form id="formFilterRemitos">
+										<div>
+											<label for="desde_fecha">Desde Fecha</label>
+											<input type="date" name="desde_fecha" id="desde_fecha" />
+										</div>
+										<div>
+											<label for="hasta_fecha">Hasta Fecha</label>
+											<input type="date" name="hasta_fecha" id="" />
+										</div>
+										<div>
+											<input type="button" value="Filtrar" />
+											<input type="button" value="Limpiar" />
+										</div>
+									</form>
+								</div>
+							</div>
+							<div id="containerRemitos" class="containerRemitos"></div>
+						</div>
 					</div>
 				</div>
 				<div id="modalCiudades" class="bg__modal hidden">

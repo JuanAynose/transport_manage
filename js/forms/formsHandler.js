@@ -14,8 +14,6 @@ import { updateProvincia } from '../callbacks/update/updateProvincia.js';
 import { updateSalario } from '../callbacks/update/updateSalario.js';
 import { MODAL_OPTIONS } from '../constants/modalOptions.js';
 import makeCall from '../modals/controller/makeCall.js';
-/*filterrs*/
-const formFilterSalario = document.getElementById('formFilterSalario');
 
 /* form data */
 const formPaquete = document.getElementById('formPaquete');
@@ -68,7 +66,6 @@ formPaquete.addEventListener('submit', e => {
 		direccion_destinatario: formData.get('direccion_destinatario')
 	});
 	formPaquete.reset();
-	makeCall(MODAL_OPTIONS.PAQUETERIA);
 });
 
 /*open the model of "ingresar paquete"*/
@@ -184,7 +181,7 @@ formCiudad.addEventListener('submit', e => {
 	makeCall(MODAL_OPTIONS.CIUDADES);
 });
 
-/**/
+/*forms edits*/
 formEmpleadoEdit.addEventListener('submit', e => {
 	e.preventDefault();
 	const formData = new FormData(formEmpleadoEdit);
@@ -278,49 +275,4 @@ formSalarioEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.SALARIO);
 	modalEditSalario.classList.add('hidden');
-});
-
-/* filters */
-formFilterSalario.addEventListener('click', ev => {
-	const formData = new FormData(formFilterSalario);
-	const desdeFecha = formData.get('desde_fecha');
-	const hastaFecha = formData.get('hasta_fecha');
-
-	const callAndFilter = () => {
-		const childsSalary = [];
-		for (const childPagos of pagosRealizados.children) {
-			const dateChild =
-				childPagos.children[0].children[1].children[1].textContent.slice(
-					15,
-					25
-				);
-			childsSalary.push({
-				children_pago: childPagos,
-				children_date: dateChild
-			});
-
-			if (
-				formFilterSalario.children[0].children[1].value === '' ||
-				formFilterSalario.children[1].children[1].value === ''
-			) {
-				null;
-			} else {
-				if (dateChild >= desdeFecha && dateChild <= hastaFecha) {
-					childPagos.classList.remove('hidden');
-				} else {
-					childPagos.classList.add('hidden');
-				}
-			}
-		}
-	};
-
-	if (ev.target.value === 'Filtrar') {
-		callAndFilter();
-	} else if (ev.target.value === 'Limpiar') {
-		formFilterSalario.children[0].children[1].value = '';
-		formFilterSalario.children[1].children[1].value = '';
-		for (const childPagos of pagosRealizados.children) {
-			childPagos.classList.remove('hidden');
-		}
-	}
 });

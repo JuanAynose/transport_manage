@@ -1,5 +1,4 @@
 /* post data */
-import getSalario from '../callbacks/get/getSalario.js';
 import { postCamion } from '../callbacks/post/postCamion.js';
 import { postCiudad } from '../callbacks/post/postCiudad.js';
 import { postEmpleado } from '../callbacks/post/postEmpleado.js';
@@ -281,37 +280,47 @@ formSalarioEdit.addEventListener('submit', e => {
 	modalEditSalario.classList.add('hidden');
 });
 
-
 /* filters */
-formFilterSalario.addEventListener("click",ev =>{
+formFilterSalario.addEventListener('click', ev => {
 	const formData = new FormData(formFilterSalario);
-			let desdeFecha =formData.get('desde_fecha');
-			let hastaFecha = formData.get('hasta_fecha');
-	const callAndFilter =() =>{
-		const arrTest = [];
-		for(const childPagos of pagosRealizados.children){
-			const dateChild = childPagos.children[0].children[1].children[1].textContent.slice(15,25);
-			if( desdeFecha => dateChild && hastaFecha <= dateChild) console.log("si :D")
-			//console.log(childPagos.children[0].children[1].children[1].textContent.slice(15,25))
-			//console.log(childPagos)			
-			arrTest.push({children_pago:childPagos,children_date:childPagos.children[0].children[1].children[1].textContent.slice(15,25)})
-		}
-		console.log(arrTest)
-		//console.log(pagosRealizados)
-	}
-	
-	if(ev.target.value === "Filtrar"){
-		console.log("filter");
-		console.log({
-			desde_fecha:formData.get('desde_fecha'),
-			hasta_fecha:formData.get('hasta_fecha')
-		})
-	callAndFilter()
+	const desdeFecha = formData.get('desde_fecha');
+	const hastaFecha = formData.get('hasta_fecha');
 
-	}else if(ev.target.value === "Limpiar"){
-		formData.get('desde_fecha')
-		console.log("clean");
-		formFilterSalario.children[0].children[1].value ="";
-		formFilterSalario.children[1].children[1].value ="";
+	const callAndFilter = () => {
+		const childsSalary = [];
+		for (const childPagos of pagosRealizados.children) {
+			const dateChild =
+				childPagos.children[0].children[1].children[1].textContent.slice(
+					15,
+					25
+				);
+			childsSalary.push({
+				children_pago: childPagos,
+				children_date: dateChild
+			});
+
+			if (
+				formFilterSalario.children[0].children[1].value === '' ||
+				formFilterSalario.children[1].children[1].value === ''
+			) {
+				null;
+			} else {
+				if (dateChild >= desdeFecha && dateChild <= hastaFecha) {
+					childPagos.classList.remove('hidden');
+				} else {
+					childPagos.classList.add('hidden');
+				}
+			}
+		}
+	};
+
+	if (ev.target.value === 'Filtrar') {
+		callAndFilter();
+	} else if (ev.target.value === 'Limpiar') {
+		formFilterSalario.children[0].children[1].value = '';
+		formFilterSalario.children[1].children[1].value = '';
+		for (const childPagos of pagosRealizados.children) {
+			childPagos.classList.remove('hidden');
+		}
 	}
-})
+});

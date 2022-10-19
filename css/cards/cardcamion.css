@@ -8,13 +8,14 @@
 	position: relative;
 	width: 320px;
 	height: 200px;
-	padding: 0 1em;
+	padding: 1em;
 	border-top: 0.5em solid var(--violet-anashei);
 	border-bottom: 0.5em solid var(--violet-anashei);
 	background-color: var(--white);
 	box-shadow: var(--shadow-solid), var(--shadow-sm);
 	transform: scale(1);
 	transition: ease-in 0.2s transform;
+	overflow: hidden;
 }
 
 .icon_truck {
@@ -66,8 +67,8 @@
 }
 
 .input_camion {
-	width: 350px;
-	height: 200px;
+	width: 360px;
+	height: 250px;
 	left: 0;
 }
 

@@ -44,7 +44,7 @@
 	width: 330px;
 	height: 200px;
 	margin-bottom: 1em;
-	padding: 0 1em;
+	padding: 0;
 	background-color: var(---white);
 	box-shadow: var(--shadow-solid), var(--shadow-sm);
 	transform: scale(1);
@@ -55,7 +55,6 @@
 .package-container__header__bg {
 	display: flex;
 	align-items: center;
-	padding-left: 1em;
 	background-color: var(--violet-anashei);
 	width: 100%;
 }
@@ -126,8 +125,8 @@
 
 /*all input styles package*/
 .input_package {
-	width: 330px;
-	height: 200px;
+	width: 340px;
+	height: 220px;
 }
 
 .package-container__item:hover {
@@ -145,6 +144,17 @@
 	position: absolute;
 	top: 0.5em;
 	right: 0.5em;
+}
+
+.container-paquete__item__content .package-container__item--type--edit {
+	transform: none;
+	transition: none;
+	padding-left: 0;
+}
+
+.container-paquete__item__content .package-container__item--type--edit:hover {
+	transform: none;
+	transition: none;
 }
 
 /**/

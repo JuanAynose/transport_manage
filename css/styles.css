@@ -327,6 +327,7 @@ body {
 }
 
 .hidden {
+	display: none;
 	visibility: hidden;
 	height: 0;
 	margin: 0;

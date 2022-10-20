@@ -75,6 +75,7 @@ const makeCall = async indenfyNumber => {
 			CardCamionEdits(getTrucks, editarCamion);
 			break;
 		case MODAL_OPTIONS.EMPLEADOS:
+			editarEmpleado.innerHTML = '';
 			CardEmpleadoEdit(getEmployes, editarEmpleado);
 			break;
 		case MODAL_OPTIONS.SALARIO:

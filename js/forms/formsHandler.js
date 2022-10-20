@@ -231,7 +231,7 @@ formRemitoEdit.addEventListener('submit', e => {
 		id_paquete: formData.get('ID_PAQUETE'),
 		cod_paquete: formData.get('ID_DETALLE')
 	});
-	makeCall(MODAL_OPTIONS.TRANSPORTE);
+	makeCall(MODAL_OPTIONS.REMITOS);
 	modalEditRemito.classList.add('hidden');
 });
 

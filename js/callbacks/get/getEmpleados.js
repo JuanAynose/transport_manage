@@ -41,6 +41,8 @@ const normalizeDate = str => {
 	return `${nomalizedTotalDays} años`;
 };
 
+const employesData = [];
+
 const getEmpleados = () => {
 	return fetch(
 		'http://localhost/transport_manage/api/calls/empleados/leer_empleado.php'
@@ -50,8 +52,24 @@ const getEmpleados = () => {
 		.then(res => {
 			if (res.length < 0) {
 				return null;
+			} else if (res.length === 1) {
+				const {
+					fecha_ingreso,
+					id_camionero,
+					dni,
+					apellido,
+					...restEmployeInfo
+				} = employeInfo;
+				const getExperience = normalizeDate(fecha_ingreso);
+				const employeObject = {
+					antiguedad_empleado: getExperience,
+					id_empleado: id_camionero,
+					dni_empleado: dni,
+					apellido_empleado: apellido,
+					...restEmployeInfo
+				};
+				employesData.push(employeObject);
 			} else {
-				const employesData = [];
 				for (const employeInfo of res) {
 					const {
 						fecha_ingreso,

@@ -50,8 +50,8 @@ const getEmpleados = () => {
 		.then(res => (res.ok ? Promise.resolve(res) : Promise.reject(res)))
 		.then(res => res.json())
 		.then(res => {
-			if (res.length < 0) {
-				return null;
+			if (!res.length) {
+				return res;
 			} else if (res.length <= 1) {
 				const {
 					fecha_ingreso,

@@ -66,6 +66,7 @@ const makeCall = async indenfyNumber => {
 	switch (indenfyNumber) {
 		case MODAL_OPTIONS.PAQUETERIA:
 			containerPackage.innerHTML = '';
+			containerEmpleado.innerHTML = '';
 			CardPackageManager(getData, containerPackage);
 			CardCamionManager(getCamionesDispo, containerCamion);
 			CardEmpleadoManager(getEmployes, containerEmpleado);

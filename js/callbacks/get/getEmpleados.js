@@ -52,14 +52,14 @@ const getEmpleados = () => {
 		.then(res => {
 			if (res.length < 0) {
 				return null;
-			} else if (res.length === 1) {
+			} else if (res.length <= 1) {
 				const {
 					fecha_ingreso,
 					id_camionero,
 					dni,
 					apellido,
 					...restEmployeInfo
-				} = employeInfo;
+				} = res;
 				const getExperience = normalizeDate(fecha_ingreso);
 				const employeObject = {
 					antiguedad_empleado: getExperience,

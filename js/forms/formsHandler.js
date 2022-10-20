@@ -66,6 +66,7 @@ formPaquete.addEventListener('submit', e => {
 		direccion_destinatario: formData.get('direccion_destinatario')
 	});
 	formPaquete.reset();
+	makeCall(MODAL_OPTIONS.PAQUETERIA);
 });
 
 /*open the model of "ingresar paquete"*/

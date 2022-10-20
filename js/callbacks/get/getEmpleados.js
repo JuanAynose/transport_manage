@@ -48,24 +48,28 @@ const getEmpleados = () => {
 		.then(res => (res.ok ? Promise.resolve(res) : Promise.reject(res)))
 		.then(res => res.json())
 		.then(res => {
-			const employesData = [];
-			for (const employeInfo of res) {
-				const {
-					fecha_ingreso,
-					id_camionero,
-					dni,
-					apellido,
-					...restEmployeInfo
-				} = employeInfo;
-				const getExperience = normalizeDate(fecha_ingreso);
-				const employeObject = {
-					antiguedad_empleado: getExperience,
-					id_empleado: id_camionero,
-					dni_empleado: dni,
-					apellido_empleado: apellido,
-					...restEmployeInfo
-				};
-				employesData.push(employeObject);
+			if (res.length < 0) {
+				return null;
+			} else {
+				const employesData = [];
+				for (const employeInfo of res) {
+					const {
+						fecha_ingreso,
+						id_camionero,
+						dni,
+						apellido,
+						...restEmployeInfo
+					} = employeInfo;
+					const getExperience = normalizeDate(fecha_ingreso);
+					const employeObject = {
+						antiguedad_empleado: getExperience,
+						id_empleado: id_camionero,
+						dni_empleado: dni,
+						apellido_empleado: apellido,
+						...restEmployeInfo
+					};
+					employesData.push(employeObject);
+				}
 			}
 			return employesData;
 		})

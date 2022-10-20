@@ -1,5 +1,5 @@
 const CardEmpleadosListManager = (data, containerEmpleados) => {
-	if (!data.length) return data;
+	if (data.length < 0) return data;
 	containerEmpleados[0].innerHTML = '';
 
 	for (const empleadoItem of data) {

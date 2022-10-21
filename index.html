@@ -16,7 +16,13 @@
 		<nav class="nav__bar">
 			<div class="logo">
 				<h1 class="company__name">Pacco veloce</h1>
-				<img src="./assets/icons/logo.png" alt="icon logo" class="logo__img" />
+				<div class="container__logo">
+					<img
+						src="./assets/images/logo.svg"
+						alt="icon logo"
+						class="logo__img"
+					/>
+				</div>
 			</div>
 			<button id="modal__button" class="profile">
 				<img
@@ -78,154 +84,158 @@
 							<div class="form-paqueteria__bg">
 								<form id="formPaquete" class="formPaquete">
 									<div class="formPaquete__content">
-										<div class="formpaquete-datos__content">
+										<div class="formPaquete__content__left">
 											<div>
-												<p class="formPaquete__text">Datos del paquete</p>
+												<div>
+													<p class="formPaquete__text">Datos del paquete</p>
+												</div>
+												<div class="form__element">
+													<input
+														class="form__input"
+														type="text"
+														id="desc_paquete "
+														name="desc_paquete"
+														required
+													/>
+													<label class="form__element__text" for="desc_paquete"
+														>Nombre del paquete</label
+													>
+												</div>
+												<div class="form__element">
+													<input
+														class="form__input"
+														type="number"
+														placeholder=" "
+														id="peso_paquete "
+														name="peso_paquete"
+														required
+													/>
+													<label class="form__element__text" for="peso_paquete"
+														>Peso del paquete (GRs)</label
+													>
+												</div>
+												<div class="form__element container__select">
+													<label class="form__select__text" for="tipo_paquete"
+														>Tipo de paquete</label
+													>
+													<select
+														class="form__select"
+														id="tipo_paquete "
+														name="tipo_paquete"
+														required
+													>
+														<option class="form__select__option" value="1">
+															No Fragil
+														</option>
+														<option value="2">Fragil</option>
+													</select>
+												</div>
+												<div class="form__element container__select">
+													<label class="form__select__text" for="prioridad"
+														>Nivel de prioridad</label
+													>
+													<select
+														class="form__select"
+														id="prioridad "
+														name="prioridad"
+														required
+													>
+														<option value="1">Baja</option>
+														<option value="2">Media</option>
+														<option value="3">Alta</option>
+													</select>
+												</div>
 											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="text"
-													id="desc_paquete "
-													name="desc_paquete"
-													required
-												/>
-												<label class="form__element__text" for="desc_paquete"
-													>Nombre del paquete</label
-												>
-											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="number"
-													placeholder=" "
-													id="peso_paquete "
-													name="peso_paquete"
-													required
-												/>
-												<label class="form__element__text" for="peso_paquete"
-													>Peso del paquete (GRs)</label
-												>
-											</div>
-											<div class="form__element container__select">
-												<label class="form__select__text" for="tipo_paquete"
-													>Tipo de paquete</label
-												>
-												<select
-													class="form__select"
-													id="tipo_paquete "
-													name="tipo_paquete"
-													required
-												>
-													<option class="form__select__option" value="1">
-														No Fragil
-													</option>
-													<option value="2">Fragil</option>
-												</select>
-											</div>
-											<div class="form__element container__select">
-												<label class="form__select__text" for="prioridad"
-													>Seleccion nivel de prioridad</label
-												>
-												<select
-													class="form__select"
-													id="prioridad "
-													name="prioridad"
-													required
-												>
-													<option value="1">Baja</option>
-													<option value="2">Media</option>
-													<option value="3">Alta</option>
-												</select>
-											</div>
-										</div>
-										<div>
 											<div>
-												<p class="formPaquete__text">Datos Destinatario</p>
-											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="text"
-													name="nombre_destinatario"
-													id="nombre_destinatario"
-													required
-												/>
-												<label
-													class="form__element__text"
-													for="nombre_destinatario"
-													>Nombre del destinatario</label
-												>
-											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="text"
-													name="apellido_destinatario"
-													id="apellido_destinatario"
-													required
-												/>
-												<label
-													class="form__element__text"
-													for="apellido_destinatario"
-													>Apellido del destinatario</label
-												>
-											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="number"
-													placeholder=" "
-													name="numero_destinatario"
-													id="numero_destinatario"
-													required
-												/>
-												<label
-													class="form__element__text"
-													for="numero_destinatario"
-													>numero del destinatario</label
-												>
-											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="number"
-													placeholder=" "
-													name="dni_destinatario"
-													id="dni_destinatario"
-													required
-												/>
-												<label
-													class="form__element__text"
-													for="dni_destinatario"
-													>dni del destinatario</label
-												>
-											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="text"
-													placeholder=" "
-													id="direccion_destinatario"
-													name="direccion_destinatario"
-													required
-												/>
-												<label
-													class="form__element__text"
-													for="direccion_destinatario"
-													>Direccion del destinatario</label
-												>
-											</div>
-											<div class="form__element container__select">
-												<label class="form__select__text" for="ciudad"
-													>Seleccione la ciudad</label
-												>
-												<select
-													class="form__select ciudad_form"
-													id="ciudad"
-													name="ciudad"
-													required
-												></select>
+												<div>
+													<p class="formPaquete__text">
+														Datos del destinatario
+													</p>
+												</div>
+												<div class="form__element">
+													<input
+														class="form__input"
+														type="text"
+														name="nombre_destinatario"
+														id="nombre_destinatario"
+														required
+													/>
+													<label
+														class="form__element__text"
+														for="nombre_destinatario"
+														>Nombre/s</label
+													>
+												</div>
+												<div class="form__element">
+													<input
+														class="form__input"
+														type="text"
+														name="apellido_destinatario"
+														id="apellido_destinatario"
+														required
+													/>
+													<label
+														class="form__element__text"
+														for="apellido_destinatario"
+														>Apellido/s</label
+													>
+												</div>
+												<div class="form__element">
+													<input
+														class="form__input"
+														type="number"
+														placeholder=" "
+														name="numero_destinatario"
+														id="numero_destinatario"
+														required
+													/>
+													<label
+														class="form__element__text"
+														for="numero_destinatario"
+														>Número de celular</label
+													>
+												</div>
+												<div class="form__element">
+													<input
+														class="form__input"
+														type="number"
+														placeholder=" "
+														name="dni_destinatario"
+														id="dni_destinatario"
+														required
+													/>
+													<label
+														class="form__element__text"
+														for="dni_destinatario"
+														>DNI/CUIL</label
+													>
+												</div>
+												<div class="form__element">
+													<input
+														class="form__input"
+														type="text"
+														placeholder=" "
+														id="direccion_destinatario"
+														name="direccion_destinatario"
+														required
+													/>
+													<label
+														class="form__element__text"
+														for="direccion_destinatario"
+														>Dirección de la vivienda</label
+													>
+												</div>
+												<div class="form__element container__select">
+													<label class="form__select__text" for="ciudad"
+														>Ciudades</label
+													>
+													<select
+														class="form__select ciudad_form"
+														id="ciudad"
+														name="ciudad"
+														required
+													></select>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -237,6 +247,21 @@
 										Cargar paquete
 									</button>
 								</form>
+								<div class="formPaquete__content__right">
+									<div class="formPaquete__logo__side">
+										<div class="container__logo">
+											<img
+												src="./assets/images/logo.svg"
+												alt="icon logo"
+												class="logo__img"
+											/>
+										</div>
+										<div class="formPaquete__logo__text">
+											<p class="company__name">Pacco veloce</p>
+											<p class="logo__text">Gestor de paqueteria</p>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="content-paqueteria__form__envio">

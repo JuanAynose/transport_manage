@@ -8,7 +8,7 @@ import CardPackageManager from '../../cardsHandlers/CardPackageManager.js';
 import CardProvinciaManager from '../../cardsHandlers/CardProvinciaManager.js';
 import CardRemitoManager from '../../cardsHandlers/CardRemitoManager.js';
 import CardSalaryManager from '../../cardsHandlers/CardSalaryManager.js';
-
+import CardEmpleadoEdit from '../../cardsHandlers/edit/CardEmpleadoEdit.js';
 /**/
 //import ModalEnvioHandler from '../../callbacks/callsHandler/modalEnvioHandler.js';
 import getAllPaquete from '../../callbacks/get/getAllPaquete.js';
@@ -23,7 +23,6 @@ import getSalario from '../../callbacks/get/getSalario.js';
 import CardEmpleadosListManager from '../../cardsHandlers/CardEmpleadosListManager.js';
 import CardProvinciaListManager from '../../cardsHandlers/CardProvinciaListManager.js';
 import CardCamionEdits from '../../cardsHandlers/edit/CardCamionEdits.js';
-import CardEmpleadoEdit from '../../cardsHandlers/edit/CardEmpleadoEdit.js';
 import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
 import modalRemitos from '../modalsHandlers/modalRemitos.js';
 /* cards container */
@@ -75,7 +74,6 @@ const makeCall = async indenfyNumber => {
 			CardCamionEdits(getTrucks, editarCamion);
 			break;
 		case MODAL_OPTIONS.EMPLEADOS:
-			editarEmpleado.innerHTML = '';
 			CardEmpleadoEdit(getEmployes, editarEmpleado);
 			break;
 		case MODAL_OPTIONS.SALARIO:

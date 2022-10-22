@@ -31,6 +31,15 @@ const formCiudad = document.getElementById('formCiudadesCiudad');
 const enviosCardPackage = document.getElementById('enviosCardPackage');
 const formSalarioEdit = document.getElementById('formSalarioEdit');
 /**/
+/*accordion ids salary*/
+const bttnSalaryAccordion = document.getElementById(
+	'formSalaryContent__button'
+);
+const contentSalaryAccordion = document.getElementById(
+	'formSalaryContent__container'
+);
+
+/**/
 
 formSalario.addEventListener('submit', e => {
 	e.preventDefault();
@@ -47,6 +56,8 @@ formSalario.addEventListener('submit', e => {
 	});
 	formSalario.reset();
 	makeCall(MODAL_OPTIONS.SALARIO);
+	contentSalaryAccordion.classList.remove('active');
+	bttnSalaryAccordion.textContent = 'Ver más';
 });
 
 /* open the modal of "ingresar paquete" anashei */

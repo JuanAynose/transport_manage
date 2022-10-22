@@ -313,11 +313,11 @@ editarSalario.addEventListener('click', ev => {
 });
 
 modalDeleteSalario.addEventListener('click', ev => {
-	if (ev.target.textContent === 'Si') {
+	if (ev.target.value === 'Si') {
 		modalDeleteSalario.classList.add('hidden');
 		deleteSalario(getIdSalario);
 		makeCall(MODAL_OPTIONS.SALARIO);
-	} else if (ev.target.textContent === 'No') {
+	} else if (ev.target.value === 'No') {
 		modalDeleteSalario.classList.add('hidden');
 	}
 });

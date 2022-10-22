@@ -21,8 +21,8 @@ formFilterSalario.addEventListener('click', ev => {
 			});
 			/*check if any of the input:date are empty and let the sentence works correctly*/
 			if (
-				formFilterSalario.children[0].children[1].value === '' ||
-				formFilterSalario.children[1].children[1].value === ''
+				formFilterSalario[0].value === '' ||
+				formFilterSalario[1].value === ''
 			) {
 				null;
 			} else {
@@ -39,8 +39,8 @@ formFilterSalario.addEventListener('click', ev => {
 		callAndFilter();
 	} else if (ev.target.value === 'Limpiar') {
 		/*clean all the input:date and remove the class "hidden" of all the childrens already filtered*/
-		formFilterSalario.children[0].children[1].value = '';
-		formFilterSalario.children[1].children[1].value = '';
+		formFilterSalario[0].value = '';
+		formFilterSalario[1].value = '';
 		for (const childPagos of pagosRealizados.children) {
 			childPagos.classList.remove('hidden');
 		}

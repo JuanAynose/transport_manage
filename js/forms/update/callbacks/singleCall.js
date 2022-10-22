@@ -42,7 +42,11 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 				getSingleTruck.disponibilidad;
 			break;
 		case CALL_OPTION.SINGLE_PACKAGE:
-			childSelected.children[1].children[1].children[2].value =
+			console.log(getPaquete[2].descrip);
+			console.log(id_selected);
+			childSelected[0].value = id_selected;
+			/*
+			childSelected.children[2].children[1].children[2].value =
 				getPaquete[2].descrip;
 			childSelected.children[2].children[1].value = getPaquete[2].peso;
 			childSelected.children[3].children[1].value = getPaquete[2].tipo_producto;
@@ -60,13 +64,22 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 			childSelected.children[5].children[6].children[1].value =
 				getPaquete[1].ciudad;
 			childSelected.children[5].children[7].children[1].value =
+			
 				getPaquete[0].situacion;
-			childSelected.children[5].children[8].children[0].value =
+				
+				childSelected.children[5].children[8].children[0].value =
 				getPaquete[0].cod_paquete;
-			childSelected.children[5].children[8].children[1].value =
+				childSelected.children[5].children[8].children[1].value =
 				getPaquete[1].id_destinatario;
-			childSelected.children[5].children[8].children[2].value =
+				childSelected.children[5].children[8].children[2].value =
 				getPaquete[2].cod_paque;
+				
+				*/
+			console.log(
+				getPaquete[0].cod_paquete,
+				getPaquete[1].id_destinatario,
+				getPaquete[2].cod_paque
+			);
 			break;
 		case CALL_OPTION.SINGLE_CITY:
 			childSelected.children[0].children[1].value = getSingleCity.nombre_ciudad;
@@ -80,9 +93,9 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 			childSelected.children[1].children[0].value = getSingleStates.id_prov;
 			break;
 		case CALL_OPTION.SINGLE_SALARY:
-			childSelected.children[0].children[1].value = getSalario.fecha_pago;
-			childSelected.children[1].children[1].value = getSalario.cantidad_hora;
-			childSelected.children[2].children[1].value = getSalario.precio_hora;
+			childSelected.children[0].children[0].value = getSalario.cantidad_hora;
+			childSelected.children[1].children[0].value = getSalario.precio_hora;
+			childSelected.children[2].children[1].value = getSalario.fecha_pago;
 			childSelected.children[3].children[1].value = getSalario.id_empleado;
 			childSelected.children[4].children[0].value = getSalario.id_salario;
 			break;

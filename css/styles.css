@@ -131,11 +131,20 @@ body.block {
 	flex-direction: column;
 }
 /*container salario styles*/
-.container__salario--options {
-	display: grid;
-	max-width: 1250px;
+.container__salario__menu {
+	max-height: 270px;
+	border-radius: 0.3em;
+	box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.5),
+		4px 4px 10px rgba(51, 51, 51, 0.5);
 	width: 100%;
-	border: 2px solid red;
+	margin-bottom: 2em;
+	transition: max-height 0.3s ease;
+	overflow: hidden;
+}
+
+.container__salario__menu.active {
+	max-height: 3500px;
+	transition: max-height 0.5s ease-in;
 }
 
 /*modal bg general*/
@@ -210,15 +219,48 @@ body.block {
 	flex: 1;
 }
 
+.container__filter__fechas {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.formPaquete--container__filter {
+	text-align: center;
+	max-width: 400px;
+	margin: 2em;
+	padding: 1em;
+	box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5),
+		4px 4px 8px rgba(51, 51, 51, 0.5), -2px -2px 8px rgba(51, 51, 51, 0.5);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.formSalario {
+	max-width: 550px;
+	padding: 2em;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 5px 5px 10px #333;
+}
+
+.content__edit .formSalario {
+	width: auto;
+	box-shadow: none;
+}
+
 /*cards packages styles*/
 
 /*card salary styles*/
 .container__salario--options {
 	display: flex;
 	align-content: center;
-	justify-content: flex-start;
-	flex-wrap: wrap;
-	gap: 2em;
+	justify-content: center;
+	flex-flow: row wrap;
+	width: 100%;
+	padding: 1em 0;
+	gap: 1em;
 }
 
 .content__salario {
@@ -235,7 +277,8 @@ body.block {
 .container__pagos--salario {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
+	gap: 1em;
 	align-content: center;
 	padding: 0 2em;
 }
@@ -246,7 +289,7 @@ body.block {
 	flex-direction: column;
 	width: 100%;
 	max-width: 520px;
-	height: 200px;
+	height: 220px;
 	overflow: hidden;
 	padding: 0 1em;
 	margin-bottom: 2em;
@@ -284,6 +327,12 @@ body.block {
 	padding: 2em;
 	background-color: var(--dark-fade);
 	clip-path: ellipse(70% 80% at 70% 40%);
+}
+
+.formSalario__content__top {
+	display: flex;
+	justify-content: space-between;
+	gap: 1em;
 }
 
 .formTransporte__content__right {
@@ -420,6 +469,12 @@ body.block {
 	align-items: flex-start;
 }
 
+.formPaquete--container__filter .container__select {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .formTransporte .container__select {
 	margin-bottom: 5em;
 }
@@ -471,7 +526,8 @@ input[type='number'] {
 	font-size: 16px;
 	border: none;
 	border-radius: 5px;
-	margin-top: 0.3em;
+	margin-right: auto;
+	margin-left: auto;
 	position: relative;
 	overflow: hidden;
 	transition: all 0.3s;
@@ -529,6 +585,30 @@ input[type='number'] {
 .formEmpleados .container__buttons,
 .formTransporte .container__buttons {
 	gap: 2em;
+}
+/*menu salario button*/
+
+.button__salary__menu {
+	border: none;
+	background-color: var(--white);
+	width: 100%;
+	max-width: 520px;
+	cursor: pointer;
+	box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5),
+		4px 4px 8px rgba(51, 51, 51, 0.5), -2px -2px 8px rgba(51, 51, 51, 0.5);
+	transition: all ease-in 0.2s;
+	margin-bottom: 4em;
+}
+
+.button__salary__menu:hover {
+	transform: scale(1.001);
+	transition: transform ease-in 0.2s;
+}
+
+.button__salary__menu:active {
+	background-color: var(--light-grey);
+	transform: scale(0.95);
+	transition: transform ease-in 0.2s;
 }
 
 /*content remitos*/

@@ -35,9 +35,9 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 			childSelected.children[7].children[1].value = getSingleEmploye.fecha_nac;
 			break;
 		case CALL_OPTION.SINGLE_TRUCK:
-			childSelected.children[0].children[1].value = id_selected;
-			childSelected.children[1].children[1].value = getSingleTruck.capacidad;
-			childSelected.children[2].children[1].value = getSingleTruck.marca;
+			childSelected.children[0].children[0].value = id_selected;
+			childSelected.children[1].children[0].value = getSingleTruck.capacidad;
+			childSelected.children[2].children[0].value = getSingleTruck.marca;
 			childSelected.children[3].children[1].value =
 				getSingleTruck.disponibilidad;
 			break;

@@ -12,7 +12,7 @@
 		<script defer src="./js/filters/filters.js"></script>
 		<title>Pacco Veloce</title>
 	</head>
-	<body>
+	<body id="body">
 		<nav class="nav__bar">
 			<div class="logo">
 				<h1 class="company__name">Pacco veloce</h1>
@@ -377,9 +377,17 @@
 									<p>
 										Estas seguro de que deseas Borrar el camion "<span>0</span>"
 									</p>
-									<div>
-										<button class="edit__button">Si</button>
-										<button class="edit__button">No</button>
+									<div class="container__buttons">
+										<input
+											class="form__edit__button input__package__button"
+											type="button"
+											value="Si"
+										/>
+										<input
+											class="form__edit__button input__package__button"
+											type="button"
+											value="No"
+										/>
 									</div>
 								</div>
 							</div>
@@ -388,7 +396,7 @@
 								class="bg__modal__delete modalEditCamion hidden"
 							>
 								<div class="content__edit modal__content">
-									<p>editar camion uwu</p>
+									<p class="formPaquete__text">Editar camion</p>
 									<form id="formCamionEdit" class="formTransporte">
 										<div class="form__element">
 											<input
@@ -465,81 +473,132 @@
 					<div class="content__empleados modal__content">
 						<div class="form-empleado__bg">
 							<form id="formEmpleado" class="formEmpleados" method="post">
-								<div>
-									<label for="dni_empleado">Ingrese el dni del empleado</label>
-									<input
-										type="number"
-										name="dni_empleado"
-										id="dni_empleado"
-										required
-									/>
+								<div class="formEmpleado__content__left">
+									<div>
+										<div>
+											<p class="formPaquete__text">Datos del Empleado</p>
+										</div>
+										<div class="form__element">
+											<input
+												class="form__input"
+												placeholder=" "
+												type="number"
+												name="dni_empleado"
+												id="dni_empleado"
+												required
+											/>
+											<label class="form__element__text" for="dni_empleado"
+												>DNI del empleado</label
+											>
+										</div>
+										<div class="form__element">
+											<input
+												class="form__input"
+												type="text"
+												id="apellido_empleado"
+												name="apellido_empleado"
+												required
+											/>
+											<label class="form__element__text" for="apellido_empleado"
+												>Apellido del empleado</label
+											>
+										</div>
+										<div class="form__element">
+											<input
+												class="form__input"
+												placeholder=" "
+												type="number"
+												id="telefono_empleado"
+												name="telefono_empleado"
+												required
+											/>
+											<labe class="form__element__text" for="telefono_empleado"
+												>Telefono del empleado</labe
+											>
+										</div>
+										<div class="form__element">
+											<input
+												class="form__input"
+												type="text"
+												id="direccion_empleado"
+												name="direccion_empleado"
+												required
+											/>
+											<label
+												class="form__element__text"
+												for="direccion_empleado"
+												>Direccion del empleado</label
+											>
+										</div>
+									</div>
+									<div>
+										<div>
+											<p class="formPaquete__text">Residencia/Nacimiento</p>
+										</div>
+										<div class="form__element container__select">
+											<label class="form__select__text" for="ciudad"
+												>Ciudades</label
+											>
+											<select
+												id="ciudad"
+												class="ciudad_form form__select"
+												name="ciudad"
+												required
+											></select>
+										</div>
+										<div class="form__element container__select">
+											<label
+												class="form__select__text"
+												for="fecha_ingreso_empleado"
+												>Fecha de ingreso del empleado</label
+											>
+											<input
+												class="form__select"
+												type="date"
+												id="fecha_ingreso_empleado"
+												name="fecha_ingreso_empleado"
+												required
+											/>
+										</div>
+										<div class="form__element container__select">
+											<label
+												class="form__select__text"
+												for="fecha_nacimiento_empleado"
+												>Fecha de nacimiento del empleado</label
+											>
+											<input
+												class="form__select"
+												type="date"
+												id="fecha_nacimiento_empleado"
+												name="fecha_nacimiento_empleado"
+												required
+											/>
+										</div>
+									</div>
 								</div>
-								<div>
-									<label for="apellido_empleado"
-										>Ingrese apellido del empleado</label
-									>
-									<input
-										type="text"
-										id="apellido_empleado"
-										name="apellido_empleado"
-										required
-									/>
-								</div>
-								<div>
-									<label for="telefono_empleado"
-										>Ingrese telefono del empleado</label
-									>
-									<input
-										type="number"
-										id="telefono_empleado"
-										name="telefono_empleado"
-										required
-									/>
-								</div>
-								<div>
-									<label for="direccion_empleado"
-										>Ingrese direccion del empleado</label
-									>
-									<input
-										type="text"
-										id="direccion_empleado"
-										name="direccion_empleado"
-										required
-									/>
-								</div>
-								<div>
-									<label for="ciudad">Seleccione la ciudad</label>
-									<select
-										id="ciudad"
-										class="ciudad_form"
-										name="ciudad"
-										required
-									></select>
-								</div>
-								<div>
-									<label for="fecha_ingreso_empleado"
-										>Ingrese fecha de ingreso del empleado</label
-									>
-									<input
-										type="date"
-										id="fecha_ingreso_empleado"
-										name="fecha_ingreso_empleado"
-										required
-									/>
-								</div>
-								<div>
-									<label for="fecha_nacimiento_empleado"
-										>Ingrese fecha de nacimiento del empleado</label
-									>
-									<input
-										type="date"
-										id="fecha_nacimiento_empleado"
-										name="fecha_nacimiento_empleado"
-										required
-									/>
-								</div>
-								<input type="submit" value="Cargar paquete" />
+								<button
+									class="input__package__button"
+									type="submit"
+									value="Cargar camion"
+								>
+									Cargar empleado
+								</button>
 							</form>
+							<div class="formTransporte__content__right">
+								<div class="formPaquete__logo__side">
+									<div class="container__logo">
+										<img
+											src="./assets/images/logo.svg"
+											alt="icon logo"
+											class="logo__img"
+										/>
+									</div>
+									<div class="formPaquete__logo__text">
+										<p class="company__name">Pacco veloce</p>
+										<p class="logo__text">Gestor de paqueteria</p>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div>
 							<ul
@@ -552,102 +611,142 @@
 										Estas seguro de que deseas Borrar el empleado
 										"<span>0</span>"
 									</p>
-									<div>
-										<button class="edit__button">Si</button>
-										<button class="edit__button">No</button>
+									<div class="container__buttons">
+										<input
+											class="form__edit__button input__package__button"
+											type="button"
+											value="Si"
+										/>
+										<input
+											class="form__edit__button input__package__button"
+											type="button"
+											value="No"
+										/>
 									</div>
 								</div>
 							</div>
-							<div id="modalEditEmpleado" class="bg__modal__delete hidden">
+							<div
+								id="modalEditEmpleado"
+								class="bg__modal__delete modalEditCamion hidden"
+							>
 								<div class="content__edit modal__content">
-									<p>editar empleado uwu</p>
+									<p class="formPaquete__text">Editar empleado</p>
 									<form id="formEmpleadoEdit" class="formEmpleados">
-										<div>
-											<label for="id_empleado">Id empleado</label>
+										<div class="form__element">
 											<input
+												class="form__input"
 												type="text"
 												name="id_empleado"
 												id="id_empleado"
 												readonly
 											/>
-										</div>
-										<div>
-											<label for="dni_empleado"
-												>Ingrese el dni del empleado</label
+											<label class="form__element__text" for="id_empleado"
+												>Id empleado</label
 											>
+										</div>
+										<div class="form__element">
 											<input
+												class="form__input"
+												placeholder=" "
 												type="number"
 												name="dni_empleado"
 												id="dni_empleado"
 												required
 											/>
-										</div>
-										<div>
-											<label for="apellido_empleado"
-												>Ingrese apellido del empleado</label
+											<label class="form__element__text" for="dni_empleado"
+												>DNI del empleado</label
 											>
+										</div>
+										<div class="form__element">
 											<input
+												class="form__input"
 												type="text"
 												id="apellido_empleado"
 												name="apellido_empleado"
 												required
 											/>
-										</div>
-										<div>
-											<label for="telefono_empleado"
-												>Ingrese telefono del empleado</label
+											<label class="form__element__text" for="apellido_empleado"
+												>Apellido del empleado</label
 											>
+										</div>
+										<div class="form__element">
 											<input
+												class="form__input"
+												placeholder=" "
 												type="number"
 												id="telefono_empleado"
 												name="telefono_empleado"
 												required
 											/>
-										</div>
-										<div>
-											<label for="direccion_empleado"
-												>Ingrese direccion del empleado</label
+											<labe class="form__element__text" for="telefono_empleado"
+												>Telefono del empleado</labe
 											>
+										</div>
+										<div class="form__element">
 											<input
+												class="form__input"
 												type="text"
 												id="direccion_empleado"
 												name="direccion_empleado"
 												required
 											/>
+											<label
+												class="form__element__text"
+												for="direccion_empleado"
+												>Direccion del empleado</label
+											>
 										</div>
-										<div>
-											<label for="ciudad">Seleccione la ciudad</label>
+										<div class="form__element container__select">
+											<label class="form__select__text" for="ciudad"
+												>Ciudades</label
+											>
 											<select
-												id="ciudad "
-												class="ciudad_form"
+												id="ciudad"
+												class="ciudad_form form__select"
 												name="ciudad"
 												required
 											></select>
 										</div>
-										<div>
-											<label for="fecha_ingreso_empleado"
-												>Ingrese fecha de ingreso del empleado</label
+										<div class="form__element container__select">
+											<label
+												class="form__select__text"
+												for="fecha_ingreso_empleado"
+												>Fecha de ingreso del empleado</label
 											>
 											<input
+												class="form__select"
 												type="date"
 												id="fecha_ingreso_empleado"
 												name="fecha_ingreso_empleado"
 												required
 											/>
 										</div>
-										<div>
-											<label for="fecha_nacimiento_empleado"
-												>Ingrese fecha de nacimiento del empleado</label
+										<div class="form__element container__select">
+											<label
+												class="form__select__text"
+												for="fecha_nacimiento_empleado"
+												>Fecha de nacimiento del empleado</label
 											>
 											<input
+												class="form__select"
 												type="date"
 												id="fecha_nacimiento_empleado"
 												name="fecha_nacimiento_empleado"
 												required
 											/>
 										</div>
-										<input type="submit" value="Cargar cambio" />
-										<input type="button" value="Cancelar" />
+										<div class="container__buttons">
+											<input
+												class="form__edit__button input__package__button"
+												type="submit"
+												value="Guardar"
+											/>
+											<input
+												class="form__edit__button input__package__button"
+												type="button"
+												value="Cancelar"
+											/>
+										</div>
 									</form>
 								</div>
 							</div>

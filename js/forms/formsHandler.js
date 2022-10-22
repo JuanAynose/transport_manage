@@ -198,6 +198,7 @@ formEmpleadoEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.EMPLEADOS);
 	modalEditEmpleado.classList.add('hidden');
+	body.classList.remove('block');
 });
 
 formCamionEdit.addEventListener('submit', e => {
@@ -211,6 +212,7 @@ formCamionEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.TRANSPORTE);
 	modalEditCamion.classList.add('hidden');
+	body.classList.remove('block');
 });
 
 formRemitoEdit.addEventListener('submit', e => {

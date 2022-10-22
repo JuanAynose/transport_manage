@@ -50,9 +50,9 @@ const CardEmployeEdit = data => {
                 <span class="empleado-container__item__text empleado-container__item__text__color--violet">Antigüedad:</span> ${antiguedad_empleado}
             </p>
         </div>
-        <div>
-            <button class="empleado-container__button">Editar</button>
-            <button class="empleado-container__button">Borrar</button>
+        <div class="container__buttons">
+            <button class="camion-container__button input__package__button">Editar</button>
+            <button class="camion-container__button input__package__button">Borrar</button>
         </div>
         </li> 
     `;

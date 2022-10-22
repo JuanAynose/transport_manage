@@ -10,6 +10,9 @@ import { CALL_OPTION } from '../../constants/callsOptionsUpdate.js';
 import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
 import makeCall from '../../modals/controller/makeCall.js';
 import singleCall from './callbacks/singleCall.js';
+/*block body scroll*/
+const body = document.getElementById('body');
+
 /*empleados container*/
 const editarEmpleado = document.getElementById('editarEmpleado');
 const modalDeleteEmpleado = document.getElementById('modalDeleteEmpleado');
@@ -66,6 +69,7 @@ editarEmpleado.addEventListener('click', ev => {
 			CALL_OPTION.SINGLE_EMPLOYE
 		);
 		modalEditEmpleado.classList.remove('hidden');
+		body.classList.add('block');
 	} else if (ev.target.textContent === 'Borrar') {
 		getIdEmploye = Number(
 			ev.target.parentElement.previousElementSibling.children[0].children[1]
@@ -74,25 +78,30 @@ editarEmpleado.addEventListener('click', ev => {
 		modalDeleteEmpleado.children[0].children[0].children[0].textContent =
 			getIdEmploye;
 		modalDeleteEmpleado.classList.remove('hidden');
+		body.classList.add('block');
 	}
 });
 
 modalDeleteEmpleado.addEventListener('click', ev => {
-	if (ev.target.textContent === 'Si') {
+	if (ev.target.value === 'Si') {
 		modalDeleteEmpleado.classList.add('hidden');
+		body.classList.remove('block');
 		deleteEmpleado(getIdEmploye);
 		makeCall(MODAL_OPTIONS.EMPLEADOS);
-	} else if (ev.target.textContent === 'No') {
+	} else if (ev.target.value === 'No') {
 		modalDeleteEmpleado.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });
 
 modalEditEmpleado.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Guardar') {
 		modalEditEmpleado.classList.add('hidden');
+		body.classList.remove('block');
 	} else if (ev.target.value === 'Cancelar') {
 		formEmpleadoEdit.reset();
 		modalEditEmpleado.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });
 
@@ -110,6 +119,7 @@ editarCamion.addEventListener('click', ev => {
 			CALL_OPTION.SINGLE_TRUCK
 		);
 		modalEditCamion.classList.remove('hidden');
+		body.classList.add('block');
 	} else if (ev.target.textContent === 'Borrar') {
 		getIdCamion = Number(
 			ev.target.parentElement.previousElementSibling.children[0].children[0]
@@ -118,16 +128,19 @@ editarCamion.addEventListener('click', ev => {
 		modalDeleteCamion.children[0].children[0].children[0].textContent =
 			getIdCamion;
 		modalDeleteCamion.classList.remove('hidden');
+		body.classList.add('block');
 	}
 });
 
 modalDeleteCamion.addEventListener('click', ev => {
-	if (ev.target.textContent === 'Si') {
+	if (ev.target.value === 'Si') {
 		modalDeleteCamion.classList.add('hidden');
+		body.classList.remove('block');
 		deleteCamion(getIdCamion);
 		makeCall(MODAL_OPTIONS.TRANSPORTE);
-	} else if (ev.target.textContent === 'No') {
+	} else if (ev.target.value === 'No') {
 		modalDeleteCamion.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });
 
@@ -137,6 +150,7 @@ modalEditCamion.addEventListener('click', ev => {
 	} else if (ev.target.value === 'Cancelar') {
 		formCamionEdit.reset();
 		modalEditCamion.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });
 

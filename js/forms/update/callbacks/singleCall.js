@@ -21,11 +21,11 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 	const getSalario = await getSingleSalario(id_selected);
 	switch (call_name) {
 		case CALL_OPTION.SINGLE_EMPLOYE:
-			childSelected.children[0].children[1].value = id_selected;
-			childSelected.children[1].children[1].value = getSingleEmploye.dni;
-			childSelected.children[2].children[1].value = getSingleEmploye.apellido;
-			childSelected.children[3].children[1].value = getSingleEmploye.telef;
-			childSelected.children[4].children[1].value = getSingleEmploye.direc;
+			childSelected.children[0].children[0].value = id_selected;
+			childSelected.children[1].children[0].value = getSingleEmploye.dni;
+			childSelected.children[2].children[0].value = getSingleEmploye.apellido;
+			childSelected.children[3].children[0].value = getSingleEmploye.telef;
+			childSelected.children[4].children[0].value = getSingleEmploye.direc;
 			getCity(
 				childSelected.children[5].children[1].options,
 				getSingleEmploye.cod_ciudad
@@ -47,15 +47,15 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 			childSelected.children[2].children[1].value = getPaquete[2].peso;
 			childSelected.children[3].children[1].value = getPaquete[2].tipo_producto;
 			childSelected.children[4].children[1].value = getPaquete[0].prioridad;
-			childSelected.children[5].children[1].children[1].value =
+			childSelected.children[5].children[1].children[0].value =
 				getPaquete[1].nombre;
-			childSelected.children[5].children[2].children[1].value =
+			childSelected.children[5].children[2].children[0].value =
 				getPaquete[1].apellido;
-			childSelected.children[5].children[3].children[1].value =
+			childSelected.children[5].children[3].children[0].value =
 				getPaquete[1].cel;
-			childSelected.children[5].children[4].children[1].value =
+			childSelected.children[5].children[4].children[0].value =
 				getPaquete[1].dni;
-			childSelected.children[5].children[5].children[1].value =
+			childSelected.children[5].children[5].children[0].value =
 				getPaquete[1].direccion;
 			childSelected.children[5].children[6].children[1].value =
 				getPaquete[1].ciudad;

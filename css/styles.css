@@ -15,6 +15,10 @@ body {
 	background-color: #f1f3fb;
 }
 
+body.block {
+	overflow: hidden;
+}
+
 /*nav bar styles*/
 .nav__bar {
 	position: sticky;
@@ -183,11 +187,21 @@ body {
 	border-radius: var(--radius-sm);
 	background-color: var(--white);
 	overflow: hidden;
+	max-height: calc(100vh - 100px);
+	overflow-y: auto;
 }
 
 .modalEditCamion .content__edit {
 	max-width: 300px;
 	width: 100%;
+}
+
+.modalEditCamion .formEmpleados,
+.modalEditCamion .formTransporte {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
 }
 
 /*all forms styles*/
@@ -293,7 +307,7 @@ body {
 }
 
 .form-empleado__bg {
-	max-width: 720px;
+	max-width: 724px;
 }
 
 .form__element {
@@ -435,7 +449,8 @@ input[type='number'] {
 }
 
 /*container form paqeuteria styles*/
-.formPaquete__content__left {
+.formPaquete__content__left,
+.formEmpleado__content__left {
 	display: flex;
 	max-width: 480px;
 	width: 100%;
@@ -466,6 +481,7 @@ input[type='number'] {
 
 .form__edit__button.input__package__button {
 	max-width: 120px;
+	width: 100%;
 }
 
 .camion-container__button.input__package__button {
@@ -503,10 +519,16 @@ input[type='number'] {
 	justify-content: space-around;
 }
 
-.information__item.container__buttons {
+.information__item.container__buttons,
+.bg__modal__delete .container__buttons {
 	margin-top: 2em;
 	justify-content: flex-start;
 	gap: 1em;
+}
+
+.formEmpleados .container__buttons,
+.formTransporte .container__buttons {
+	gap: 2em;
 }
 
 /*content remitos*/

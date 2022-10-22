@@ -10,10 +10,10 @@ const CardCheck = data => {
 			<div class="item__pagos--header">
 				<div class="item__pagos--info">
 					<p class="item__pagos--text-1">Destinatario: ${apellido}</p>
-					<div>
-						<button class="salario-container__button">Editar</button>
-						<button class="salario-container__button">Borrar</button>
-					</div>
+					<div class="information__item container__buttons">
+						<button class="camion-container__button input__package__button">Editar</button>
+						<button class="camion-container__button input__package__button">Borrar</button>
+            		</div>					
 				</div>
 
 				<div class="item__pagos--info">

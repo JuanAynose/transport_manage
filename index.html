@@ -296,42 +296,71 @@
 				</div>
 				<div id="modalTransporte" class="bg__modal hidden">
 					<div class="content__transporte modal__content">
-						<form id="formTransporte" class="formTransporte" method="post">
-							<div>
-								<label for="capacidad_camion"
-									>Ingrese la capacidad del camion</label
+						<div class="form-transporte__bg">
+							<form id="formTransporte" class="formTransporte" method="post">
+								<div class="form__element">
+									<input
+										class="form__input"
+										type="number"
+										name="capacidad_camion"
+										placeholder=" "
+										id="capacidad_camion"
+										required
+									/>
+									<label class="form__element__text" for="capacidad_camion"
+										>Capacidad del camion</label
+									>
+								</div>
+								<div class="form__element">
+									<input
+										class="form__input"
+										type="text"
+										id="marca_camion"
+										name="marca_camion"
+										required
+									/>
+									<label class="form__element__text" for="marca_camion"
+										>Marca del camion</label
+									>
+								</div>
+								<div class="form__element container__select">
+									<label class="form__select__text" for="disponibilidad_camion"
+										>Disponibilidad</label
+									>
+									<select
+										class="form__select"
+										id="disponibilidad_camion"
+										name="disponibilidad_camion"
+										required
+									>
+										<option value="0">Ocupado</option>
+										<option selected value="1">Disponible</option>
+									</select>
+								</div>
+								<button
+									class="input__package__button"
+									type="submit"
+									value="Cargar camion"
 								>
-								<input
-									type="number"
-									name="capacidad_camion"
-									id="capacidad_camion"
-									required
-								/>
+									Cargar camion
+								</button>
+							</form>
+							<div class="formTransporte__content__right">
+								<div class="formPaquete__logo__side">
+									<div class="container__logo">
+										<img
+											src="./assets/images/logo.svg"
+											alt="icon logo"
+											class="logo__img"
+										/>
+									</div>
+									<div class="formPaquete__logo__text">
+										<p class="company__name">Pacco veloce</p>
+										<p class="logo__text">Gestor de paqueteria</p>
+									</div>
+								</div>
 							</div>
-							<div>
-								<label for="marca_camion">Ingrese la marca del camion</label>
-								<input
-									type="text"
-									id="marca_camion"
-									name="marca_camion"
-									required
-								/>
-							</div>
-							<div>
-								<label for="disponibilidad_camion"
-									>Seleccione la disponibilidad</label
-								>
-								<select
-									id="disponibilidad_camion"
-									name="disponibilidad_camion"
-									required
-								>
-									<option value="0">Ocupado</option>
-									<option selected value="1">Disponible</option>
-								</select>
-							</div>
-							<input type="submit" value="Cargar paquete" />
-						</form>
+						</div>
 						<div>
 							<ul
 								id="containerTranporte"
@@ -354,46 +383,58 @@
 									</div>
 								</div>
 							</div>
-							<div id="modalEditCamion" class="bg__modal__delete hidden">
+							<div
+								id="modalEditCamion"
+								class="bg__modal__delete modalEditCamion hidden"
+							>
 								<div class="content__edit modal__content">
 									<p>editar camion uwu</p>
 									<form id="formCamionEdit" class="formTransporte">
-										<div>
-											<label for="id_camion">Id camion</label>
+										<div class="form__element">
 											<input
+												class="form__input"
 												type="text"
 												name="id_camion"
 												id="id_camion"
 												readonly
 											/>
-										</div>
-										<div>
-											<label for="capacidad_camion"
-												>Ingrese la capacidad del camion</label
+											<label class="form__element__text" for="id_camion"
+												>Id camion</label
 											>
+										</div>
+										<div class="form__element">
 											<input
+												class="form__input"
 												type="number"
 												name="capacidad_camion"
+												placeholder=" "
 												id="capacidad_camion"
 												required
 											/>
-										</div>
-										<div>
-											<label for="marca_camion"
-												>Ingrese la marca del camion</label
+											<label class="form__element__text" for="capacidad_camion"
+												>Capacidad del camion</label
 											>
+										</div>
+										<div class="form__element">
 											<input
+												class="form__input"
 												type="text"
 												id="marca_camion"
 												name="marca_camion"
 												required
 											/>
+											<label class="form__element__text" for="marca_camion"
+												>Marca del camion</label
+											>
 										</div>
-										<div>
-											<label for="disponibilidad_camion"
-												>Seleccione la disponibilidad</label
+										<div class="form__element container__select">
+											<label
+												class="form__select__text"
+												for="disponibilidad_camion"
+												>Disponibilidad</label
 											>
 											<select
+												class="form__select"
 												id="disponibilidad_camion"
 												name="disponibilidad_camion"
 												required
@@ -402,8 +443,18 @@
 												<option selected value="1">Disponible</option>
 											</select>
 										</div>
-										<input type="submit" value="Guardar" />
-										<input type="button" value="Cancelar" />
+										<div class="container__buttons">
+											<input
+												class="form__edit__button input__package__button"
+												type="submit"
+												value="Guardar"
+											/>
+											<input
+												class="form__edit__button input__package__button"
+												type="button"
+												value="Cancelar"
+											/>
+										</div>
 									</form>
 								</div>
 							</div>
@@ -412,83 +463,84 @@
 				</div>
 				<div id="modalEmpleados" class="bg__modal hidden">
 					<div class="content__empleados modal__content">
-						<p>paquete, gena el empleado</p>
-						<form id="formEmpleado" class="formEmpleados" method="post">
-							<div>
-								<label for="dni_empleado">Ingrese el dni del empleado</label>
-								<input
-									type="number"
-									name="dni_empleado"
-									id="dni_empleado"
-									required
-								/>
-							</div>
-							<div>
-								<label for="apellido_empleado"
-									>Ingrese apellido del empleado</label
-								>
-								<input
-									type="text"
-									id="apellido_empleado"
-									name="apellido_empleado"
-									required
-								/>
-							</div>
-							<div>
-								<label for="telefono_empleado"
-									>Ingrese telefono del empleado</label
-								>
-								<input
-									type="number"
-									id="telefono_empleado"
-									name="telefono_empleado"
-									required
-								/>
-							</div>
-							<div>
-								<label for="direccion_empleado"
-									>Ingrese direccion del empleado</label
-								>
-								<input
-									type="text"
-									id="direccion_empleado"
-									name="direccion_empleado"
-									required
-								/>
-							</div>
-							<div>
-								<label for="ciudad">Seleccione la ciudad</label>
-								<select
-									id="ciudad"
-									class="ciudad_form"
-									name="ciudad"
-									required
-								></select>
-							</div>
-							<div>
-								<label for="fecha_ingreso_empleado"
-									>Ingrese fecha de ingreso del empleado</label
-								>
-								<input
-									type="date"
-									id="fecha_ingreso_empleado"
-									name="fecha_ingreso_empleado"
-									required
-								/>
-							</div>
-							<div>
-								<label for="fecha_nacimiento_empleado"
-									>Ingrese fecha de nacimiento del empleado</label
-								>
-								<input
-									type="date"
-									id="fecha_nacimiento_empleado"
-									name="fecha_nacimiento_empleado"
-									required
-								/>
-							</div>
-							<input type="submit" value="Cargar paquete" />
-						</form>
+						<div class="form-empleado__bg">
+							<form id="formEmpleado" class="formEmpleados" method="post">
+								<div>
+									<label for="dni_empleado">Ingrese el dni del empleado</label>
+									<input
+										type="number"
+										name="dni_empleado"
+										id="dni_empleado"
+										required
+									/>
+								</div>
+								<div>
+									<label for="apellido_empleado"
+										>Ingrese apellido del empleado</label
+									>
+									<input
+										type="text"
+										id="apellido_empleado"
+										name="apellido_empleado"
+										required
+									/>
+								</div>
+								<div>
+									<label for="telefono_empleado"
+										>Ingrese telefono del empleado</label
+									>
+									<input
+										type="number"
+										id="telefono_empleado"
+										name="telefono_empleado"
+										required
+									/>
+								</div>
+								<div>
+									<label for="direccion_empleado"
+										>Ingrese direccion del empleado</label
+									>
+									<input
+										type="text"
+										id="direccion_empleado"
+										name="direccion_empleado"
+										required
+									/>
+								</div>
+								<div>
+									<label for="ciudad">Seleccione la ciudad</label>
+									<select
+										id="ciudad"
+										class="ciudad_form"
+										name="ciudad"
+										required
+									></select>
+								</div>
+								<div>
+									<label for="fecha_ingreso_empleado"
+										>Ingrese fecha de ingreso del empleado</label
+									>
+									<input
+										type="date"
+										id="fecha_ingreso_empleado"
+										name="fecha_ingreso_empleado"
+										required
+									/>
+								</div>
+								<div>
+									<label for="fecha_nacimiento_empleado"
+										>Ingrese fecha de nacimiento del empleado</label
+									>
+									<input
+										type="date"
+										id="fecha_nacimiento_empleado"
+										name="fecha_nacimiento_empleado"
+										required
+									/>
+								</div>
+								<input type="submit" value="Cargar paquete" />
+							</form>
+						</div>
 						<div>
 							<ul
 								id="editarEmpleado"

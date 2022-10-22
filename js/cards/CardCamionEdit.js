@@ -31,9 +31,9 @@ const CardCamionEdit = data => {
                     Id camion: <span class="information__item__text information__item__text__color--black">${id_camion}</span>                            
                 </p>
             </li>
-            <li class="information__item">
-                <button class="camion-container__button">Editar</button>
-                <button class="camion-container__button">Borrar</button>
+            <li class="information__item container__buttons">
+                <button class="camion-container__button input__package__button">Editar</button>
+                <button class="camion-container__button input__package__button">Borrar</button>
             </li>
         </ul>        
         <div class="camion-container__logo">

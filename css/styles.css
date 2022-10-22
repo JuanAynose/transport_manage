@@ -121,6 +121,11 @@ body {
 	position: relative;
 }
 
+/*container transporte styles*/
+.content__transporte {
+	display: flex;
+	flex-direction: column;
+}
 /*container salario styles*/
 .container__salario--options {
 	display: grid;
@@ -145,6 +150,10 @@ body {
 .modal__content {
 	position: relative;
 	display: flex;
+}
+
+.content__empleados {
+	flex-direction: column;
 }
 
 .bg__modal__delete {
@@ -173,6 +182,12 @@ body {
 	padding: 1em;
 	border-radius: var(--radius-sm);
 	background-color: var(--white);
+	overflow: hidden;
+}
+
+.modalEditCamion .content__edit {
+	max-width: 300px;
+	width: 100%;
 }
 
 /*all forms styles*/
@@ -247,7 +262,8 @@ body {
 
 /*form paqueteria styles*/
 
-.formPaquete__content__right {
+.formPaquete__content__right,
+.formTransporte__content__right {
 	text-align: center;
 	max-width: 200px;
 	width: 100%;
@@ -256,14 +272,28 @@ body {
 	clip-path: ellipse(70% 80% at 70% 40%);
 }
 
+.formTransporte__content__right {
+	max-width: 180px;
+}
+
 /*forms styles*/
-.form-paqueteria__bg {
+.form-paqueteria__bg,
+.form-transporte__bg,
+.form-empleado__bg {
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
 	max-width: 820px;
 	box-shadow: 5px 5px 10px #333;
+}
+
+.form-transporte__bg {
+	max-width: 500px;
+}
+
+.form-empleado__bg {
+	max-width: 720px;
 }
 
 .form__element {
@@ -273,9 +303,15 @@ body {
 	margin-bottom: 2em;
 }
 
-.formPaquete {
+.formPaquete,
+.formTransporte,
+.formEmpleados {
 	padding: 2em;
 	background-color: #fff;
+}
+
+.formTransporte {
+	width: 100%;
 }
 
 .formPaquete__content {
@@ -306,9 +342,16 @@ body {
 	transition: all ease 0.2s;
 }
 
-.form__input:focus {
+.form__input:focus,
+.form__input:read-only {
 	color: gray;
 	border-bottom: 2px solid #7c2f8a;
+}
+
+.form__input:read-only ~ .form__element__text {
+	transition: all ease 0.2s;
+	transform: translateY(-20px);
+	color: #7c2f8a;
 }
 
 .form__input:focus ~ .form__element__text {
@@ -361,6 +404,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+}
+
+.formTransporte .container__select {
+	margin-bottom: 5em;
 }
 
 input::-webkit-outer-spin-button,
@@ -416,6 +463,15 @@ input[type='number'] {
 	box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5),
 		4px 4px 8px rgba(51, 51, 51, 0.5), -2px -2px 8px rgba(51, 51, 51, 0.5);
 }
+
+.form__edit__button.input__package__button {
+	max-width: 120px;
+}
+
+.camion-container__button.input__package__button {
+	max-width: 60px;
+}
+
 .input__package__button::before {
 	content: '';
 	position: absolute;
@@ -439,6 +495,18 @@ input[type='number'] {
 
 .input__package__button:active {
 	transform: scale(0.98);
+}
+
+.container__buttons {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.information__item.container__buttons {
+	margin-top: 2em;
+	justify-content: flex-start;
+	gap: 1em;
 }
 
 /*content remitos*/
@@ -500,7 +568,15 @@ input[type='number'] {
 	z-index: 10;
 }
 
-.formPaquete__content__right .formPaquete__logo__side .container__logo::before {
+.formTransporte__content__right .formPaquete__logo__side .container__logo {
+	width: 150px;
+	height: 150px;
+}
+
+.formPaquete__content__right .formPaquete__logo__side .container__logo::before,
+.formTransporte__content__right
+	.formPaquete__logo__side
+	.container__logo::before {
 	content: '';
 	display: block;
 	position: absolute;
@@ -510,6 +586,15 @@ input[type='number'] {
 	height: 182px;
 	width: 194px;
 	z-index: -5;
+}
+
+.formTransporte__content__right
+	.formPaquete__logo__side
+	.container__logo::before {
+	top: 1px;
+	left: 3px;
+	height: 137px;
+	width: 145px;
 }
 
 .profile__img {

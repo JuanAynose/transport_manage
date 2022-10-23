@@ -53,9 +53,9 @@ const CardCiudad = data => {
               >
             </p>
           </li>
-          <li class="provincia-container__information__item">
-            <button class="provincia-container__button">Editar</button>
-            <button class="provincia-container__button">Borrar</button>
+          <li class="provincia-container__information__item container__buttons">
+            <button class="camion-container__button input__package__button">Editar</button>
+            <button class="camion-container__button input__package__button">Borrar</button>
           </li>
         </ul>
         <div class="provincia-container__logo">

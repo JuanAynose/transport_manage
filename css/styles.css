@@ -12,7 +12,7 @@ body {
 	font-weight: 400;
 	margin: 0;
 	position: relative;
-	background-color: #f1f3fb;
+	background-color: #fff;
 }
 
 body.block {
@@ -83,7 +83,7 @@ body.block {
 	overflow: hidden;
 	margin-left: 6.5rem;
 	padding: 1em;
-	background-color: #f1f3fb;
+	background-color: #fff;
 }
 
 /*menu aside styles*/
@@ -205,6 +205,19 @@ body.block {
 	width: 100%;
 }
 
+.content__remitos .content__edit {
+	max-width: 320px;
+	width: 100%;
+}
+
+.content__remitos .formRemitos {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 0;
+	width: 100%;
+}
+
 .modalEditCamion .formEmpleados,
 .modalEditCamion .formTransporte {
 	display: flex;
@@ -283,6 +296,23 @@ body.block {
 	padding: 0 2em;
 }
 
+.container__pagos--salario-border,
+.editar__camion-border {
+	margin: 2em;
+	padding: 1em;
+	box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.5),
+		4px 4px 10px rgba(51, 51, 51, 0.5);
+	max-width: 1250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.formRemito {
+	max-width: 1250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .item__pagos--salario {
 	display: flex;
 	position: relative;
@@ -339,10 +369,21 @@ body.block {
 	max-width: 180px;
 }
 
+/*form remitos*/
+.containerEmploye-border {
+	padding: 1em;
+	box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.5),
+		4px 4px 10px rgba(51, 51, 51, 0.5);
+	max-width: 1250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /*forms styles*/
 .form-paqueteria__bg,
 .form-transporte__bg,
-.form-empleado__bg {
+.form-empleado__bg,
+.form-ciudades__bg {
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
@@ -351,8 +392,21 @@ body.block {
 	box-shadow: 5px 5px 10px #333;
 }
 
+.form-paqueteria__bg {
+	margin-bottom: 4em;
+}
+
+.formCiudades__content__left {
+	display: flex;
+}
+
 .form-transporte__bg {
 	max-width: 500px;
+}
+
+.form-ciudades__bg {
+	max-width: 764px;
+	margin-bottom: 4em;
 }
 
 .form-empleado__bg {
@@ -463,6 +517,10 @@ body.block {
 	transition: all ease 0.2s;
 }
 
+.date__package {
+	margin: 2em auto;
+}
+
 .container__select {
 	display: flex;
 	flex-direction: column;
@@ -505,12 +563,17 @@ input[type='number'] {
 
 /*container form paqeuteria styles*/
 .formPaquete__content__left,
-.formEmpleado__content__left {
+.formEmpleado__content__left,
+.formCiudades__content__left {
 	display: flex;
 	max-width: 480px;
 	width: 100%;
 	flex-flow: row wrap;
 	gap: 1em;
+}
+
+.formCiudades__content__left {
+	max-width: 800px;
 }
 
 /**/
@@ -535,8 +598,14 @@ input[type='number'] {
 		4px 4px 8px rgba(51, 51, 51, 0.5), -2px -2px 8px rgba(51, 51, 51, 0.5);
 }
 
+.package-container__header__bg .input__package__button {
+	margin: 0;
+	height: 30px;
+	margin-right: 1em;
+}
+
 .form__edit__button.input__package__button {
-	max-width: 120px;
+	max-width: 150px;
 	width: 100%;
 }
 
@@ -585,6 +654,10 @@ input[type='number'] {
 .formEmpleados .container__buttons,
 .formTransporte .container__buttons {
 	gap: 2em;
+}
+
+.formRemitos .container__buttons {
+	width: 100%;
 }
 /*menu salario button*/
 
@@ -697,6 +770,17 @@ input[type='number'] {
 	left: 3px;
 	height: 137px;
 	width: 145px;
+}
+
+.formCiudades__content__left .formTransporte__content__right {
+	max-width: 204px;
+	width: 300px;
+	height: 250px;
+}
+
+.formCiudadesProvincia,
+.formCiudadesCiudad {
+	margin: 2em 1em;
 }
 
 .profile__img {

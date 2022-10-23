@@ -265,30 +265,56 @@
 							</div>
 						</div>
 						<div class="content-paqueteria__form__envio">
-							<form id="formRemito">
-								<p>Realzar el envio del paquete</p>
-								<fieldset name="containerPackage" id="containerPackage">
-									<div id="enviosCardPackage" class="container__items--paquete">
-										<ul class="package-container"></ul>
-									</div>
-								</fieldset>
-								<fieldset id="containerCamion">
-									<ul id="enviosCardCamion" class="camion-container"></ul>
-								</fieldset>
-								<fieldset id="containerEmploye">
-									<ul id="enviosCardEmploye" class="empleado-container"></ul>
-								</fieldset>
-								<div>
-									<label for="envio_fecha_estimada"
+							<form id="formRemito" class="formRemito">
+								<p class="container-paquete__item__text formPaquete__text">
+									Realzar el envio del paquete
+								</p>
+								<div class="containerEmploye-border">
+									<p class="container-paquete__item__text formPaquete__text">
+										Paquetes
+									</p>
+									<fieldset name="containerPackage" id="containerPackage">
+										<div
+											id="enviosCardPackage"
+											class="container__items--paquete"
+										>
+											<ul class="package-container"></ul>
+										</div>
+									</fieldset>
+								</div>
+								<div class="containerEmploye-border">
+									<p class="container-paquete__item__text formPaquete__text">
+										Camiones
+									</p>
+									<fieldset id="containerCamion">
+										<ul id="enviosCardCamion" class="camion-container"></ul>
+									</fieldset>
+								</div>
+								<div class="containerEmploye-border">
+									<p class="container-paquete__item__text formPaquete__text">
+										Empleados
+									</p>
+									<fieldset id="containerEmploye">
+										<ul id="enviosCardEmploye" class="empleado-container"></ul>
+									</fieldset>
+								</div>
+								<div class="form__element container__select date__package">
+									<label class="form__select__text" for="envio_fecha_estimada"
 										>Ingrese fecha estimada</label
 									>
 									<input
+										class="form__select"
 										type="date"
 										name="envio_fecha_estimada"
 										id="envio_fecha_estimada"
 									/>
 								</div>
-								<input type="submit" value="Cargar envio" />
+
+								<input
+									class="input__package__button"
+									type="submit"
+									value="Cargar envio"
+								/>
 							</form>
 						</div>
 						<div id="editarPaquete"></div>
@@ -368,10 +394,15 @@
 							></ul>
 						</div>
 						<div>
-							<ul
-								id="editarCamion"
-								class="editar__camion camion-container"
-							></ul>
+							<div class="editar__camion-border">
+								<p class="container-paquete__item__text formPaquete__text">
+									Camiones
+								</p>
+								<ul
+									id="editarCamion"
+									class="editar__camion camion-container"
+								></ul>
+							</div>
 							<div id="modalDeleteCamion" class="bg__modal__delete hidden">
 								<div class="content__edit modal__content">
 									<p>
@@ -601,10 +632,15 @@
 							</div>
 						</div>
 						<div>
-							<ul
-								id="editarEmpleado"
-								class="editar__empleado empleado-container"
-							></ul>
+							<div class="editar__empleado-border">
+								<p class="container-paquete__item__text formPaquete__text">
+									Empleados
+								</p>
+								<ul
+									id="editarEmpleado"
+									class="editar__empleado empleado-container"
+								></ul>
+							</div>
 							<div id="modalDeleteEmpleado" class="bg__modal__delete hidden">
 								<div class="content__edit modal__content">
 									<p>
@@ -881,7 +917,15 @@
 									</form>
 								</div>
 							</div>
-							<div class="container__pagos--salario" id="pagosRealizados"></div>
+							<div class="container__pagos--salario-border">
+								<p class="container-paquete__item__text formPaquete__text">
+									Historial de pagos
+								</p>
+								<div
+									class="container__pagos--salario"
+									id="pagosRealizados"
+								></div>
+							</div>
 						</div>
 						<div id="modalDeleteSalario" class="bg__modal__delete hidden">
 							<div class="content__edit modal__content">
@@ -986,31 +1030,39 @@
 					<div class="content__remitos modal__content">
 						<div id="editarRemito" class="container__paquete">
 							<div class="container-paquete__item">
-								<p class="container-paquete__item__text">
+								<p class="container-paquete__item__text formPaquete__text">
 									Paquetes en preparacion
 								</p>
 								<div class="container-paquete__item__content"></div>
 							</div>
 							<div class="container-paquete__item">
-								<p class="container-paquete__item__text">Paquetes en camino</p>
+								<p class="container-paquete__item__text formPaquete__text">
+									Paquetes en camino
+								</p>
 								<div class="container-paquete__item__content"></div>
 							</div>
 							<div class="container-paquete__item">
-								<p class="container-paquete__item__text">Paquetes entregados</p>
+								<p class="container-paquete__item__text formPaquete__text">
+									Paquetes entregados
+								</p>
 								<div class="container-paquete__item__content"></div>
 							</div>
 							<div class="container-paquete__item">
-								<p class="container-paquete__item__text">
+								<p class="container-paquete__item__text formPaquete__text">
 									Paquetes en deposito
 								</p>
 								<div class="container-paquete__item__content"></div>
 							</div>
 							<div class="container-paquete__item">
-								<p class="container-paquete__item__text">Paquetes perdidos</p>
+								<p class="container-paquete__item__text formPaquete__text">
+									Paquetes perdidos
+								</p>
 								<div class="container-paquete__item__content"></div>
 							</div>
 							<div class="container-paquete__item">
-								<p class="container-paquete__item__text">Paquetes cancelados</p>
+								<p class="container-paquete__item__text formPaquete__text">
+									Paquetes cancelados
+								</p>
 								<div class="container-paquete__item__content"></div>
 							</div>
 						</div>
@@ -1019,15 +1071,23 @@
 								<p>
 									Estas seguro de que deseas Borrar el paquete "<span>0</span>"
 								</p>
-								<div>
-									<button class="edit__button">Si</button>
-									<button class="edit__button">No</button>
+								<div class="container__buttons">
+									<input
+										class="form__edit__button input__package__button"
+										type="button"
+										value="Si"
+									/>
+									<input
+										class="form__edit__button input__package__button"
+										type="button"
+										value="No"
+									/>
 								</div>
 							</div>
 						</div>
 						<div id="modalEditRemito" class="bg__modal__delete hidden">
 							<div class="content__edit modal__content">
-								<p>editar remito uwu</p>
+								<p class="formPaquete__text">Editar remito</p>
 								<form id="formRemitoEdit" class="formRemitos">
 									<div class="form__element">
 										<input
@@ -1062,7 +1122,7 @@
 											required
 										/>
 										<label class="form__element__text" for="peso_paquete"
-											>Peso del paquete</label
+											>Peso del paquete (GRs)</label
 										>
 									</div>
 									<div class="form__element container__select">
@@ -1106,7 +1166,7 @@
 											<label
 												class="form__element__text"
 												for="nombre_destinatario"
-												>Nombre del destinatario</label
+												>Nombre/s del destinatario</label
 											>
 										</div>
 										<div class="form__element">
@@ -1120,7 +1180,7 @@
 											<label
 												class="form__element__text"
 												for="apellido_destinatario"
-												>Apellido del destinatario</label
+												>Apellido/s del destinatario</label
 											>
 										</div>
 										<div class="form__element">
@@ -1135,44 +1195,53 @@
 											<label
 												class="form__element__text"
 												for="numero_destinatario"
-												>numero del destinatario</label
+												>Celular del destinatario</label
 											>
 										</div>
-										<div>
-											<label for="dni_destinatario">dni del destinatario</label>
+										<div class="form__element">
 											<input
+												placeholder=" "
+												class="form__input"
 												type="number"
 												name="dni_destinatario"
 												id="dni_destinatario"
 												required
 											/>
-										</div>
-										<div>
-											<label for="direccion_destinatario"
-												>Direccion del destinatario</label
+											<label class="form__element__text" for="dni_destinatario"
+												>DNI/CUIL del destinatario</label
 											>
+										</div>
+										<div class="form__element">
 											<input
+												class="form__input"
 												type="text"
-												placeholder="ej:Peron 325"
 												id="direccion_destinatario"
 												name="direccion_destinatario"
 												required
 											/>
+											<label
+												class="form__element__text"
+												for="direccion_destinatario"
+												>Vivienda del destinatario</label
+											>
 										</div>
-										<div>
-											<label for="ciudad">Seleccione la ciudad</label>
+										<div class="form__element container__select">
+											<label class="form__select__text" for="ciudad"
+												>Seleccione la ciudad</label
+											>
 											<select
+												class="ciudadList ciudad_form form__select"
 												id="ciudad"
-												class="ciudadList ciudad_form"
 												name="ciudad"
 												required
 											></select>
 										</div>
-										<div>
-											<label for="situacionPaquete"
-												>Seleccione el nivel de situacion</label
+										<div class="form__element container__select">
+											<label class="form__select__text" for="situacionPaquete"
+												>Nivel de situacion</label
 											>
 											<select
+												class="form__select"
 												id="situacionPaquete"
 												name="situacionPaquete"
 												required
@@ -1195,208 +1264,168 @@
 											<input type="number" id="ID_DETALLE" name="ID_DETALLE" />
 										</div>
 									</div>
-
-									<!--
-								<div>
-										<div>
-											<div>
-												<p class="formPaquete__text">Datos del destinatario</p>
-											</div>
-											
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="text"
-													name="nombre_destinatario"
-													id="nombre_destinatario"
-													required
-												/>
-												<label
-													class="form__element__text"
-													for="nombre_destinatario"
-													>Nombre/s</label
-												>
-											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="text"
-													name="apellido_destinatario"
-													id="apellido_destinatario"
-													required
-												/>
-												<label
-													class="form__element__text"
-													for="apellido_destinatario"
-													>Apellido/s</label
-												>
-											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="number"
-													placeholder=" "
-													name="numero_destinatario"
-													id="numero_destinatario"
-													required
-												/>
-												<label
-													class="form__element__text"
-													for="numero_destinatario"
-													>Número de celular</label
-												>
-											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="number"
-													placeholder=" "
-													name="dni_destinatario"
-													id="dni_destinatario"
-													required
-												/>
-												<label
-													class="form__element__text"
-													for="dni_destinatario"
-													>DNI/CUIL</label
-												>
-											</div>
-											<div class="form__element">
-												<input
-													class="form__input"
-													type="text"
-													placeholder=" "
-													id="direccion_destinatario"
-													name="direccion_destinatario"
-													required
-												/>
-												<label
-													class="form__element__text"
-													for="direccion_destinatario"
-													>Dirección de la vivienda</label
-												>
-											</div>
-											<div class="form__element container__select">
-												<label class="form__select__text" for="ciudad"
-													>Ciudades</label
-												>
-												<select
-													class="form__select ciudad_form"
-													id="ciudad"
-													name="ciudad"
-													required
-												></select>
-											</div>
-											<div class="form__element container__select">
-												<label class="form__select__text" for="situacionPaquete"
-													>Seleccione el nivel de situacion</label
-												>
-												<select
-													class="form__select"
-													id="situacionPaquete"
-													name="situacionPaquete"
-													required
-												>
-													<option value="1">Preparacion</option>
-													<option value="2">En camino</option>
-													<option value="3">Entregado</option>
-													<option value="4">En deposito</option>
-													<option value="5">Perdido</option>
-													<option value="6">Cancelado</option>
-												</select>
-											</div>
-										</div>
-										<div><p>anashei</p></div>
-										<div class="hidden">
-											<input type="number" id="ID_PAQUETE" name="ID_PAQUETE" />
-											<input
-												type="number"
-												id="ID_DESTINATARIO"
-												name="ID_DESTINATARIO"
-											/>
-											<input type="number" id="ID_DETALLE" name="ID_DETALLE" />
-										</div>
+									<div class="container__buttons">
+										<input
+											class="form__edit__button input__package__button"
+											type="submit"
+											value="Guardar"
+										/>
+										<input
+											class="form__edit__button input__package__button"
+											type="button"
+											value="Cancelar"
+										/>
+										<input
+											class="form__edit__button input__package__button"
+											type="button"
+											value="Borrar"
+										/>
 									</div>
-									-->
-									<input type="submit" value="Cargar cambio" />
-									<input type="button" value="Cancelar" />
-									<input type="button" value="Borrar" />
 								</form>
 							</div>
 						</div>
 						<div>
 							<div>
-								<p>Remitos por fechas de entregaPaquetes en preparacion</p>
 								<div>
-									<form id="formFilterRemitos">
+									<div class="formPaquete--container__filter">
 										<div>
-											<label for="desde_fecha">Desde Fecha</label>
-											<input type="date" name="desde_fecha" id="desde_fecha" />
+											<form id="formFilterRemitos">
+												<p class="formPaquete__text">Filtro por fechas</p>
+												<div class="container__filter__fechas">
+													<div class="form__element container__select">
+														<label class="form__select__text" for="desde_fecha"
+															>Desde Fecha</label
+														>
+														<input
+															type="date"
+															name="desde_fecha"
+															id="desde_fecha"
+														/>
+													</div>
+													<div class="form__element container__select">
+														<label class="form__select__text" for="hasta_fecha"
+															>Hasta Fecha</label
+														>
+														<input type="date" name="hasta_fecha" id="" />
+													</div>
+												</div>
+												<div class="container__buttons">
+													<input
+														class="form__edit__button input__package__button"
+														type="button"
+														value="Filtrar"
+													/>
+													<input
+														class="form__edit__button input__package__button"
+														type="button"
+														value="Limpiar"
+													/>
+												</div>
+											</form>
 										</div>
-										<div>
-											<label for="hasta_fecha">Hasta Fecha</label>
-											<input type="date" name="hasta_fecha" id="" />
-										</div>
-										<div>
-											<input type="button" value="Filtrar" />
-											<input type="button" value="Limpiar" />
-										</div>
-									</form>
+									</div>
 								</div>
 							</div>
-							<div id="containerRemitos" class="containerRemitos"></div>
+							<div class="containerRemitos-border">
+								<p class="container-paquete__item__text formPaquete__text">
+									Remitos realizados
+								</p>
+								<div id="containerRemitos" class="containerRemitos"></div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div id="modalCiudades" class="bg__modal hidden">
 					<div class="content__ciudades modal__content">
-						<div class="formCiudades">
-							<form id="formCiudadesProvincia">
-								<div>
-									<label for="nombre_provincia">Ingresar provincia</label>
-									<input
-										type="text"
-										name="nombre_provincia"
-										id="nombre_provincia"
-										required
-									/>
+						<div class="formCiudades form-ciudades__bg">
+							<div class="formCiudades__content__left">
+								<form class="formCiudadesProvincia" id="formCiudadesProvincia">
+									<div class="form__element">
+										<input
+											class="form__input"
+											type="text"
+											name="nombre_provincia"
+											id="nombre_provincia"
+											required
+										/>
+										<label class="form__element__text" for="nombre_provincia"
+											>Ingresar provincia</label
+										>
+									</div>
+									<button class="input__package__button" type="submit">
+										Agregar provincia
+									</button>
+								</form>
+								<form class="formCiudadesCiudad" id="formCiudadesCiudad">
+									<div class="form__element">
+										<input
+											class="form__input"
+											type="text"
+											name="nombre_ciudad"
+											id="nombre_ciudad"
+											required
+										/>
+										<label class="form__element__text" for="nombre_ciudad"
+											>Ingresar ciudad</label
+										>
+									</div>
+									<div class="form__element">
+										<input
+											class="form__input"
+											type="text"
+											name="cod_postal"
+											id="cod_postal"
+											required
+										/>
+										<label class="form__element__text" for="cod_postal"
+											>Codigo Postal</label
+										>
+									</div>
+									<div class="form__element container__select">
+										<label class="form__select__text" for="provincia"
+											>Seleccione la provincia</label
+										>
+										<select
+											id="provincia"
+											class="provincia_form form__select"
+											name="provincia"
+											required
+										></select>
+									</div>
+									<button class="input__package__button" type="submit">
+										Agregar ciudad
+									</button>
+								</form>
+								<div class="formTransporte__content__right">
+									<div class="formPaquete__logo__side">
+										<div class="container__logo">
+											<img
+												src="./assets/images/logo.svg"
+												alt="icon logo"
+												class="logo__img"
+											/>
+										</div>
+										<div class="formPaquete__logo__text">
+											<p class="company__name">Pacco veloce</p>
+											<p class="logo__text">Gestor de paqueteria</p>
+										</div>
+									</div>
 								</div>
-								<input type="submit" value="Agregar provincia" />
-							</form>
-							<form id="formCiudadesCiudad">
-								<div>
-									<label for="nombre_ciudad">Ingresar ciudad</label>
-									<input
-										type="text"
-										name="nombre_ciudad"
-										id="nombre_ciudad"
-										required
-									/>
-								</div>
-								<div>
-									<label for="">Codigo Postal</label>
-									<input
-										type="number"
-										name="cod_postal"
-										id="cod_postal"
-										required
-									/>
-								</div>
-								<div>
-									<label for="provincia">Seleccione la provincia</label>
-									<select
-										id="provincia"
-										class="provincia_form"
-										name="provincia"
-										required
-									></select>
-								</div>
-								<input type="submit" value="Agregar ciudad" />
-							</form>
+							</div>
 						</div>
-						<div>
-							<ul id="containerProvincia" class="provincia-container"></ul>
-							<ul id="containerCiudad" class="ciudad-container"></ul>
+						<div class="container-ciudad-provincia">
+							<div class="provincia-container-border">
+								<p class="container-paquete__item__text formPaquete__text">
+									Provincias container
+								</p>
+								<ul id="containerProvincia" class="provincia-container"></ul>
+							</div>
+							<div class="ciudad-container-border">
+								<p class="container-paquete__item__text formPaquete__text">
+									Ciudades container
+								</p>
+								<ul id="containerCiudad" class="ciudad-container"></ul>
+							</div>
 						</div>
 						<div id="modalDeleteProvincia" class="bg__modal__delete hidden">
 							<div class="content__edit modal__content">
@@ -1404,24 +1433,35 @@
 									Estas seguro de que deseas Borrar la provincia
 									"<span>0</span>"
 								</p>
-								<div>
-									<button class="edit__button">Si</button>
-									<button class="edit__button">No</button>
+								<div class="container__buttons">
+									<input
+										class="form__edit__button input__package__button"
+										type="button"
+										value="Si"
+									/>
+									<input
+										class="form__edit__button input__package__button"
+										type="button"
+										value="No"
+									/>
 								</div>
 							</div>
 						</div>
 						<div id="modalEditProvincia" class="bg__modal__delete hidden">
 							<div class="content__edit modal__content">
-								<p>editar provincia uwu</p>
+								<p class="formPaquete__text">Editar provincia</p>
 								<form id="formProvinciaEdit" class="formProvincia">
-									<div>
-										<label for="nombre_provincia">Ingresar provincia</label>
+									<div class="form__element">
 										<input
+											class="form__input"
 											type="text"
 											name="nombre_provincia"
 											id="nombre_provincia"
 											required
 										/>
+										<label class="form__element__text" for="nombre_provincia"
+											>Ingresar provincia</label
+										>
 									</div>
 									<div class="hidden">
 										<input
@@ -1431,8 +1471,18 @@
 											id="ID_CIUDAD"
 										/>
 									</div>
-									<input type="submit" value="Guardar" />
-									<input type="button" value="Cancelar" />
+									<div class="container__buttons">
+										<input
+											class="form__edit__button input__package__button"
+											type="submit"
+											value="Guardar"
+										/>
+										<input
+											class="form__edit__button input__package__button"
+											type="button"
+											value="Cancelar"
+										/>
+									</div>
 								</form>
 							</div>
 						</div>
@@ -1441,39 +1491,55 @@
 								<p>
 									Estas seguro de que deseas Borrar la ciudad "<span>0</span>"
 								</p>
-								<div>
-									<button class="edit__button">Si</button>
-									<button class="edit__button">No</button>
+								<div class="container__buttons">
+									<input
+										class="form__edit__button input__package__button"
+										type="button"
+										value="Si"
+									/>
+									<input
+										class="form__edit__button input__package__button"
+										type="button"
+										value="No"
+									/>
 								</div>
 							</div>
 						</div>
 						<div id="modalEditCiudad" class="bg__modal__delete hidden">
 							<div class="content__edit modal__content">
-								<p>editar ciudad uwu</p>
+								<p class="formPaquete__text">Editar ciudad</p>
 								<form id="formCiudadEdit" class="formCiudad">
-									<div>
-										<label for="nombre_ciudad">Ingresar ciudad</label>
+									<div class="form__element">
 										<input
+											class="form__input"
 											type="text"
 											name="nombre_ciudad"
 											id="nombre_ciudad"
 											required
 										/>
+										<label class="form__element__text" for="nombre_ciudad"
+											>Ingresar ciudad</label
+										>
 									</div>
-									<div>
-										<label for="">Codigo Postal</label>
+									<div class="form__element">
 										<input
-											type="number"
+											class="form__input"
+											type="text"
 											name="cod_postal"
 											id="cod_postal"
 											required
 										/>
+										<label class="form__element__text" for=" cod_postal"
+											>Codigo Postal</label
+										>
 									</div>
-									<div>
-										<label for="provincia">Seleccione la provincia</label>
+									<div class="form__element container__select">
+										<label class="form__select__text" for="provincia"
+											>Seleccione la provincia</label
+										>
 										<select
 											id="provincia"
-											class="provincia_form"
+											class="provincia_form form__select"
 											name="provincia"
 											required
 										></select>
@@ -1486,8 +1552,18 @@
 											id="ID_CIUDAD"
 										/>
 									</div>
-									<input type="submit" value="Guardar" />
-									<input type="button" value="Cancelar" />
+									<div class="container__buttons">
+										<input
+											class="form__edit__button input__package__button"
+											type="submit"
+											value="Guardar"
+										/>
+										<input
+											class="form__edit__button input__package__button"
+											type="button"
+											value="Cancelar"
+										/>
+									</div>
 								</form>
 							</div>
 						</div>

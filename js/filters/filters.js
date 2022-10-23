@@ -67,8 +67,12 @@ formFilterRemitos.addEventListener('click', ev => {
 			/*check if any of the input:date are empty and let the sentence works correctly*/
 
 			if (
-				formFilterRemitos.children[0].children[1].value === '' ||
-				formFilterRemitos.children[1].children[1].value === ''
+				/*
+				formFilterSalario[0].value = '';
+				formFilterSalario[1].value = '';
+				*/
+				formFilterRemitos[0].value === '' ||
+				formFilterRemitos[1].value === ''
 			) {
 				null;
 			} else {
@@ -85,8 +89,8 @@ formFilterRemitos.addEventListener('click', ev => {
 		callAndFilter();
 	} else if (ev.target.value === 'Limpiar') {
 		/*clean all the input:date and remove the class "hidden" of all the childrens already filtered*/
-		formFilterRemitos.children[0].children[1].value = '';
-		formFilterRemitos.children[1].children[1].value = '';
+		formFilterRemitos[0].value = '';
+		formFilterRemitos[1].value = '';
 		for (const childRemitos of containerRemitos.children) {
 			childRemitos.classList.remove('hidden');
 		}

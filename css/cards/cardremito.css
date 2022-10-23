@@ -1,9 +1,22 @@
 .containerRemitos {
 	display: flex;
 	flex-wrap: wrap;
-	align-content: center;
+	justify-content: center;
+	align-items: center;
 	gap: 1em;
 }
+
+.containerRemitos-border {
+	box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.5),
+		4px 4px 10px rgba(51, 51, 51, 0.5);
+	align-content: center;
+	margin: 2em;
+	padding: 1em;
+	max-width: 1250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .remito-container {
 	display: inline-flex;
 	flex-direction: column;
@@ -69,4 +82,10 @@
 
 .remito-container__item__text--black {
 	color: black;
+}
+
+.container-paquete__item__text.formPaquete__text {
+	text-align: center;
+	padding-bottom: 0.2em;
+	border-bottom: 1px solid rgb(182, 177, 177);
 }

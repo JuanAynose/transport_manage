@@ -69,7 +69,7 @@ const CardEmploye = data => {
                 ${apellido_empleado}
             </p>
             <p class="empleado-container__item__text">
-                            ${dni_empleado}
+            <span class="empleado-container__item__text empleado-container__item__text__color--violet">DNI:</span> ${dni_empleado}
             </p>
         </div>
         <div class="empleado-container_footer">

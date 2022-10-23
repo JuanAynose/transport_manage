@@ -167,37 +167,41 @@ editarRemito.addEventListener('click', ev => {
 		);
 		singleCall(getIdPaqueteDetalle, formRemitoEdit, CALL_OPTION.SINGLE_PACKAGE);
 		modalEditRemito.classList.remove('hidden');
+		body.classList.add('block');
 	}
 });
 
 modalDeleteRemito.addEventListener('click', ev => {
-	if (ev.target.textContent === 'Si') {
+	if (ev.target.value === 'Si') {
 		deleteRemito(getIdPaquete);
 		deletePaqueteAll({
-			id_destinatario: Number(
-				formRemitoEdit.children[5].children[8].children[1].value
-			),
+			id_destinatario: Number(formRemitoEdit[13].value),
 			id_detalle_paquete: getIdPaqueteDetalle,
 			id_paquete: getIdPaquete
 		});
 		makeCall(MODAL_OPTIONS.REMITOS);
 		modalDeleteRemito.classList.add('hidden');
-	} else if (ev.target.textContent === 'No') {
+		body.classList.remove('block');
+	} else if (ev.target.value === 'No') {
 		modalDeleteRemito.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });
 
 modalEditRemito.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Guardar') {
 		modalEditRemito.classList.add('hidden');
+		body.classList.remove('block');
 	} else if (ev.target.value === 'Cancelar') {
 		formRemitoEdit.reset();
 		modalEditRemito.classList.add('hidden');
+		body.classList.remove('block');
 	} else if (ev.target.value === 'Borrar') {
 		modalDeleteRemito.children[0].children[0].children[0].textContent =
 			getIdPaqueteDetalle;
 		modalDeleteRemito.classList.remove('hidden');
 		modalEditRemito.classList.add('hidden');
+		body.classList.add('block');
 	}
 });
 
@@ -214,6 +218,7 @@ editarCiudad.addEventListener('click', ev => {
 			CALL_OPTION.SINGLE_CITY
 		);
 		modalEditCiudad.classList.remove('hidden');
+		body.classList.add('block');
 	} else if (ev.target.textContent === 'Borrar') {
 		getIdCiudad = Number(
 			ev.target.parentElement.parentElement.children[3].children[0].children[0]
@@ -222,16 +227,19 @@ editarCiudad.addEventListener('click', ev => {
 		modalDeleteCiudad.children[0].children[0].children[0].textContent =
 			getIdCiudad;
 		modalDeleteCiudad.classList.remove('hidden');
+		body.classList.add('block');
 	}
 });
 
 modalDeleteCiudad.addEventListener('click', ev => {
-	if (ev.target.textContent === 'Si') {
+	if (ev.target.value === 'Si') {
 		modalDeleteCiudad.classList.add('hidden');
+		body.classList.remove('block');
 		deleteCiudad(getIdCiudad);
 		makeCall(MODAL_OPTIONS.CIUDADES);
-	} else if (ev.target.textContent === 'No') {
+	} else if (ev.target.value === 'No') {
 		modalDeleteCiudad.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });
 
@@ -241,6 +249,7 @@ modalEditCiudad.addEventListener('click', ev => {
 	} else if (ev.target.value === 'Cancelar') {
 		formCiudadEdit.reset();
 		modalEditCiudad.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });
 
@@ -257,6 +266,7 @@ editarProvincia.addEventListener('click', ev => {
 			CALL_OPTION.SINGLE_STATE
 		);
 		modalEditProvincia.classList.remove('hidden');
+		body.classList.add('block');
 	} else if (ev.target.textContent === 'Borrar') {
 		getIdProvincia = Number(
 			ev.target.parentElement.parentElement.children[1].children[0].children[0]
@@ -265,16 +275,19 @@ editarProvincia.addEventListener('click', ev => {
 		modalDeleteProvincia.children[0].children[0].children[0].textContent =
 			getIdProvincia;
 		modalDeleteProvincia.classList.remove('hidden');
+		body.classList.add('block');
 	}
 });
 
 modalDeleteProvincia.addEventListener('click', ev => {
-	if (ev.target.textContent === 'Si') {
+	if (ev.target.value === 'Si') {
 		modalDeleteProvincia.classList.add('hidden');
+		body.classList.remove('block');
 		deleteProvincia(getIdProvincia);
 		makeCall(MODAL_OPTIONS.CIUDADES);
-	} else if (ev.target.textContent === 'No') {
+	} else if (ev.target.value === 'No') {
 		modalDeleteProvincia.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });
 
@@ -284,6 +297,7 @@ modalEditProvincia.addEventListener('click', ev => {
 	} else if (ev.target.value === 'Cancelar') {
 		formProvinciaEdit.reset();
 		modalEditProvincia.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });
 
@@ -301,6 +315,7 @@ editarSalario.addEventListener('click', ev => {
 			CALL_OPTION.SINGLE_SALARY
 		);
 		modalEditSalario.classList.remove('hidden');
+		body.classList.add('block');
 	} else if (ev.target.textContent === 'Borrar') {
 		getIdSalario = Number(
 			ev.target.parentElement.parentElement.parentElement.parentElement
@@ -309,6 +324,7 @@ editarSalario.addEventListener('click', ev => {
 		modalDeleteSalario.children[0].children[0].children[0].textContent =
 			getIdSalario;
 		modalDeleteSalario.classList.remove('hidden');
+		body.classList.add('block');
 	}
 });
 
@@ -317,16 +333,20 @@ modalDeleteSalario.addEventListener('click', ev => {
 		modalDeleteSalario.classList.add('hidden');
 		deleteSalario(getIdSalario);
 		makeCall(MODAL_OPTIONS.SALARIO);
+		body.classList.remove('block');
 	} else if (ev.target.value === 'No') {
 		modalDeleteSalario.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });
 
 modalEditSalario.addEventListener('click', ev => {
 	if (ev.target.textContent === 'Guardar') {
 		modalEditSalario.classList.add('hidden');
+		body.classList.remove('block');
 	} else if (ev.target.value === 'Cancelar') {
 		formSalarioEdit.reset();
 		modalEditSalario.classList.add('hidden');
+		body.classList.remove('block');
 	}
 });

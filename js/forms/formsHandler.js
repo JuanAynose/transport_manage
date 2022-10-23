@@ -247,6 +247,7 @@ formRemitoEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.REMITOS);
 	modalEditRemito.classList.add('hidden');
+	body.classList.remove('block');
 });
 
 formCiudadEdit.addEventListener('submit', e => {
@@ -260,6 +261,7 @@ formCiudadEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.CIUDADES);
 	modalEditCiudad.classList.add('hidden');
+	body.classList.remove('block');
 });
 
 formProvinciaEdit.addEventListener('submit', e => {
@@ -271,6 +273,7 @@ formProvinciaEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.CIUDADES);
 	modalEditProvincia.classList.add('hidden');
+	body.classList.remove('block');
 });
 
 formSalarioEdit.addEventListener('submit', e => {

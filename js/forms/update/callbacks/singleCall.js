@@ -42,62 +42,38 @@ const singleCall = async (id_selected, childSelected, call_name) => {
 				getSingleTruck.disponibilidad;
 			break;
 		case CALL_OPTION.SINGLE_PACKAGE:
-			console.log(getPaquete[2].descrip);
-			console.log(id_selected);
 			childSelected[0].value = id_selected;
-			/*
-			childSelected.children[2].children[1].children[2].value =
-				getPaquete[2].descrip;
-			childSelected.children[2].children[1].value = getPaquete[2].peso;
-			childSelected.children[3].children[1].value = getPaquete[2].tipo_producto;
-			childSelected.children[4].children[1].value = getPaquete[0].prioridad;
-			childSelected.children[5].children[1].children[0].value =
-				getPaquete[1].nombre;
-			childSelected.children[5].children[2].children[0].value =
-				getPaquete[1].apellido;
-			childSelected.children[5].children[3].children[0].value =
-				getPaquete[1].cel;
-			childSelected.children[5].children[4].children[0].value =
-				getPaquete[1].dni;
-			childSelected.children[5].children[5].children[0].value =
-				getPaquete[1].direccion;
-			childSelected.children[5].children[6].children[1].value =
-				getPaquete[1].ciudad;
-			childSelected.children[5].children[7].children[1].value =
-			
-				getPaquete[0].situacion;
-				
-				childSelected.children[5].children[8].children[0].value =
-				getPaquete[0].cod_paquete;
-				childSelected.children[5].children[8].children[1].value =
-				getPaquete[1].id_destinatario;
-				childSelected.children[5].children[8].children[2].value =
-				getPaquete[2].cod_paque;
-				
-				*/
-			console.log(
-				getPaquete[0].cod_paquete,
-				getPaquete[1].id_destinatario,
-				getPaquete[2].cod_paque
-			);
+			childSelected[1].value = getPaquete[2].descrip;
+			childSelected[2].value = getPaquete[2].peso;
+			childSelected[3].value = getPaquete[2].tipo_producto;
+			childSelected[4].value = getPaquete[0].prioridad;
+			childSelected[5].value = getPaquete[1].nombre;
+			childSelected[6].value = getPaquete[1].apellido;
+			childSelected[7].value = getPaquete[1].cel;
+			childSelected[8].value = getPaquete[1].dni;
+			childSelected[9].value = getPaquete[1].direccion;
+			childSelected[10].value = getPaquete[1].ciudad;
+			childSelected[11].value = getPaquete[0].situacion;
+			childSelected[12].value = getPaquete[0].cod_paquete;
+			childSelected[13].value = getPaquete[1].id_destinatario;
+			childSelected[14].value = getPaquete[2].cod_paque;
 			break;
 		case CALL_OPTION.SINGLE_CITY:
-			childSelected.children[0].children[1].value = getSingleCity.nombre_ciudad;
-			childSelected.children[1].children[1].value = getSingleCity.cod_postal;
-			childSelected.children[2].children[1].value = getSingleCity.id_prov;
-			childSelected.children[3].children[0].value = getSingleCity.id_ciudad;
+			childSelected[0].value = getSingleCity.nombre_ciudad;
+			childSelected[1].value = getSingleCity.cod_postal;
+			childSelected[2].value = getSingleCity.id_prov;
+			childSelected[3].value = getSingleCity.id_ciudad;
 			break;
 		case CALL_OPTION.SINGLE_STATE:
-			childSelected.children[0].children[1].value =
-				getSingleStates.nombre_provincia;
-			childSelected.children[1].children[0].value = getSingleStates.id_prov;
+			childSelected[0].value = getSingleStates.nombre_provincia;
+			childSelected[1].value = getSingleStates.id_prov;
 			break;
 		case CALL_OPTION.SINGLE_SALARY:
-			childSelected.children[0].children[0].value = getSalario.cantidad_hora;
-			childSelected.children[1].children[0].value = getSalario.precio_hora;
-			childSelected.children[2].children[1].value = getSalario.fecha_pago;
-			childSelected.children[3].children[1].value = getSalario.id_empleado;
-			childSelected.children[4].children[0].value = getSalario.id_salario;
+			childSelected[0].value = getSalario.cantidad_hora;
+			childSelected[1].value = getSalario.precio_hora;
+			childSelected[2].value = getSalario.fecha_pago;
+			childSelected[3].value = getSalario.id_empleado;
+			childSelected[4].value = getSalario.id_salario;
 			break;
 	}
 };

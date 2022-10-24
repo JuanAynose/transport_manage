@@ -50,14 +50,14 @@ const getEmpleados = () => {
 		.then(res => {
 			if (!res.length) {
 				return res;
-			} else if (res.length <= 1) {
+			} else if (res.length <= 1) {				
 				const {
 					fecha_ingreso,
 					id_camionero,
 					dni,
 					apellido,
 					...restEmployeInfo
-				} = res;
+				} = res[0];				
 				const getExperience = normalizeDate(fecha_ingreso);
 				return {
 					antiguedad_empleado: getExperience,

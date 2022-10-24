@@ -18,7 +18,9 @@ const CardRemito = data => {
 	} = data;
 
 	let barColor = '#94ee94';
-
+  let situationName;
+  if (SITUACION_VALUE[situacion][0]) situationName=SITUACION_VALUE[situacion][0];
+  else situationName ="Error";
 	if (Number(situacion) === 5 || Number(situacion) === 6) barColor = '#fa7e7e';
 	else barColor = '#94ee94';
 
@@ -95,7 +97,7 @@ const CardRemito = data => {
           <p class="remito-container__item__text remito-container__item__text--violet">
             Estado:<span
               class="remito-container__item__text remito-container__item__text--black"
-              >${SITUACION_VALUE[situacion][0]}</span
+              >${situationName}</span
             >
           </p>
         </li>
@@ -135,7 +137,7 @@ const CardRemito = data => {
     </div>
     <div class="remito-container__footer">
       <div class="progress__bar__info">
-        <p class="remito-container__item__text remito-container__item__text--violet">${SITUACION_VALUE[situacion][0]}</p>
+        <p class="remito-container__item__text remito-container__item__text--violet">${situationName}</p>
         <p class="remito-container__item__text">${SITUACION_VALUE[situacion][1]}%</p>
       </div>
       <div class="remito-container__bar__progress">

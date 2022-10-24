@@ -1,6 +1,6 @@
 import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
 import makeCall from '../../modals/controller/makeCall.js';
-const containerRemitos = document.getElementById('containerRemitos');
+const containerPackage = document.getElementById('enviosCardPackage');
 
 export const postRemito = data => {
 	const {
@@ -40,8 +40,8 @@ export const postRemito = data => {
 		)
 			.then(response => response.text())
 			.then(result => {
-				containerRemitos.innerHTML = '';
-				makeCall(MODAL_OPTIONS.REMITOS);
+				containerPackage.innerHTML = '';
+				makeCall(MODAL_OPTIONS.PAQUETERIA);
 				console.log(result);
 			})
 			.catch(error => console.log('error', error));

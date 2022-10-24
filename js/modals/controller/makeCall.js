@@ -66,15 +66,18 @@ const makeCall = async indenfyNumber => {
 		case MODAL_OPTIONS.PAQUETERIA:
 			containerPackage.innerHTML = '';
 			containerEmpleado.innerHTML = '';
+			containerCamion.innerHTML = '';
 			CardPackageManager(getData, containerPackage);
 			CardCamionManager(getCamionesDispo, containerCamion);
 			CardEmpleadoManager(getEmployes, containerEmpleado);
 			break;
 		case MODAL_OPTIONS.TRANSPORTE:
-			console.log("transport call")
+			console.log('transport call');
+			editarCamion.innerHTML = '';
 			CardCamionEdits(getTrucks, editarCamion);
 			break;
 		case MODAL_OPTIONS.EMPLEADOS:
+			editarEmpleado.innerHTML = '';
 			CardEmpleadoEdit(getEmployes, editarEmpleado);
 			break;
 		case MODAL_OPTIONS.SALARIO:
@@ -84,10 +87,13 @@ const makeCall = async indenfyNumber => {
 			CardCheckManager(getEmployesSalary, contentPagosRealizar);
 			break;
 		case MODAL_OPTIONS.REMITOS:
+			containerRemitos.innerHTML = '';
 			modalRemitos(getAllPackages);
 			CardRemitoManager(getRemito, containerRemitos);
 			break;
 		case MODAL_OPTIONS.CIUDADES:
+			containerCiudad.innerHTML = '';
+			containerProvincia.innerHTML = '';
 			CardCiudadManager(getCiudad, containerCiudad);
 			CardProvinciaManager(getProvincia, containerProvincia);
 			break;

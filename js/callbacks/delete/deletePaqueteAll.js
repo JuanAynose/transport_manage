@@ -1,3 +1,7 @@
+import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
+import makeCall from '../../modals/controller/makeCall.js';
+const containerRemitos = document.getElementById('containerRemitos');
+
 export const deletePaqueteAll = data => {
 	const { id_destinatario, id_detalle_paquete, id_paquete } = data;
 	const sendShit = () => {
@@ -22,7 +26,11 @@ export const deletePaqueteAll = data => {
 			requestOptions
 		)
 			.then(response => response.text())
-			.then(result => console.log(result))
+			.then(result => {
+				containerRemitos.innerHTML = '';
+				makeCall(MODAL_OPTIONS.REMITOS);
+				console.log(result);
+			})
 			.catch(error => console.log('error', error));
 	};
 	sendShit();

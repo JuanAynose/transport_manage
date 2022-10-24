@@ -42,7 +42,5 @@ if ($num > 0) {
   echo json_encode($package_ready);
 } else {
   // No Posts
-  echo json_encode(
-    array('')
-  );
+  echo json_encode(false);    
 }

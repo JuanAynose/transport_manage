@@ -1,3 +1,8 @@
+import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
+import makeCall from '../../modals/controller/makeCall.js';
+
+const contentPagosRealizar = document.getElementById('pagosRealizados');
+
 export const postSalario = data => {
 	const {
 		fecha_pago_salario,
@@ -31,7 +36,11 @@ export const postSalario = data => {
 			requestOptions
 		)
 			.then(response => response.text())
-			.then(result => console.log(result))
+			.then(result => {
+				contentPagosRealizar.innerHTML = '';
+				makeCall(MODAL_OPTIONS.SALARIO);
+				console.log(result);
+			})
 			.catch(error => console.log('error', error));
 	};
 	sendShit();

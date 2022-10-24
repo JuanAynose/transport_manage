@@ -1,10 +1,14 @@
 import CardEmploye from '../cards/CardEmploye.js';
 
 const CardSalaryManager = (data, containerSalario) => {
-	if(!data.length) return data;
+	if (data.length < 0 || data === false) return data;
 
-	for (const salarioData of data) {
-		containerSalario.innerHTML += CardEmploye(salarioData);
+	if (data.length) {
+		for (const salarioData of data) {
+			containerSalario.innerHTML += CardEmploye(salarioData);
+		}
+	} else {
+		containerSalario.innerHTML += CardEmploye(data);
 	}
 };
 

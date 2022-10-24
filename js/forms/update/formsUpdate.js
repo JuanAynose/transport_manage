@@ -137,7 +137,7 @@ modalDeleteCamion.addEventListener('click', ev => {
 		modalDeleteCamion.classList.add('hidden');
 		body.classList.remove('block');
 		deleteCamion(getIdCamion);
-		window.location.reload();
+		makeCall(MODAL_OPTIONS.TRANSPORTE);
 	} else if (ev.target.value === 'No') {
 		modalDeleteCamion.classList.add('hidden');
 		body.classList.remove('block');
@@ -237,7 +237,6 @@ modalDeleteCiudad.addEventListener('click', ev => {
 		body.classList.remove('block');
 		deleteCiudad(getIdCiudad);
 		makeCall(MODAL_OPTIONS.CIUDADES);
-		window.location.reload();
 	} else if (ev.target.value === 'No') {
 		modalDeleteCiudad.classList.add('hidden');
 		body.classList.remove('block');
@@ -286,7 +285,6 @@ modalDeleteProvincia.addEventListener('click', ev => {
 		body.classList.remove('block');
 		deleteProvincia(getIdProvincia);
 		makeCall(MODAL_OPTIONS.CIUDADES);
-		window.location.reload();
 	} else if (ev.target.value === 'No') {
 		modalDeleteProvincia.classList.add('hidden');
 		body.classList.remove('block');

@@ -39,7 +39,5 @@ if ($num > 0) {
     echo json_encode($provincias);
 } else {
     // No Posts
-    echo json_encode(
-        array('message' => 'No Posts Found')
-    );
+    echo json_encode(false);    
 }

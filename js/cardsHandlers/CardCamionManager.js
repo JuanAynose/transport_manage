@@ -1,11 +1,14 @@
 import CardCamion from '../cards/CardCamion.js';
 
 const CardCamionManager = (data, containerCamion) => {
-	if(!data.length) return data;
-
+	if (data.length < 0 || data === false) return data;
 	containerCamion.innerHTML = '';
-	for (const camionData of data) {
-		containerCamion.innerHTML += CardCamion(camionData);
+	if (data.length) {
+		for (const camionData of data) {
+			containerCamion.innerHTML += CardCamion(camionData);
+		}
+	} else {
+		containerCamion.innerHTML += CardCamion(data);
 	}
 };
 

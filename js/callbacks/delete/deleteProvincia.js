@@ -1,3 +1,7 @@
+import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
+import makeCall from '../../modals/controller/makeCall.js';
+const containerProvincia = document.getElementById('containerProvincia');
+
 export const deleteProvincia = id => {
 	const sendShit = () => {
 		var myHeaders = new Headers();
@@ -19,7 +23,11 @@ export const deleteProvincia = id => {
 			requestOptions
 		)
 			.then(response => response.text())
-			.then(result => console.log(result))
+			.then(result => {
+				containerProvincia.innerHTML = '';
+				makeCall(MODAL_OPTIONS.CIUDADES);
+				console.log(result);
+			})
 			.catch(error => console.log('error', error));
 	};
 	sendShit();

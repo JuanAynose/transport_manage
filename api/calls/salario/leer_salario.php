@@ -44,7 +44,5 @@
 
   } else {
     // No Posts
-    echo json_encode(
-      array('message' => 'No Posts Found')
-    );
+    echo json_encode(false);    
   }

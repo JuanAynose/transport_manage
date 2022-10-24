@@ -1,3 +1,7 @@
+import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
+import makeCall from '../../modals/controller/makeCall.js';
+const contentPagosRealizar = document.getElementById('pagosRealizados');
+
 export const deleteSalario = id => {
 	const sendShit = () => {
 		var myHeaders = new Headers();
@@ -19,7 +23,11 @@ export const deleteSalario = id => {
 			requestOptions
 		)
 			.then(response => response.text())
-			.then(result => console.log(result))
+			.then(result => {
+				contentPagosRealizar.innerHTML = '';
+				makeCall(MODAL_OPTIONS.SALARIO);
+				console.log(result);
+			})
 			.catch(error => console.log('error', error));
 	};
 	sendShit();

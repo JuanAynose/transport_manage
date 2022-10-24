@@ -1,3 +1,8 @@
+import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
+import makeCall from '../../modals/controller/makeCall.js';
+
+const containerCiudad = document.getElementById('containerCiudad');
+
 export const postCiudad = data => {
 	const { nombre_ciudad, cod_prov, cod_postal } = data;
 
@@ -23,7 +28,11 @@ export const postCiudad = data => {
 			requestOptions
 		)
 			.then(response => response.text())
-			.then(result => console.log(result))
+			.then(result => {
+				containerCiudad.innerHTML = '';
+				makeCall(MODAL_OPTIONS.CIUDADES);
+				console.log(result);
+			})
 			.catch(error => console.log('error', error));
 	};
 

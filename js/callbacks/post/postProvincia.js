@@ -1,3 +1,8 @@
+import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
+import makeCall from '../../modals/controller/makeCall.js';
+
+const containerProvincia = document.getElementById('containerProvincia');
+
 export const postProvincia = data => {
 	const { nombre_provincia } = data;
 
@@ -23,7 +28,11 @@ export const postProvincia = data => {
 			requestOptions
 		)
 			.then(response => response.text())
-			.then(result => console.log(result))
+			.then(result => {
+				containerProvincia.innerHTML = '';
+				makeCall(MODAL_OPTIONS.CIUDADES);
+				console.log(result);
+			})
 			.catch(error => console.log('error', error));
 	};
 

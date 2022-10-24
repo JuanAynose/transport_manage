@@ -76,7 +76,7 @@ formPaquete.addEventListener('submit', e => {
 		ciudad_destinatario: formData.get('ciudad'),
 		direccion_destinatario: formData.get('direccion_destinatario')
 	});
-	formPaquete.reset();
+	formPaquete.reset();	
 	makeCall(MODAL_OPTIONS.PAQUETERIA);
 });
 
@@ -150,7 +150,7 @@ formEmpleado.addEventListener('submit', e => {
 		fecha_ingreso_empleado: formData.get('fecha_ingreso_empleado'),
 		fecha_nacimiento_empleado: formData.get('fecha_nacimiento_empleado')
 	});
-	formEmpleado.reset();
+	//formEmpleado.reset();
 	makeCall(MODAL_OPTIONS.EMPLEADOS);
 });
 

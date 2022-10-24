@@ -1,3 +1,7 @@
+import { MODAL_OPTIONS } from '../../constants/modalOptions.js';
+import makeCall from '../../modals/controller/makeCall.js';
+const editarEmpleado = document.getElementById('editarEmpleado');
+
 export const postEmpleado = data => {
 	const {
 		apellido_empleado,
@@ -35,7 +39,11 @@ export const postEmpleado = data => {
 			requestOptions
 		)
 			.then(response => response.text())
-			.then(result => console.log(result))
+			.then(result => {
+				editarEmpleado.innerHTML = '';
+				makeCall(MODAL_OPTIONS.EMPLEADOS);
+				console.log(result);
+			})
 			.catch(error => console.log('error', error));
 	};
 

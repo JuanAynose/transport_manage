@@ -1,5 +1,5 @@
 const CardCamion = data => {
-	console.log(data.peso_total);
+	//console.log(data);
 	const { capacidad, disponibilidad, id_camion, marca, peso_total } = data;
 	let copyDisponibilidad = disponibilidad;
 	if (copyDisponibilidad == 1) copyDisponibilidad = 'Si';
@@ -42,7 +42,7 @@ const CardCamion = data => {
     <div>
         <input class="input_camion input__radio" type="radio" value="${id_camion}" name="containerCamion"  required>
         <input class="input_camion hidden input__radio" type="text" value="${marca}" name="nameCamion">
-        <input class="input_camion hidden input__radio" type="number" value="${peso_total}" name="pesoCamion">
+        <input class="input_camion hidden input__radio" type="number" value="${capacidad}" name="pesoCamion">
     </div>
 </li>
 </label>

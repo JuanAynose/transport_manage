@@ -93,6 +93,10 @@
 													<input
 														class="form__input"
 														type="text"
+														placeholder=" "
+														title="Ingrese un paquete con 4-15 de largo máximo"
+														maxlength="15"
+														minlength="4"
 														id="desc_paquete "
 														name="desc_paquete"
 														required
@@ -106,12 +110,13 @@
 														class="form__input"
 														type="number"
 														placeholder=" "
-														id="peso_paquete "														
+														max="50"
+														id="peso_paquete"
 														name="peso_paquete"
 														required
 													/>
 													<label class="form__element__text" for="peso_paquete"
-														>Peso del paquete (GRs)</label
+														>Peso del paquete (KG)</label
 													>
 												</div>
 												<div class="form__element container__select">
@@ -157,6 +162,9 @@
 														class="form__input"
 														type="text"
 														name="nombre_destinatario"
+														placeholder=" "
+														pattern="[A-Za-z]{4,15}"
+														title="Ingrese un nombre con 4-15 de largo máximo"
 														id="nombre_destinatario"
 														required
 													/>
@@ -171,6 +179,9 @@
 														class="form__input"
 														type="text"
 														name="apellido_destinatario"
+														placeholder=" "
+														title="Ingrese un apellido con 4-15 de largo máximo"
+														pattern="[A-Za-z]{4,15}"
 														id="apellido_destinatario"
 														required
 													/>
@@ -183,8 +194,8 @@
 												<div class="form__element">
 													<input
 														class="form__input"
+														placeholder=" "
 														type="number"
-														placeholder=" "														
 														name="numero_destinatario"
 														id="numero_destinatario"
 														required
@@ -199,7 +210,7 @@
 													<input
 														class="form__input"
 														type="number"
-														placeholder=" "														
+														placeholder=" "
 														name="dni_destinatario"
 														id="dni_destinatario"
 														required
@@ -309,7 +320,12 @@
 										id="envio_fecha_estimada"
 									/>
 								</div>
-
+								<p class="error formPaquete__text">
+									Estas excediendo la capacidad máxima del camión
+									<span class="error__subtext">0</span>KG, la suma total de los
+									paquetes es de <span class="error__subtext">0</span>KG, elija
+									otro camion con mayor capacidad...
+								</p>
 								<input
 									class="input__package__button"
 									type="submit"
@@ -328,7 +344,8 @@
 									<input
 										class="form__input"
 										type="number"
-										name="capacidad_camion"										
+										name="capacidad_camion"
+										min="200"
 										placeholder=" "
 										id="capacidad_camion"
 										required
@@ -445,7 +462,8 @@
 											<input
 												class="form__input"
 												type="number"
-												name="capacidad_camion"												
+												name="capacidad_camion"
+												min="200"
 												placeholder=" "
 												id="capacidad_camion"
 												required
@@ -526,7 +544,7 @@
 												class="form__input"
 												placeholder=" "
 												type="number"
-												name="dni_empleado"												
+												name="dni_empleado"
 												id="dni_empleado"
 												required
 											/>
@@ -538,7 +556,7 @@
 											<input
 												class="form__input"
 												placeholder=" "
-												type="number"																					
+												type="number"
 												id="telefono_empleado"
 												name="telefono_empleado"
 												required
@@ -1117,12 +1135,13 @@
 											placeholder=" "
 											class="form__input"
 											type="number"
+											max="50"
 											id="peso_paquete "
 											name="peso_paquete"
 											required
 										/>
 										<label class="form__element__text" for="peso_paquete"
-											>Peso del paquete (GRs)</label
+											>Peso del paquete (KG)</label
 										>
 									</div>
 									<div class="form__element container__select">

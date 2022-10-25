@@ -200,8 +200,13 @@
 													<input
 														class="form__input"
 														placeholder=" "
-														type="number"
+														type="text"
+														maxlength="10"
+														minlength="10"
+														inputmode="numeric"
+														pattern="[0-9]*"
 														name="numero_destinatario"
+														title="El campo solo acepta números, que no sean mayor ni menor a 10 caracteres"
 														id="numero_destinatario"
 														required
 													/>
@@ -214,8 +219,13 @@
 												<div class="form__element">
 													<input
 														class="form__input"
-														type="number"
 														placeholder=" "
+														type="text"
+														maxlength="11"
+														minlength="8"
+														inputmode="numeric"
+														pattern="[0-9]*"
+														title="El campo solo acepta números, que no sean mayor a 11 ni menor a 8 caracteres"
 														name="dni_destinatario"
 														id="dni_destinatario"
 														required

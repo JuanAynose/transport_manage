@@ -1,7 +1,7 @@
 /***************************/
 .container__items--paquete {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	align-content: center;
 	flex-wrap: wrap;
 	gap: 1em;
@@ -39,6 +39,7 @@
 /*package container styles*/
 .container__items--paquete {
 	display: flex;
+	align-content: center;
 	flex-wrap: wrap;
 }
 
@@ -74,6 +75,10 @@
 	align-items: center;
 	background-color: var(--violet-anashei);
 	width: 100%;
+}
+
+.formRemito .package-container__header__bg {
+	justify-content: flex-start;
 }
 
 .package-container__header__item {

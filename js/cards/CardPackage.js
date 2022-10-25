@@ -6,7 +6,8 @@ const CardPackage = (data, cont) => {
 		dir_destino,
 		descrip,
 		dni,
-		id_paquete
+		id_paquete,
+		peso_paquete
 	} = data;
 	return `
     <label>
@@ -54,6 +55,8 @@ const CardPackage = (data, cont) => {
                                     <input type="text"  value="${descrip}" >
                                     <input type="number"  value="${dni}" >
                                     <input type="number"  value="${id_paquete}" >
+                                    <input type="number"  value="${peso_paquete}" >
+                                    
                                 </div>
                             </li>
                             </label>                     

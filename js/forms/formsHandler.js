@@ -94,6 +94,7 @@ formRemito.addEventListener('submit', e => {
 
 	const formData = new FormData(formRemito);
 	const normalizeFormData = [];
+	const PesoFormData = [];
 
 	for (let i = 0; i < enviosCardPackage.children.length; i++) {
 		const childSelected = enviosCardPackage.children[i].children[0].children[4];
@@ -102,15 +103,25 @@ formRemito.addEventListener('submit', e => {
 			id: i,
 			cod_paquete: childSelected.children[1].value,
 			nombre_destinatario: childSelected.children[0].value,
-			id_paquete: childSelected.children[4].value
+			id_paquete: childSelected.children[4].value,
+			peso_paquete: childSelected.children[5].value
 		});
+		PesoFormData.push(childSelected.children[5].value);
 	}
+
+	const initialValue = 0;
+
+	const normalizedPesoForm = PesoFormData.reduce(
+		(previousValue, currentValue) =>
+			Number(previousValue) + Number(currentValue),
+		initialValue
+	);
 
 	const getIdData = formData.get('containerPackage');
 
 	const packageLenght = Number(formData.getAll('containerPackage').length);
-
 	if (packageLenght <= 1) {
+		console.log(formData.get('containerCamion'));
 		postRemito({
 			fecha_emision: margeDate,
 			id_paquete: normalizeFormData[getIdData].id_paquete,
@@ -121,20 +132,38 @@ formRemito.addEventListener('submit', e => {
 		});
 	} else {
 		const very = [...formData.getAll('containerPackage')];
+		let WeightTruck;
+		const truckSelected = formData.get('containerCamion');
+		for (const itemsTruck of enviosCardCamion.children) {
+			if (
+				truckSelected === itemsTruck.children[0].children[2].children[0].value
+			)
+				WeightTruck = Number(
+					itemsTruck.children[0].children[2].children[2].value
+				);
+		}
 		const normalizeArray = very.map(itemA => Number(itemA));
-		for (const itemTest of normalizeArray) {
-			postRemito({
-				fecha_emision: margeDate,
-				id_paquete: normalizeFormData[itemTest].id_paquete,
-				nombre_empleado: formData.get('containerEmploye'),
-				nombre_destinatario: normalizeFormData[itemTest].nombre_destinatario,
-				nombre_camion: formData.get('containerCamion'),
-				fecha_entrega: formData.get('envio_fecha_estimada')
-			});
+		if (WeightTruck >= Number(normalizedPesoForm)) {
+			for (const itemTest of normalizeArray) {
+				console.log(formData.get('containerCamion'));
+				postRemito({
+					fecha_emision: margeDate,
+					id_paquete: normalizeFormData[itemTest].id_paquete,
+					nombre_empleado: formData.get('containerEmploye'),
+					nombre_destinatario: normalizeFormData[itemTest].nombre_destinatario,
+					nombre_camion: formData.get('containerCamion'),
+					fecha_entrega: formData.get('envio_fecha_estimada')
+				});
+			}
+			formRemito.children[5].classList.remove('active');
+			formRemito.reset();
+			makeCall(MODAL_OPTIONS.PAQUETERIA);
+		} else {
+			formRemito.children[5].children[0].textContent = WeightTruck;
+			formRemito.children[5].children[1].textContent = normalizedPesoForm;
+			formRemito.children[5].classList.add('active');
 		}
 	}
-	formRemito.reset();
-	makeCall(MODAL_OPTIONS.PAQUETERIA);
 });
 
 /* open the modal of "ingresar empleado" uwu */

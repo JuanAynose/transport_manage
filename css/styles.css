@@ -17,6 +17,7 @@ body {
 
 body.block {
 	overflow: hidden;
+	margin-right: 17px;
 }
 
 /*nav bar styles*/
@@ -488,7 +489,8 @@ body.block {
 	color: #7c2f8a;
 }
 
-.form__input[type='number']:invalid:not(:focus):not(:placeholder-shown) {
+.form__input[type='number']:invalid:not(:focus):not(:placeholder-shown),
+.form__input[type='text']:invalid:not(:focus):not(:placeholder-shown) {
 	border: 2px solid red;
 	background-color: #fa7e7e;
 	color: #fff;
@@ -496,6 +498,8 @@ body.block {
 }
 
 .form__input[type='number']:invalid:not(:focus):not(:placeholder-shown)
+	~ .form__element__text,
+.form__input[type='text']:invalid:not(:focus):not(:placeholder-shown)
 	~ .form__element__text {
 	transform: translateY(-20px);
 	color: #fa7e7e;
@@ -559,6 +563,20 @@ input[type='number'] {
 
 .form__select__text {
 	color: rgb(83, 80, 80);
+}
+
+.error {
+	display: none;
+	color: red;
+	text-decoration: wavy;
+}
+
+.error.active {
+	display: block;
+}
+
+.error__subtext {
+	color: var(--dark-fade);
 }
 
 /*container form paqeuteria styles*/

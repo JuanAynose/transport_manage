@@ -24,7 +24,7 @@ const CardCheck = data => {
 			<div class="item__pagos--content">
 				<div class="item__pagos--info">
 					<p class="item__pagos--text-1">
-						Banco : <span class="item__pagos--banco">UwU</span>
+						Banco : <span class="item__pagos--banco">Banco Anonimo</span>
 					</p>
 					<p class="item__pagos--text-1">
 						Cantidad:
@@ -37,7 +37,7 @@ const CardCheck = data => {
 			<div class="item__pagos--footer">
 				<p class="item__pagos--text-1">
 					Pago realizado por:
-					<span class="item__pagos--banco">Pacco Veloce C.O</span>
+					<span class="item__pagos--banco">FADOF s.a</span>
 				</p>
 			</div>
 			<div class="hidden">

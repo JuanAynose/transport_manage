@@ -95,7 +95,7 @@
 														type="text"
 														placeholder=" "
 														title="Ingrese un paquete con 4-15 de largo máximo"
-														maxlength="15"
+														maxlength="30"
 														minlength="4"
 														id="desc_paquete "
 														name="desc_paquete"
@@ -163,7 +163,8 @@
 														type="text"
 														name="nombre_destinatario"
 														placeholder=" "
-														pattern="[A-Za-z]{4,15}"
+														minlength="4"
+														maxlength="25"
 														title="Ingrese un nombre con 4-15 de largo máximo"
 														id="nombre_destinatario"
 														required
@@ -180,8 +181,9 @@
 														type="text"
 														name="apellido_destinatario"
 														placeholder=" "
+														minlength="4"
+														maxlength="25"
 														title="Ingrese un apellido con 4-15 de largo máximo"
-														pattern="[A-Za-z]{4,15}"
 														id="apellido_destinatario"
 														required
 													/>

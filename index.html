@@ -108,9 +108,10 @@
 												<div class="form__element">
 													<input
 														class="form__input"
-														type="number"
+														type="text"
 														placeholder=" "
-														max="50"
+														pattern="\d*"
+														oninput="console.log(this.value)"
 														id="peso_paquete"
 														name="peso_paquete"
 														required

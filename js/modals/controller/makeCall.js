@@ -14,6 +14,7 @@ import CardEmpleadoEdit from '../../cardsHandlers/edit/CardEmpleadoEdit.js';
 import getAllPaquete from '../../callbacks/get/getAllPaquete.js';
 import getCamiones from '../../callbacks/get/getCamiones.js';
 import getCamionesDisponibles from '../../callbacks/get/getCamionesDisponibles.js';
+import getCamionesPeso from '../../callbacks/get/getCamionesPeso.js';
 import getCiudades from '../../callbacks/get/getCiudades.js';
 import getEmpleados from '../../callbacks/get/getEmpleados.js';
 import getPaquete from '../../callbacks/get/getPaquete.js';
@@ -54,6 +55,7 @@ const makeCall = async indenfyNumber => {
 	const getEmployesSalary = await getSalario();
 	const getTrucks = await getCamiones();
 	const getCamionesDispo = await getCamionesDisponibles();
+	const getCamionesByPeso = await getCamionesPeso();
 	const getCiudad = await getCiudades();
 	const getProvincia = await getProvincias();
 	const getRemito = await getRemitos();
@@ -68,7 +70,7 @@ const makeCall = async indenfyNumber => {
 			containerEmpleado.innerHTML = '';
 			containerCamion.innerHTML = '';
 			CardPackageManager(getData, containerPackage);
-			CardCamionManager(getCamionesDispo, containerCamion);
+			CardCamionManager(getCamionesDispo, containerCamion, getCamionesByPeso);
 			CardEmpleadoManager(getEmployes, containerEmpleado);
 			break;
 		case MODAL_OPTIONS.TRANSPORTE:

@@ -50,6 +50,17 @@ class Camiones{
     return $stmt;
   }
 
+  public function leerCamionesByPeso()
+  {
+    $query = 'SELECT camiones.id_camion,camiones.capacidad,camiones.marca,camiones.disponibilidad, SUM(detalle_paquete.peso) as "peso_total" FROM camiones, detalle_paquete,remito,paquete WHERE camiones.disponibilidad = 1 and remito.id_camion = camiones.id_camion and paquete.cod_paquete = detalle_paquete.cod_paque and remito.id_paquete = paquete.id_paquete GROUP BY camiones.id_camion';
+
+    $stmt = $this->conn->prepare($query);
+
+    $stmt->execute();
+
+    return $stmt;
+  }
+
   public function leerCamiones()
   {
     $query = 'SELECT * FROM camiones';

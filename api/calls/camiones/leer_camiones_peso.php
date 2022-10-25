@@ -14,7 +14,7 @@ $db = $database->connect();
 $post = new Camiones($db);
 
 // Blog post query
-$result = $post->leerCamionesDisponibles();
+$result = $post->leerCamionesByPeso();
 // Get row count
 $num = $result->rowCount();
 
@@ -31,7 +31,7 @@ if ($num > 0) {
       'capacidad' => $capacidad,
       'marca' => $marca,
       'disponibilidad' => $disponibilidad,
-      'peso_total' => 0
+      'peso_total' => $peso_total
     );
 
     // Push to "data"

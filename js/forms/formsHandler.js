@@ -94,7 +94,16 @@ formRemito.addEventListener('submit', e => {
 
 	const formData = new FormData(formRemito);
 	const normalizeFormData = [];
-	const PesoFormData = [];
+	let PesoFormData = [];
+
+	const checkWeight = () => {
+		PesoFormData = [];
+		for (let i = 0; i < enviosCardPackage.children.length; i++) {
+			const childSelected =
+				enviosCardPackage.children[i].children[0].children[4];
+			PesoFormData.push(childSelected.children[5].value);
+		}
+	};
 
 	for (let i = 0; i < enviosCardPackage.children.length; i++) {
 		const childSelected = enviosCardPackage.children[i].children[0].children[4];
@@ -110,6 +119,12 @@ formRemito.addEventListener('submit', e => {
 	}
 
 	const initialValue = 0;
+
+	const normalizedPesoForm = PesoFormData.reduce(
+		(previousValue, currentValue) =>
+			Number(previousValue) + Number(currentValue),
+		initialValue
+	);
 
 	const getIdData = formData.get('containerPackage');
 
@@ -138,11 +153,7 @@ formRemito.addEventListener('submit', e => {
 		}
 		const normalizeArray = very.map(itemA => Number(itemA));
 
-		const normalizedPesoForm = PesoFormData.reduce(
-			(previousValue, currentValue) =>
-				Number(previousValue) + Number(currentValue),
-			initialValue
-		);
+		checkWeight();
 		console.log(normalizedPesoForm);
 		if (WeightTruck >= Number(normalizedPesoForm)) {
 			for (const itemTest of normalizeArray) {

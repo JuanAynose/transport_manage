@@ -24,7 +24,7 @@ const CardCiudad = data => {
             <p
               class="provincia-container__text provincia-container__text--violet"
             >
-              Codigo postal :
+              Código postal :
               <span
                 class="provincia-container__text provincia-container__text--black"
                 >${cod_postal}</span

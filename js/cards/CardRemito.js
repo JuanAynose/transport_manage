@@ -18,9 +18,10 @@ const CardRemito = data => {
 	} = data;
 
 	let barColor = '#94ee94';
-  let situationName;
-  if (SITUACION_VALUE[situacion][0]) situationName=SITUACION_VALUE[situacion][0];
-  else situationName ="Error";
+	let situationName;
+	if (SITUACION_VALUE[situacion][0])
+		situationName = SITUACION_VALUE[situacion][0];
+	else situationName = 'Error';
 	if (Number(situacion) === 5 || Number(situacion) === 6) barColor = '#fa7e7e';
 	else barColor = '#94ee94';
 
@@ -63,7 +64,7 @@ const CardRemito = data => {
         </li>
         <li class="remito-container__item">
           <p class="remito-container__item__text remito-container__item__text--violet">
-            Direccion:<span
+            Dirección:<span
               class="remito-container__item__text remito-container__item__text--black"
               >${dir_destino}</span
             >
@@ -87,7 +88,7 @@ const CardRemito = data => {
         </li>
         <li class="remito-container__item">
           <p class="remito-container__item__text remito-container__item__text--violet">
-            Codigo Postal:<span
+            Código Postal:<span
               class="remito-container__item__text remito-container__item__text--black"
               >${cod_postal}</span
             >

@@ -201,11 +201,6 @@
 														class="form__input"
 														placeholder=" "
 														type="text"
-														maxlength="10"
-														minlength="10"
-														inputmode="numeric"
-														pattern="[0-9]*"
-														name="numero_destinatario"
 														title="El campo solo acepta números, que no sean mayor ni menor a 10 caracteres"
 														id="numero_destinatario"
 														required
@@ -221,9 +216,6 @@
 														class="form__input"
 														placeholder=" "
 														type="text"
-														minlength="8"
-														inputmode="numeric"
-														pattern="[0-9]*"
 														title="El campo solo acepta números, que no sean mayor a 11 ni menor a 8 caracteres"
 														name="dni_destinatario"
 														id="dni_destinatario"
@@ -550,6 +542,7 @@
 										<div class="form__element">
 											<input
 												class="form__input"
+												placeholder=" "
 												type="text"
 												id="apellido_empleado"
 												name="apellido_empleado"
@@ -564,9 +557,8 @@
 												class="form__input"
 												placeholder=" "
 												type="text"
-												minlength="8"
-												inputmode="numeric"
-												pattern="[0-9]*"
+												pattern="\d*"
+												oninput="if(this.value >=8 || this.value <=11)"
 												title="El campo solo acepta números, que no sean mayor a 11 ni menor a 8 caracteres"
 												name="dni_empleado"
 												id="dni_empleado"
@@ -580,7 +572,11 @@
 											<input
 												class="form__input"
 												placeholder=" "
-												type="number"
+												type="tel"
+												size="10"
+												pattern="\d*"
+												minlength="10"
+												maxlength="10"
 												id="telefono_empleado"
 												name="telefono_empleado"
 												required
@@ -593,6 +589,7 @@
 											<input
 												class="form__input"
 												type="text"
+												placeholder=" "
 												id="direccion_empleado"
 												name="direccion_empleado"
 												required
@@ -1230,7 +1227,7 @@
 											<input
 												placeholder=" "
 												class="form__input"
-												type="number"
+												type="tel"
 												name="numero_destinatario"
 												id="numero_destinatario"
 												required
@@ -1246,9 +1243,8 @@
 												placeholder=" "
 												class="form__input"
 												type="text"
-												minlength="8"
-												inputmode="numeric"
-												pattern="[0-9]*"
+												pattern="\d*"
+												oninput="if(this.value >=8 || this.value <=11)"
 												title="El campo solo acepta números, que no sean mayor a 11 ni menor a 8 caracteres"
 												name="dni_destinatario"
 												id="dni_destinatario"
@@ -1391,6 +1387,7 @@
 										<input
 											class="form__input"
 											type="text"
+											placeholder=" "
 											name="nombre_provincia"
 											id="nombre_provincia"
 											required
@@ -1408,6 +1405,7 @@
 										<input
 											class="form__input"
 											type="text"
+											placeholder=" "
 											name="nombre_ciudad"
 											id="nombre_ciudad"
 											required
@@ -1420,6 +1418,7 @@
 										<input
 											class="form__input"
 											type="text"
+											placeholder=" "
 											name="cod_postal"
 											id="cod_postal"
 											required

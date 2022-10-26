@@ -27,31 +27,37 @@ const initializeMenuListener = () => {
 	/* open the current modal selected uwu */
 	paqueButton.addEventListener('click', () => {
 		resetModals();
+		paqueButton.classList.add('active');
 		makeCall(MODAL_OPTIONS.PAQUETERIA);
 		contentRight.children[MODAL_OPTIONS.PAQUETERIA].classList.remove('hidden');
 	});
 	transButton.addEventListener('click', () => {
 		resetModals();
+		transButton.classList.add('active');
 		makeCall(MODAL_OPTIONS.TRANSPORTE);
 		contentRight.children[MODAL_OPTIONS.TRANSPORTE].classList.remove('hidden');
 	});
 	empleButton.addEventListener('click', () => {
 		resetModals();
+		empleButton.classList.add('active');
 		makeCall(MODAL_OPTIONS.EMPLEADOS);
 		contentRight.children[MODAL_OPTIONS.EMPLEADOS].classList.remove('hidden');
 	});
 	salarioButton.addEventListener('click', () => {
 		resetModals();
+		salarioButton.classList.add('active');
 		makeCall(MODAL_OPTIONS.SALARIO);
 		contentRight.children[MODAL_OPTIONS.SALARIO].classList.remove('hidden');
 	});
 	remitoButton.addEventListener('click', () => {
 		resetModals();
+		remitoButton.classList.add('active');
 		makeCall(MODAL_OPTIONS.REMITOS);
 		contentRight.children[MODAL_OPTIONS.REMITOS].classList.remove('hidden');
 	});
 	ciudadButton.addEventListener('click', () => {
 		resetModals();
+		ciudadButton.classList.add('active');
 		makeCall(MODAL_OPTIONS.CIUDADES);
 		contentRight.children[MODAL_OPTIONS.CIUDADES].classList.remove('hidden');
 	});

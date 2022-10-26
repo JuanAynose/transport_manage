@@ -25,6 +25,7 @@ body.block {
 	position: sticky;
 	top: 0;
 	display: flex;
+	height: 60px;
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 2em;
@@ -90,16 +91,17 @@ body.block {
 /*menu aside styles*/
 .content__left {
 	position: absolute;
+	border-top: 1px solid #333;
 	top: 3.75em;
 	left: 0;
 	width: 6.5rem;
 	min-height: 100vh;
-	background-color: rgb(187, 104, 104);
+	background-color: var(--dark-fade);
 }
 
 .menu__list {
 	list-style: none;
-	background-color: rgb(187, 104, 104);
+	background-color: var(--dark-fade);
 	padding-left: 0;
 	text-align: left;
 }
@@ -118,6 +120,8 @@ body.block {
 
 .menu__button.active {
 	background-color: blue;
+	background-color: var(--violet-anashei);
+	color: #fff;
 }
 
 /*content right styles*/
@@ -294,7 +298,7 @@ body.block {
 	justify-content: center;
 	gap: 1em;
 	align-content: center;
-	padding: 0 2em;
+	padding: 2em 0;
 }
 
 .container__pagos--salario-border,

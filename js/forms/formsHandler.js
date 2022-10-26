@@ -143,6 +143,7 @@ formRemito.addEventListener('submit', e => {
 				Number(previousValue) + Number(currentValue),
 			initialValue
 		);
+		console.log(normalizedPesoForm);
 		if (WeightTruck >= Number(normalizedPesoForm)) {
 			for (const itemTest of normalizeArray) {
 				console.log(formData.get('containerCamion'));

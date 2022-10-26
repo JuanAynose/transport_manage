@@ -71,8 +71,8 @@ formPaquete.addEventListener('submit', e => {
 		nivel_prioridad: formData.get('prioridad'),
 		nombre_destinatario: formData.get('nombre_destinatario'),
 		apellido_destinatario: formData.get('apellido_destinatario'),
-		numero_destinatario: formData.get('numero_destinatario'),
-		dni_destinatario: formData.get('dni_destinatario'),
+		numero_destinatario: Number(formData.get('numero_destinatario')),
+		dni_destinatario: Number(formData.get('dni_destinatario')),
 		ciudad_destinatario: formData.get('ciudad'),
 		direccion_destinatario: formData.get('direccion_destinatario')
 	});

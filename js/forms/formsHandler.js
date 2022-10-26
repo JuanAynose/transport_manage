@@ -76,7 +76,7 @@ formPaquete.addEventListener('submit', e => {
 		ciudad_destinatario: formData.get('ciudad'),
 		direccion_destinatario: formData.get('direccion_destinatario')
 	});
-	//formPaquete.reset();
+	formPaquete.reset();
 	makeCall(MODAL_OPTIONS.PAQUETERIA);
 });
 

@@ -6,7 +6,7 @@ const CardCamionEdit = data => {
 	return `
     <li class="camion-container__item">
     <div class="camion-container__header">
-        <p class="camion-container__header__title">Camion</p>
+        <p class="camion-container__header__title">Camión</p>
     </div>
     <div class="camion-container__content">                
         <ul class="camion-container__information">
@@ -18,7 +18,7 @@ const CardCamionEdit = data => {
             </li>
             <li class="information__item">
                 <p class="information__item__text">
-                    Marca camion: <span class="information__item__text information__item__text__color--black">${marca}</span>                            
+                    Marca camión: <span class="information__item__text information__item__text__color--black">${marca}</span>                            
                 </p>
             </li>
             <li class="information__item">
@@ -28,7 +28,7 @@ const CardCamionEdit = data => {
             </li>
             <li class="information__item">
                 <p class="information__item__text information__item__text__color--blue">
-                    Id camion: <span class="information__item__text information__item__text__color--black">${id_camion}</span>                            
+                    Id camión: <span class="information__item__text information__item__text__color--black">${id_camion}</span>                            
                 </p>
             </li>
             <li class="information__item container__buttons">

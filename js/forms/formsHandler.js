@@ -111,12 +111,6 @@ formRemito.addEventListener('submit', e => {
 
 	const initialValue = 0;
 
-	const normalizedPesoForm = PesoFormData.reduce(
-		(previousValue, currentValue) =>
-			Number(previousValue) + Number(currentValue),
-		initialValue
-	);
-
 	const getIdData = formData.get('containerPackage');
 
 	const packageLenght = Number(formData.getAll('containerPackage').length);
@@ -143,6 +137,12 @@ formRemito.addEventListener('submit', e => {
 				);
 		}
 		const normalizeArray = very.map(itemA => Number(itemA));
+
+		const normalizedPesoForm = PesoFormData.reduce(
+			(previousValue, currentValue) =>
+				Number(previousValue) + Number(currentValue),
+			initialValue
+		);
 		if (WeightTruck >= Number(normalizedPesoForm)) {
 			for (const itemTest of normalizeArray) {
 				console.log(formData.get('containerCamion'));

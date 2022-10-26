@@ -103,6 +103,7 @@ formRemito.addEventListener('submit', e => {
 				enviosCardPackage.children[i].children[0].children[4];
 			PesoFormData.push(childSelected.children[5].value);
 		}
+		console.log(PesoFormData);
 	};
 
 	for (let i = 0; i < enviosCardPackage.children.length; i++) {
@@ -171,6 +172,8 @@ formRemito.addEventListener('submit', e => {
 			formRemito.reset();
 			makeCall(MODAL_OPTIONS.PAQUETERIA);
 		} else {
+			checkWeight();
+			console.log(normalizedPesoForm);
 			formRemito.children[5].children[0].textContent = WeightTruck;
 			formRemito.children[5].children[1].textContent = normalizedPesoForm;
 			formRemito.children[5].classList.add('active');

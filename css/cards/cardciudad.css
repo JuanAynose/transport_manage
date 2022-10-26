@@ -54,7 +54,7 @@
 
 .provincia-container__title,
 .provincia-container__text--violet {
-	color: #7c2f8a;
+	color: var(--violet-anashei);
 }
 
 .provincia-container__text {

@@ -112,7 +112,7 @@ const CardRemito = data => {
         </li>
         <li class="remito-container__item">
           <p class="remito-container__item__text remito-container__item__text--violet">
-            Camion:<span
+            Camión:<span
               class="remito-container__item__text remito-container__item__text--black"
               >${marca}</span
             >

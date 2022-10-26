@@ -76,7 +76,7 @@ formPaquete.addEventListener('submit', e => {
 		ciudad_destinatario: formData.get('ciudad'),
 		direccion_destinatario: formData.get('direccion_destinatario')
 	});
-	formPaquete.reset();
+	//formPaquete.reset();
 	makeCall(MODAL_OPTIONS.PAQUETERIA);
 });
 
@@ -98,16 +98,26 @@ formRemito.addEventListener('submit', e => {
 
 	const checkWeight = () => {
 		PesoFormData = [];
+		const initialValue = 0;
 		for (let i = 0; i < enviosCardPackage.children.length; i++) {
 			const childSelected =
 				enviosCardPackage.children[i].children[0].children[4];
-
-			console.log(childSelected);
-			//PesoFormData.push(childSelected.children[5].value);
+			if (
+				enviosCardPackage.children[i].children[0].children[3].children[0]
+					.checked
+			)
+				PesoFormData.push(childSelected.children[5].value);
 		}
-		console.log(PesoFormData);
+
+		const normalizedPesoForm = PesoFormData.reduce(
+			(previousValue, currentValue) =>
+				Number(previousValue) + Number(currentValue),
+			initialValue
+		);
+		return normalizedPesoForm;
 	};
 
+	console.log(checkWeight());
 	for (let i = 0; i < enviosCardPackage.children.length; i++) {
 		const childSelected = enviosCardPackage.children[i].children[0].children[4];
 
@@ -120,19 +130,10 @@ formRemito.addEventListener('submit', e => {
 		});
 	}
 
-	const initialValue = 0;
-
-	const normalizedPesoForm = PesoFormData.reduce(
-		(previousValue, currentValue) =>
-			Number(previousValue) + Number(currentValue),
-		initialValue
-	);
-
 	const getIdData = formData.get('containerPackage');
 
 	const packageLenght = Number(formData.getAll('containerPackage').length);
 	if (packageLenght <= 1) {
-		console.log(formData.get('containerCamion'));
 		postRemito({
 			fecha_emision: margeDate,
 			id_paquete: normalizeFormData[getIdData].id_paquete,
@@ -155,11 +156,8 @@ formRemito.addEventListener('submit', e => {
 		}
 		const normalizeArray = very.map(itemA => Number(itemA));
 
-		checkWeight();
-		console.log(normalizedPesoForm);
-		if (WeightTruck >= Number(normalizedPesoForm)) {
+		if (WeightTruck >= checkWeight()) {
 			for (const itemTest of normalizeArray) {
-				console.log(formData.get('containerCamion'));
 				postRemito({
 					fecha_emision: margeDate,
 					id_paquete: normalizeFormData[itemTest].id_paquete,
@@ -174,9 +172,8 @@ formRemito.addEventListener('submit', e => {
 			makeCall(MODAL_OPTIONS.PAQUETERIA);
 		} else {
 			checkWeight();
-			console.log(normalizedPesoForm);
 			formRemito.children[5].children[0].textContent = WeightTruck;
-			formRemito.children[5].children[1].textContent = normalizedPesoForm;
+			formRemito.children[5].children[1].textContent = checkWeight();
 			formRemito.children[5].classList.add('active');
 		}
 	}

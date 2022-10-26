@@ -42,7 +42,7 @@ const CardPackage = (data, cont) => {
                                     </li>
                                     <li class="package-container__footer__item">
                                         <p class="package-container__text
-                                        footer-item__text__spacing--low footer-item__text__color--var">Direccion</p>
+                                        footer-item__text__spacing--low footer-item__text__color--var">Dirección</p>
                                         <p class="package-container__text footer-item__text__height--default">${dir_destino}</p>
                                     </li>                                    
                                 </ul>

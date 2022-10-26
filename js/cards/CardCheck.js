@@ -27,7 +27,7 @@ const CardCheck = data => {
 						Banco : <span class="item__pagos--banco">Banco Nación</span>
 					</p>
 					<p class="item__pagos--text-1">
-						Cantidad:
+						Monto:
 						<span class="item__pagos--banco">${giveFormat}</span> Pesos
 					</p>
 

@@ -736,12 +736,16 @@
 												class="form__input"
 												placeholder=" "
 												type="number"
+												pattern="[0-9]+"
+												minlength="8"
+												maxlength="11"
+												title="El campo solo acepta números, que no sean mayor a 11 ni menor a 8 caracteres"
 												name="dni_empleado"
 												id="dni_empleado"
 												required
 											/>
 											<label class="form__element__text" for="dni_empleado"
-												>DNI del empleado</label
+												>DNI/CUIL</label
 											>
 										</div>
 										<div class="form__element">
@@ -1482,13 +1486,13 @@
 						<div class="container-ciudad-provincia">
 							<div class="provincia-container-border">
 								<p class="container-paquete__item__text formPaquete__text">
-									Provincias container
+									Provincias
 								</p>
 								<ul id="containerProvincia" class="provincia-container"></ul>
 							</div>
 							<div class="ciudad-container-border">
 								<p class="container-paquete__item__text formPaquete__text">
-									Ciudades container
+									Ciudades
 								</p>
 								<ul id="containerCiudad" class="ciudad-container"></ul>
 							</div>

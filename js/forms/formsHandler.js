@@ -101,7 +101,9 @@ formRemito.addEventListener('submit', e => {
 		for (let i = 0; i < enviosCardPackage.children.length; i++) {
 			const childSelected =
 				enviosCardPackage.children[i].children[0].children[4];
-			PesoFormData.push(childSelected.children[5].value);
+
+			console.log(childSelected);
+			//PesoFormData.push(childSelected.children[5].value);
 		}
 		console.log(PesoFormData);
 	};
@@ -116,7 +118,6 @@ formRemito.addEventListener('submit', e => {
 			id_paquete: childSelected.children[4].value,
 			peso_paquete: childSelected.children[5].value
 		});
-		PesoFormData.push(childSelected.children[5].value);
 	}
 
 	const initialValue = 0;

@@ -24,7 +24,7 @@ const CardCheck = data => {
 			<div class="item__pagos--content">
 				<div class="item__pagos--info">
 					<p class="item__pagos--text-1">
-						Banco : <span class="item__pagos--banco">Banco Anonimo</span>
+						Banco : <span class="item__pagos--banco">Banco Nación</span>
 					</p>
 					<p class="item__pagos--text-1">
 						Cantidad:

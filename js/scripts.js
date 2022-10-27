@@ -7,7 +7,9 @@ const bttnSalaryAccordion = document.getElementById(
 const contentSalaryAccordion = document.getElementById(
 	'formSalaryContent__container'
 );
-
+/*menu aside button*/
+const hamburguerButton = document.getElementById('hamburguer__bbtn');
+const menuList = document.getElementById('menuList');
 /*theme container*/
 const themeMenu = document.getElementById('theme_color');
 const themeContainer = document.getElementById('theme_container');
@@ -61,4 +63,9 @@ themeMenu.addEventListener('click', ev => {
 			body.classList.add('gray');
 			break;
 	}
+});
+
+/*menu aside function*/
+hamburguerButton.addEventListener('click', () => {
+	menuList.parentElement.classList.toggle('active');
 });

@@ -16,7 +16,10 @@ const logoPresentacion = document.getElementById('logo_presentacion');
 /* buttons modals */
 
 const resetModals = () => {
-	logoPresentacion.classList.add('hidden')
+	if (window.innerWidth <= 500)
+		menuList.parentElement.classList.toggle('active');
+
+	logoPresentacion.classList.add('hidden');
 	for (const childrens of contentRight.children) {
 		childrens.classList.add('hidden');
 	}

@@ -1,5 +1,4 @@
 const CardCamion = data => {
-	//console.log(data);
 	const { capacidad, disponibilidad, id_camion, marca, peso_total } = data;
 	let copyDisponibilidad = disponibilidad;
 	if (copyDisponibilidad == 1) copyDisponibilidad = 'Si';

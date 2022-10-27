@@ -74,7 +74,6 @@ const makeCall = async indenfyNumber => {
 			CardEmpleadoManager(getEmployes, containerEmpleado);
 			break;
 		case MODAL_OPTIONS.TRANSPORTE:
-			console.log('transport call');
 			editarCamion.innerHTML = '';
 			CardCamionEdits(getTrucks, editarCamion);
 			break;

@@ -200,6 +200,7 @@ body.gray {
 .container {
 	display: flex;
 	position: relative;
+	flex-direction: column;
 	overflow: hidden;
 	margin-left: 6.5rem;
 	padding: 1em;
@@ -240,6 +241,23 @@ body.gray {
 	background-color: blue;
 	background-color: var(--violet-anashei);
 	color: #fff;
+}
+
+.button__hamburguer {
+	display: none;
+	position: absolute;
+	left: -1.5em;
+	top: 0.45em;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	transform: scale(1);
+	transition: transform 0.2s ease-in;
+}
+
+.button__hamburguer:active {
+	transform: scale(0.9);
+	transition: transform 0.01s ease-in;
 }
 
 /*content right styles*/
@@ -290,6 +308,23 @@ body.gray {
 
 .content__empleados {
 	flex-direction: column;
+}
+
+.logo_presentacion {
+	display: flex;
+	width: 100%;
+	height: calc(100vh - 15vh);
+	gap: 1em;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+}
+
+.logo_presentacion .logo__img {
+	filter: drop-shadow(4em 5em 3em var(--dark-gray));
+	margin-right: 2em;
 }
 
 .bg__modal__delete {
@@ -967,14 +1002,14 @@ input[type='number'] {
 	opacity: 0;
 }
 
-@media screen and (max-width:500px){
+@media screen and (max-width: 500px) {
 	.content-paqueteria__form__envio,
-	.containerEmploye-border{
+	.containerEmploye-border {
 		padding: 0;
 	}
 
-	.container{
-		padding: .5em;
+	.container {
+		padding: 0.5em;
 	}
 
 	.package-container__item,
@@ -982,40 +1017,100 @@ input[type='number'] {
 	.button__salary__menu,
 	.input__package__button,
 	.formSalario,
-	.containerEmploye-border{
+	.containerEmploye-border {
 		width: auto;
 	}
 
-	.input__radio:checked{
+	.input__radio:checked {
 		width: 100%;
 	}
 
 	.item__pagos--header,
 	.item__pagos--content,
-	.item__pagos--footer{
+	.item__pagos--footer {
 		display: flex;
 		flex-direction: column;
 	}
 
-
-	.item__pagos--salario{
+	.item__pagos--salario {
 		height: auto;
 	}
 
 	.button__salary__menu,
-	.formCiudades__content__left{
+	.formCiudades__content__left {
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
 	}
-	
 
+	.container {
+		margin: 0;
+	}
+
+	.company__name {
+		margin: 0;
+	}
+
+	.container__logo {
+		display: none;
+	}
+
+	/*menu left styles*/
+
+	.content__left.menu__aside {
+		left: -100%;
+		width: 100%;
+		transition: left 0.15s ease-in;
+	}
+
+	.content__left.menu__aside.active {
+		left: 0;
+		transition: left 0.15s ease-in;
+	}
+
+	.theme__text {
+		position: absolute;
+		right: -1em;
+		top: -0.5em;
+		color: transparent;
+		border: none;
+	}
+
+	.theme__text:hover {
+		background-color: transparent;
+	}
+
+	.theme__color {
+		top: 3em;
+		left: -4.5em;
+	}
+
+	.theme__text::before {
+		content: '';
+		display: block;
+		right: 0;
+		top: 0.5em;
+		position: absolute;
+		height: 20px;
+		width: 20px;
+		background-color: var(--violet-anashei);
+		border-radius: 50%;
+	}
+
+	.button__hamburguer {
+		display: block;
+	}
+	/*
+	.content__left.menu__aside {
+		
+	}
+	*/
+	/**/
 }
 
-
-@media screen and (max-width:675px){
+@media screen and (max-width: 675px) {
 	.formPaquete__content__right,
-	.formTransporte__content__right{
+	.formTransporte__content__right {
 		display: none;
 	}
 }

@@ -117,7 +117,6 @@ formRemito.addEventListener('submit', e => {
 		return normalizedPesoForm;
 	};
 
-	console.log(checkWeight());
 	for (let i = 0; i < enviosCardPackage.children.length; i++) {
 		const childSelected = enviosCardPackage.children[i].children[0].children[4];
 
@@ -334,4 +333,5 @@ formSalarioEdit.addEventListener('submit', e => {
 	});
 	makeCall(MODAL_OPTIONS.SALARIO);
 	modalEditSalario.classList.add('hidden');
+	body.classList.remove('block');
 });

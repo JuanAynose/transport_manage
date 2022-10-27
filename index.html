@@ -125,7 +125,17 @@
 				</ul>
 			</div>
 		</nav>
-		<div class="container">
+		<div class="container">	
+			<div id="logo_presentacion" class="bg__modal">
+				<img
+				style="
+				object-fit: contain;
+				"
+				src="./assets/images/optimus-prime-transformers-truck-en-la-65-feria-de-vehiculos-comerciales-iaa-2014-en-hannover-alemania-e826d8.jpg"
+				alt=""
+			/>
+
+			</div>		
 			<!--
 			<img
 				style="
@@ -141,12 +151,12 @@
 				alt=""
 			/>
 		-->
-			<div id="contentRight" class="content__right">
+			<div id="contentRight" class="content__right">				
 				<div id="modalPaqueteria" class="bg__modal hidden">
 					<div class="content__paqueteria modal__content">
 						<div class="content-paqueteria__form__paqueteria">
 							<div class="form-paqueteria__bg">
-								<form id="formPaquete" class="formPaquete">
+								<form autocomplete="off" id="formPaquete" class="formPaquete">
 									<div class="formPaquete__content">
 										<div class="formPaquete__content__left">
 											<div>
@@ -408,7 +418,7 @@
 							</div>
 						</div>
 						<div class="content-paqueteria__form__envio">
-							<form id="formRemito" class="formRemito">
+							<form autocomplete="off" id="formRemito" class="formRemito">
 								<p class="container-paquete__item__text formPaquete__text">
 									Realizar el envío del paquete
 								</p>
@@ -471,7 +481,7 @@
 				<div id="modalTransporte" class="bg__modal hidden">
 					<div class="content__transporte modal__content">
 						<div class="form-transporte__bg">
-							<form id="formTransporte" class="formTransporte" method="post">
+							<form autocomplete="off" id="formTransporte" class="formTransporte" method="post">
 								<div class="form__element">
 									<input
 										class="form__input"
@@ -629,7 +639,7 @@
 							>
 								<div class="content__edit modal__content">
 									<p class="formPaquete__text">Editar camión</p>
-									<form id="formCamionEdit" class="formTransporte">
+									<form autocomplete="off" id="formCamionEdit" class="formTransporte">
 										<div class="form__element">
 											<input
 												class="form__input"
@@ -706,7 +716,7 @@
 				<div id="modalEmpleados" class="bg__modal hidden">
 					<div class="content__empleados modal__content">
 						<div class="form-empleado__bg">
-							<form id="formEmpleado" class="formEmpleados" method="post">
+							<form autocomplete="off" id="formEmpleado" class="formEmpleados" method="post">
 								<div class="formEmpleado__content__left">
 									<div>
 										<div>
@@ -938,7 +948,7 @@
 							>
 								<div class="content__edit modal__content">
 									<p class="formPaquete__text">Editar empleado</p>
-									<form id="formEmpleadoEdit" class="formEmpleados">
+									<form autocomplete="off" id="formEmpleadoEdit" class="formEmpleados">
 										<div class="form__element">
 											<input
 												class="form__input"
@@ -1066,7 +1076,7 @@
 				</div>
 				<div id="modalSalario" class="bg__modal hidden">
 					<div class="content__salario modal__content">
-						<form id="formSalario" class="formSalario" method="post">
+						<form autocomplete="off" id="formSalario" class="formSalario" method="post">
 							<div class="formSalario__content__top">
 								<div>
 									<div>
@@ -1209,7 +1219,7 @@
 						<div>
 							<div class="formPaquete--container__filter">
 								<div>
-									<form id="formFilterSalario">
+									<form autocomplete="off" id="formFilterSalario">
 										<p class="formPaquete__text">Filtro por fechas</p>
 										<div class="container__filter__fechas">
 											<div class="form__element container__select">
@@ -1277,7 +1287,7 @@
 						<div id="modalEditSalario" class="bg__modal__delete hidden">
 							<div class="content__edit modal__content">
 								<p class="formPaquete__text">Editar salario</p>
-								<form id="formSalarioEdit" class="formSalario">
+								<form autocomplete="off" id="formSalarioEdit" class="formSalario">
 									<div class="form__element">
 										<input
 											type="number"
@@ -1419,7 +1429,7 @@
 						<div id="modalEditRemito" class="bg__modal__delete hidden">
 							<div class="content__edit modal__content">
 								<p class="formPaquete__text">Editar remito</p>
-								<form id="formRemitoEdit" class="formRemitos">
+								<form autocomplete="off" id="formRemitoEdit" class="formRemitos">
 									<div class="form__element">
 										<input
 											class="form__input"
@@ -1632,7 +1642,7 @@
 								<div>
 									<div class="formPaquete--container__filter">
 										<div>
-											<form id="formFilterRemitos">
+											<form autocomplete="off" id="formFilterRemitos">
 												<p class="formPaquete__text">Filtro por fechas</p>
 												<div class="container__filter__fechas">
 													<div class="form__element container__select">
@@ -1682,7 +1692,7 @@
 					<div class="content__ciudades modal__content">
 						<div class="formCiudades form-ciudades__bg">
 							<div class="formCiudades__content__left">
-								<form class="formCiudadesProvincia" id="formCiudadesProvincia">
+								<form autocomplete="off" class="formCiudadesProvincia" id="formCiudadesProvincia">
 									<div class="form__element">
 										<input
 											class="form__input"
@@ -1700,7 +1710,7 @@
 										Agregar provincia
 									</button>
 								</form>
-								<form class="formCiudadesCiudad" id="formCiudadesCiudad">
+								<form autocomplete="off" class="formCiudadesCiudad" id="formCiudadesCiudad">
 									<div class="form__element">
 										<input
 											class="form__input"
@@ -1846,7 +1856,7 @@
 						<div id="modalEditProvincia" class="bg__modal__delete hidden">
 							<div class="content__edit modal__content">
 								<p class="formPaquete__text">Editar provincia</p>
-								<form id="formProvinciaEdit" class="formProvincia">
+								<form autocomplete="off" id="formProvinciaEdit" class="formProvincia">
 									<div class="form__element">
 										<input
 											class="form__input"
@@ -1904,7 +1914,7 @@
 						<div id="modalEditCiudad" class="bg__modal__delete hidden">
 							<div class="content__edit modal__content">
 								<p class="formPaquete__text">Editar ciudad</p>
-								<form id="formCiudadEdit" class="formCiudad">
+								<form autocomplete="off" id="formCiudadEdit" class="formCiudad">
 									<div class="form__element">
 										<input
 											class="form__input"

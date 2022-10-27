@@ -966,3 +966,56 @@ input[type='number'] {
 	margin: 0;
 	opacity: 0;
 }
+
+@media screen and (max-width:500px){
+	.content-paqueteria__form__envio,
+	.containerEmploye-border{
+		padding: 0;
+	}
+
+	.container{
+		padding: .5em;
+	}
+
+	.package-container__item,
+	.camion-container__item,
+	.button__salary__menu,
+	.input__package__button,
+	.formSalario,
+	.containerEmploye-border{
+		width: auto;
+	}
+
+	.input__radio:checked{
+		width: 100%;
+	}
+
+	.item__pagos--header,
+	.item__pagos--content,
+	.item__pagos--footer{
+		display: flex;
+		flex-direction: column;
+	}
+
+
+	.item__pagos--salario{
+		height: auto;
+	}
+
+	.button__salary__menu,
+	.formCiudades__content__left{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+
+}
+
+
+@media screen and (max-width:675px){
+	.formPaquete__content__right,
+	.formTransporte__content__right{
+		display: none;
+	}
+}

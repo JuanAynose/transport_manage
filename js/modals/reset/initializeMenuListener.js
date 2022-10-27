@@ -11,10 +11,12 @@ const transButton = document.getElementById('transButton');
 const empleButton = document.getElementById('empleButton');
 const salarioButton = document.getElementById('salarioButton');
 const remitoButton = document.getElementById('remitoButton');
-
+/*logo anashei*/
+const logoPresentacion = document.getElementById('logo_presentacion');
 /* buttons modals */
 
 const resetModals = () => {
+	logoPresentacion.classList.add('hidden')
 	for (const childrens of contentRight.children) {
 		childrens.classList.add('hidden');
 	}

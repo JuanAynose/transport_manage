@@ -1,0 +1,80 @@
+.form-paqueteria__bg {
+  display: inline-flex;
+  box-shadow: 5px 5px 10px #333;
+}
+
+.form__element {
+  position: relative;
+}
+
+.formPaquete {
+  padding: 2em;
+}
+
+.form__input {
+  width: 100%;
+  appearance: none;
+  border: none;
+  border-bottom: 2px solid gray;
+  color: gray;
+  transition: all ease 0.2s;
+  caret-color: red;
+  outline: none;
+}
+
+.form__input + .form__element__text {
+  transition: all ease 0.2s;
+}
+
+.form__element__text {
+  position: absolute;
+}
+
+.form__input:focus {
+  color: gray;
+  border-bottom: 2px solid red;
+}
+
+.form__input:focus + .form__element__text {
+  transition: all ease 0.2s;
+  transform: translateY(-20px);
+}
+
+.form__input:valid {
+  border-bottom: 2px solid red;
+  outline: 0;
+}
+
+.form__input:valid + .form__element__text {
+  transform: translateY(-20px);
+}
+
+.form__element {
+  display: flex;
+  margin-bottom: 2em;
+}
+/*select styles*/
+.form__select {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  box-shadow: 0.5px 0.5px 5px #333;
+  border-radius: 0.2em;
+  cursor: pointer;
+  padding: 0 0.2em;
+  margin-left: 1em;
+  transition: all ease 0.2s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form__select__option {
+  appearance: none;
+}

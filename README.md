@@ -8,3 +8,7 @@ I had the necessity of make this project for present on my last year of high sch
 
 Why didn't use anykind of framework?
 Well, this is because in wanted to "improve" my vanilla skills and comprehension of JavaScript and my basic knowledge of PhP.
+
+
+Why this project is written with spanish words?
+Well, i am aware of that and its one of the restrictions that i had to do because was a one of the rules of the project.

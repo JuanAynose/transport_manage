@@ -1,6 +1,7 @@
 School project
 
 What does mini-project ?
+
 So, in a few words, this mini-project is "Logistic System" that allows to make add, edit, and remove; things like: packages, trucks, employes, states, citys, and check of payment.
 
 The why?

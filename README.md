@@ -22,4 +22,4 @@ Well, this is because in wanted to "improve" my vanilla skills and comprehension
 
 Why this project is written with spanish words?
 
-Well, i am aware of that and its one of the restrictions that i had to do because was a one of the rules of the project.
+Well, i am aware of that and its one of the restrictions that i had to deal because was one of the rules of the project.
